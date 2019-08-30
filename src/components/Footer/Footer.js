@@ -72,9 +72,9 @@ const FooterWrapper = styled.footer`
   .link {
     text-decoration: none;
     color: darkgray;
-    :hover {
-      color: darkmagenta;
-    }
+  }
+  .link:hover {
+    color: darkmagenta;
   }
 
   .segments {

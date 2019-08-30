@@ -1,9 +1,9 @@
-import React, { Fragment } from "react"
-import { createGlobalStyle } from "styled-components"
-import PropTypes from "prop-types"
+import React, { Fragment } from "react";
+import { createGlobalStyle } from "styled-components";
+import PropTypes from "prop-types";
 
-import Footer from "./Footer/Footer"
-import Navbar from "./Navbar"
+import Footer from "./Footer/Footer";
+import Navbar from "./Navbar";
 
 const Layout = ({ children }) => {
   return (
@@ -13,8 +13,8 @@ const Layout = ({ children }) => {
       <main>{children}</main>
       <Footer />
     </Fragment>
-  )
-}
+  );
+};
 
 const GlobalStyle = createGlobalStyle`
   *{
@@ -27,11 +27,19 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Open sans', sans-serif;
     color: #262626;
     background: #fff;
+    line-height: 1.4;
+    font-size: 1rem;
   }
-`
+
+  main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+`;
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

@@ -13,16 +13,17 @@ module.exports = {
       phone: `+386 1 786 33 64`,
       mail: `info@gramat-gril.si`,
     },
+    image: "/defaultBcg.jpg",
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/images/`,
       },
     },
+    `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,

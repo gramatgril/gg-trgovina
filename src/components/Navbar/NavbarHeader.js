@@ -1,10 +1,10 @@
-import React from "react"
-import { FaAlignRight } from "react-icons/fa"
-import { Link } from "gatsby"
-import PropTypes from "prop-types"
-import styled from "styled-components"
+import React from "react";
+import { FaAlignRight } from "react-icons/fa";
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-// import { styles } from "../../utils"
+import { styles } from "../../utils";
 
 const NavbarHeader = ({ toggleOpen }) => {
   return (
@@ -14,11 +14,10 @@ const NavbarHeader = ({ toggleOpen }) => {
       </Link>
       <FaAlignRight className="toggle-icon" onClick={() => toggleOpen()} />
     </HeaderWrapper>
-  )
-}
+  );
+};
 
 const HeaderWrapper = styled.div`
-  border: 1px dashed red;
   padding: 0.4rem 1rem;
   display: flex;
   align-items: center;
@@ -26,13 +25,12 @@ const HeaderWrapper = styled.div`
 
   .toggle-icon {
     font-size: 1.5rem;
-    color: green;
     cursor: pointer;
+    color: ${styles.colors.mainWhite};
   }
 
   h1 {
-    color: green;
-    font-size: 1.2rem;
+    color: ${styles.colors.mainWhite};
   }
 
   /* Menu icon hidden on mobile screen size */
@@ -41,10 +39,10 @@ const HeaderWrapper = styled.div`
       display: none;
     }
   }
-`
+`;
 
 NavbarHeader.propTypes = {
   toggleOpen: PropTypes.func.isRequired,
-}
+};
 
-export default NavbarHeader
+export default NavbarHeader;
