@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { FaInstagram, FaFacebook } from "react-icons/fa"
+import { FaInstagram, FaFacebook, FaPhone } from "react-icons/fa"
 
 import { styles } from "../../utils"
 
