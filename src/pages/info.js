@@ -1,15 +1,36 @@
-import React from "react"
+import React from "react";
+import { graphql } from "gatsby";
 
-import Layout from "./../components/layout"
-import SEO from "./../components/seo"
+import Hero from "../components/Hero";
+import Layout from "./../components/layout";
+import SEO from "./../components/seo";
+import Banner from "../components/Banner";
+import About from "../components/About/About.js";
 
-const Info = () => {
+const Info = ({ data }) => {
+  const heroImg = data.heroImg.image.fluid;
+
   return (
     <Layout>
       <SEO title="O nas" />
-      <h3>O nas</h3>
+      <Hero img={heroImg}>
+        <Banner title="o nas" />
+      </Hero>
+      <About />
     </Layout>
-  )
-}
+  );
+};
 
-export default Info
+export const query = graphql`
+  query {
+    heroImg: file(relativePath: { eq: "infoBcg.jpg" }) {
+      image: childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
+export default Info;

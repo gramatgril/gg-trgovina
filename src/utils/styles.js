@@ -1,8 +1,6 @@
 export const colors = {
   mainWhite: `#fff`,
   mainBlack: `#262626`,
-  mainYellow: `#d2aa5c`,
-  mainYellow2: `#F2AF29`,
   mainGrey: `#474747`,
   mainGreen: `#004d00`,
 };
@@ -13,14 +11,6 @@ export const transition = ({
   type = "ease-in-out",
 }) => {
   return `transition: ${property} ${time} ${type}`;
-};
-
-export const border = ({
-  width = "0.15rem",
-  type = "solid",
-  color = "white",
-}) => {
-  return `border:${width} ${type} ${color}`;
 };
 
 export const letterSpacing = ({ spacing = "0.1rem" }) => {

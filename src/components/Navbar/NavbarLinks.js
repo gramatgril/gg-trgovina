@@ -14,16 +14,21 @@ const NavbarLinks = ({ isOpen }) => {
     },
     {
       id: 1,
-      path: "/katalog",
-      name: "katalog",
+      path: "/kategorije",
+      name: "kategorije",
     },
+    // {
+    //   id: 2,
+    //   path: "/katalog",
+    //   name: "katalog",
+    // },
     {
-      id: 2,
+      id: 3,
       path: "/info",
       name: "o nas",
     },
     {
-      id: 3,
+      id: 4,
       path: "/kontakt",
       name: "kontakt",
     },
@@ -50,22 +55,22 @@ const LinkWrapper = styled.ul`
     display: block;
     text-decoration: none;
     padding: 0.5rem 1rem 0.5rem 1rem;
-    color: ${styles.colors.mainWhite};
+    color: ${styles.colors.mainGreen};
     font-weight: 700;
     font-size: 1.2rem;
     text-transform: capitalize;
     cursor: pointer;
-    ${styles.transition({ time: "0.2s" })};
+    ${styles.transition({ time: "0.5s" })};
     &:hover {
-      background: ${styles.colors.mainWhite};
-      color: ${styles.colors.mainGreen};
+      background: ${styles.colors.mainGreen};
+      color: ${styles.colors.mainWhite};
       padding: 0.5rem 1rem 0.5rem 1.3rem;
     }
   }
 
   height: ${({ isOpen }) => (isOpen ? "170px" : "0px")};
   overflow: hidden;
-  ${styles.transition({})};
+  ${styles.transition({ time: "0.2s" })};
 
   @media (min-width: 768px) {
     height: auto;
@@ -73,8 +78,7 @@ const LinkWrapper = styled.ul`
     color: ${styles.colors.mainWhite};
     margin: 0 auto;
     .nav-link:hover {
-      background: ${styles.colors.mainWhite};
-      color: ${styles.colors.mainGreen};
+      color: ${styles.colors.mainWhite};
       padding: 0.5rem 1rem 0.5rem 1rem;
     }
   }

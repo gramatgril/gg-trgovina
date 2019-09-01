@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import BackgroundImage from "gatsby-background-image";
 
-const StyledHero = ({ img, className, children, home }) => {
+const Hero = ({ img, className, children, home }) => {
   return (
     <BackgroundImage className={className} fluid={img} home={home}>
       {children}
@@ -10,7 +10,7 @@ const StyledHero = ({ img, className, children, home }) => {
   );
 };
 
-export default styled(StyledHero)`
+export default styled(Hero)`
   height: ${props => (props.home ? "calc(100vh - 62px)" : "50vh")};
   background: ${props =>
     props.home

@@ -9,7 +9,7 @@ import { styles } from "../../utils";
 const NavbarHeader = ({ toggleOpen }) => {
   return (
     <HeaderWrapper>
-      <Link to="/">
+      <Link to="/" className="logo">
         <h1>GramatGril</h1>
       </Link>
       <FaAlignRight className="toggle-icon" onClick={() => toggleOpen()} />
@@ -18,19 +18,23 @@ const NavbarHeader = ({ toggleOpen }) => {
 };
 
 const HeaderWrapper = styled.div`
-  padding: 0.4rem 1rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+
+  .logo {
+    text-decoration: none;
+  }
 
   .toggle-icon {
     font-size: 1.5rem;
     cursor: pointer;
-    color: ${styles.colors.mainWhite};
+    color: ${styles.colors.mainGreen};
   }
 
   h1 {
-    color: ${styles.colors.mainWhite};
+    color: ${styles.colors.mainGreen};
   }
 
   /* Menu icon hidden on mobile screen size */

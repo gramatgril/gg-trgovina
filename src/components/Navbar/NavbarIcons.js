@@ -1,10 +1,10 @@
-import React, { useState } from "react"
-import styled from "styled-components"
-import { FaInstagram, FaFacebook, FaPhone } from "react-icons/fa"
+import React, { useState } from "react";
+import styled from "styled-components";
+import { FaInstagram, FaFacebook } from "react-icons/fa";
 
-import { styles } from "../../utils"
+import { styles } from "../../utils";
 
-import logo from "../../images/stil-logo.jpg"
+import logo from "../../images/stil-logo.jpg";
 
 const NavbarIcons = () => {
   const [icons] = useState([
@@ -23,7 +23,7 @@ const NavbarIcons = () => {
       icon: <FaInstagram className="icon instagram-icon" />,
       path: "https://www.instagram.com",
     },
-  ])
+  ]);
 
   return (
     <IconsWrapper>
@@ -33,8 +33,8 @@ const NavbarIcons = () => {
         </a>
       ))}
     </IconsWrapper>
-  )
-}
+  );
+};
 
 const IconsWrapper = styled.div`
   .icon {
@@ -67,6 +67,6 @@ const IconsWrapper = styled.div`
     width: 10rem;
     justify-content: space-around;
   }
-`
+`;
 
-export default NavbarIcons
+export default NavbarIcons;

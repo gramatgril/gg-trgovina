@@ -14,19 +14,30 @@ const Navbar = () => {
 
   return (
     <NavbarWrapper>
-      <NavbarHeader toggleOpen={toggleOpen} />
-      <NavbarLinks isOpen={isOpen} />
-      <NavbarIcons />
+      <div className="nav-center">
+        <NavbarHeader toggleOpen={toggleOpen} />
+        <NavbarLinks isOpen={isOpen} />
+        <NavbarIcons />
+      </div>
     </NavbarWrapper>
   );
 };
 
 const NavbarWrapper = styled.div`
-  background: ${styles.colors.mainGreen};
+  background: ${styles.colors.mainWhite};
+  box-shadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.2);
 
   @media (min-width: 768px) {
     display: flex;
     align-items: center;
+
+    .nav-center {
+      width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 `;
 

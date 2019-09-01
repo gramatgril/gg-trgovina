@@ -1,27 +1,33 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import Banner from "./../components/Banner/Banner";
+import Hero from "../components/Hero/Hero";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import StyledHero from "../components/StyledHero";
+import { SecondaryButton } from "./../components/Button";
 
 const IndexPage = ({ data }) => {
-  const img = data.file.image.fluid;
+  const heroImg = data.heroImg.image.fluid;
 
   return (
     <Layout>
-      <SEO title="Home" />
-      <StyledHero img={img} />
+      <SEO title="Doma" />
+      <Hero img={heroImg}>
+        <Banner title="Dobrodošli!" info="Oglejte si vse izdelke v akciji">
+          <SecondaryButton text="Vsi izdelki" />
+        </Banner>
+      </Hero>
     </Layout>
   );
 };
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "defaultBcg.jpg" }) {
+    heroImg: file(relativePath: { eq: "defaultBcg.jpg" }) {
       image: childImageSharp {
         fluid {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid
         }
       }
     }

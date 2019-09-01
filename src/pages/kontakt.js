@@ -1,6 +1,7 @@
-import React from "react"
-import Layout from "./../components/layout"
-import SEO from "./../components/seo"
+import React from "react";
+
+import Layout from "./../components/layout";
+import SEO from "./../components/seo";
 
 const Contact = () => {
   return (
@@ -8,7 +9,6 @@ const Contact = () => {
       <SEO title="Kontakt" />
       <h2>Contact</h2>
     </Layout>
-  )
-}
-
-export default Contact
+  );
+};
+export default Contact;
