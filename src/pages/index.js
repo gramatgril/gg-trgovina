@@ -7,7 +7,7 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { SecondaryButton } from "./../components/Button";
 
-const IndexPage = ({ data }) => {
+export default ({ data }) => {
   const heroImg = data.heroImg.image.fluid;
 
   return (
@@ -33,5 +33,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default IndexPage;

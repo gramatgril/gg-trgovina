@@ -7,7 +7,7 @@ import SEO from "./../components/seo";
 import Banner from "../components/Banner";
 import About from "../components/About/About.js";
 
-const Info = ({ data }) => {
+export default ({ data }) => {
   const heroImg = data.heroImg.image.fluid;
 
   return (
@@ -32,5 +32,3 @@ export const query = graphql`
     }
   }
 `;
-
-export default Info;
