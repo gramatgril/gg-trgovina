@@ -91,7 +91,7 @@ const ContactWrapper = styled.section`
     border-color: ${styles.colors.mainGrey};
     text-transform: uppercase;
     color: ${styles.colors.mainGrey};
-    transition: ${styles.transition({})}
+    transition: ${styles.linearTransition}
     cursor: pointer;
   }
   .submit:hover {

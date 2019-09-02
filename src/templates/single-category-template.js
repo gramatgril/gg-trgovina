@@ -2,17 +2,17 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Layout from "./../components/layout";
-import ProductList from "./../components/Product/ProductList";
+import ProductList from "./../components/Product";
 import SEO from "./../components/seo";
 
-const SingleCategoryTemplate = ({ data }) => {
+export default ({ data }) => {
+  const { categoryTitle, categorySlug } = data.category;
   const products = data.allProducts.edges;
-  const title = data.categoryName.title;
 
   return (
     <Layout>
-      <SEO title={title} />
-      <ProductList products={products} />
+      <SEO title={categoryTitle} />
+      <ProductList products={products} categorySlug={categorySlug} />
     </Layout>
   );
 };
@@ -29,12 +29,17 @@ export const query = graphql`
           id: contentful_id
           slug
           discount
+          image {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
+          }
         }
       }
     }
-    categoryName: contentfulKategorija(contentful_id: { eq: $id }) {
-      title
+    category: contentfulKategorija(contentful_id: { eq: $id }) {
+      categoryTitle: title
+      categorySlug: slug
     }
   }
 `;
-export default SingleCategoryTemplate;

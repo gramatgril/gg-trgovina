@@ -19,11 +19,11 @@ const CategoryCard = ({ title, slug, image }) => {
 };
 
 const CardWrapper = styled.div`
-  box-shadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
-  transition: all 0.1s linear;
+  box-shadow: ${styles.lightShadow};
+  transition: ${styles.transition({ time: "0.1s", type: "linear" })};
 
   :hover {
-    box-shadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: ${styles.darkShadow};
 
     .title-box {
       opacity: 1;
@@ -32,15 +32,15 @@ const CardWrapper = styled.div`
 
   .img {
     height: 300px;
-    transition: all 0.3s linear;
+    transition: ${styles.linearTransition};
   }
 
   .title-box {
     width: 80%;
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
-    transform: translate(-50%, 150%);
+    transform: translate(-50%, -50%);
     opacity: 0.8;
     text-transform: uppercase;
     letter-spacing: 4px;
@@ -49,14 +49,14 @@ const CardWrapper = styled.div`
     background: ${styles.colors.mainWhite};
     padding: 0.5rem 0.7rem;
     display: inline-block;
-    transition: all 0.3s linear;
+    transition: ${styles.linearTransition};
     cursor: pointer;
   }
 
   .img-container {
     position: relative;
     background: ${styles.colors.mainWhite};
-    transition: all 0.3s linear;
+    transition: ${styles.linearTransition};
 
     :hover .img {
       opacity: 0.5;

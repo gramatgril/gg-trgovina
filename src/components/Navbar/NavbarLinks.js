@@ -60,7 +60,7 @@ const LinkWrapper = styled.ul`
     font-size: 1.2rem;
     text-transform: capitalize;
     cursor: pointer;
-    ${styles.transition({ time: "0.5s" })};
+    transition: ${styles.transition({ time: "0.3s" })};
     &:hover {
       background: ${styles.colors.mainGreen};
       color: ${styles.colors.mainWhite};
@@ -70,7 +70,7 @@ const LinkWrapper = styled.ul`
 
   height: ${({ isOpen }) => (isOpen ? "170px" : "0px")};
   overflow: hidden;
-  ${styles.transition({ time: "0.2s" })};
+  transition: ${styles.transition({ time: "0.3s" })};
 
   @media (min-width: 768px) {
     height: auto;

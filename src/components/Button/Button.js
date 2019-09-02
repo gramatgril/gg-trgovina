@@ -14,12 +14,12 @@ const PrimaryButton = ({ text, className }) => {
 const Button = styled.button`
   background: ${styles.colors.mainWhite};
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: ${styles.letterSpacing};
   color: ${styles.colors.mainGreen};
   border: 2px solid ${styles.colors.mainWhite};
   padding: 0.9rem 1.6rem;
   display: inline-block;
-  transition: all 0.3s linear;
+  transition: ${styles.linearTransition};
   cursor: pointer;
 
   :hover {

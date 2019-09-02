@@ -3,7 +3,6 @@ import styled from "styled-components";
 import CategoryCard from "./CategoryCard";
 
 const CategoryList = ({ categories }) => {
-  console.log("categories:", categories);
   return (
     <CategoryListWrapper>
       <div className="center">
@@ -21,7 +20,7 @@ const CategoryList = ({ categories }) => {
 };
 
 const CategoryListWrapper = styled.div`
-  padding: 4rem 0;
+  padding: 2rem 0;
   text-align: center;
 
   .center {
@@ -29,8 +28,9 @@ const CategoryListWrapper = styled.div`
     margin: 3rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
+    grid-template-columns: 8ch auto;
+    grid-column-gap: 1.5rem;
+    grid-row-gap: 1.5rem;
   }
 
   @media (min-width: 576px) {

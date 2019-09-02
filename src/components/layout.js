@@ -24,8 +24,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Open sans', sans-serif;
-    color: #262626;
+    font-family: 'Roboto', sans-serif;
     background: #fff;
     line-height: 1.4;
     font-size: 1rem;

@@ -35,11 +35,11 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
-  // data.products.edges.forEach(({ node }) => {
-  //   createPage({
-  //     path: `/${node.category.slug}/${node.productSlug}`,
-  //     component: path.resolve("./src/templates/product-template.js"),
-  //     context: { id: node.productId },
-  //   });
-  // });
+  data.products.edges.forEach(({ node }) => {
+    createPage({
+      path: `/${node.category.slug}/${node.productSlug}`,
+      component: path.resolve("./src/templates/single-product-template.js"),
+      context: { id: node.productId },
+    });
+  });
 };

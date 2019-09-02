@@ -15,7 +15,7 @@ const Banner = ({ title, info, children }) => {
 
 const BannerWrapper = styled.div`
   text-align: center;
-  letter-spacing: 4px;
+  letter-spacing: ${styles.letterSpacing};
   color: ${styles.colors.mainWhite};
 
   h1 {
@@ -23,7 +23,7 @@ const BannerWrapper = styled.div`
     text-transform: uppercase;
     margin-bottom: 2rem;
     padding: 0 1rem;
-    letter-spacing: 6px;
+    letter-spacing: 9px;
   }
 
   p {
