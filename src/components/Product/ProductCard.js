@@ -5,14 +5,14 @@ import Img from "gatsby-image";
 
 import { styles } from "../../utils";
 
-const ProductCard = ({ product, categorySlug }) => {
-  const { price, slug, title, discount, image } = product;
+const ProductCard = ({ product }) => {
+  const { price, slug, title, discount, image, category } = product;
 
   return (
     <ProductCardWrapper>
       <div className="img-container">
         <Img fluid={image.fluid} className="img" />
-        <Link className="link" to={`/${categorySlug}/${slug}`}>
+        <Link className="link" to={`/${category.slug}/${slug}`}>
           Več
         </Link>
         <h4 className="price">Popust {discount}%</h4>
@@ -26,11 +26,13 @@ const ProductCard = ({ product, categorySlug }) => {
 };
 
 const ProductCardWrapper = styled.article`
-  box-shadow: ${styles.lightShadow};
+  /* box-shadow: ${styles.lightShadow}; */
   transition: ${styles.linearTransition};
+  border: 1px solid black;
+
 
   :hover {
-    box-shadow: ${styles.darkShadow};
+    /* box-shadow: ${styles.darkShadow}; */
   }
 
   .img-container {

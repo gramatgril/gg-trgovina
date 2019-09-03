@@ -2,10 +2,13 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Banner from "./../components/Banner/Banner";
-import Hero from "../components/Hero/Hero";
+import Category from "./../components/Category";
+import Hero from "../components/Hero";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { SecondaryButton } from "./../components/Button";
+import Services from "../components/Services";
+import NewProducts from "../components/NewProducts";
+import PromotedProducts from "./../components/PromotedProducts";
 
 export default ({ data }) => {
   const heroImg = data.heroImg.image.fluid;
@@ -14,10 +17,12 @@ export default ({ data }) => {
     <Layout>
       <SEO title="Doma" />
       <Hero img={heroImg}>
-        <Banner title="Dobrodošli!" info="Oglejte si vse izdelke v akciji">
-          <SecondaryButton text="Vsi izdelki" />
-        </Banner>
+        <Banner title="Dobrodošli!" info="Oglejte si vse izdelke v akciji" />
       </Hero>
+      <Category />
+      <Services />
+      <PromotedProducts />
+      <NewProducts />
     </Layout>
   );
 };

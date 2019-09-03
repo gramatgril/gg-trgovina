@@ -14,14 +14,9 @@ const NavbarLinks = ({ isOpen }) => {
     },
     {
       id: 1,
-      path: "/kategorije",
-      name: "kategorije",
+      path: "/katalog",
+      name: "katalog",
     },
-    // {
-    //   id: 2,
-    //   path: "/katalog",
-    //   name: "katalog",
-    // },
     {
       id: 3,
       path: "/info",

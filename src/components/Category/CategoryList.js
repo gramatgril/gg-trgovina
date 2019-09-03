@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+
 import CategoryCard from "./CategoryCard";
+import Title from "./../Title";
+import { styles } from "../../utils";
 
 const CategoryList = ({ categories }) => {
   return (
     <CategoryListWrapper>
+      <Title title="vse" subtitle="kategorije" />
       <div className="center">
         {categories.map(({ node }) => (
           <CategoryCard
@@ -20,17 +24,17 @@ const CategoryList = ({ categories }) => {
 };
 
 const CategoryListWrapper = styled.div`
-  padding: 2rem 0;
+  padding: 4rem 0;
   text-align: center;
+  background: ${styles.colors.mainGrey};
 
   .center {
     width: 80vw;
     margin: 3rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-template-columns: 8ch auto;
-    grid-column-gap: 1.5rem;
-    grid-row-gap: 1.5rem;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
   }
 
   @media (min-width: 576px) {

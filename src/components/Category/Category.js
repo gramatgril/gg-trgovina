@@ -5,7 +5,7 @@ import CategoryList from "./CategoryList";
 
 const getCategories = graphql`
   query {
-    categories: allContentfulKategorija {
+    categories: allContentfulKategorija(sort: { fields: title, order: ASC }) {
       edges {
         node {
           id: contentful_id
