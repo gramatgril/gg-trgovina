@@ -29,9 +29,7 @@ const PromoListWrapper = styled.div`
     margin: 3rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-template-columns: 8ch auto;
     grid-column-gap: 1.5rem;
-    grid-row-gap: 1.5rem;
   }
 
   @media (min-width: 576px) {

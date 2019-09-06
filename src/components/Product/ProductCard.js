@@ -11,15 +11,18 @@ const ProductCard = ({ product }) => {
   return (
     <ProductCardWrapper>
       <Link className="link" to={`/${category.slug}/${slug}`}>
+        <div className="header">
+          <h4>{title}</h4>
+        </div>
         <div className="img-container">
           <Img fluid={image.fluid} className="img" />
-          <h4 className="discount">{discount}%</h4>
-          {promo && <h4 className="promo">Promocija</h4>}
+          {/* <h4 className="discount">{discount}%</h4> */}
+          {/* {promo && <h4 className="promo">Promocija</h4>} */}
         </div>
-        <div className="footer">
-          <h4>{title}</h4>
-          <h4>{price} €</h4>
-        </div>
+        {/* <div className="footer"> */}
+        {/* <h4></h4> */}
+        {/* <h4>{price} €</h4> */}
+        {/* </div> */}
       </Link>
     </ProductCardWrapper>
   );
@@ -27,26 +30,32 @@ const ProductCard = ({ product }) => {
 
 const ProductCardWrapper = styled.article`
   background: ${styles.colors.white};
-  /* box-shadow: ${styles.lightShadow}; */
   transition: ${styles.linearTransition};
-  /* border: 1px solid black; */
-
+  border: 1px solid ${styles.colors.green};
 
   :hover {
-    /* box-shadow: ${styles.darkShadow}; */
+    border: 1px solid ${styles.colors.grey};
+    background: ${styles.colors.green};
+
+    .header {
+      background: ${styles.colors.green};
+      h4 {
+        color: ${styles.colors.white};
+      }
+    }
+    .img-container {
+      opacity: 0.7;
+    }
   }
 
   .img-container {
     position: relative;
     background: ${styles.colors.white};
     transition: ${styles.linearTransition};
-    :hover {
-      opacity: 0.6;
-    }
   }
 
   .img {
-    max-height: 300px;
+    height: 300px;
   }
 
   .discount {
@@ -60,7 +69,7 @@ const ProductCardWrapper = styled.article`
     border-bottom-right-radius: 1rem;
   }
 
-  .promo{
+  .promo {
     color: ${styles.colors.white};
     transform: rotate(45deg);
     position: absolute;
@@ -75,6 +84,20 @@ const ProductCardWrapper = styled.article`
     text-decoration: none;
   }
 
+  .header {
+    transition: ${styles.linearTransition};
+    padding: 1rem;
+    text-align: center;
+    background: ${styles.colors.white};
+    h4 {
+      color: ${styles.colors.green};
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-transform: capitalize;
+      margin-bottom: 0;
+    }
+  }
+
   .footer {
     display: flex;
     justify-content: space-between;
@@ -82,7 +105,7 @@ const ProductCardWrapper = styled.article`
     text-align: left;
 
     h4 {
-      color: ${styles.colors.black};
+      color: ${styles.colors.green};
       font-size: 1.5rem;
       font-weight: 500;
       text-transform: capitalize;

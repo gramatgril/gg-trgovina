@@ -19,7 +19,7 @@ const ProductList = ({ products }) => {
 
 const ProductListWrapper = styled.div`
   background: ${styles.colors.white};
-  padding: 4rem 0;
+  padding: 1rem 0;
   text-align: center;
 
   .center {
