@@ -1,11 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import { useStaticQuery, graphql } from "gatsby";
 
 import CategoryCard from "./CategoryCard";
 import Title from "./../Title";
 import { styles } from "../../utils";
 
+const getNasvetiImg = graphql`
+  query {
+    nasvetiImg: file(relativePath: { eq: "nasveti.jpg" }) {
+      image: childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
 const CategoryList = ({ categories }) => {
+  const { nasvetiImg } = useStaticQuery(getNasvetiImg);
+
   return (
     <CategoryListWrapper>
       <Title title="vse" subtitle="kategorije" />
@@ -18,6 +33,12 @@ const CategoryList = ({ categories }) => {
             image={node.image}
           />
         ))}
+        <CategoryCard
+          key="nasveti"
+          title="Nasveti in ideje"
+          slug="nasveti-in-ideje"
+          image={nasvetiImg.image}
+        />
       </div>
     </CategoryListWrapper>
   );
@@ -26,7 +47,7 @@ const CategoryList = ({ categories }) => {
 const CategoryListWrapper = styled.div`
   padding: 4rem 0;
   text-align: center;
-  background: ${styles.colors.mainGrey};
+  background: ${styles.colors.mainWhite};
 
   .center {
     width: 80vw;

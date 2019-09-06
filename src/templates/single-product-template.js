@@ -21,6 +21,7 @@ export const query = graphql`
       title
       price
       discount
+      promo
       image {
         fluid {
           ...GatsbyContentfulFluid

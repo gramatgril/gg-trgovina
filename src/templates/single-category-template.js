@@ -8,7 +8,6 @@ import Hero from "../components/Hero/Hero";
 import Banner from "../components/Banner/Banner";
 
 export default ({ data }) => {
-  console.log("data:", data);
   const { allProducts } = data;
 
   const { title, description, image } = data.category;
@@ -17,7 +16,7 @@ export default ({ data }) => {
     <Layout>
       <SEO title={title} />
       <Hero img={image.fluid}>
-        <Banner title={title} info={description} />
+        <Banner title={title} info={description.description} />
       </Hero>
       <ProductList products={allProducts.edges} />
     </Layout>
@@ -36,6 +35,7 @@ export const query = graphql`
           id: contentful_id
           slug
           discount
+          promo
           category {
             slug
           }
@@ -49,7 +49,9 @@ export const query = graphql`
     }
     category: contentfulKategorija(contentful_id: { eq: $id }) {
       title
-      description
+      description {
+        description
+      }
       image {
         fluid {
           ...GatsbyContentfulFluid
