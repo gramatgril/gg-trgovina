@@ -26,7 +26,7 @@ const ProductCard = ({ product }) => {
 };
 
 const ProductCardWrapper = styled.article`
-  background: ${styles.colors.mainWhite};
+  background: ${styles.colors.white};
   /* box-shadow: ${styles.lightShadow}; */
   transition: ${styles.linearTransition};
   /* border: 1px solid black; */
@@ -38,7 +38,7 @@ const ProductCardWrapper = styled.article`
 
   .img-container {
     position: relative;
-    background: ${styles.colors.mainWhite};
+    background: ${styles.colors.white};
     transition: ${styles.linearTransition};
     :hover {
       opacity: 0.6;
@@ -50,7 +50,7 @@ const ProductCardWrapper = styled.article`
   }
 
   .discount {
-    color: ${styles.colors.mainWhite};
+    color: ${styles.colors.white};
     position: absolute;
     left: 0%;
     top: 80%;
@@ -61,7 +61,7 @@ const ProductCardWrapper = styled.article`
   }
 
   .promo{
-    color: ${styles.colors.mainWhite};
+    color: ${styles.colors.white};
     transform: rotate(45deg);
     position: absolute;
     left: 80%;
@@ -82,7 +82,7 @@ const ProductCardWrapper = styled.article`
     text-align: left;
 
     h4 {
-      color: ${styles.colors.mainBlack};
+      color: ${styles.colors.black};
       font-size: 1.5rem;
       font-weight: 500;
       text-transform: capitalize;

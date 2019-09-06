@@ -47,7 +47,7 @@ const CategoryList = ({ categories }) => {
 const CategoryListWrapper = styled.div`
   padding: 4rem 0;
   text-align: center;
-  background: ${styles.colors.mainWhite};
+  background: ${styles.colors.white};
 
   .center {
     width: 80vw;

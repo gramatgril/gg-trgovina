@@ -13,9 +13,8 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Nasveti in ideje" />
-      <Hero img={heroImg}>
-        <Banner title="Nasveti in ideje" />
-      </Hero>
+      <Hero img={heroImg} />
+      <Banner title="Nasveti in ideje" info="Vas zanimajo koraki do obnove, novosti na tržišču ali zgolj dober nasvet mojstra? Boste sam svoj mojster pa vam manjka nekaj tehničnih podatkov? Tu boste lahko prebirali med različnimi članki in izvedeli veliko dobrih nasvetov." />
       <Ideas />
     </Layout>
   );

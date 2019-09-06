@@ -1,9 +1,9 @@
 export const colors = {
-  mainBlack: `#262626`,
-  mainGreen: `#8db600`,
-  mainGrey: `#6a6c6e`,
-  mainRed: `#e53935`,
-  mainWhite: `#fff`,
+  black: `#262626`,
+  green: `#8db600`,
+  grey: `#6a6c6e`,
+  red: `#e53935`,
+  white: `#fff`,
   offWhite: `#f7f7f7`,
 };
 

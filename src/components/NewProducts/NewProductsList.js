@@ -22,7 +22,7 @@ const NewProductsList = ({ products }) => {
 const PromoListWrapper = styled.div`
   padding: 2rem 0;
   text-align: center;
-  background: ${styles.colors.mainWhite};
+  background: ${styles.colors.white};
 
   .center {
     width: 80vw;

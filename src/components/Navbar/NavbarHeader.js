@@ -30,11 +30,11 @@ const HeaderWrapper = styled.div`
   .toggle-icon {
     font-size: 1.5rem;
     cursor: pointer;
-    color: ${styles.colors.mainGreen};
+    color: ${styles.colors.green};
   }
 
   h1 {
-    color: ${styles.colors.mainGreen};
+    color: ${styles.colors.green};
   }
 
   /* Menu icon hidden on mobile screen size */

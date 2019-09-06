@@ -24,7 +24,7 @@ const Navbar = () => {
 };
 
 const NavbarWrapper = styled.div`
-  background: ${styles.colors.mainWhite};
+  background: ${styles.colors.grey};
   box-shadow: ${styles.lightShadow};
 
   @media (min-width: 768px) {

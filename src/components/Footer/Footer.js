@@ -65,8 +65,8 @@ const Footer = () => {
 
 const FooterWrapper = styled.footer`
   padding: 2rem 0;
-  background: ${styles.colors.mainBlack};
-  color: ${styles.colors.mainWhite};
+  background: ${styles.colors.black};
+  color: ${styles.colors.white};
   text-align: center;
 
   .link {

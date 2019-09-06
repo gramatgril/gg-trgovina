@@ -16,9 +16,8 @@ const Banner = ({ title, info, children }) => {
 const BannerWrapper = styled.div`
   text-align: center;
   letter-spacing: ${styles.letterSpacing};
-  color: ${styles.colors.mainGreen};
-  /* background: ${styles.colors.mainWhite}; */
-  opacity: 0.7;
+  color: ${styles.colors.grey};
+  background: ${styles.colors.white};
 
   h1 {
     opacity: 1;

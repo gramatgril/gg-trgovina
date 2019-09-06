@@ -12,11 +12,11 @@ const PrimaryButton = ({ text, className }) => {
 };
 
 const Button = styled.button`
-  background: ${styles.colors.mainWhite};
+  background: ${styles.colors.white};
   text-transform: uppercase;
   letter-spacing: ${styles.letterSpacing};
-  color: ${styles.colors.mainGreen};
-  border: 2px solid ${styles.colors.mainWhite};
+  color: ${styles.colors.green};
+  border: 2px solid ${styles.colors.white};
   padding: 0.9rem 1.6rem;
   display: inline-block;
   transition: ${styles.linearTransition};
@@ -24,18 +24,18 @@ const Button = styled.button`
 
   :hover {
     background: transparent;
-    color: ${styles.colors.mainWhite};
+    color: ${styles.colors.white};
   }
 `;
 
 const SecondaryButton = styled(PrimaryButton)`
-  border: 2px solid ${styles.colors.mainGreen};
-  background: ${styles.colors.mainGreen};
-  color: ${styles.colors.mainWhite};
+  border: 2px solid ${styles.colors.green};
+  background: ${styles.colors.green};
+  color: ${styles.colors.white};
 
   :hover {
-    border: 2px solid ${styles.colors.mainWhite};
-    color: ${styles.colors.mainWhite};
+    border: 2px solid ${styles.colors.white};
+    color: ${styles.colors.white};
   }
 `;
 

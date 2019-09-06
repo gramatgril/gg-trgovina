@@ -4,7 +4,6 @@ import { graphql } from "gatsby";
 import Hero from "../components/Hero";
 import Layout from "./../components/layout";
 import SEO from "./../components/seo";
-import Banner from "../components/Banner";
 import About from "../components/About/About.js";
 
 export default ({ data }) => {
@@ -13,9 +12,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title="O nas" />
-      <Hero img={heroImg}>
-        <Banner title="o nas" />
-      </Hero>
+      <Hero img={heroImg} />
       <About />
     </Layout>
   );

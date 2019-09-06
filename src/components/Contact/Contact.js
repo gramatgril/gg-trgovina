@@ -7,6 +7,9 @@ const Contact = () => {
   return (
     <ContactWrapper>
       <div className="center">
+        <div className="title">
+          <h1>Obrazec za povpraševanje</h1>
+        </div>
         <form
           className="form"
           action="https://formspree.io/praecorloth@gmail.com"
@@ -56,11 +59,21 @@ const Contact = () => {
 };
 
 const ContactWrapper = styled.section`
-  padding: 4rem 0;
+  padding: 3rem 0;
 
   .center {
     width: 80vw;
     margin: 0 auto;
+  }
+
+  .title {
+    color: ${styles.colors.green};
+    text-align: center;
+    padding-bottom: 1rem;
+
+    h1 {
+    font-weight: 300;
+    }
   }
 
   @media (min-width: 992px) {
@@ -82,22 +95,22 @@ const ContactWrapper = styled.section`
     font-size: 1rem;
     margin-bottom: 1rem;
     padding: 0.375rem 0.75rem;
-    border: 1px solid ${styles.colors.mainGrey};
+    border: 1px solid ${styles.colors.grey};
     border-radius: 0.25rem;
   }
 
   .submit {
-    background-color: ${styles.colors.mainWhite};
-    border-color: ${styles.colors.mainGrey};
+    background-color: ${styles.colors.white};
+    border-color: ${styles.colors.green};
     text-transform: uppercase;
-    color: ${styles.colors.mainGrey};
+    color: ${styles.colors.green};
     transition: ${styles.linearTransition}
     cursor: pointer;
   }
   .submit:hover {
-    background: ${styles.colors.mainGrey};
-    color: ${styles.colors.mainWhite};
-    border-color: ${styles.colors.mainGrey};
+    background: ${styles.colors.green};
+    color: ${styles.colors.white};
+    border-color: ${styles.colors.grey};
   }
 `;
 

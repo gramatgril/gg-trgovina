@@ -44,9 +44,9 @@ const CardWrapper = styled.div`
     opacity: 0.8;
     text-transform: uppercase;
     letter-spacing: 4px;
-    color: ${styles.colors.mainGreen};
-    border: 2px solid ${styles.colors.mainGreen};
-    background: ${styles.colors.mainWhite};
+    color: ${styles.colors.green};
+    border: 2px solid ${styles.colors.green};
+    background: ${styles.colors.white};
     padding: 0.5rem 0.7rem;
     display: inline-block;
     transition: ${styles.linearTransition};
@@ -55,7 +55,7 @@ const CardWrapper = styled.div`
 
   .img-container {
     position: relative;
-    background: ${styles.colors.mainWhite};
+    background: ${styles.colors.white};
     transition: ${styles.linearTransition};
 
     :hover .img {

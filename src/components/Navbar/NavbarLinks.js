@@ -50,15 +50,15 @@ const LinkWrapper = styled.ul`
     display: block;
     text-decoration: none;
     padding: 0.5rem 1rem 0.5rem 1rem;
-    color: ${styles.colors.mainGreen};
+    color: ${styles.colors.green};
     font-weight: 700;
     font-size: 1.2rem;
     text-transform: capitalize;
     cursor: pointer;
     transition: ${styles.transition({ time: "0.3s" })};
     &:hover {
-      background: ${styles.colors.mainGreen};
-      color: ${styles.colors.mainWhite};
+      background: ${styles.colors.green};
+      color: ${styles.colors.grey};
       padding: 0.5rem 1rem 0.5rem 1.3rem;
     }
   }
@@ -70,10 +70,10 @@ const LinkWrapper = styled.ul`
   @media (min-width: 768px) {
     height: auto;
     display: flex;
-    color: ${styles.colors.mainWhite};
+    color: ${styles.colors.white};
     margin: 0 auto;
     .nav-link:hover {
-      color: ${styles.colors.mainWhite};
+      color: ${styles.colors.grey};
       padding: 0.5rem 1rem 0.5rem 1rem;
     }
   }

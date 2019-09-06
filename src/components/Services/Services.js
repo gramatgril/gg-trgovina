@@ -46,7 +46,7 @@ const Services = () => {
 };
 
 const ServicesWrapper = styled.div`
-  background: ${styles.colors.mainWhite};
+  background: ${styles.colors.white};
   padding: 4rem 0;
 
   .center {
@@ -60,7 +60,7 @@ const ServicesWrapper = styled.div`
     margin: 2rem 0;
     text-align: center;
     span {
-      background: ${styles.colors.mainGrey};
+      background: ${styles.colors.green};
       padding: 0.5rem;
       display: inline-block;
       font-size: 2rem;

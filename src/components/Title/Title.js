@@ -22,11 +22,11 @@ const TitleWrapper = styled.div`
   h4 {
     text-align: center;
     letter-spacing: 7px;
-    color: ${styles.colors.mainRed};
+    color: ${styles.colors.green};
   }
 
   .title {
-    color: ${styles.colors.mainBlack};
+    color: ${styles.colors.grey};
   }
 
   span {

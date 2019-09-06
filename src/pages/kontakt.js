@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Banner from "../components/Banner";
 import Contact from "./../components/Contact";
 import Hero from "../components/Hero";
 import Layout from "./../components/layout";
@@ -13,12 +12,7 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Kontakt" />
-      <Hero img={heroImg}>
-        <Banner
-          title="Obrazec za povpraševanje"
-          info="pošljite poizvedbo, vprašanje ali predlog"
-        />
-      </Hero>
+      <Hero img={heroImg} />
       <Contact />
     </Layout>
   );

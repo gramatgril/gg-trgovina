@@ -15,9 +15,8 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title={title} />
-      <Hero img={image.fluid}>
-        <Banner title={title} info={description.description} />
-      </Hero>
+      <Hero img={image.fluid}></Hero>
+      <Banner title={title} info={description.description} />
       <ProductList products={allProducts.edges} />
     </Layout>
   );

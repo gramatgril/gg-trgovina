@@ -16,9 +16,9 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Doma" />
-      <Hero img={heroImg}>
+      {/* <Hero img={heroImg}>
         <Banner title="Dobrodošli!" info="Oglejte si vse izdelke v akciji" />
-      </Hero>
+      </Hero> */}
       <Category />
       <Services />
       <PromotedProducts />
