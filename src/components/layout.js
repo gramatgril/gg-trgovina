@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: #fff;
     line-height: 1.4;
     font-size: 1rem;

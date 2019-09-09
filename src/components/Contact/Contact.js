@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { styles } from "../../utils";
+import { PrimaryButton } from "../Button/Button";
 
 const Contact = () => {
   return (
@@ -50,7 +51,7 @@ const Contact = () => {
             />
           </div>
           <div>
-            <input type="submit" value="pošlji" className="submit" />
+            <PrimaryButton text="Pošlji" type="submit" className="submit" />
           </div>
         </form>
       </div>

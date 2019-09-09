@@ -13,12 +13,8 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Pravno obvestilo" />
-      <Hero img={heroImg}>
-        <Banner
-          title="Pravno obvestilo"
-          info="Informacije o varovanju podatkov"
-        />
-      </Hero>
+      <Hero img={heroImg}></Hero>
+      <Banner title="Pravno obvestilo" />
       <Legal />
     </Layout>
   );

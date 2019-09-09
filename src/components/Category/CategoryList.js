@@ -54,8 +54,8 @@ const CategoryListWrapper = styled.div`
     margin: 3rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    grid-column-gap: 2rem;
-    grid-row-gap: 2rem;
+    grid-column-gap: 0.2rem;
+    grid-row-gap: 0.2rem;
   }
 
   @media (min-width: 576px) {

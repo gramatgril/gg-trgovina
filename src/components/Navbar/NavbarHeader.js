@@ -9,7 +9,7 @@ import { styles } from "../../utils";
 const NavbarHeader = ({ toggleOpen }) => {
   return (
     <HeaderWrapper>
-      <Link to="/" className="logo">
+      <Link to="/" className="link">
         <h1>GramatGril</h1>
       </Link>
       <FaAlignRight className="toggle-icon" onClick={() => toggleOpen()} />
@@ -24,13 +24,20 @@ const HeaderWrapper = styled.div`
   padding: 1rem 1.25rem;
 
   .logo {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .link {
+    display: flex;
+    justify-content: space-between;
     text-decoration: none;
   }
 
   .toggle-icon {
     font-size: 1.5rem;
     cursor: pointer;
-    color: ${styles.colors.green};
+    color: ${styles.colors.white};
   }
 
   h1 {

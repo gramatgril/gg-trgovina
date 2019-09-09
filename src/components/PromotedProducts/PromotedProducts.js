@@ -13,7 +13,6 @@ const getPromoItems = graphql`
       edges {
         node {
           title
-          discount
           slug
           price
           promo

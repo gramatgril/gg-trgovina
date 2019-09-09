@@ -65,16 +65,16 @@ const Footer = () => {
 
 const FooterWrapper = styled.footer`
   padding: 2rem 0;
-  background: ${styles.colors.black};
+  background: ${styles.colors.grey};
   color: ${styles.colors.white};
   text-align: center;
 
   .link {
     text-decoration: none;
-    color: darkgray;
+    color: ${styles.colors.green};
   }
   .link:hover {
-    color: darkmagenta;
+    color: ${styles.colors.offWhite};
   }
 
   .segments {

@@ -33,14 +33,13 @@ export const query = graphql`
           price
           id: contentful_id
           slug
-          discount
           promo
           category {
             slug
           }
           image {
             fluid {
-              ...GatsbyContentfulFluid
+              ...GatsbyContentfulFluid_tracedSVG
             }
           }
         }
@@ -52,7 +51,7 @@ export const query = graphql`
         description
       }
       image {
-        fluid {
+        fluid(quality: 100) {
           ...GatsbyContentfulFluid
         }
       }

@@ -26,7 +26,7 @@ const TitleWrapper = styled.div`
   }
 
   .title {
-    color: ${styles.colors.grey};
+    color: ${styles.colors.green};
   }
 
   span {

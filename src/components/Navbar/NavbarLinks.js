@@ -50,15 +50,15 @@ const LinkWrapper = styled.ul`
     display: block;
     text-decoration: none;
     padding: 0.5rem 1rem 0.5rem 1rem;
-    color: ${styles.colors.green};
-    font-weight: 700;
+    color: ${styles.colors.white};
+    font-weight: 400;
     font-size: 1.2rem;
     text-transform: capitalize;
     cursor: pointer;
     transition: ${styles.transition({ time: "0.3s" })};
     &:hover {
       background: ${styles.colors.green};
-      color: ${styles.colors.grey};
+      color: ${styles.colors.white};
       padding: 0.5rem 1rem 0.5rem 1.3rem;
     }
   }
@@ -73,7 +73,7 @@ const LinkWrapper = styled.ul`
     color: ${styles.colors.white};
     margin: 0 auto;
     .nav-link:hover {
-      color: ${styles.colors.grey};
+      color: ${styles.colors.white};
       padding: 0.5rem 1rem 0.5rem 1rem;
     }
   }

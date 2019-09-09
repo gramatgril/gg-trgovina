@@ -46,7 +46,7 @@ const Services = () => {
 };
 
 const ServicesWrapper = styled.div`
-  background: ${styles.colors.white};
+  background: ${styles.colors.lightGrey};
   padding: 4rem 0;
 
   .center {

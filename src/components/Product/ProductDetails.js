@@ -2,50 +2,63 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
-import { FaMoneyBillWave, FaMap } from "react-icons/fa";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { styles } from "../../utils";
+import { PrimaryButton } from "../Button/Button";
 
-const ProductDetails = ({ product }) => {
-  const { title, price, discount, image } = product;
+const ProductDetails = ({ product, categorySlug }) => {
+  const { title, price, image, description, images } = product;
+  console.log("image:", image);
+
   return (
     <ProductDetailsWrapper>
       <div className="center">
+        <div className="title">
+          <h2>{title}</h2>
+        </div>
+        <hr />
         <div className="images">
-          <Img fluid={image.fluid} alt="single tour" className="img" />
+          {images &&
+            images.map((image, i) => (
+              <Img key={i} fluid={image.fluid} alt="single tour" />
+            ))}
         </div>
-        <h2>{title}</h2>
+        {/* </div> */}
         <div className="info">
-          <p>
-            <FaMoneyBillWave className="icon" />
-            starting from ${price}
-          </p>
-          <p>
-            <FaMap className="icon" />
-            {discount}
-          </p>
+          <h4 className="desc">
+            {documentToReactComponents(description.json)}
+          </h4>
+          <h2 className="price">Cena: {price} €</h2>
         </div>
-        <h4>starts on : start</h4>
-        <h4>duration : 5 days</h4>
-        <p className="description">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero,
-          dignissimos!
-        </p>
-        <h2>daily schedule</h2>
+        <hr />
       </div>
-      <Link to="/tours" className="btn-primary">
-        Back to Tours
-      </Link>
     </ProductDetailsWrapper>
   );
 };
 
 const ProductDetailsWrapper = styled.div`
-  padding: 4rem 0;
+  padding: 1rem 0;
 
   .center {
-    width: 80vw;
+    padding: 1rem 1rem;
     margin: 0 auto;
+  }
+  .title {
+    color: ${styles.colors.black};
+
+    h2 {
+      padding: 1rem 0;
+      margin: 2rem 0;
+      text-transform: uppercase;
+      letter-spacing: ${styles.letterSpacing};
+      margin-bottom: 1rem;
+    }
+  }
+
+  .price {
+    text-align: right;
+    padding: 2rem 0;
   }
 
   .images {
@@ -56,50 +69,43 @@ const ProductDetailsWrapper = styled.div`
     margin-bottom: 2rem;
   }
 
-  .image {
-    box-shadow: ${styles.lightShadow};
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid ${styles.colors.green};
+    margin: 1em 0;
+    padding: 0;
   }
 
-  h2 {
-    text-transform: capitalize;
-    letter-spacing: ${styles.letterSpacing};
-    margin-bottom: 1rem;
-    margin: 2rem 0;
+  .info {
+  }
+
+  .divider {
+    background: ${styles.colors.green};
+  }
+
+  .image {
+    max-height: 100%;
   }
 
   h4 {
     text-transform: capitalize;
   }
-
-  .info {
-    display: flex;
-    flex-wrap: wrap;
-
-    p {
-      display: flex;
-      align-items: center;
-      margin-right: 2rem;
-      text-transform: capitalize;
-    }
-  }
-
-  .description {
+  .desc {
+    padding: 1rem 0;
     line-height: 2;
   }
 
-  @media (min-width: 992px) {
-    .description {
-      width: 70vw;
+  @media (min-width: 576px) {
+    .center {
+      width: 80vw;
     }
   }
+
   @media (min-width: 1200px) {
     .center {
-      width: 95vw;
-      max-width: 1170vw;
-    }
-    .images {
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      grid-column-gap: 50px;
+      width: 70vw;
     }
   }
 `;

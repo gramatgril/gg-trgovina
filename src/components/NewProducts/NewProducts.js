@@ -16,7 +16,6 @@ const getNewProducts = graphql`
           }
           title
           slug
-          discount
           price
           promo
           category {
