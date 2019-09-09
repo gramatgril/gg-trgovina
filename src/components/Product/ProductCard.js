@@ -17,7 +17,7 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="img-container">
           <Img fluid={image.fluid} className="img" />
-          <h4 className="discount">{price} €</h4>
+          <h4 className="price">{price} €</h4>
           {promo && (
             <h4 className="promo">
               <FaPercent />
@@ -76,7 +76,7 @@ const ProductCardWrapper = styled.article`
     height: 300px;
   }
 
-  .discount {
+  .price {
     font-size: 1.5rem;
     color: ${styles.colors.white};
     position: absolute;

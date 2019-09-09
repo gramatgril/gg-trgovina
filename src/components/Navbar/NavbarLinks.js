@@ -10,7 +10,12 @@ const NavbarLinks = ({ isOpen }) => {
     {
       id: 0,
       path: "/",
-      name: "domov",
+      name: "Kategorije",
+    },
+    {
+      id: 2,
+      path: "/nasveti",
+      name: "nasveti",
     },
     {
       id: 1,

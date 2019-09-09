@@ -17,8 +17,8 @@ const Button = styled.button`
   letter-spacing: ${styles.letterSpacing};
   color: ${styles.colors.white};
   border: 2px solid ${styles.colors.green};
-  padding: 0.9rem 1.6rem;
-  font-size: 32px;
+  padding: 0.9rem 1.8rem;
+  font-size: 24px;
   display: inline-block;
   transition: ${styles.linearTransition};
   cursor: pointer;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FaWallet, FaTree, FaSocks } from "react-icons/fa";
+import { FaRegLightbulb, FaRegCheckCircle } from "react-icons/fa";
+import { FiSettings } from "react-icons/fi";
 
 import { styles } from "../../utils";
 import Title from "./../Title/Title";
@@ -9,24 +10,21 @@ const Services = () => {
   const [services] = useState([
     {
       id: 0,
-      icon: <FaWallet />,
+      icon: <FaRegCheckCircle />,
       title: "saving money",
-      text:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, earum. ",
+      text: "Zanesljivost ",
     },
     {
       id: 1,
-      icon: <FaTree />,
+      icon: <FiSettings />,
       title: "endless hiking",
-      text:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, earum. ",
+      text: "Celovite rešitve",
     },
     {
       id: 2,
-      icon: <FaSocks />,
+      icon: <FaRegLightbulb />,
       title: "amazing comfort",
-      text:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati, earum. ",
+      text: "Dobre ideje ",
     },
   ]);
 
@@ -46,7 +44,7 @@ const Services = () => {
 };
 
 const ServicesWrapper = styled.div`
-  background: ${styles.colors.lightGrey};
+  background: ${styles.colors.offWhite};
   padding: 4rem 0;
 
   .center {
@@ -60,17 +58,18 @@ const ServicesWrapper = styled.div`
     margin: 2rem 0;
     text-align: center;
     span {
-      background: ${styles.colors.green};
+      color: ${styles.colors.green};
       padding: 0.5rem;
       display: inline-block;
-      font-size: 2rem;
+      font-size: 7rem;
       margin-bottom: 1.5rem;
-
-      h4 {
-        text-transform: uppercase;
-      }
     }
-
+    h4 {
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: ${styles.letterSpacing};
+    }
+  }
 `;
 
 export default Services;

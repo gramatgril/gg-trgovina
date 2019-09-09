@@ -19,13 +19,9 @@ const CategoryCard = ({ title, slug, image }) => {
 };
 
 const CardWrapper = styled.div`
-  /* box-shadow: ${styles.lightShadow}; */
-  /* border: 1px solid ${styles.colors.white}; */
   transition: ${styles.transition({ time: "0.1s", type: "linear" })};
 
   :hover {
-    /* box-shadow: ${styles.darkShadow}; */
-
     .title-box {
       opacity: 1;
     }
@@ -42,7 +38,6 @@ const CardWrapper = styled.div`
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* opacity: 0.8; */
     text-transform: uppercase;
     letter-spacing: 4px;
     color: ${styles.colors.green};

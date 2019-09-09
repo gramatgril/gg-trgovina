@@ -29,7 +29,7 @@ const ProductListWrapper = styled.div`
   text-align: center;
 
   .center {
-    width: 80vw;
+    width: 90vw;
     margin: 3rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

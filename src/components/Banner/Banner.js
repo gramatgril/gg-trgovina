@@ -22,7 +22,7 @@ const BannerWrapper = styled.div`
 
   h1 {
     opacity: 1;
-    font-size: 3rem;
+    font-size: 2rem;
     text-transform: uppercase;
     margin-bottom: 2rem;
     padding: 0 1rem;

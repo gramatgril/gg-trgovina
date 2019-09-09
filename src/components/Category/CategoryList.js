@@ -36,7 +36,7 @@ const CategoryList = ({ categories }) => {
         <CategoryCard
           key="nasveti"
           title="Nasveti in ideje"
-          slug="nasveti-in-ideje"
+          slug="nasveti"
           image={nasvetiImg.image}
         />
       </div>

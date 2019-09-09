@@ -24,6 +24,15 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+
+      advices: allContentfulNasvetiInIdeje {
+        edges {
+          node {
+            slug
+            adviceId: contentful_id
+          }
+        }
+      }
     }
   `);
 
@@ -40,6 +49,14 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/${node.category.slug}/${node.productSlug}`,
       component: path.resolve("./src/templates/single-product-template.js"),
       context: { id: node.productId },
+    });
+  });
+
+  data.advices.edges.forEach(({ node }) => {
+    createPage({
+      path: `/nasveti/${node.slug}`,
+      component: path.resolve("./src/templates/single-advice-template.js"),
+      context: { id: node.adviceId },
     });
   });
 };

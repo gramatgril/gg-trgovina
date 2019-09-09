@@ -1,39 +1,46 @@
 import React from "react";
-import { Link } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { styles } from "../../utils";
-import { PrimaryButton } from "../Button/Button";
+import Advice from "./../Advice";
+import Title from "./../Title";
 
 const ProductDetails = ({ product, categorySlug }) => {
   const { title, price, image, description, images } = product;
-  console.log("image:", image);
 
   return (
-    <ProductDetailsWrapper>
-      <div className="center">
-        <div className="title">
-          <h2>{title}</h2>
+    <>
+      <ProductDetailsWrapper>
+        <div className="center">
+          <div className="title">
+            <h2>{title}</h2>
+          </div>
+          <hr />
+          <div className="images">
+            {images &&
+              images.map((image, i) => (
+                <Img
+                  key={i}
+                  fluid={image.fluid}
+                  alt="single tour"
+                  className="image"
+                />
+              ))}
+          </div>
+          {/* </div> */}
+          <div className="info">
+            <div className="desc">
+              {documentToReactComponents(description.json)}
+            </div>
+            <h2 className="price">Cena: {price} €</h2>
+          </div>
+
+          <hr />
         </div>
-        <hr />
-        <div className="images">
-          {images &&
-            images.map((image, i) => (
-              <Img key={i} fluid={image.fluid} alt="single tour" />
-            ))}
-        </div>
-        {/* </div> */}
-        <div className="info">
-          <h4 className="desc">
-            {documentToReactComponents(description.json)}
-          </h4>
-          <h2 className="price">Cena: {price} €</h2>
-        </div>
-        <hr />
-      </div>
-    </ProductDetailsWrapper>
+      </ProductDetailsWrapper>
+    </>
   );
 };
 
@@ -44,10 +51,12 @@ const ProductDetailsWrapper = styled.div`
     padding: 1rem 1rem;
     margin: 0 auto;
   }
+
   .title {
     color: ${styles.colors.black};
 
     h2 {
+      font-size: 2rem;
       padding: 1rem 0;
       margin: 2rem 0;
       text-transform: uppercase;

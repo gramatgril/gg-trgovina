@@ -5,6 +5,7 @@ import Layout from "./../components/layout";
 import ProductDetails from "../components/Product/ProductDetails";
 import SEO from "./../components/seo";
 import PromotedProducts from "./../components/PromotedProducts/PromotedProducts";
+import Advice from "../components/Advice";
 
 export default ({ data }) => {
   const { title } = data.product;
@@ -13,6 +14,7 @@ export default ({ data }) => {
     <Layout>
       <SEO title={title} />
       <ProductDetails product={data.product} categorySlug={slug} />
+      <Advice title />
       <PromotedProducts />
     </Layout>
   );
