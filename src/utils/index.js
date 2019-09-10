@@ -1,3 +1,4 @@
-import * as styles from "./styles"
+import * as styles from "./styles";
+import Divider from "./divider";
 
-export { styles }
+export { styles, Divider };

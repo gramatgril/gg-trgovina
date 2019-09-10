@@ -4,8 +4,7 @@ import Img from "gatsby-image";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 
 import { styles } from "../../utils";
-import Advice from "./../Advice";
-import Title from "./../Title";
+import { Divider } from "./../../utils";
 
 const ProductDetails = ({ product, categorySlug }) => {
   const { title, price, image, description, images } = product;
@@ -17,7 +16,7 @@ const ProductDetails = ({ product, categorySlug }) => {
           <div className="title">
             <h2>{title}</h2>
           </div>
-          <hr />
+          <Divider />
           <div className="images">
             {images &&
               images.map((image, i) => (
@@ -36,8 +35,7 @@ const ProductDetails = ({ product, categorySlug }) => {
             </div>
             <h2 className="price">Cena: {price} €</h2>
           </div>
-
-          <hr />
+          <Divider />
         </div>
       </ProductDetailsWrapper>
     </>
@@ -76,15 +74,6 @@ const ProductDetailsWrapper = styled.div`
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;
     margin-bottom: 2rem;
-  }
-
-  hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid ${styles.colors.green};
-    margin: 1em 0;
-    padding: 0;
   }
 
   .info {

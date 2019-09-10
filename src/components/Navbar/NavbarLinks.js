@@ -57,7 +57,7 @@ const LinkWrapper = styled.ul`
     padding: 0.5rem 1rem 0.5rem 1rem;
     color: ${styles.colors.white};
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-transform: capitalize;
     cursor: pointer;
     transition: ${styles.transition({ time: "0.3s" })};

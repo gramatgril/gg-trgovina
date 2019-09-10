@@ -8,7 +8,7 @@ import { styles } from "../../utils";
 const AdviceCard = ({ advice }) => {
   const { title, slug, shortDesc, image, publishDate } = advice;
   return (
-    <AdviceWrapper>
+    <Wrapper>
       <Link to={`/nasveti/${slug}`} className="link">
         <div className="center">
           <div className="img-container">
@@ -21,11 +21,11 @@ const AdviceCard = ({ advice }) => {
           </div>
         </div>
       </Link>
-    </AdviceWrapper>
+    </Wrapper>
   );
 };
 
-const AdviceWrapper = styled.div`
+const Wrapper = styled.div`
   margin: 1rem 0;
   background: ${styles.colors.offWhite};
   /* border: 1px solid ${styles.colors.green}; */

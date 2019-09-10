@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-
+import GoogleMap from "./../GoogleMap";
 
 const About = () => {
   return (
-    <AboutWrapper>
+    <Wrapper>
       <div className="center">
         <h4>Opis podjetja</h4>
         <p>
@@ -32,26 +32,33 @@ const About = () => {
           vitae aliquam molestiae magnam soluta
         </p>
       </div>
-    </AboutWrapper>
+      <GoogleMap />
+    </Wrapper>
   );
 };
 
-const AboutWrapper = styled.div`
+const Wrapper = styled.div`
   padding-top: 2rem;
   margin: 0 auto;
 
   .center {
-    width: 70vw;
+    width: 95vw;
     text-align: center;
+  }
 
-    h4 {
-      font-weight: bold;
-      font-size: 30px;
-    }
+  h4 {
+    font-weight: bold;
+    font-size: 2rem;
+  }
 
-    p {
-      text-align: left;
-      padding: 1rem;
+  p {
+    text-align: left;
+    padding: 2rem;
+  }
+
+  @media (min-width: 576px) {
+    .center {
+      width: 70vw;
     }
   }
 `;

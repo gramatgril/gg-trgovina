@@ -31,16 +31,16 @@ const Advice = ({ title }) => {
   const { advices } = useStaticQuery(getAllAdvice);
 
   return (
-    <AdviceWrapper>
+    <Wrapper>
       <div className="center">
         {title && <Title title="Nasveti" subtitle="in ideje" />}
         <AdviceList advices={advices.edges} />
       </div>
-    </AdviceWrapper>
+    </Wrapper>
   );
 };
 
-const AdviceWrapper = styled.div`
+const Wrapper = styled.div`
   padding: 1rem 0;
 
   .center {

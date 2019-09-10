@@ -53,7 +53,7 @@ const AdviceDetails = ({ advice }) => {
   };
 
   return (
-    <AdviceDetailsWrapper>
+    <Wrapper>
       <div className="center">
         <h1>{title}</h1>
         <h4>Objavljeno : {publishDate}</h4>
@@ -65,11 +65,11 @@ const AdviceDetails = ({ advice }) => {
           <PrimaryButton text="nazaj" />
         </Link>
       </div>
-    </AdviceDetailsWrapper>
+    </Wrapper>
   );
 };
 
-const AdviceDetailsWrapper = styled.div`
+const Wrapper = styled.div`
   padding: 4rem 0;
 
   .image {
