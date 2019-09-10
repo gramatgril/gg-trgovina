@@ -33,14 +33,20 @@ const Wrapper = styled.div`
   }
 
   .center {
+    transition: ${styles.linearTransition};
     display: inline-block;
     border: 1px solid ${styles.colors.white};
 
     :hover {
-      transition: ${styles.linearTransition};
+      background: ${styles.colors.offWhite};
       border: 1px solid ${styles.colors.green};
       h2 {
+        transition: ${styles.linearTransition};
         color: ${styles.colors.green};
+      }
+      .img-container {
+        transition: ${styles.linearTransition};
+        opacity: 0.9;
       }
     }
   }

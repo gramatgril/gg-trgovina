@@ -10,9 +10,10 @@ const getData = graphql`
       siteMetadata {
         companyInfo {
           name
+          copyright
+          address
           street
           city
-          copyright
         }
         contactInfo {
           phone
@@ -26,21 +27,19 @@ const getData = graphql`
 const Footer = () => {
   const { site } = useStaticQuery(getData);
 
-  const { name, street, city, copyright } = site.siteMetadata.companyInfo;
+  const { name, city, copyright, street } = site.siteMetadata.companyInfo;
   const { phone, mail } = site.siteMetadata.contactInfo;
 
   return (
     <Wrapper>
       <div className="segments">
         <div className="segment">
-          <h2>O podjetju</h2>
           <p>{name}</p>
           <p>{street}</p>
           <p>{city}</p>
         </div>
         <hr className="divider" />
         <div className="segment">
-          <h2>Informacije</h2>
           <p>{phone}</p>
           <p>{mail}</p>
           <p>
@@ -51,14 +50,14 @@ const Footer = () => {
         </div>
         <hr className="divider" />
         <div className="segment">
-          <h2>Delovni čas</h2>
           <p>Od ponedeljka do petka: 7h - 19h</p>
           <p>V zimskem času: 7h - 18h</p>
-          <p>Sobota: 7h - 12h</p>
+          <p>Sobota: 7h - 13h</p>
         </div>
       </div>
-      <div className="copyright"></div>
-      <p>&copy; {copyright}</p>
+      <div className="copyright">
+        <p>&copy; {copyright}</p>
+      </div>
     </Wrapper>
   );
 };
@@ -71,19 +70,15 @@ const Wrapper = styled.footer`
 
   .link {
     text-decoration: none;
-    color: ${styles.colors.green};
+    color: ${styles.colors.white};
   }
-  .link:hover {
-    color: ${styles.colors.offWhite};
+  .link :hover {
+    color: ${styles.colors.green};
   }
 
   .segments {
     display: flex;
     justify-content: space-around;
-
-    @media (max-width: 768px) {
-      display: block;
-    }
 
     .segment {
       h2 {
@@ -93,14 +88,22 @@ const Wrapper = styled.footer`
         padding: 0.5rem;
       }
     }
+    @media (max-width: 768px) {
+      display: block;
+      font-size: 1rem;
+    }
   }
 
   .divider {
-    color: white;
+    color: ${styles.colors.green};
   }
 
   .copyright {
     padding-top: 1rem;
+
+    p {
+      color: ${styles.colors.green};
+    }
   }
 `;
 export default Footer;

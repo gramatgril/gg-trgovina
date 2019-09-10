@@ -47,10 +47,9 @@ const CategoryList = ({ categories }) => {
 const Wrapper = styled.div`
   padding: 4rem 0;
   text-align: center;
-  background: ${styles.colors.white};
 
   .center {
-    width: 80vw;
+    width: 90vw;
     margin: 3rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

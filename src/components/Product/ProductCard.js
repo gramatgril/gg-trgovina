@@ -24,10 +24,6 @@ const ProductCard = ({ product }) => {
             </h4>
           )}
         </div>
-        {/* <div className="footer"> */}
-        {/* <h4></h4> */}
-        {/* <h4>{price} €</h4> */}
-        {/* </div> */}
       </Link>
     </Wrapper>
   );
@@ -36,19 +32,15 @@ const ProductCard = ({ product }) => {
 const Wrapper = styled.article`
   background: ${styles.colors.offWhite};
   transition: ${styles.linearTransition};
-  /* border: 1px solid ${styles.colors.green}; */
+  border: 1px solid ${styles.colors.white};
 
   :hover {
-    /* border: 1px solid ${styles.colors.green}; */
-
+    border: 1px solid ${styles.colors.green};
     .header {
-      /* background: ${styles.colors.green}; */
       h4 {
-        /* color: ${styles.colors.white}; */
+        transition: ${styles.linearTransition};
+        color: ${styles.colors.green};
       }
-    }
-    .img-container {
-      opacity: 0.5;
     }
   }
 
@@ -58,7 +50,7 @@ const Wrapper = styled.article`
     text-align: left;
     background: ${styles.colors.white};
     h4 {
-      color: ${styles.colors.grey};
+      color: ${styles.colors.black};
       font-size: 1.5rem;
       font-weight: 300;
       text-transform: capitalize;

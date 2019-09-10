@@ -34,6 +34,11 @@ const Legal = () => {
           tretjim osebam ali institucijam, razen v primerih, ki jih določa
           zakon.
         </p>
+        <p>
+          Spletna stran gramat-gril.si uporablja Google Analytics, ki zbira samo
+          anonimne podatke in ne zadrži informacij o uporabnikih dlje kot 14
+          dni.
+        </p>
       </div>
     </Wrapper>
   );

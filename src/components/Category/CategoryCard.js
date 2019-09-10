@@ -21,15 +21,18 @@ const CategoryCard = ({ title, slug, image }) => {
 const Wrapper = styled.div`
   transition: ${styles.transition({ time: "0.1s", type: "linear" })};
 
-  :hover {
-    .title-box {
-      opacity: 1;
-    }
+  .img {
+    height: 280px;
+    /* transition: ${styles.linearTransition}; */
   }
 
-  .img {
-    height: 300px;
-    transition: ${styles.linearTransition};
+  :hover {
+      .title-box {
+        border: 2px solid ${styles.colors.green};
+        transition: ${styles.linearTransition};
+        color: ${styles.colors.white};
+        background: ${styles.colors.green};
+      }
   }
 
   .title-box {
@@ -39,28 +42,19 @@ const Wrapper = styled.div`
     left: 50%;
     transform: translate(-50%, -50%);
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 1.8px;
     color: ${styles.colors.green};
     border: 2px solid ${styles.colors.green};
     background: ${styles.colors.white};
-    padding: 0.5rem 0.7rem;
+    padding: 0.5rem;
     display: inline-block;
     transition: ${styles.linearTransition};
-    cursor: pointer;
   }
 
   .img-container {
     position: relative;
     background: ${styles.colors.white};
     transition: ${styles.linearTransition};
-
-    :hover .img {
-      opacity: 0.5;
-    }
-
-    :hover .link {
-      opacity: 1;
-    }
   }
 `;
 
