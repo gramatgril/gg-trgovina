@@ -8,16 +8,16 @@ import { styles } from "../../utils";
 
 const NavbarHeader = ({ toggleOpen }) => {
   return (
-    <HeaderWrapper>
+    <Wrapper>
       <Link to="/" className="link">
         <h1>GramatGril</h1>
       </Link>
       <FaAlignRight className="toggle-icon" onClick={() => toggleOpen()} />
-    </HeaderWrapper>
+    </Wrapper>
   );
 };
 
-const HeaderWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -8,18 +8,18 @@ import { styles } from "../../utils";
 
 const PromotedProductsList = ({ products }) => {
   return (
-    <PromoListWrapper>
+    <Wrapper>
       <Title title="posebna" subtitle="ponudba" />
       <div className="center">
         {products.map(({ node }) => (
           <ProductCard key={node.id} product={node} />
         ))}
       </div>
-    </PromoListWrapper>
+    </Wrapper>
   );
 };
 
-const PromoListWrapper = styled.div`
+const Wrapper = styled.div`
   padding: 2rem 0;
   text-align: center;
   background: ${styles.colors.white};

@@ -30,12 +30,12 @@ const NavbarLinks = ({ isOpen }) => {
     {
       id: 4,
       path: "/kontakt",
-      name: "kontakt",
+      name: "povpraševanje",
     },
   ]);
 
   return (
-    <LinkWrapper isOpen={isOpen}>
+    <Wrapper isOpen={isOpen}>
       {links.map(({ id, path, name }) => (
         <li key={id}>
           <Link to={path} className="nav-link">
@@ -43,11 +43,11 @@ const NavbarLinks = ({ isOpen }) => {
           </Link>
         </li>
       ))}
-    </LinkWrapper>
+    </Wrapper>
   );
 };
 
-const LinkWrapper = styled.ul`
+const Wrapper = styled.ul`
   li {
     list-style-type: none;
   }

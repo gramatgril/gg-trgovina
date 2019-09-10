@@ -22,7 +22,7 @@ const CategoryList = ({ categories }) => {
   const { nasvetiImg } = useStaticQuery(getNasvetiImg);
 
   return (
-    <CategoryListWrapper>
+    <Wrapper>
       <Title title="vse" subtitle="kategorije" />
       <div className="center">
         {categories.map(({ node }) => (
@@ -40,11 +40,11 @@ const CategoryList = ({ categories }) => {
           image={nasvetiImg.image}
         />
       </div>
-    </CategoryListWrapper>
+    </Wrapper>
   );
 };
 
-const CategoryListWrapper = styled.div`
+const Wrapper = styled.div`
   padding: 4rem 0;
   text-align: center;
   background: ${styles.colors.white};

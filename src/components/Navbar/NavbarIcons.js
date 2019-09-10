@@ -26,17 +26,17 @@ const NavbarIcons = () => {
   ]);
 
   return (
-    <IconsWrapper>
+    <Wrapper>
       {icons.map(({ id, path, icon }) => (
         <a key={id} href={path} target="_blank" rel="noopener noreferrer">
           {icon}
         </a>
       ))}
-    </IconsWrapper>
+    </Wrapper>
   );
 };
 
-const IconsWrapper = styled.div`
+const Wrapper = styled.div`
   .icon {
     font-size: 1.3rem;
     cursor: pointer;

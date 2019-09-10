@@ -1,23 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
 import AdviceCard from "./AdviceCard";
 
 const AdviceList = ({ advices }) => {
   return (
-    <AdviceListWrapper>
+    <Wrapper>
       <div className="center">
         {advices.map(({ node }) => (
           <AdviceCard advice={node} key={node.id} />
         ))}
       </div>
-    </AdviceListWrapper>
+    </Wrapper>
   );
 };
 
-const AdviceListWrapper = styled.div`
-  padding: 0.5rem 0;
+const Wrapper = styled.div`
   text-align: center;
 
   @media (min-width: 576px) {

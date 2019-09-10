@@ -7,13 +7,14 @@ import SEO from "./../components/seo";
 import About from "../components/About/About.js";
 
 export default ({ data }) => {
+  const { companyInfo, contactInfo } = data.site.siteMetadata;
   const heroImg = data.heroImg.image.fluid;
 
   return (
     <Layout>
       <SEO title="O nas" />
       <Hero img={heroImg} />
-      <About />
+      <About companyInfo={companyInfo} contactInfo={contactInfo} />
     </Layout>
   );
 };
@@ -24,6 +25,25 @@ export const query = graphql`
       image: childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        companyInfo {
+          nameLong
+          nameShort
+          address
+          ceo
+          companyId
+          vatId
+          companyDesc
+        }
+        contactInfo {
+          phone
+          fax
+          web
+          mail
         }
       }
     }

@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+import { styles } from "../../utils";
+
 const Legal = () => {
   return (
-    <LegalWrapper>
+    <Wrapper>
       <div className="center">
-        <h5>1. Izvensodno reševanje potrošniških sporov</h5>
+        <h4>1. Izvensodno reševanje potrošniških sporov</h4>
         <p>
           Gramat Gril d.o.o. skladno z določbo 3. odstavka 32. člena Zakona o
           izvensodnem reševanju potrošniških sporov (Ur. l. RS, št. 81/2015;
@@ -14,7 +16,7 @@ const Legal = () => {
           (IRPS). Elektronska povezava na platformo za spletno reševanje
           potrošniških sporov – SRPS.
         </p>
-        <h5>2. Obveščanje in e-novice</h5>
+        <h4>2. Obveščanje in e-novice</h4>
         <p>
           Uporabnik se strinja, da ga ob prijavi na e-novice občasno obveščamo o
           novostih na strani, novosti v ponudbi in promocijskih akcijah.
@@ -22,7 +24,7 @@ const Legal = () => {
           zlorabil ali posredoval tretji osebi. Uporabnik se lahko kadarkoli
           odjavi od prejemanja novičk.
         </p>
-        <h5>3. Varovanje podatkov</h5>
+        <h4>3. Varovanje podatkov</h4>
         <p>
           Vse osebne podatke, ki nam jih boste na kakršenkoli način posredovali,
           bomo brezpogojno varovali ter ravnali z njimi v skladu z Zakonom o
@@ -33,28 +35,34 @@ const Legal = () => {
           zakon.
         </p>
       </div>
-    </LegalWrapper>
+    </Wrapper>
   );
 };
 
-const LegalWrapper = styled.div`
-  padding-top: 2rem;
+const Wrapper = styled.div`
+  padding: 2rem 0;
   margin: 0 auto;
 
   .center {
-    width: 70vw;
     text-align: center;
 
-    h5 {
-      text-align: left;
+    h4 {
+      margin: 1rem 0;
+      letter-spacing: ${styles.letterSpacing};
       font-weight: bold;
-      font-size: 22px;
+      font-size: 2rem;
     }
 
     p {
+      letter-spacing: 1.2px;
       text-align: left;
-      padding: 1rem;
-      margin-bottom: 2rem;
+      padding: 2rem 2rem;
+    }
+  }
+
+  @media (min-width: 576px) {
+    .center {
+      width: 70vw;
     }
   }
 `;

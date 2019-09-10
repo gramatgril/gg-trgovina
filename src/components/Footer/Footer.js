@@ -8,8 +8,8 @@ const getData = graphql`
   query {
     site {
       siteMetadata {
-        information {
-          company
+        companyInfo {
+          name
           street
           city
           copyright
@@ -26,15 +26,15 @@ const getData = graphql`
 const Footer = () => {
   const { site } = useStaticQuery(getData);
 
+  const { name, street, city, copyright } = site.siteMetadata.companyInfo;
   const { phone, mail } = site.siteMetadata.contactInfo;
-  const { company, street, city, copyright } = site.siteMetadata.information;
 
   return (
-    <FooterWrapper>
+    <Wrapper>
       <div className="segments">
         <div className="segment">
           <h2>O podjetju</h2>
-          <p>{company}</p>
+          <p>{name}</p>
           <p>{street}</p>
           <p>{city}</p>
         </div>
@@ -59,11 +59,11 @@ const Footer = () => {
       </div>
       <div className="copyright"></div>
       <p>&copy; {copyright}</p>
-    </FooterWrapper>
+    </Wrapper>
   );
 };
 
-const FooterWrapper = styled.footer`
+const Wrapper = styled.footer`
   padding: 2rem 0;
   background: ${styles.colors.grey};
   color: ${styles.colors.white};

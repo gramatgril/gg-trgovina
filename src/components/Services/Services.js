@@ -29,7 +29,7 @@ const Services = () => {
   ]);
 
   return (
-    <ServicesWrapper>
+    <Wrapper>
       <Title title="nudimo" subtitle="vam" />
       <div className="center">
         {services.map(({ id, icon, text }) => (
@@ -39,11 +39,11 @@ const Services = () => {
           </article>
         ))}
       </div>
-    </ServicesWrapper>
+    </Wrapper>
   );
 };
 
-const ServicesWrapper = styled.div`
+const Wrapper = styled.div`
   background: ${styles.colors.offWhite};
   padding: 4rem 0;
 

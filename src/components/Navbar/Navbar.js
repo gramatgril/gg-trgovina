@@ -13,17 +13,17 @@ const Navbar = () => {
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <NavbarWrapper>
+    <Wrapper>
       <div className="nav-center">
         <NavbarHeader toggleOpen={toggleOpen} />
         <NavbarLinks isOpen={isOpen} />
         <NavbarIcons />
       </div>
-    </NavbarWrapper>
+    </Wrapper>
   );
 };
 
-const NavbarWrapper = styled.div`
+const Wrapper = styled.div`
   background: ${styles.colors.grey};
   box-shadow: ${styles.lightShadow};
 

@@ -18,7 +18,7 @@ const Button = styled.button`
   color: ${styles.colors.white};
   border: 2px solid ${styles.colors.green};
   padding: 0.9rem 1.8rem;
-  font-size: 24px;
+  font-size: 1rem;
   display: inline-block;
   transition: ${styles.linearTransition};
   cursor: pointer;

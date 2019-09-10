@@ -7,15 +7,30 @@ module.exports = {
     title: `Gramat Gril`,
     description: `Opis Strani`,
     author: `@praecorloth`,
-    information: {
-      company: `Gramat Gril d.o.o.`,
+    companyInfo: {
+      nameLong: `Proizvodnja, transport in trgovina gradbenega materiala Gramat Gril d.o.o.`,
+      nameShort: `GRAMAT GRIL d.o.o.`,
+      name: `Gramat Gril d.o.o.`,
       street: `Rozna dolina 9`,
       city: `1290 Grosuplje`,
+      address: `Rožna dolina 9, 1290 Grosuplje`,
+      ceo: `Peter Gril`,
+      companyId: `5292263000`,
+      vatId: `SI 88496473`,
       copyright: `2010-2019 GRAMAT GRIL | Prodaja gradbenega materiala, kopalniške opreme`,
+      companyDesc: ` Tradicija podjetništva v družini Gril sega v leto 1967. Takrat sta
+      Ana in August Gril odprla obrtno delavnico za izdelavo cementnih
+      izdelkov. Leta 1989 sta jo reorganizirala v podjetje GRAMAT GRIL
+      d.o.o. ter odprla trgovino z gradbenim materialom in keramiko. Leta
+      2009 je podjetje prevzel sin Peter Gril. Danes gradbeni oddelek ter
+      salon keramike in kopalniške opreme na 700m2 svojim kupcem nudi
+      celovito ponudbo materiala za kopalnice.`,
     },
     contactInfo: {
       phone: `+386 1 786 33 64`,
+      fax: `+386 1 786 44 64`,
       mail: `info@gramat-gril.si`,
+      web: `www.gramat-gril.si`,
     },
     image: "/defaultBcg.jpg",
   },

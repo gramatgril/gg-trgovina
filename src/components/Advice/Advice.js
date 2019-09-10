@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   padding: 1rem 0;
 
   .center {
-    padding: 1rem 1rem;
+    padding: 1rem 0.8rem;
     margin: 0 auto;
   }
 

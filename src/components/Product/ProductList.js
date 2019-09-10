@@ -9,7 +9,7 @@ import { Link } from "gatsby";
 
 const ProductList = ({ products }) => {
   return (
-    <ProductListWrapper>
+    <Wrapper>
       <div className="center">
         {products.map(({ node }) => (
           <ProductCard key={node.id} product={node} />
@@ -19,11 +19,11 @@ const ProductList = ({ products }) => {
       <Link to="/">
         <PrimaryButton text="nazaj" />
       </Link>
-    </ProductListWrapper>
+    </Wrapper>
   );
 };
 
-const ProductListWrapper = styled.div`
+const Wrapper = styled.div`
   background: ${styles.colors.white};
   padding: 1rem 0;
   text-align: center;

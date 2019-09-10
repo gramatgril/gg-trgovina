@@ -5,16 +5,16 @@ import { styles } from "../../utils";
 
 const Title = ({ title, subtitle }) => {
   return (
-    <TitleWrapper>
+    <Wrapper>
       <h4>
         <span className="title">{title}</span>
         <span>{subtitle}</span>
       </h4>
-    </TitleWrapper>
+    </Wrapper>
   );
 };
 
-const TitleWrapper = styled.div`
+const Wrapper = styled.div`
   text-transform: uppercase;
   font-size: 2.3rem;
   margin-bottom: 2rem;

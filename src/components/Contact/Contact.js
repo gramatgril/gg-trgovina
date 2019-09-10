@@ -6,7 +6,7 @@ import { PrimaryButton } from "../Button/Button";
 
 const Contact = () => {
   return (
-    <ContactWrapper>
+    <Wrapper>
       <div className="center">
         <div className="title">
           <h1>Obrazec za povpraševanje</h1>
@@ -55,11 +55,11 @@ const Contact = () => {
           </div>
         </form>
       </div>
-    </ContactWrapper>
+    </Wrapper>
   );
 };
 
-const ContactWrapper = styled.section`
+const Wrapper = styled.section`
   padding: 3rem 0;
 
   .center {
@@ -68,19 +68,26 @@ const ContactWrapper = styled.section`
   }
 
   .title {
-    color: ${styles.colors.green};
     text-align: center;
     padding-bottom: 1rem;
-
-    h1 {
-    font-weight: 300;
-    }
   }
+
+  h1 {
+
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      letter-spacing: 8px;
+    }
 
   @media (min-width: 992px) {
     .center {
       width: 50vw;
       margin: 0 auto;
+    }
+
+    h1{
+      font-size: 2rem;
     }
   }
 

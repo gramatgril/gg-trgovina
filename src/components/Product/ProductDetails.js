@@ -11,7 +11,7 @@ const ProductDetails = ({ product, categorySlug }) => {
 
   return (
     <>
-      <ProductDetailsWrapper>
+      <Wrapper>
         <div className="center">
           <div className="title">
             <h2>{title}</h2>
@@ -37,12 +37,12 @@ const ProductDetails = ({ product, categorySlug }) => {
           </div>
           <Divider />
         </div>
-      </ProductDetailsWrapper>
+      </Wrapper>
     </>
   );
 };
 
-const ProductDetailsWrapper = styled.div`
+const Wrapper = styled.div`
   padding: 1rem 0;
 
   .center {

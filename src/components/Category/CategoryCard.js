@@ -7,18 +7,18 @@ import { styles } from "../../utils";
 
 const CategoryCard = ({ title, slug, image }) => {
   return (
-    <CardWrapper>
+    <Wrapper>
       <Link to={`/${slug}`}>
         <div className="img-container">
           <Img fluid={image.fluid} alt="category" className="img" />
           <div className="title-box">{title}</div>
         </div>
       </Link>
-    </CardWrapper>
+    </Wrapper>
   );
 };
 
-const CardWrapper = styled.div`
+const Wrapper = styled.div`
   transition: ${styles.transition({ time: "0.1s", type: "linear" })};
 
   :hover {

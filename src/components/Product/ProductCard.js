@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
   const { price, slug, title, image, category, promo } = product;
 
   return (
-    <ProductCardWrapper>
+    <Wrapper>
       <Link className="link" to={`/${category.slug}/${slug}`}>
         <div className="header">
           <h4>{title}</h4>
@@ -29,11 +29,11 @@ const ProductCard = ({ product }) => {
         {/* <h4>{price} €</h4> */}
         {/* </div> */}
       </Link>
-    </ProductCardWrapper>
+    </Wrapper>
   );
 };
 
-const ProductCardWrapper = styled.article`
+const Wrapper = styled.article`
   background: ${styles.colors.offWhite};
   transition: ${styles.linearTransition};
   /* border: 1px solid ${styles.colors.green}; */

@@ -26,9 +26,7 @@ const AdviceCard = ({ advice }) => {
 };
 
 const Wrapper = styled.div`
-  margin: 1rem 0;
-  background: ${styles.colors.offWhite};
-  /* border: 1px solid ${styles.colors.green}; */
+  /* margin: 1rem 0; */
 
   .link {
     text-decoration: none;
@@ -36,9 +34,11 @@ const Wrapper = styled.div`
 
   .center {
     display: inline-block;
-
+    border: 1px solid ${styles.colors.white};
 
     :hover {
+      transition: ${styles.linearTransition};
+      border: 1px solid ${styles.colors.green};
       h2 {
         color: ${styles.colors.green};
       }
@@ -57,8 +57,6 @@ const Wrapper = styled.div`
     top: 0%;
     background: ${styles.colors.green};
     padding: 0.3rem 1rem;
-    /* border-top-right-radius: 1rem;
-    border-bottom-right-radius: 1rem; */
   }
 
   .desc {
@@ -68,17 +66,16 @@ const Wrapper = styled.div`
 
   h2 {
     color: ${styles.colors.black};
-    padding: 1rem 0;
-    margin: 1rem 0;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1rem;
   }
+
   h4 {
-    color: ${styles.colors.black};
-    font-size: 0.8rem;
-    font-weight:400;
-    letter-spacing: ${styles.letterSpacing};
+    color: ${styles.colors.grey};
+    font-size: 1rem;
+    font-weight: 400;
+    /* letter-spacing: 1px; */
   }
 
   .link {
@@ -100,7 +97,7 @@ const Wrapper = styled.div`
 
   @media (min-width: 1200px) {
     .center {
-      width: 80vw;
+      width: 70vw;
     }
   }
 `;
