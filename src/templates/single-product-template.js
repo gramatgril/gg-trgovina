@@ -10,11 +10,12 @@ import Advice from "../components/Advice";
 export default ({ data }) => {
   const { title } = data.product;
   const { slug } = data.product.category;
+
   return (
     <Layout>
       <SEO title={title} />
       <ProductDetails product={data.product} categorySlug={slug} />
-      <Advice title />
+      <Advice embed={false} />
       <PromotedProducts />
     </Layout>
   );
@@ -25,11 +26,6 @@ export const query = graphql`
     product: contentfulArtikel(contentful_id: { eq: $id }) {
       title
       price
-      images {
-        fluid(quality: 80, maxHeight: 400, maxWidth: 400) {
-          ...GatsbyContentfulFluid
-        }
-      }
       description {
         json
       }

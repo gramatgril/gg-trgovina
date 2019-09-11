@@ -1,10 +1,14 @@
 import React from "react";
-import { FaAlignRight } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { styles } from "../../utils";
+
+const propTypes = {
+  toggleOpen: PropTypes.func.isRequired,
+};
 
 const NavbarHeader = ({ toggleOpen }) => {
   return (
@@ -12,7 +16,7 @@ const NavbarHeader = ({ toggleOpen }) => {
       <Link to="/" className="link">
         <h1>GramatGril</h1>
       </Link>
-      <FaAlignRight className="toggle-icon" onClick={() => toggleOpen()} />
+      <FaBars className="toggle-icon" onClick={() => toggleOpen()} />
     </Wrapper>
   );
 };
@@ -37,7 +41,7 @@ const Wrapper = styled.div`
   .toggle-icon {
     font-size: 1.5rem;
     cursor: pointer;
-    color: ${styles.colors.white};
+    color: ${styles.colors.green};
   }
 
   h1 {
@@ -52,8 +56,6 @@ const Wrapper = styled.div`
   }
 `;
 
-NavbarHeader.propTypes = {
-  toggleOpen: PropTypes.func.isRequired,
-};
+NavbarHeader.propTypes = propTypes;
 
 export default NavbarHeader;

@@ -1,10 +1,25 @@
 import React from "react";
-import styled from "styled-components";
 import { useStaticQuery, graphql } from "gatsby";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 import CategoryCard from "./CategoryCard";
 import Title from "./../Title";
-import { styles } from "../../utils";
+
+const propTypes = {
+  categories: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        slug: PropTypes.string.isRequired,
+        image: PropTypes.shape({
+          fluid: PropTypes.object.isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired
+  ).isRequired,
+};
 
 const getNasvetiImg = graphql`
   query {
@@ -23,7 +38,7 @@ const CategoryList = ({ categories }) => {
 
   return (
     <Wrapper>
-      <Title title="vse" subtitle="kategorije" />
+      <Title title="kategorije" />
       <div className="center">
         {categories.map(({ node }) => (
           <CategoryCard
@@ -62,6 +77,7 @@ const Wrapper = styled.div`
       grid-template-columns: repeat(auto-fill, minmax(368.66px, 1fr));
     }
   }
+
   @media (min-width: 1200px) {
     .center {
       width: 100%;
@@ -69,5 +85,7 @@ const Wrapper = styled.div`
     }
   }
 `;
+
+CategoryList.propTypes = propTypes;
 
 export default CategoryList;

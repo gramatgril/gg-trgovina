@@ -1,7 +1,25 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import AdviceCard from "./AdviceCard";
+
+const propTypes = {
+  advices: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        publishDate: PropTypes.string.isRequired,
+        slug: PropTypes.string.isRequired,
+        shortDesc: PropTypes.string.isRequired,
+        image: PropTypes.shape({
+          fluid: PropTypes.object.isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired
+  ).isRequired,
+};
 
 const AdviceList = ({ advices }) => {
   return (
@@ -23,6 +41,7 @@ const Wrapper = styled.div`
       width: 100%;
     }
   }
+
   @media (min-width: 1200px) {
     .center {
       width: 100%;
@@ -30,5 +49,7 @@ const Wrapper = styled.div`
     }
   }
 `;
+
+AdviceList.propTypes = propTypes;
 
 export default AdviceList;

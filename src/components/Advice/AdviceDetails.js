@@ -1,17 +1,30 @@
 import React from "react";
-import styled from "styled-components";
-import { INLINES } from "@contentful/rich-text-types";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { INLINES } from "@contentful/rich-text-types";
 import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import styled from "styled-components";
+
+import { styles } from "../../utils";
 
 import { PrimaryButton } from "../Button";
-import { styles } from "../../utils";
+
+const propTypes = {
+  advice: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    publishDate: PropTypes.string.isRequired,
+    content: PropTypes.shape({
+      json: PropTypes.object.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 const AdviceDetails = ({ advice }) => {
   const { title, publishDate, content } = advice;
 
   const options = {
     renderNode: {
+      // Finds embedded images and displays them
       "embedded-asset-block": node => {
         return (
           <div className="image">
@@ -23,6 +36,7 @@ const AdviceDetails = ({ advice }) => {
           </div>
         );
       },
+      // Finds linked Youtube and Vimeo links and creates player
       [INLINES.HYPERLINK]: node => {
         if (node.data.uri.includes("player.vimeo.com/video")) {
           return (
@@ -60,7 +74,6 @@ const AdviceDetails = ({ advice }) => {
         <article className="post">
           {documentToReactComponents(content.json, options)}
         </article>
-
         <Link to="/nasveti" className="link">
           <PrimaryButton text="nazaj" />
         </Link>
@@ -90,9 +103,11 @@ const Wrapper = styled.div`
     letter-spacing: ${styles.letterSpacing};
     margin-bottom: 1rem;
   }
+
   .post {
     margin: 2rem 0;
   }
+
   .post img {
     max-width: 70vw;
   }
@@ -112,4 +127,7 @@ const IframeContainer = styled.span`
     left: 0;
   }
 `;
+
+AdviceDetails.propTypes = propTypes;
+
 export default AdviceDetails;

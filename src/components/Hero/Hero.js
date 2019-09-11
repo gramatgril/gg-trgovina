@@ -1,6 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 import BackgroundImage from "gatsby-background-image";
+
+const propTypes = {
+  img: PropTypes.object.isRequired,
+  children: PropTypes.node,
+};
 
 const Hero = ({ img, className, children }) => {
   return (
@@ -20,3 +26,5 @@ export default styled(Hero)`
   justify-content: center;
   align-items: center;
 `;
+
+Hero.propTypes = propTypes;

@@ -64,7 +64,7 @@ const Footer = () => {
 
 const Wrapper = styled.footer`
   padding: 2rem 0;
-  background: ${styles.colors.grey};
+  background: ${styles.colors.black};
   color: ${styles.colors.white};
   text-align: center;
 
@@ -78,8 +78,7 @@ const Wrapper = styled.footer`
 
   .segments {
     display: flex;
-    justify-content: space-around;
-
+    justify-content: space-evenly;
     .segment {
       h2 {
         padding: 0.5rem 0.5rem 0.5rem 0;
@@ -102,7 +101,8 @@ const Wrapper = styled.footer`
     padding-top: 1rem;
 
     p {
-      color: ${styles.colors.green};
+      font-size: 0.8rem;
+      color: ${styles.colors.white};
     }
   }
 `;

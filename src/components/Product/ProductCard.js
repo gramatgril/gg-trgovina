@@ -1,10 +1,26 @@
 import React from "react";
-import { Link } from "gatsby";
 import { FaPercent } from "react-icons/fa";
-import styled from "styled-components";
+import { Link } from "gatsby";
 import Img from "gatsby-image";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 import { styles } from "../../utils";
+
+const propTypes = {
+  product: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    promo: PropTypes.bool.isRequired,
+    slug: PropTypes.string.isRequired,
+    category: PropTypes.shape({
+      slug: PropTypes.string.isRequired,
+    }).isRequired,
+    image: PropTypes.shape({
+      fluid: PropTypes.object.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 const ProductCard = ({ product }) => {
   const { price, slug, title, image, category, promo } = product;
@@ -30,12 +46,13 @@ const ProductCard = ({ product }) => {
 };
 
 const Wrapper = styled.article`
-  background: ${styles.colors.offWhite};
   transition: ${styles.linearTransition};
-  border: 1px solid ${styles.colors.white};
 
   :hover {
-    border: 1px solid ${styles.colors.green};
+    .img {
+      transition: ${styles.linearTransition};
+      opacity: 0.9;
+    }
     .header {
       h4 {
         transition: ${styles.linearTransition};
@@ -50,6 +67,7 @@ const Wrapper = styled.article`
     text-align: left;
     background: ${styles.colors.white};
     h4 {
+      transition: ${styles.linearTransition};
       color: ${styles.colors.black};
       font-size: 1.5rem;
       font-weight: 300;
@@ -65,7 +83,8 @@ const Wrapper = styled.article`
   }
 
   .img {
-    height: 300px;
+    transition: ${styles.linearTransition};
+    height: 250px;
   }
 
   .price {
@@ -81,15 +100,15 @@ const Wrapper = styled.article`
   }
 
   .promo {
-    font-size: 20px;
+    font-size: 1.8rem;
     color: ${styles.colors.white};
     /* transform: rotate(45deg); */
     position: absolute;
-    left: 90%;
-    top: 5%;
+    left: 82%;
+    top: 10%;
     background: red;
-    padding: 0.3rem 0.5rem;
-    border-radius: 3rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 5rem;
   }
 
   .link {
@@ -111,5 +130,7 @@ const Wrapper = styled.article`
     }
   }
 `;
+
+ProductCard.propTypes = propTypes;
 
 export default ProductCard;

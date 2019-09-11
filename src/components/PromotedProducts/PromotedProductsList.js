@@ -1,10 +1,31 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 import ProductCard from "../Product/ProductCard";
 import Title from "../Title";
 
 import { styles } from "../../utils";
+
+const propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        slug: PropTypes.string.isRequired,
+        promo: PropTypes.bool.isRequired,
+        category: PropTypes.shape({
+          slug: PropTypes.string.isRequired,
+        }).isRequired,
+        image: PropTypes.shape({
+          fluid: PropTypes.object.isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired
+  ).isRequired,
+};
 
 const PromotedProductsList = ({ products }) => {
   return (
@@ -44,5 +65,7 @@ const Wrapper = styled.div`
     }
   }
 `;
+
+PromotedProductsList.propTypes = propTypes;
 
 export default PromotedProductsList;

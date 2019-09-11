@@ -1,7 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { styles } from "../../utils";
+
+const propTypes = {
+  title: PropTypes.string.isRequired,
+  info: PropTypes.string,
+  children: PropTypes.node,
+};
 
 const Banner = ({ title, info, children }) => {
   return (
@@ -14,10 +21,10 @@ const Banner = ({ title, info, children }) => {
 };
 
 const BannerWrapper = styled.div`
+  margin: 0 auto;
   padding-top: 2rem;
   text-align: center;
-  color: ${styles.colors.black};
-  background: ${styles.colors.white};
+  color: ${styles.colors.green};
 
   h1 {
     opacity: 1;
@@ -33,15 +40,14 @@ const BannerWrapper = styled.div`
     width: 85%;
     margin: 0 auto;
     margin-bottom: 2rem;
+    color: ${styles.colors.black};
   }
 
   @media (min-width: 768px) {
-    .banner h1 {
-      font-size: 4.5rem;
-    }
-    .banner p {
-      width: 70%;
-    }
+    width: 80vw;
   }
 `;
+
+Banner.propTypes = propTypes;
+
 export default Banner;

@@ -1,9 +1,18 @@
 import React from "react";
-import styled from "styled-components";
-import Img from "gatsby-image";
 import { Link } from "gatsby";
+import Img from "gatsby-image";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 import { styles } from "../../utils";
+
+const propTypes = {
+  title: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  image: PropTypes.shape({
+    fluid: PropTypes.object.isRequired,
+  }).isRequired,
+};
 
 const CategoryCard = ({ title, slug, image }) => {
   return (
@@ -23,16 +32,14 @@ const Wrapper = styled.div`
 
   .img {
     height: 280px;
-    /* transition: ${styles.linearTransition}; */
   }
 
   :hover {
-      .title-box {
-        border: 2px solid ${styles.colors.green};
-        transition: ${styles.linearTransition};
-        color: ${styles.colors.white};
-        background: ${styles.colors.green};
-      }
+    .title-box {
+      transition: ${styles.linearTransition};
+      color: ${styles.colors.white};
+      background: ${styles.colors.green};
+    }
   }
 
   .title-box {
@@ -44,7 +51,6 @@ const Wrapper = styled.div`
     text-transform: uppercase;
     letter-spacing: 1.8px;
     color: ${styles.colors.green};
-    border: 2px solid ${styles.colors.green};
     background: ${styles.colors.white};
     padding: 0.5rem;
     display: inline-block;
@@ -54,8 +60,10 @@ const Wrapper = styled.div`
   .img-container {
     position: relative;
     background: ${styles.colors.white};
-    transition: ${styles.linearTransition};
+    border: ${styles.colors.white};
   }
 `;
+
+CategoryCard.propTypes = propTypes;
 
 export default CategoryCard;

@@ -1,10 +1,29 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { styles } from "../../utils";
 
 import CompanyInfo from "./CompanyInfo";
 import GoogleMap from "./../GoogleMap";
+
+const propTypes = {
+  companyInfo: PropTypes.shape({
+    nameLong: PropTypes.string.isRequired,
+    nameShort: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    ceo: PropTypes.string.isRequired,
+    companyId: PropTypes.string.isRequired,
+    vatId: PropTypes.string.isRequired,
+    companyDesc: PropTypes.string.isRequired,
+  }).isRequired,
+  contactInfo: PropTypes.shape({
+    phone: PropTypes.string.isRequired,
+    fax: PropTypes.string.isRequired,
+    web: PropTypes.string.isRequired,
+    mail: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 const About = ({ companyInfo, contactInfo }) => {
   const { companyDesc } = companyInfo;
@@ -81,14 +100,17 @@ const Wrapper = styled.div`
   }
 
   h4 {
+    color: ${styles.colors.green};
+    text-transform: uppercase;
     margin: 1rem 0;
     letter-spacing: ${styles.letterSpacing};
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   p {
-    letter-spacing: 1.2px;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
     text-align: center;
     padding: 2rem 2rem;
   }
@@ -99,5 +121,7 @@ const Wrapper = styled.div`
     }
   }
 `;
+
+About.propTypes = propTypes;
 
 export default About;

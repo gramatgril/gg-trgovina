@@ -5,6 +5,10 @@ import PropTypes from "prop-types";
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar";
 
+const propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 const Layout = ({ children }) => {
   return (
     <Fragment>
@@ -37,8 +41,6 @@ const GlobalStyle = createGlobalStyle`
 }
 `;
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+Layout.propTypes = propTypes;
 
 export default Layout;

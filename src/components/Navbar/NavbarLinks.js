@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 
 import { styles } from "../../utils";
+
+const propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+};
 
 const NavbarLinks = ({ isOpen }) => {
   const [links] = useState([
@@ -48,44 +52,44 @@ const NavbarLinks = ({ isOpen }) => {
 };
 
 const Wrapper = styled.ul`
+  height: ${({ isOpen }) => (isOpen ? "200px" : "0px")};
+  overflow: hidden;
+  transition: ${styles.transition({ time: "0.3s" })};
+
   li {
     list-style-type: none;
   }
+
   .nav-link {
+    color: ${styles.colors.white};
     display: block;
     text-decoration: none;
     padding: 0.5rem 1rem 0.5rem 1rem;
-    color: ${styles.colors.white};
     font-weight: 400;
     font-size: 1rem;
     text-transform: capitalize;
     cursor: pointer;
     transition: ${styles.transition({ time: "0.3s" })};
-    &:hover {
+    :hover {
       background: ${styles.colors.green};
       color: ${styles.colors.white};
       padding: 0.5rem 1rem 0.5rem 1.3rem;
     }
   }
 
-  height: ${({ isOpen }) => (isOpen ? "170px" : "0px")};
-  overflow: hidden;
-  transition: ${styles.transition({ time: "0.3s" })};
-
   @media (min-width: 768px) {
+    color: ${styles.colors.white};
     height: auto;
     display: flex;
-    color: ${styles.colors.white};
     margin: 0 auto;
-    .nav-link:hover {
+    .nav-link :hover {
+      background: ${styles.colors.green};
       color: ${styles.colors.white};
       padding: 0.5rem 1rem 0.5rem 1rem;
     }
   }
 `;
 
-NavbarLinks.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-};
+NavbarLinks.propTypes = propTypes;
 
 export default NavbarLinks;

@@ -24,8 +24,8 @@ const Navbar = () => {
 };
 
 const Wrapper = styled.div`
-  background: ${styles.colors.grey};
-  box-shadow: ${styles.lightShadow};
+  background: ${styles.colors.black};
+  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
 
   @media (min-width: 768px) {
     display: flex;

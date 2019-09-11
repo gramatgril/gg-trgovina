@@ -36,6 +36,13 @@ const Services = () => {
           <article key={id} className="service">
             <span>{icon}</span>
             <h4>{text}</h4>
+            <hr className="divider" />
+            <p>
+              The quote above is something I read awhile back and has stuck with
+              me ever since. I think about it every time I come across a website
+              or an app or a program that is a usability nightmare. All I want
+              to do is fix it, and make it work and look better.
+            </p>
           </article>
         ))}
       </div>
@@ -48,26 +55,35 @@ const Wrapper = styled.div`
   padding: 4rem 0;
 
   .center {
-    width: 80vw;
+    width: 60vw;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-column-gap: 2rem;
   }
+
+  .divider {
+    border-radius: 10px;
+    height: 3px;
+    border: none;
+    background: ${styles.colors.green};
+    margin: 2rem auto;
+    width: 50px;
+  }
   .service {
-    margin: 2rem 0;
+    font-size: 1rem;
     text-align: center;
     span {
       color: ${styles.colors.green};
-      padding: 0.5rem;
       display: inline-block;
       font-size: 7rem;
-      margin-bottom: 1.5rem;
+      margin-top: 1.5rem;
     }
     h4 {
-      font-weight: 400;
+      font-weight: 600;
       text-transform: uppercase;
       letter-spacing: ${styles.letterSpacing};
+      /* margin: 1rem 0; */
     }
   }
 `;

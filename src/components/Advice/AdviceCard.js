@@ -1,12 +1,26 @@
 import React from "react";
-import styled from "styled-components";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 import { styles } from "../../utils";
 
+const propTypes = {
+  advice: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
+    shortDesc: PropTypes.string.isRequired,
+    publishDate: PropTypes.string.isRequired,
+    image: PropTypes.shape({
+      fluid: PropTypes.object.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
+
 const AdviceCard = ({ advice }) => {
   const { title, slug, shortDesc, image, publishDate } = advice;
+
   return (
     <Wrapper>
       <Link to={`/nasveti/${slug}`} className="link">
@@ -26,20 +40,19 @@ const AdviceCard = ({ advice }) => {
 };
 
 const Wrapper = styled.div`
-  /* margin: 1rem 0; */
-
   .link {
     text-decoration: none;
+  }
+
+  h2 {
+    transition: ${styles.linearTransition};
   }
 
   .center {
     transition: ${styles.linearTransition};
     display: inline-block;
-    border: 1px solid ${styles.colors.white};
 
     :hover {
-      background: ${styles.colors.offWhite};
-      border: 1px solid ${styles.colors.green};
       h2 {
         transition: ${styles.linearTransition};
         color: ${styles.colors.green};
@@ -81,7 +94,6 @@ const Wrapper = styled.div`
     color: ${styles.colors.grey};
     font-size: 1rem;
     font-weight: 400;
-    /* letter-spacing: 1px; */
   }
 
   .link {
@@ -107,5 +119,7 @@ const Wrapper = styled.div`
     }
   }
 `;
+
+AdviceCard.propTypes = propTypes;
 
 export default AdviceCard;

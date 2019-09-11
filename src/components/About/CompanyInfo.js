@@ -1,7 +1,20 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { styles } from "../../utils";
+
+const propTypes = {
+  companyInfo: PropTypes.shape({
+    nameLong: PropTypes.string.isRequired,
+    nameShort: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    ceo: PropTypes.string.isRequired,
+    companyId: PropTypes.string.isRequired,
+    vatId: PropTypes.string.isRequired,
+    companyDesc: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 const CompanyInfo = ({ companyInfo }) => {
   const { nameLong, nameShort, address, ceo, companyId, vatId } = companyInfo;
@@ -49,22 +62,33 @@ const Wrapper = styled.div`
   text-align: left;
   margin 0 auto;
 
+  table {
+   width: 100%;
+  }
 
   td {
-    width: 400px;
+    vertical-align: top;
+    width: 200px;
+    justify-content: top;
     padding: 0.5rem;
+    font-size: 0.8rem;
+    text-align: right;
   }
 
   td:nth-child(even) {
-    width: 800px;
+    text-align: left;
     border-left: 1px solid ${styles.colors.green};
   }
 
   @media (min-width: 576px) {
-    width: 60vw;
+    width: 40vw;
   }
+
   @media (min-width: 1200px) {
-    width: 60vw;
+    width: 40vw;
+  }
 `;
+
+CompanyInfo.propTypes = propTypes;
 
 export default CompanyInfo;

@@ -1,7 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { styles } from "../../utils";
+
+const propTypes = {
+  text: PropTypes.string.isRequired,
+  type: PropTypes.string,
+};
 
 const PrimaryButton = ({ text, className, type }) => {
   return (
@@ -41,5 +47,8 @@ const SecondaryButton = styled(PrimaryButton)`
     color: ${styles.colors.white};
   }
 `;
+
+PrimaryButton.propTypes = propTypes;
+SecondaryButton.propTypes = propTypes;
 
 export { PrimaryButton, SecondaryButton };

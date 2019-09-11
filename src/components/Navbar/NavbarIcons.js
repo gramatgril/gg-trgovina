@@ -38,9 +38,9 @@ const NavbarIcons = () => {
 
 const Wrapper = styled.div`
   .icon {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     cursor: pointer;
-    ${styles.transition({})}
+    transition: ${styles.linearTransition};
   }
 
   .icon:hover {
@@ -49,6 +49,7 @@ const Wrapper = styled.div`
 
   .facebook-icon {
     color: #3b579d;
+    /* color: ${styles.colors.white}; */
   }
 
   .stil-icon {

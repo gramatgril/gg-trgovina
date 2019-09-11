@@ -1,11 +1,32 @@
 import React from "react";
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 
+import { styles } from "../../utils";
+
+import { PrimaryButton } from "../Button/Button";
 import ProductCard from "./ProductCard";
 
-import { styles } from "../../utils";
-import { PrimaryButton } from "../Button/Button";
-import { Link } from "gatsby";
+const propTypes = {
+  products: PropTypes.arrayOf(
+    PropTypes.shape({
+      node: PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        slug: PropTypes.string.isRequired,
+        promo: PropTypes.bool.isRequired,
+        category: PropTypes.shape({
+          slug: PropTypes.string.isRequired,
+        }).isRequired,
+        image: PropTypes.shape({
+          fluid: PropTypes.object.isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired
+  ).isRequired,
+};
 
 const ProductList = ({ products }) => {
   return (
@@ -49,5 +70,7 @@ const Wrapper = styled.div`
     }
   }
 `;
+
+ProductList.propTypes = propTypes;
 
 export default ProductList;

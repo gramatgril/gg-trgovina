@@ -18,7 +18,7 @@ export default ({ data }) => {
         title="Nasveti in ideje"
         info="Vas zanimajo koraki do obnove, novosti na tržišču ali zgolj dober nasvet mojstra? Boste sam svoj mojster pa vam manjka nekaj tehničnih podatkov? Tu boste lahko prebirali med različnimi članki in izvedeli veliko dobrih nasvetov."
       />
-      <Advice />
+      <Advice embed={false} />
     </Layout>
   );
 };

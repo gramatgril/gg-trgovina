@@ -73,11 +73,13 @@ const Wrapper = styled.section`
   }
 
   h1 {
-
-      font-size: 1.5rem;
-      text-transform: uppercase;
-      margin-bottom: 2rem;
-      letter-spacing: 8px;
+    color: ${styles.colors.green};
+    opacity: 1;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    letter-spacing: 8px;
     }
 
   @media (min-width: 992px) {
