@@ -10,7 +10,7 @@ import { styles } from "../../utils";
 const propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
     promo: PropTypes.bool.isRequired,
     slug: PropTypes.string.isRequired,
     category: PropTypes.shape({
@@ -33,12 +33,12 @@ const ProductCard = ({ product }) => {
         </div>
         <div className="img-container">
           <Img fluid={image.fluid} className="img" />
-          <h4 className="price">{price} €</h4>
-          {promo && (
+          <h4 className="price">{price}</h4>
+          {/* {promo && (
             <h4 className="promo">
               <FaPercent />
             </h4>
-          )}
+          )} */}
         </div>
       </Link>
     </Wrapper>
@@ -77,14 +77,17 @@ const Wrapper = styled.article`
   }
 
   .img-container {
+    height: 368px;
+    /* width: 368px; */
     position: relative;
     background: ${styles.colors.white};
     transition: ${styles.linearTransition};
   }
 
   .img {
+    width: 100%;
+    height: 100%;
     transition: ${styles.linearTransition};
-    height: 250px;
   }
 
   .price {
@@ -113,21 +116,6 @@ const Wrapper = styled.article`
 
   .link {
     text-decoration: none;
-  }
-
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
-    text-align: left;
-
-    h4 {
-      color: ${styles.colors.green};
-      font-size: 1.5rem;
-      font-weight: 500;
-      text-transform: capitalize;
-      margin-bottom: 0;
-    }
   }
 `;
 

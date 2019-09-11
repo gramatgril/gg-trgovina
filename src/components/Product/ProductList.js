@@ -14,7 +14,7 @@ const propTypes = {
       node: PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        price: PropTypes.number.isRequired,
+        price: PropTypes.string.isRequired,
         slug: PropTypes.string.isRequired,
         promo: PropTypes.bool.isRequired,
         category: PropTypes.shape({
@@ -60,7 +60,8 @@ const Wrapper = styled.div`
 
   @media (min-width: 576px) {
     .center {
-      grid-template-columns: repeat(auto-fill, minmax(368.66px, 1fr));
+      /* grid-template-columns: repeat(auto-fill, minmax(368.66px, 1fr)); */
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
   }
   @media (min-width: 1200px) {

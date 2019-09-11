@@ -24,7 +24,7 @@ const BannerWrapper = styled.div`
   margin: 0 auto;
   padding-top: 2rem;
   text-align: center;
-  color: ${styles.colors.green};
+  color: ${styles.colors.black};
 
   h1 {
     opacity: 1;

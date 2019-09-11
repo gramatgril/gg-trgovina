@@ -34,7 +34,7 @@ export const query = graphql`
       }
       promo
       image {
-        fluid(quality: 80, maxHeight: 400, maxWidth: 400) {
+        fluid(quality: 100, maxWidth: 1000) {
           ...GatsbyContentfulFluid
         }
       }

@@ -5,12 +5,11 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import PropTypes from "prop-types";
 
 import { styles } from "../../utils";
-// import { Divider } from "./../../utils";
 
 const propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
+    price: PropTypes.string.isRequired,
     description: PropTypes.shape({
       json: PropTypes.object.isRequired,
     }).isRequired,
@@ -32,15 +31,13 @@ const ProductDetails = ({ product, categorySlug }) => {
         <div className="title">
           <h2>{title}</h2>
         </div>
-        {/* <Divider /> */}
         <div className="img-container">
           <Img fluid={image.fluid} alt="product" className="image" />
         </div>
         <div className="desc">
           {documentToReactComponents(description.json)}
         </div>
-        {/* <Divider /> */}
-        <h2 className="price">Cena: {price} €</h2>
+        <h2 className="price">Cena: {price}</h2>
       </div>
     </Wrapper>
   );
@@ -54,17 +51,15 @@ const Wrapper = styled.div`
     margin: 0 auto;
   }
 
-  .title {
+  .title h2 {
     color: ${styles.colors.black};
-
-    h2 {
-      font-size: 2rem;
-      padding: 1rem 0;
-      margin: 2rem 0;
-      text-transform: uppercase;
-      letter-spacing: ${styles.letterSpacing};
-      margin-bottom: 1rem;
-    }
+    font-size: 2rem;
+    padding: 1rem 0;
+    margin: 2rem 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    border-bottom: 5px solid ${styles.colors.green};
   }
 
   .price {
@@ -73,19 +68,17 @@ const Wrapper = styled.div`
     padding: 2rem 0;
   }
 
-  .divider {
-    background: ${styles.colors.green};
-  }
-
   .img-container {
-    box-shadow: ${styles.lightShadow};
-    max-width: 400px;
+    max-width: 500px;
   }
 
   h4 {
     text-transform: capitalize;
   }
+
   .desc {
+    text-align: left;
+    font-size: 1rem;
     padding: 1rem 0;
     line-height: 2;
   }
