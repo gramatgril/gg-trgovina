@@ -6,6 +6,8 @@ import styled from "styled-components";
 import AdviceList from "./AdviceList";
 import Title from "../Title";
 
+import { styles } from "../../utils";
+
 const propTypes = {
   embed: PropTypes.bool.isRequired,
 };
@@ -41,7 +43,7 @@ const Advice = ({ embed }) => {
     : allAdvices.edges;
 
   return (
-    <Wrapper>
+    <Wrapper embed={embed}>
       <div className="center">
         {embed && <Title title="Nasveti" subtitle="in ideje" />}
         <AdviceList advices={advices} />
@@ -52,7 +54,8 @@ const Advice = ({ embed }) => {
 
 const Wrapper = styled.div`
   padding: 1rem 0;
-
+  background: ${props =>
+    props.embed ? `${styles.colors.offWhite}` : `${styles.colors.white}`};
   .center {
     padding: 1rem 0.6rem;
     margin: 0 auto;

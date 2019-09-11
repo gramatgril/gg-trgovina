@@ -110,10 +110,12 @@ const Wrapper = styled.div`
   }
 
   p {
-    font-size: 0.8rem;
+    text-align: left;
+    font-size: 1rem;
+    padding: 1rem 0;
+    line-height: 2;
     letter-spacing: 1px;
     text-align: center;
-    padding: 2rem 2rem;
   }
 
   @media (min-width: 576px) {

@@ -12,7 +12,7 @@ const getCategories = graphql`
           title
           slug
           image {
-            fluid(quality: 80) {
+            fluid {
               ...GatsbyContentfulFluid_tracedSVG
             }
           }

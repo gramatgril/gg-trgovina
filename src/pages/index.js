@@ -7,6 +7,7 @@ import SEO from "../components/seo";
 import Services from "../components/Services";
 import NewProducts from "../components/NewProducts";
 import PromotedProducts from "./../components/PromotedProducts";
+import Advice from "../components/Advice/Advice";
 
 export default ({ data }) => {
   return (
@@ -15,6 +16,7 @@ export default ({ data }) => {
       <Category />
       <Services />
       <PromotedProducts />
+      <Advice embed={true} />
       <NewProducts />
     </Layout>
   );

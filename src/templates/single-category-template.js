@@ -6,6 +6,7 @@ import ProductList from "./../components/Product";
 import SEO from "./../components/seo";
 import Hero from "../components/Hero/Hero";
 import Banner from "../components/Banner/Banner";
+import Advice from "./../components/Advice/Advice";
 
 export default ({ data }) => {
   const { allProducts } = data;
@@ -18,6 +19,7 @@ export default ({ data }) => {
       <Hero img={image.fluid}></Hero>
       <Banner title={title} info={description.description} />
       <ProductList products={allProducts.edges} />
+      <Advice embed={true} />
     </Layout>
   );
 };
@@ -51,7 +53,7 @@ export const query = graphql`
         description
       }
       image {
-        fluid(quality: 100) {
+        fluid {
           ...GatsbyContentfulFluid
         }
       }

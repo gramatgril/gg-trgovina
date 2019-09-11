@@ -5,6 +5,8 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import PropTypes from "prop-types";
 
 import { styles } from "../../utils";
+import { PrimaryButton } from "../Button/Button";
+import { Link } from "gatsby";
 
 const propTypes = {
   product: PropTypes.shape({
@@ -32,12 +34,19 @@ const ProductDetails = ({ product, categorySlug }) => {
           <h2>{title}</h2>
         </div>
         <div className="img-container">
-          <Img fluid={image.fluid} alt="product" className="image" />
+          <Img fluid={image.fluid} alt="product" className="img" />
         </div>
         <div className="desc">
           {documentToReactComponents(description.json)}
         </div>
-        <h2 className="price">Cena: {price}</h2>
+        <h2 className="price">
+          Cena: <span>{price}</span>
+        </h2>
+        <div className="link">
+          <Link to="/">
+            <PrimaryButton text="nazaj" />
+          </Link>
+        </div>
       </div>
     </Wrapper>
   );
@@ -59,17 +68,29 @@ const Wrapper = styled.div`
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1rem;
-    border-bottom: 5px solid ${styles.colors.green};
+    border-bottom: 3px solid ${styles.colors.green};
   }
 
   .price {
+    font-weight: 400;
     color: ${styles.colors.green};
     text-align: right;
     padding: 2rem 0;
+    span {
+      font-weight: 700;
+    }
   }
 
   .img-container {
-    max-width: 500px;
+    max-width: 400px;
+  }
+
+  .img {
+    width: 100%;
+  }
+
+  .link {
+    text-align: center;
   }
 
   h4 {
@@ -79,7 +100,7 @@ const Wrapper = styled.div`
   .desc {
     text-align: left;
     font-size: 1rem;
-    padding: 1rem 0;
+    padding: 1rem 1rem;
     line-height: 2;
   }
 

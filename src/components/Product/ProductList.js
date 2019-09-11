@@ -46,7 +46,7 @@ const ProductList = ({ products }) => {
 
 const Wrapper = styled.div`
   background: ${styles.colors.white};
-  padding: 1rem 0;
+  padding: 1rem 0 4rem;
   text-align: center;
 
   .center {

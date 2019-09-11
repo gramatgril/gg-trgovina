@@ -23,7 +23,7 @@ const Button = styled.button`
   letter-spacing: ${styles.letterSpacing};
   color: ${styles.colors.white};
   border: 2px solid ${styles.colors.green};
-  padding: 0.9rem 1.8rem;
+  padding: 0.6rem 2.5rem;
   font-size: 1rem;
   display: inline-block;
   transition: ${styles.linearTransition};

@@ -71,7 +71,8 @@ const Wrapper = styled.div`
     width: 200px;
     justify-content: top;
     padding: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    line-height: 2;
     text-align: right;
   }
 

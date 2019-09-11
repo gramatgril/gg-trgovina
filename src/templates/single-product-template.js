@@ -15,7 +15,7 @@ export default ({ data }) => {
     <Layout>
       <SEO title={title} />
       <ProductDetails product={data.product} categorySlug={slug} />
-      <Advice embed={false} />
+      <Advice embed={true} />
       <PromotedProducts />
     </Layout>
   );
@@ -34,8 +34,8 @@ export const query = graphql`
       }
       promo
       image {
-        fluid(quality: 100, maxWidth: 1000) {
-          ...GatsbyContentfulFluid
+        fluid {
+          ...GatsbyContentfulFluid_tracedSVG
         }
       }
     }

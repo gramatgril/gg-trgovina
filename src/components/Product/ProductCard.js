@@ -1,5 +1,4 @@
 import React from "react";
-import { FaPercent } from "react-icons/fa";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 import PropTypes from "prop-types";
@@ -23,6 +22,7 @@ const propTypes = {
 };
 
 const ProductCard = ({ product }) => {
+  /* eslint-disable no-unused-vars */
   const { price, slug, title, image, category, promo } = product;
 
   return (
@@ -69,7 +69,7 @@ const Wrapper = styled.article`
     h4 {
       transition: ${styles.linearTransition};
       color: ${styles.colors.black};
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: 300;
       text-transform: capitalize;
       margin-bottom: 0;
@@ -77,15 +77,13 @@ const Wrapper = styled.article`
   }
 
   .img-container {
-    height: 368px;
-    /* width: 368px; */
+    height: 300px;
     position: relative;
     background: ${styles.colors.white};
     transition: ${styles.linearTransition};
   }
 
   .img {
-    width: 100%;
     height: 100%;
     transition: ${styles.linearTransition};
   }
