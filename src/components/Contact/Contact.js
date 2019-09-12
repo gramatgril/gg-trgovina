@@ -3,14 +3,13 @@ import styled from "styled-components";
 
 import { styles } from "../../utils";
 import { PrimaryButton } from "../Button/Button";
+import Title from "../Title";
 
 const Contact = () => {
   return (
     <Wrapper>
       <div className="center">
-        <div className="title">
-          <h1>Obrazec za povpraševanje</h1>
-        </div>
+        <Title title="Povpraševanje" />
         <form
           className="form"
           action="https://formspree.io/praecorloth@gmail.com"
@@ -75,7 +74,7 @@ const Wrapper = styled.section`
   h1 {
     color: ${styles.colors.green};
     opacity: 1;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
     margin-bottom: 2rem;
     padding: 0 1rem;

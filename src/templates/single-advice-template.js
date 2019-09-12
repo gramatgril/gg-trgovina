@@ -22,11 +22,6 @@ export const query = graphql`
     advice: contentfulNasvetiInIdeje(contentful_id: { eq: $id }) {
       title
       publishDate(formatString: "D. M. YYYY")
-      image {
-        fluid {
-          src
-        }
-      }
       content {
         json
       }

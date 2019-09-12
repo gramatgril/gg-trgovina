@@ -68,6 +68,11 @@ const Wrapper = styled.div`
     position: relative;
   }
 
+  .img {
+    height: 200px;
+    width: 300px;
+  }
+
   .date {
     font-size: 1.5rem;
     color: ${styles.colors.white};
@@ -98,11 +103,6 @@ const Wrapper = styled.div`
 
   .link {
     text-decoration: none;
-  }
-
-  .img {
-    height: 200px;
-    width: 300px;
   }
 
   @media (min-width: 576px) {

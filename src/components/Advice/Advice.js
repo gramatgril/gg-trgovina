@@ -23,7 +23,7 @@ const getAllAdvice = graphql`
           slug
           shortDesc
           image {
-            fluid {
+            fluid(maxWidth: 300, maxHeight: 200) {
               ...GatsbyContentfulFluid
             }
           }

@@ -27,9 +27,9 @@ const AdviceDetails = ({ advice }) => {
       // Finds embedded images and displays them
       "embedded-asset-block": node => {
         return (
-          <div className="image">
+          <div>
             <img
-              width="600"
+              className="img"
               src={node.data.target.fields.file["en-US"].url}
               alt="single blog"
             />
@@ -85,8 +85,9 @@ const AdviceDetails = ({ advice }) => {
 const Wrapper = styled.div`
   padding: 4rem 0;
 
-  .image {
-    padding: 2rem 0;
+  .img {
+    padding: 1rem;
+    height: 400px;
   }
 
   .center {
@@ -114,10 +115,11 @@ const Wrapper = styled.div`
 `;
 
 const IframeContainer = styled.span`
-  padding-bottom: 56.25%;
+  /* padding-bottom: 56.25%; */
   position: relative;
   display: block;
-  width: 100%;
+  height: 400px;
+  width: 600px;
 
   > iframe {
     height: 100%;
