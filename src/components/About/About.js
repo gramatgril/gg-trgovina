@@ -6,7 +6,6 @@ import { styles } from "../../utils";
 
 import CompanyInfo from "./CompanyInfo";
 import GoogleMap from "./../GoogleMap";
-import Banner from "./../Banner/Banner";
 
 const propTypes = {
   companyInfo: PropTypes.shape({

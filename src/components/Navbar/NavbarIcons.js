@@ -44,7 +44,7 @@ const Wrapper = styled.div`
   }
 
   .icon:hover {
-    color: ${styles.colors.grey};
+    color: ${styles.colors.green};
   }
 
   .facebook-icon {

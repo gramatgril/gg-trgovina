@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1rem;
   }
 
+
   main {
   min-height: 100vh;
   display: flex;

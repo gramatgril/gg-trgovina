@@ -61,11 +61,11 @@ const Wrapper = styled.ul`
   }
 
   .nav-link {
-    color: ${styles.colors.white};
+    color: ${styles.colors.black};
     display: block;
     text-decoration: none;
     padding: 0.5rem 1rem 0.5rem 1rem;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 1rem;
     text-transform: capitalize;
     cursor: pointer;

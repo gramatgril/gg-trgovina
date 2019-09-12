@@ -7,6 +7,7 @@ module.exports = {
     title: `Gramat Gril`,
     description: `Opis Strani`,
     author: `@praecorloth`,
+    siteUrl: `https://boring-mestorf-e59c4b.netlify.com`,
     companyInfo: {
       nameLong: `Proizvodnja, transport in trgovina gradbenega materiala Gramat Gril d.o.o.`,
       nameShort: `GRAMAT GRIL d.o.o.`,
@@ -54,5 +55,24 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-playground`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-robots-txt`,
+      options: {
+        host: `https://boring-mestorf-e59c4b.netlify.com`,
+        sitemap: `https://boring-mestorf-e59c4b.netlify.com/sitemap.xml`,
+        env: {
+          production: {
+            policy: [{ userAgent: "*", allow: "/" }],
+          },
+        },
+      },
+    },
+    // {
+    //   resolve: `gatsby-plugin-offline`,
+    //   options: {
+    //     precachePages: [`/info/`, `/gradnja/*`, `/nasveti/*`],
+    //   },
+    // },
   ],
 };
