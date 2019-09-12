@@ -35,7 +35,7 @@ export const query = graphql`
       promo
       image {
         fluid {
-          ...GatsbyContentfulFluid_tracedSVG
+          ...GatsbyContentfulFluid
         }
       }
     }
