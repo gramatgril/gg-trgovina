@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import ProductCard from "../Product/ProductCard";
-import Title from "../Title";
+import ProductCard from "../ProductCard";
+import Title from "../../Title";
 
-import { styles } from "../../utils";
+import { styles } from "../../../utils";
+import { PrimaryButton } from "../../Button/Button";
+import { Link } from "gatsby";
 
 const propTypes = {
   products: PropTypes.arrayOf(
@@ -36,6 +38,9 @@ const PromotedProductsList = ({ products }) => {
           <ProductCard key={node.id} product={node} />
         ))}
       </div>
+      <Link to="/akcija">
+        <PrimaryButton text="oglejte si vse izdelke v akciji" />
+      </Link>
     </Wrapper>
   );
 };
@@ -55,7 +60,8 @@ const Wrapper = styled.div`
 
   @media (min-width: 576px) {
     .center {
-      grid-template-columns: repeat(auto-fill, minmax(368.66px, 1fr));
+      /* grid-template-columns: repeat(auto-fill, minmax(368.66px, 1fr)); */
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     }
   }
   @media (min-width: 1200px) {

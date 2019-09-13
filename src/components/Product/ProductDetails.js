@@ -106,13 +106,13 @@ const Wrapper = styled.div`
 
   @media (min-width: 576px) {
     .center {
-      width: 60vw;
+      width: 50vw;
     }
   }
 
   @media (min-width: 1200px) {
     .center {
-      width: 60vw;
+      width: 50vw;
     }
   }
 `;

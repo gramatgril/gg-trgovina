@@ -4,7 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "./../components/layout";
 import ProductDetails from "../components/Product/ProductDetails";
 import SEO from "./../components/seo";
-import PromotedProducts from "./../components/PromotedProducts/PromotedProducts";
+import PromotedProducts from "./../components/Product/PromotedProducts";
 import Advice from "../components/Advice";
 
 export default ({ data }) => {

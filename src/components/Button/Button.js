@@ -11,17 +11,17 @@ const propTypes = {
 
 const PrimaryButton = ({ text, className, type }) => {
   return (
-    <Button className={className} type={type || "button"}>
+    <Wrapper className={className} type={type || "button"}>
       {text}
-    </Button>
+    </Wrapper>
   );
 };
 
-const Button = styled.button`
-  background: ${styles.colors.green};
+const Wrapper = styled.button`
+  background: ${styles.colors.white};
   text-transform: uppercase;
   letter-spacing: ${styles.letterSpacing};
-  color: ${styles.colors.white};
+  color: ${styles.colors.green};
   border: 2px solid ${styles.colors.green};
   padding: 0.6rem 2.5rem;
   font-size: 1rem;
@@ -31,20 +31,20 @@ const Button = styled.button`
 
   :hover {
     background: transparent;
-    background: ${styles.colors.white};
-    color: ${styles.colors.green};
+    background: ${styles.colors.green};
+    color: ${styles.colors.white};
   }
 `;
 
 const SecondaryButton = styled(PrimaryButton)`
   border: 2px solid ${styles.colors.green};
-  background: ${styles.colors.white};
-  color: ${styles.colors.green};
+  background: ${styles.colors.green};
+  color: ${styles.colors.white};
 
   :hover {
-    background: ${styles.colors.green};
+    background: ${styles.colors.white};
     border: 2px solid ${styles.colors.green};
-    color: ${styles.colors.white};
+    color: ${styles.colors.green};
   }
 `;
 

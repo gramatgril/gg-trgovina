@@ -74,7 +74,7 @@ const Wrapper = styled.div`
   }
 
   .date {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: ${styles.colors.white};
     position: absolute;
     left: 0%;

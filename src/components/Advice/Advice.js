@@ -7,6 +7,7 @@ import AdviceList from "./AdviceList";
 import Title from "../Title";
 
 import { styles } from "../../utils";
+import { PrimaryButton } from "../Button";
 
 const propTypes = {
   embed: PropTypes.bool.isRequired,
@@ -47,6 +48,7 @@ const Advice = ({ embed }) => {
       <div className="center">
         {embed && <Title title="Nasveti" subtitle="in ideje" />}
         <AdviceList advices={advices} />
+        {embed && <PrimaryButton text="vsi nasveti in ideje" />}
       </div>
     </Wrapper>
   );
@@ -56,6 +58,8 @@ const Wrapper = styled.div`
   padding: 1rem 0;
   background: ${props =>
     props.embed ? `${styles.colors.offWhite}` : `${styles.colors.white}`};
+  text-align: center;
+
   .center {
     padding: 1rem 0.6rem;
     margin: 0 auto;

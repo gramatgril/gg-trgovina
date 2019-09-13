@@ -34,11 +34,11 @@ const ProductCard = ({ product }) => {
         <div className="img-container">
           <Img fluid={image.fluid} className="img" />
           <h4 className="price">{price}</h4>
-          {/* {promo && (
-            <h4 className="promo">
-              <FaPercent />
-            </h4>
-          )} */}
+          {promo && (
+            <p className="promo">
+              <span>Akcija</span>
+            </p>
+          )}
         </div>
       </Link>
     </Wrapper>
@@ -62,15 +62,17 @@ const Wrapper = styled.article`
   }
 
   .header {
+    height: 80px;
     transition: ${styles.linearTransition};
-    padding: 0.8rem;
+    padding: 1.5rem 0;
     text-align: left;
     background: ${styles.colors.white};
     h4 {
+      vertical-align: bottom;
       transition: ${styles.linearTransition};
       color: ${styles.colors.black};
       font-size: 1rem;
-      font-weight: 300;
+      font-weight: 500;
       text-transform: capitalize;
       margin-bottom: 0;
     }
@@ -89,33 +91,38 @@ const Wrapper = styled.article`
   }
 
   .price {
-    font-size: 1.5rem;
+    box-shadow: ${styles.boxShadow};
+    font-size: 1.4rem;
+    font-weight: 500;
     color: ${styles.colors.white};
     position: absolute;
     left: 0%;
     top: 75%;
     background: ${styles.colors.green};
-    padding: 0.3rem 1rem;
+    padding: 0.2rem 1rem;
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
   }
 
   .promo {
-    font-size: 1.8rem;
-    color: ${styles.colors.white};
-    /* transform: rotate(45deg); */
+    font-size: 1rem;
     position: absolute;
-    left: 82%;
-    top: 10%;
-    background: red;
-    padding: 0.3rem 0.7rem;
-    border-radius: 5rem;
+    color: ${styles.colors.white};
+    background: ${styles.colors.red};
+    padding: 0.5rem 0.8rem;
+    box-shadow: ${styles.boxShadow};
+    text-align: center;
+    text-transform: uppercase;
+    top: 0%;
+    right: 0%;
   }
 
   .link {
     text-decoration: none;
   }
 `;
+
+const promoBadge = styled.div``;
 
 ProductCard.propTypes = propTypes;
 

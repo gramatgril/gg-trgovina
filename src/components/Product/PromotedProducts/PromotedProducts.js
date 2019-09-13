@@ -7,7 +7,7 @@ const getPromoItems = graphql`
   {
     products: allContentfulArtikel(
       filter: { promo: { eq: true } }
-      limit: 3
+      limit: 4
       sort: { fields: createdAt, order: DESC }
     ) {
       edges {

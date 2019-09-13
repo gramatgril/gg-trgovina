@@ -1,13 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import Advice from "../components/Advice/";
 import Category from "./../components/Category";
 import Layout from "../components/layout";
+import NewProducts from "../components/Product/NewProducts";
+import PromotedProducts from "./../components/Product/PromotedProducts";
 import SEO from "../components/seo";
 import Services from "../components/Services";
-import NewProducts from "../components/NewProducts";
-import PromotedProducts from "./../components/PromotedProducts";
-import Advice from "../components/Advice/Advice";
 
 export default ({ data }) => {
   return (
