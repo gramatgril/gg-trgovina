@@ -62,19 +62,19 @@ const Wrapper = styled.article`
   }
 
   .header {
-    height: 80px;
+    position: relative;
+    height: 5rem;
     transition: ${styles.linearTransition};
-    padding: 1.5rem 0;
     text-align: left;
     background: ${styles.colors.white};
     h4 {
-      vertical-align: bottom;
+      position: absolute;
+      bottom: 0;
+      padding: 0.5rem 0;
       transition: ${styles.linearTransition};
       color: ${styles.colors.black};
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-weight: 500;
-      text-transform: capitalize;
-      margin-bottom: 0;
     }
   }
 
@@ -105,12 +105,11 @@ const Wrapper = styled.article`
   }
 
   .promo {
-    font-size: 1rem;
+    font-size: 1.2rem;
     position: absolute;
     color: ${styles.colors.white};
     background: ${styles.colors.red};
     padding: 0.5rem 0.8rem;
-    box-shadow: ${styles.boxShadow};
     text-align: center;
     text-transform: uppercase;
     top: 0%;

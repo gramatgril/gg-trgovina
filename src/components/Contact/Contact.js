@@ -3,13 +3,11 @@ import styled from "styled-components";
 
 import { styles } from "../../utils";
 import { PrimaryButton } from "../Button/Button";
-import Title from "../Title";
 
 const Contact = () => {
   return (
     <Wrapper>
       <div className="center">
-        <Title title="Povpraševanje" />
         <form
           className="form"
           action="https://formspree.io/praecorloth@gmail.com"
@@ -71,19 +69,11 @@ const Wrapper = styled.section`
     padding-bottom: 1rem;
   }
 
-  h1 {
-    color: ${styles.colors.green};
-    opacity: 1;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    margin-bottom: 2rem;
-    padding: 0 1rem;
-    letter-spacing: 8px;
-    }
+
 
   @media (min-width: 992px) {
     .center {
-      width: 50vw;
+      width: 40vw;
       margin: 0 auto;
     }
 
@@ -104,7 +94,7 @@ const Wrapper = styled.section`
     font-size: 1rem;
     margin-bottom: 1rem;
     padding: 0.375rem 0.75rem;
-    border: 1px solid ${styles.colors.grey};
+    border: 1px solid ${styles.colors.black};
     border-radius: 0.25rem;
   }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, useStaticQuery, Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -48,7 +48,11 @@ const Advice = ({ embed }) => {
       <div className="center">
         {embed && <Title title="Nasveti" subtitle="in ideje" />}
         <AdviceList advices={advices} />
-        {embed && <PrimaryButton text="vsi nasveti in ideje" />}
+        {embed && (
+          <Link to="nasveti">
+            <PrimaryButton text="vsi nasveti in ideje" />
+          </Link>
+        )}
       </div>
     </Wrapper>
   );
