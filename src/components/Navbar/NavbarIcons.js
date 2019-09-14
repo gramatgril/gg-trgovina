@@ -23,14 +23,14 @@ const Wrapper = styled.div`
     cursor: pointer;
     transition: ${styles.linearTransition};
 
-      :hover {
-        color: ${styles.colors.green};
-      }
-   }
+    :hover {
+      color: ${styles.colors.white};
+    }
+  }
 
   .facebook-icon {
-    color: #3b579d;
-    /* color: ${styles.colors.white}; */
+    /* color: #3b579d; */
+    color: ${styles.colors.green};
   }
 
   .stil-icon {
@@ -39,7 +39,8 @@ const Wrapper = styled.div`
   }
 
   .instagram-icon {
-    color: #da5f53;
+    color: ${styles.colors.green};
+    /* color: #da5f53; */
   }
 
   display: none;

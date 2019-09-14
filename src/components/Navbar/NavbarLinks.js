@@ -36,7 +36,7 @@ const Wrapper = styled.ul`
   }
 
   .nav-link {
-    color: ${styles.colors.black};
+    color: ${styles.colors.white};
     display: block;
     text-decoration: none;
     padding: 0.5rem 1rem 0.5rem 1rem;
@@ -46,8 +46,8 @@ const Wrapper = styled.ul`
     cursor: pointer;
     transition: ${styles.transition({ time: "0.3s" })};
     :hover {
-      background: ${styles.colors.green};
-      color: ${styles.colors.white};
+      /* background: ${styles.colors.green}; */
+      color: ${styles.colors.green};
       padding: 0.5rem 1rem 0.5rem 1.3rem;
     }
   }
@@ -63,8 +63,8 @@ const Wrapper = styled.ul`
     display: flex;
     margin: 0 auto;
     .nav-link :hover {
-      background: ${styles.colors.green};
-      color: ${styles.colors.white};
+      /* background: ${styles.colors.green}; */
+      color: ${styles.colors.green};
       padding: 0.5rem 1rem 0.5rem 1rem;
     }
   }
