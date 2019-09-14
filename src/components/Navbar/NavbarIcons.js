@@ -1,33 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { FaInstagram, FaFacebook } from "react-icons/fa";
 
 import { styles } from "../../utils";
 
-import logo from "../../images/stil-logo.jpg";
+import { navIcons } from "../../utils";
 
 const NavbarIcons = () => {
-  const [icons] = useState([
-    {
-      id: 0,
-      icon: <img src={logo} alt="stil" className="icon stil-icon" />,
-      path: "https://gramat-gril.si/",
-    },
-    {
-      id: 1,
-      icon: <FaFacebook className="icon facebook-icon" />,
-      path: "https://www.facebook.com",
-    },
-    {
-      id: 2,
-      icon: <FaInstagram className="icon instagram-icon" />,
-      path: "https://www.instagram.com",
-    },
-  ]);
-
   return (
     <Wrapper>
-      {icons.map(({ id, path, icon }) => (
+      {navIcons.map(({ id, path, icon }) => (
         <a key={id} href={path} target="_blank" rel="noopener noreferrer">
           {icon}
         </a>
@@ -41,11 +22,11 @@ const Wrapper = styled.div`
     font-size: 1.6rem;
     cursor: pointer;
     transition: ${styles.linearTransition};
-  }
 
-  .icon:hover {
-    color: ${styles.colors.green};
-  }
+      :hover {
+        color: ${styles.colors.green};
+      }
+   }
 
   .facebook-icon {
     color: #3b579d;

@@ -4,44 +4,14 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { styles } from "../../utils";
+import { navLinks } from "./../../utils";
 
 const propTypes = {
   isOpen: PropTypes.bool.isRequired,
 };
 
 const NavbarLinks = ({ isOpen }) => {
-  const [links] = useState([
-    {
-      id: 0,
-      path: "/",
-      name: "Kategorije",
-    },
-    {
-      id: 2,
-      path: "/nasveti",
-      name: "nasveti",
-    },
-    {
-      id: 5,
-      path: "/akcija",
-      name: "akcija",
-    },
-    {
-      id: 1,
-      path: "/katalog",
-      name: "katalog",
-    },
-    {
-      id: 3,
-      path: "/info",
-      name: "o nas",
-    },
-    {
-      id: 4,
-      path: "/kontakt",
-      name: "povpraševanje",
-    },
-  ]);
+  const [links] = useState(navLinks);
 
   return (
     <Wrapper isOpen={isOpen}>
@@ -80,6 +50,11 @@ const Wrapper = styled.ul`
       color: ${styles.colors.white};
       padding: 0.5rem 1rem 0.5rem 1.3rem;
     }
+  }
+
+  .home-icon {
+    /* color: ${styles.colors.green}; */
+    /* font-size: 20px; */
   }
 
   @media (min-width: 768px) {

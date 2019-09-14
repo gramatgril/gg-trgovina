@@ -11,14 +11,15 @@ module.exports = {
     companyInfo: {
       nameLong: `Proizvodnja, transport in trgovina gradbenega materiala Gramat Gril d.o.o.`,
       nameShort: `GRAMAT GRIL d.o.o.`,
+      description: `Proizvodnja, transport in trgovina gradbenega materiala`,
       name: `Gramat Gril d.o.o.`,
-      street: `Rozna dolina 9`,
+      street: `Rožna dolina 9`,
       city: `1290 Grosuplje`,
       address: `Rožna dolina 9, 1290 Grosuplje`,
       ceo: `Peter Gril`,
       companyId: `5292263000`,
       vatId: `SI 88496473`,
-      copyright: `2010-2019 GRAMAT GRIL | Prodaja gradbenega materiala, kopalniške opreme`,
+      copyright: `2010-2019 GRAMAT GRIL | Vse pravice zadržane`,
       companyDesc: ` Tradicija podjetništva v družini Gril sega v leto 1967. Takrat sta
       Ana in August Gril odprla obrtno delavnico za izdelavo cementnih
       izdelkov. Leta 1989 sta jo reorganizirala v podjetje GRAMAT GRIL

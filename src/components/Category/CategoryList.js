@@ -21,21 +21,7 @@ const propTypes = {
   ).isRequired,
 };
 
-const getNasvetiImg = graphql`
-  query {
-    nasvetiImg: file(relativePath: { eq: "nasveti.jpg" }) {
-      image: childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
-
-const CategoryList = ({ categories }) => {
-  const { nasvetiImg } = useStaticQuery(getNasvetiImg);
-
+const CategoryList = ({ categories, adviceCardImg }) => {
   return (
     <Wrapper>
       <Title title="kategorije" />
@@ -52,7 +38,7 @@ const CategoryList = ({ categories }) => {
           key="nasveti"
           title="Nasveti in ideje"
           slug="nasveti"
-          image={nasvetiImg.image}
+          image={adviceCardImg}
         />
       </div>
     </Wrapper>

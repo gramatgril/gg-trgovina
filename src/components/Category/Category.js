@@ -19,15 +19,25 @@ const getCategories = graphql`
         }
       }
     }
+    adviceCardImg: file(relativePath: { eq: "nasveti.jpg" }) {
+      image: childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
   }
 `;
 
 const Category = () => {
-  const { categories } = useStaticQuery(getCategories);
+  const { categories, adviceCardImg } = useStaticQuery(getCategories);
 
   return (
     <div>
-      <CategoryList categories={categories.edges} />
+      <CategoryList
+        categories={categories.edges}
+        adviceCardImg={adviceCardImg.image}
+      />
     </div>
   );
 };
