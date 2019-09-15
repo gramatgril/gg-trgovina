@@ -16,12 +16,12 @@ const Title = ({ title, subtitle }) => {
 
 const Wrapper = styled.div`
   text-transform: uppercase;
-  font-size: 2.3rem;
-  margin-bottom: 2rem;
-
+  font-size: 2rem;
+  /* padding: 1rem 0; */
+  margin-bottom: 1rem;
   h4 {
     text-align: center;
-    letter-spacing: 7px;
+    letter-spacing: 5px;
     color: ${styles.colors.green};
   }
 

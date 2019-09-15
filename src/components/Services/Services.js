@@ -40,8 +40,6 @@ const Services = () => {
             <p>
               The quote above is something I read awhile back and has stuck with
               me ever since. I think about it every time I come across a website
-              or an app or a program that is a usability nightmare. All I want
-              to do is fix it, and make it work and look better.
             </p>
           </article>
         ))}
@@ -52,7 +50,7 @@ const Services = () => {
 
 const Wrapper = styled.div`
   background: ${styles.colors.offWhite};
-  padding: 4rem 0;
+  padding: 1rem 0;
 
   .center {
     width: 60vw;

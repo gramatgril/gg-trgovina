@@ -30,22 +30,16 @@ const ProductDetails = ({ product, categorySlug }) => {
   return (
     <Wrapper>
       <div className="center">
-        <div className="title">
-          <h2>{title}</h2>
-        </div>
-        <div className="img-container">
-          <Img fluid={image.fluid} alt="product" className="img" />
-        </div>
-        <div className="desc">
-          {documentToReactComponents(description.json)}
-        </div>
-        <h2 className="price">
-          Cena: <span>{price}</span>
-        </h2>
-        <div className="link">
-          <Link to="/">
-            <PrimaryButton text="nazaj" />
-          </Link>
+        <h2 className="title">{title}</h2>
+
+        <div className="panels">
+          <div className="img-container">
+            <Img fluid={image.fluid} alt="product" className="img" />
+          </div>
+
+          <div className="desc">
+            <p>{documentToReactComponents(description.json)}</p>
+          </div>
         </div>
       </div>
     </Wrapper>
@@ -53,60 +47,52 @@ const ProductDetails = ({ product, categorySlug }) => {
 };
 
 const Wrapper = styled.div`
-  padding: 1rem 0;
-
   .center {
-    padding: 1rem 1rem;
+    padding: 4rem 0;
+    width: 90vw;
     margin: 0 auto;
   }
 
-  .title h2 {
-    color: ${styles.colors.black};
-    font-size: 2rem;
-    padding: 1rem 0;
-    margin: 2rem 0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-    border-bottom: 3px solid ${styles.colors.green};
+  h2 {
+    padding-bottom: 0.2rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    border-bottom: 1px solid ${styles.colors.green};
   }
 
-  .price {
-    font-weight: 400;
-    color: ${styles.colors.green};
-    text-align: right;
-    padding: 2rem 0;
-    span {
-      font-weight: 700;
-    }
+  p {
+    font-size: 0.9rem;
+  }
+
+  .img-container,
+  .desc {
+    padding: 1rem 0;
   }
 
   .img-container {
     max-width: 400px;
+    max-height: 300px;
   }
 
   .img {
     width: 100%;
-  }
-
-  .link {
-    text-align: center;
-  }
-
-  h4 {
-    text-transform: capitalize;
-  }
-
-  .desc {
-    text-align: left;
-    font-size: 1rem;
-    padding: 1rem 1rem;
-    line-height: 2;
+    height: 100%;
   }
 
   @media (min-width: 576px) {
     .center {
-      width: 50vw;
+      width: 80vw;
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 1rem;
+    }
+
+    .img-container,
+    .desc {
+      padding: 2rem 0;
     }
   }
 

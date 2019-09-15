@@ -85,8 +85,9 @@ const Wrapper = styled.div`
   }
 
   .desc {
+    text-align: center;
     width: 100%;
-    padding: 2rem 2rem;
+    padding: 2rem 0;
   }
 
   h2 {
@@ -112,6 +113,12 @@ const Wrapper = styled.div`
       width: 80vw;
       display: flex;
       justify-content: start;
+    }
+
+    .desc {
+      text-align: left;
+      width: 100%;
+      padding: 0 2rem;
     }
   }
 

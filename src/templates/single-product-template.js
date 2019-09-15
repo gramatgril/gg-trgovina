@@ -15,8 +15,8 @@ export default ({ data }) => {
     <Layout>
       <SEO title={title} />
       <ProductDetails product={data.product} categorySlug={slug} />
-      <Advice embed={true} />
-      <PromotedProducts />
+      {/* <Advice embed={true} /> */}
+      {/* <PromotedProducts /> */}
     </Layout>
   );
 };

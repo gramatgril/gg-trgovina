@@ -10,11 +10,11 @@ const propTypes = {
   companyInfo: PropTypes.shape({
     nameLong: PropTypes.string.isRequired,
     nameShort: PropTypes.string.isRequired,
-    address: PropTypes.string.isRequired,
-    ceo: PropTypes.string.isRequired,
     companyId: PropTypes.string.isRequired,
     vatId: PropTypes.string.isRequired,
     companyDesc: PropTypes.string.isRequired,
+    street: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
   }).isRequired,
   contactInfo: PropTypes.shape({
     phone: PropTypes.string.isRequired,
@@ -29,8 +29,6 @@ const Contact = ({ companyInfo, contactInfo }) => {
     companyDesc,
     nameLong,
     nameShort,
-    address,
-    ceo,
     companyId,
     vatId,
     street,

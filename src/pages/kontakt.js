@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Banner from "./../components/Banner";
 import Contact from "./../components/Contact";
 import Hero from "../components/Hero";
 import Layout from "./../components/layout";
@@ -15,10 +14,6 @@ export default ({ data }) => {
     <Layout>
       <SEO title="Kontakt" />
       <Hero img={heroImg} />
-      {/* <Banner
-        title="Kontakt"
-        info="Pošljite nam poizvedbo, mnenje, predlog ali idejo. "
-      /> */}
       <Contact companyInfo={companyInfo} contactInfo={contactInfo} />
     </Layout>
   );
@@ -38,8 +33,6 @@ export const query = graphql`
         companyInfo {
           nameLong
           nameShort
-          address
-          ceo
           companyId
           vatId
           companyDesc

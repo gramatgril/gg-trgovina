@@ -69,11 +69,19 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-offline`,
-    //   options: {
-    //     precachePages: [`/info/`, `/gradnja/*`, `/nasveti/*`],
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [
+          `/kontakt/`,
+          `/gradnja/*`,
+          `/barve-in-fasade/*`,
+          `/keramika-in-talne-obloge/*`,
+          `/vrt-in-okolica/*`,
+          `/vse-za-kopalnico/*`,
+          `/nasveti-in-ideje/*`,
+        ],
+      },
+    },
   ],
 };

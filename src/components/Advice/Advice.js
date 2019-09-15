@@ -49,7 +49,7 @@ const Advice = ({ embed }) => {
         {embed && <Title title="Nasveti" subtitle="in ideje" />}
         <AdviceList advices={advices} />
         {embed && (
-          <Link to="nasveti">
+          <Link to="nasveti-in-ideje">
             <PrimaryButton text="vsi nasveti in ideje" />
           </Link>
         )}
@@ -59,7 +59,7 @@ const Advice = ({ embed }) => {
 };
 
 const Wrapper = styled.div`
-  width: 90vw;
+  width: 100%;
   margin: 0 auto;
   padding: 1rem 0;
   background: ${props =>
@@ -72,16 +72,14 @@ const Wrapper = styled.div`
   }
 
   @media (min-width: 576px) {
-    width: 80vw;
     .center {
-      width: 100%;
+      width: 80vw;
     }
   }
 
   @media (min-width: 1200px) {
-    width: 60vw;
     .center {
-      width: 100%;
+      width: 60vw;
       max-width: 1170px;
     }
   }

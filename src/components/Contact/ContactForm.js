@@ -66,7 +66,7 @@ label {
 
   .form-control,
   .submit {
-    background: ${styles.colors.offWhite};
+    /* background: ${styles.colors.offWhite}; */
     font-family: 'Montserrat', sans-serif;
     width: 100%;
     font-size: 1rem;
