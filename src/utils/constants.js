@@ -18,11 +18,6 @@ export const navLinks = [
     name: "Katalog",
     path: "/katalog",
   },
-  // {
-  //   id: 3,
-  //   name: "O nas",
-  //   path: "/info",
-  // },
   {
     id: 4,
     name: "Kontakt",

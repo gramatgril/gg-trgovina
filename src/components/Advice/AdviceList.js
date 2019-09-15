@@ -34,7 +34,7 @@ const AdviceList = ({ advices }) => {
 };
 
 const Wrapper = styled.div`
-  text-align: center;
+  /* text-align: center;
 
   @media (min-width: 576px) {
     .center {
@@ -47,7 +47,7 @@ const Wrapper = styled.div`
       width: 100%;
       max-width: 1170px;
     }
-  }
+  } */
 `;
 
 AdviceList.propTypes = propTypes;

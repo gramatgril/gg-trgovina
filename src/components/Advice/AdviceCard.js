@@ -63,6 +63,7 @@ const Wrapper = styled.div`
       }
     }
   }
+
   .img-container {
     align-self: left;
     position: relative;
@@ -90,13 +91,14 @@ const Wrapper = styled.div`
 
   h2 {
     color: ${styles.colors.black};
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 2px;
     margin-bottom: 1rem;
+    font-weight: 500;
   }
 
   h4 {
-    color: ${styles.colors.grey};
+    color: ${styles.colors.black};
     font-size: 1rem;
     font-weight: 400;
   }

@@ -59,6 +59,8 @@ const Advice = ({ embed }) => {
 };
 
 const Wrapper = styled.div`
+  width: 90vw;
+  margin: 0 auto;
   padding: 1rem 0;
   background: ${props =>
     props.embed ? `${styles.colors.offWhite}` : `${styles.colors.white}`};
@@ -70,12 +72,14 @@ const Wrapper = styled.div`
   }
 
   @media (min-width: 576px) {
+    width: 80vw;
     .center {
       width: 100%;
     }
   }
 
   @media (min-width: 1200px) {
+    width: 60vw;
     .center {
       width: 100%;
       max-width: 1170px;

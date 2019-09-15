@@ -87,8 +87,8 @@ const Wrapper = styled.section`
   }
 
   h2 {
-    padding-bottom: 1rem;
-    font-size: 2rem;
+    padding-bottom: 0.2rem;
+    font-size: 1.8rem;
     font-weight: 500;
     border-bottom: 1px solid ${styles.colors.green};
   }
@@ -108,7 +108,7 @@ const Wrapper = styled.section`
   }
 
   .company-name {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 700;
   }
 

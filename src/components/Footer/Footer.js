@@ -76,9 +76,9 @@ const Footer = () => {
           <p>w: {web}</p>
           <IconWrapper>
             {navIcons.map(({ id, path, icon }) => (
-              <Link to={path} key={id} className="link">
-                <p>{icon}</p>
-              </Link>
+              <a key={id} href={path} target="_blank" rel="noopener noreferrer">
+                {icon}
+              </a>
             ))}
           </IconWrapper>
         </div>
