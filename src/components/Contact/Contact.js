@@ -1,116 +1,143 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 import { styles } from "../../utils";
-import { PrimaryButton } from "../Button/Button";
+import ContactForm from "./ContactForm";
+import GoogleMap from "../GoogleMap/GoogleMap";
 
-const Contact = () => {
+const propTypes = {
+  companyInfo: PropTypes.shape({
+    nameLong: PropTypes.string.isRequired,
+    nameShort: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    ceo: PropTypes.string.isRequired,
+    companyId: PropTypes.string.isRequired,
+    vatId: PropTypes.string.isRequired,
+    companyDesc: PropTypes.string.isRequired,
+  }).isRequired,
+  contactInfo: PropTypes.shape({
+    phone: PropTypes.string.isRequired,
+    fax: PropTypes.string.isRequired,
+    web: PropTypes.string.isRequired,
+    mail: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+const Contact = ({ companyInfo, contactInfo }) => {
+  const {
+    companyDesc,
+    nameLong,
+    nameShort,
+    address,
+    ceo,
+    companyId,
+    vatId,
+    street,
+    city,
+  } = companyInfo;
+  const { phone, fax, mail, web } = contactInfo;
+
   return (
     <Wrapper>
       <div className="center">
-        <form
-          className="form"
-          action="https://formspree.io/praecorloth@gmail.com"
-          method="POST"
-        >
-          <div>
-            <label htmlFor="name">Ime:</label>
-            <input
-              autoComplete="off"
-              type="text"
-              name="name"
-              id="name"
-              className="form-control"
-              placeholder="Miha Novak"
-            />
+        <div className="segment">
+          <h2>Kontaktni podatki</h2>
+          <div className="info-block">
+            <p className="company-name">{nameShort}</p>
+            <p>{nameLong}</p>
+            <p>{street}</p>
+            <p>{city}</p>
+            <div className="info-block">
+              <p>t: {phone}</p>
+              <p>f: {fax}</p>
+              <p>e: {mail}</p>
+              <p>w: {web}</p>
+            </div>
+            <div className="info-block">
+              <p>Matična številka: {companyId}</p>
+              <p>ID številka za DDV: {vatId}</p>
+            </div>
+            <div className="info-block">
+              <p>pon - pet: 7.00 - 19.00</p>
+              <p>sob: 7.00 - 13.00</p>
+            </div>
           </div>
-          <div>
-            <label htmlFor="name">Email naslov:</label>
-            <input
-              autoComplete="off"
-              type="email"
-              name="email"
-              id="email"
-              className="form-control"
-              placeholder="Miha.Novak@email.com"
-            />
-          </div>
-          <div>
-            <label htmlFor="name">Sporočilo:</label>
-            <textarea
-              autoComplete="off"
-              type="email"
-              rows="10"
-              name="message"
-              id="message"
-              className="form-control"
-              placeholder="Sporočilo"
-            />
-          </div>
-          <div>
-            <PrimaryButton text="Pošlji" type="submit" className="submit" />
-          </div>
-        </form>
+        </div>
+        <div className="segment">
+          <h2>Pustite nam sporočilo</h2>
+          <ContactForm />
+        </div>
       </div>
+      <div className="about">
+        <h2>O nas</h2>
+        <p>{companyDesc}</p>
+      </div>
+      <GoogleMap />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  padding: 3rem 0;
 
   .center {
-    width: 80vw;
+    padding: 2rem 0;
+    width: 90vw;
     margin: 0 auto;
   }
 
-  .title {
-    text-align: center;
+  h2 {
     padding-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 500;
+    border-bottom: 1px solid ${styles.colors.green};
   }
 
+  p {
+    font-size: 0.9rem;
+    padding: 0.1rem 0;
+  }
 
+  .segment {
+    text-align: left;
+    padding: 1rem 1rem;
+  }
 
-  @media (min-width: 992px) {
+  .info-block {
+    padding: 1rem 0;
+  }
+
+  .company-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+
+  .about {
+    width: 90vw;
+    margin 0 auto;
+    padding: 0 0 5rem;
+
+    p {
+      margin-top: 1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
     .center {
-      width: 40vw;
-      margin: 0 auto;
+      width: 80vw;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
 
-    h1{
-      font-size: 2rem;
+  }
+
+  @media (min-width: 1200px) {
+    .center, .about {
+      width: 60vw;
     }
-  }
-
-  label {
-    text-transform: capitalize;
-    display: block;
-    margin-bottom: 0.5rem;
-  }
-
-  .form-control,
-  .submit {
-    width: 100%;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    padding: 0.375rem 0.75rem;
-    border: 1px solid ${styles.colors.black};
-    border-radius: 0.25rem;
-  }
-
-  .submit {
-    background-color: ${styles.colors.white};
-    border-color: ${styles.colors.green};
-    text-transform: uppercase;
-    color: ${styles.colors.green};
-    transition: ${styles.linearTransition}
-    cursor: pointer;
-  }
-  .submit:hover {
-    background: ${styles.colors.green};
-    color: ${styles.colors.white};
-    border-color: ${styles.colors.grey};
   }
 `;
+
+Contact.propTypes = propTypes;
 
 export default Contact;

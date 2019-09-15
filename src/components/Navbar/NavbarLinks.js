@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -11,11 +11,9 @@ const propTypes = {
 };
 
 const NavbarLinks = ({ isOpen }) => {
-  const [links] = useState(navLinks);
-
   return (
     <Wrapper isOpen={isOpen}>
-      {links.map(({ id, path, name }) => (
+      {navLinks.map(({ id, path, name }) => (
         <li key={id}>
           <Link to={path} className="nav-link">
             {name}
@@ -27,13 +25,27 @@ const NavbarLinks = ({ isOpen }) => {
 };
 
 const Wrapper = styled.ul`
-  height: ${({ isOpen }) => (isOpen ? "200px" : "0px")};
+  height: ${({ isOpen }) => (isOpen ? "240px" : "0px")};
   overflow: hidden;
   transition: ${styles.transition({ time: "0.3s" })};
 
+
+
+
+/* Colors last link as red "Akcija" */
   li {
     list-style-type: none;
+    :last-child .nav-link{
+        font-weight: 700;
+         color: ${styles.colors.red};
+
+         :hover {
+           color: ${styles.colors.green};
+         }
+    }
   }
+
+
 
   .nav-link {
     color: ${styles.colors.white};
@@ -43,8 +55,12 @@ const Wrapper = styled.ul`
     font-weight: 500;
     font-size: 1rem;
     text-transform: capitalize;
+
+
     cursor: pointer;
     transition: ${styles.transition({ time: "0.3s" })};
+
+
     :hover {
       /* background: ${styles.colors.green}; */
       color: ${styles.colors.green};
@@ -52,22 +68,42 @@ const Wrapper = styled.ul`
     }
   }
 
-  .home-icon {
-    /* color: ${styles.colors.green}; */
-    /* font-size: 20px; */
-  }
+
 
   @media (min-width: 768px) {
+
+
     color: ${styles.colors.white};
     height: auto;
     display: flex;
     margin: 0 auto;
-    .nav-link :hover {
-      /* background: ${styles.colors.green}; */
+
+    .nav-link {
+    font-size: 0.8rem;
+
+    :hover {
       color: ${styles.colors.green};
       padding: 0.5rem 1rem 0.5rem 1rem;
+     }
+
     }
   }
+
+
+
+  @media (min-width: 1300px) {
+    .nav-link {
+          font-size: 1rem;
+    }
+
+        :hover {
+      color: ${styles.colors.green};
+      padding: 0.5rem 1rem 0.5rem 1rem;
+     }
+
+    }
+
+
 `;
 
 NavbarLinks.propTypes = propTypes;

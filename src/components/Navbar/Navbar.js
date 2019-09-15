@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { FaPhone, FaRegEnvelope } from "react-icons/fa";
 
 import { styles } from "../../utils";
 
@@ -16,12 +15,8 @@ const Navbar = () => {
   return (
     <Wrapper>
       <div className="top-bar">
-        <p>
-          <FaRegEnvelope className="icon" /> info@gramat-gril.si
-        </p>
-        <p>
-          <FaPhone className="icon" /> 01 786 33 64
-        </p>
+        <p>e: info@gramat-gril.si</p>
+        <p>t: 01 786 33 64</p>
       </div>
       <div className="center">
         <NavbarHeader toggleOpen={toggleOpen} />
@@ -40,6 +35,7 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: flex-end;
     background: ${styles.colors.green};
+    color: ${styles.colors.white};
 
     p {
       align-items: center;
@@ -52,27 +48,33 @@ const Wrapper = styled.div`
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     .top-bar {
       justify-content: space-between;
     }
+
     .top-bar p {
       font-size: 0.8rem;
     }
+
     .top-bar .icon {
       padding-top: 3px;
     }
   }
 
   @media (min-width: 768px) {
-    display: block;
-
     .center {
-      width: 1300px;
+      padding: 0.2rem 0;
+      width: 100vw;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+  }
+  @media (min-width: 1200px) {
+    .center {
+      width: 80vw;
     }
   }
 `;

@@ -12,7 +12,7 @@ import Services from "../components/Services";
 export default ({ data }) => {
   return (
     <Layout>
-      <SEO title="Kategorije" />
+      <SEO title="Ponudba" />
       <Category />
       <Services />
       <PromotedProducts />

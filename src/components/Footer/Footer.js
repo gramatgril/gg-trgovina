@@ -21,6 +21,8 @@ const getData = graphql`
         contactInfo {
           phone
           mail
+          web
+          fax
         }
       }
     }
@@ -30,51 +32,48 @@ const getData = graphql`
 const Footer = () => {
   const { site } = useStaticQuery(getData);
 
-  const {
-    name,
-    city,
-    copyright,
-    street,
-    description,
-  } = site.siteMetadata.companyInfo;
+  const { name, city, copyright, street } = site.siteMetadata.companyInfo;
 
-  const { phone, mail } = site.siteMetadata.contactInfo;
+  const { phone, mail, web, fax } = site.siteMetadata.contactInfo;
 
   return (
     <Wrapper>
       <div className="segments">
-        {/* Company information */}
         <div className="segment">
-          <h4>{name}</h4>
-          <p>{description}</p>
-          <p>{street}</p>
-          <p>{city}</p>
-          <Link className="link" to="/pravno-obvestilo">
-            <p>Pravno obvestilo</p>
-          </Link>
-        </div>
-        {/* Site map */}
-        <div className="segment">
+          <h4>informacije</h4>
           {navLinks.map(({ id, path, name }) => (
             <Link to={path} key={id} className="link">
               <p>{name}</p>
             </Link>
           ))}
+          <Link className="link" to="/pravna-obvestila">
+            <p>Pravna obvestila</p>
+          </Link>
         </div>
-        {/* Category links */}
+
         <div className="segment">
+          <h4>naša ponudba</h4>
           {siteLinks.map(({ id, path, name }) => (
             <Link to={path} key={id} className="link">
               <p>{name}</p>
             </Link>
           ))}
         </div>
+
         <div className="segment">
-          {" "}
-          <p>Ponedeljek do petek: 7h - 19h</p>
-          <p>Sobota: 7h - 13h</p>
-          <p>{phone}</p>
-          <p>{mail}</p>
+          <h4>o nas</h4>
+          <p>{name}</p>
+          <p>{street}</p>
+          <p>{city}</p>
+          <p className="open-hours">pon - pet: 7.00 - 19.00</p>
+          <p className="open-hours">sob: 7.00 - 13.00</p>
+        </div>
+        <div className="segment">
+          <h4>kontakt</h4>
+          <p>t: {phone}</p>
+          <p>f: {fax}</p>
+          <p>e: {mail}</p>
+          <p>w: {web}</p>
           <IconWrapper>
             {navIcons.map(({ id, path, icon }) => (
               <Link to={path} key={id} className="link">
@@ -97,8 +96,10 @@ const Wrapper = styled.footer`
   text-align: center;
 
   .segments {
+    /* align-items: start; */
+    min-height: 300px;
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-column-gap: 1rem;
   }
 
@@ -107,9 +108,11 @@ const Wrapper = styled.footer`
   }
 
   h4 {
-    padding: 0.5rem;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    letter-spacing: ${styles.letterSpacing};
     font-size: 1.4rem;
-    font-weight: 700;
+    font-weight: 500;
   }
 
   p {
@@ -117,6 +120,10 @@ const Wrapper = styled.footer`
     color: ${styles.colors.white};
     padding: 0.2rem 0;
   }
+
+  /* .open-hours {
+    font-weight: 700;
+  } */
 
   .link {
     text-decoration: none;
@@ -128,6 +135,8 @@ const Wrapper = styled.footer`
   }
 
   .bottom-bar {
+    /* display: flex; */
+    /* justify-content: center; */
     background: ${styles.colors.green};
 
     p {
@@ -144,7 +153,7 @@ const Wrapper = styled.footer`
 `;
 
 const IconWrapper = styled.div`
-  padding: 0.5rem;
+  padding: 1rem 0;
   margin 0 auto;
   display: flex;
   width: 10rem;

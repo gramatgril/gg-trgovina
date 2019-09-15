@@ -9,16 +9,17 @@ import SEO from "./../components/seo";
 
 export default ({ data }) => {
   const heroImg = data.heroImg.image.fluid;
+  const { companyInfo, contactInfo } = data.site.siteMetadata;
 
   return (
     <Layout>
       <SEO title="Kontakt" />
       <Hero img={heroImg} />
-      <Banner
+      {/* <Banner
         title="Kontakt"
         info="Pošljite nam poizvedbo, mnenje, predlog ali idejo. "
-      />
-      <Contact />
+      /> */}
+      <Contact companyInfo={companyInfo} contactInfo={contactInfo} />
     </Layout>
   );
 };
@@ -29,6 +30,27 @@ export const query = graphql`
       image: childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    site {
+      siteMetadata {
+        companyInfo {
+          nameLong
+          nameShort
+          address
+          ceo
+          companyId
+          vatId
+          companyDesc
+          street
+          city
+        }
+        contactInfo {
+          phone
+          fax
+          web
+          mail
         }
       }
     }

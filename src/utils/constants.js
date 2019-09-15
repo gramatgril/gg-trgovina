@@ -1,37 +1,37 @@
 import React from "react";
-import { FaInstagram, FaFacebook, FaHome } from "react-icons/fa";
+import { FaInstagram, FaFacebook } from "react-icons/fa";
 import logo from "../images/stil-logo.jpg";
 
 export const navLinks = [
   {
     id: 0,
-    name: <FaHome className="home-icon" />,
+    name: "Ponudba",
     path: "/",
   },
   {
     id: 1,
-    name: "Nasveti",
-    path: "/nasveti",
+    name: "Nasveti in ideje",
+    path: "/nasveti-in-ideje",
   },
   {
     id: 2,
-    name: "Akcija",
-    path: "/akcija",
-  },
-  {
-    id: 3,
     name: "Katalog",
     path: "/katalog",
   },
+  // {
+  //   id: 3,
+  //   name: "O nas",
+  //   path: "/info",
+  // },
   {
     id: 4,
-    name: "O nas",
-    path: "/info",
+    name: "Kontakt",
+    path: "/kontakt",
   },
   {
     id: 5,
-    name: "Povpraševanje",
-    path: "/kontakt",
+    name: "Akcija",
+    path: "/akcija",
   },
 ];
 
@@ -79,9 +79,9 @@ export const siteLinks = [
     name: "Vse za kopalnico",
     path: "/vse-za-kopalnico",
   },
-  {
-    id: 5,
-    name: "Nasveti in ideje",
-    path: "/nasveti",
-  },
+  //   {
+  //     id: 5,
+  //     name: "Nasveti in ideje",
+  //     path: "/nasveti",
+  //   },
 ];

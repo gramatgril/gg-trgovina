@@ -43,8 +43,8 @@ const Footer = () => {
           <p>{phone}</p>
           <p>{mail}</p>
           <p>
-            <Link className="link" to="/pravno-obvestilo">
-              Pravno obvestilo
+            <Link className="link" to="/pravna-obvestila">
+              Pravna obvestila
             </Link>
           </p>
         </div>
@@ -102,9 +102,6 @@ const Wrapper = styled.footer`
       color: ${styles.colors.green};
     }
   }
-  /* .link :hover {
-
-  } */
 
   @media (min-width: 768px) {
     .segments {

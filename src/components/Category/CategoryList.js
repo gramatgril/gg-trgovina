@@ -24,7 +24,7 @@ const propTypes = {
 const CategoryList = ({ categories, adviceCardImg }) => {
   return (
     <Wrapper>
-      <Title title="kategorije" />
+      {/* <Title title="kategorije" /> */}
       <div className="center">
         {categories.map(({ node }) => (
           <CategoryCard
