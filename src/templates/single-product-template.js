@@ -1,11 +1,11 @@
 import React from "react";
 import { graphql } from "gatsby";
 
+import Advice from "../components/Advice";
 import Layout from "./../components/layout";
 import ProductDetails from "../components/Product/ProductDetails";
-import SEO from "./../components/seo";
 import PromotedProducts from "./../components/Product/PromotedProducts";
-import Advice from "../components/Advice";
+import SEO from "./../components/seo";
 
 export default ({ data }) => {
   const { title } = data.product;
@@ -15,8 +15,8 @@ export default ({ data }) => {
     <Layout>
       <SEO title={title} />
       <ProductDetails product={data.product} categorySlug={slug} />
-      {/* <Advice embed={true} /> */}
-      {/* <PromotedProducts /> */}
+      <Advice embed={true} />
+      <PromotedProducts />
     </Layout>
   );
 };
@@ -34,6 +34,12 @@ export const query = graphql`
       }
       promo
       image {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
+      images {
+        id: contentful_id
         fluid {
           ...GatsbyContentfulFluid
         }

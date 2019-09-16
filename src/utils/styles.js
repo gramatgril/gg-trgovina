@@ -10,7 +10,7 @@ export const colors = {
 
 export const boxShadow = `0px 0px 10px rgba(0, 0, 0, 0.2),
 inset 0px 5px 30px rgba(255, 255, 255, 0.2)`;
-export const lightShadow = `2px 5px 3px 0px rgba(0, 0, 0, 0.5)`;
+export const lightShadow = `2px 3px 3px 0px rgba(0, 0, 0, 0.3)`;
 export const darkShadow = `4px 10px 5px 0px rgba(0, 0, 0, 0.5)`;
 export const linearTransition = `all 0.3s linear;`;
 export const easeInOutTransition = `all 0.5s ease-in-out`;

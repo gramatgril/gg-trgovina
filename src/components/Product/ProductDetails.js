@@ -1,12 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import Img from "gatsby-image";
+import React, { useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { Link } from "gatsby";
+import Img from "gatsby-image";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 
 import { styles } from "../../utils";
+
 import { PrimaryButton } from "../Button/Button";
-import { Link } from "gatsby";
 
 const propTypes = {
   product: PropTypes.shape({
@@ -20,27 +21,67 @@ const propTypes = {
     }).isRequired,
     image: PropTypes.object.isRequired,
     promo: PropTypes.bool.isRequired,
+    images: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
   categorySlug: PropTypes.string.isRequired,
 };
 
 const ProductDetails = ({ product, categorySlug }) => {
-  const { title, price, image, description } = product;
+  const { title, price, image, description, images, promo } = product;
+
+  const [mainImage, setMainImage] = useState(image);
+  const [galleryImages] = useState(images);
+
+  // Changes main image to the one that is selected in the gallery
+  const setAsMainImage = id => {
+    setMainImage(galleryImages.find(el => el.id === id));
+  };
 
   return (
     <Wrapper>
       <div className="center">
-        <h2 className="title">{title}</h2>
-
+        <StyledTitle>
+          <div className="title-bar">
+            <h2>{title}</h2>
+            <h2 className="price">{price}</h2>
+          </div>
+          <hr />
+        </StyledTitle>
         <div className="panels">
-          <div className="img-container">
-            <Img fluid={image.fluid} alt="product" className="img" />
-          </div>
-
-          <div className="desc">
-            <p>{documentToReactComponents(description.json)}</p>
-          </div>
+          <StyledGallery>
+            <div className="main-image">
+              <div
+                className="main-img-container"
+                onClick={() => setMainImage(image)}
+              >
+                <Img fluid={mainImage.fluid} className="main-img" />
+                {promo && (
+                  <p className="promo">
+                    <span>Izdelek v akciji</span>
+                  </p>
+                )}
+              </div>
+            </div>
+            <div className="gallery">
+              {galleryImages &&
+                galleryImages
+                  .filter((_, i) => i < 4)
+                  .map(({ id, fluid }) => (
+                    <div
+                      key={id}
+                      className="gallery-img-container"
+                      onClick={() => setAsMainImage(id)}
+                    >
+                      <Img fluid={fluid} className="gallery-img" />
+                    </div>
+                  ))}
+            </div>
+          </StyledGallery>
+          <StyledText>{documentToReactComponents(description.json)}</StyledText>
         </div>
+        <Link to={`/${categorySlug}`}>
+          <PrimaryButton text="nazaj na kategorijo" />
+        </Link>
       </div>
     </Wrapper>
   );
@@ -51,32 +92,11 @@ const Wrapper = styled.div`
     padding: 4rem 0;
     width: 90vw;
     margin: 0 auto;
+    text-align: center;
   }
 
-  h2 {
-    padding-bottom: 0.2rem;
-    font-size: 1.8rem;
-    font-weight: 500;
-    border-bottom: 1px solid ${styles.colors.green};
-  }
-
-  p {
-    font-size: 0.9rem;
-  }
-
-  .img-container,
-  .desc {
+  .panels {
     padding: 1rem 0;
-  }
-
-  .img-container {
-    max-width: 400px;
-    max-height: 300px;
-  }
-
-  .img {
-    width: 100%;
-    height: 100%;
   }
 
   @media (min-width: 576px) {
@@ -90,8 +110,7 @@ const Wrapper = styled.div`
       grid-column-gap: 1rem;
     }
 
-    .img-container,
-    .desc {
+    .img-container {
       padding: 2rem 0;
     }
   }
@@ -100,6 +119,118 @@ const Wrapper = styled.div`
     .center {
       width: 50vw;
     }
+  }
+`;
+
+const StyledTitle = styled.div`
+  text-align: left;
+
+  .title-bar {
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+
+    .price {
+      color: ${styles.colors.green};
+      font-weight: 600;
+    }
+  }
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid ${styles.colors.green};
+    margin: 0.5em 0;
+    padding: 0;
+  }
+
+  @media (min-width: 576px) {
+    .title-bar {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+`;
+
+const StyledGallery = styled.div`
+  position: relative;
+
+  .main-image-wrapper {
+    max-width: 400px;
+    max-height: 300px;
+
+    .main-img {
+      box-shadow: ${styles.lightShadow};
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .gallery {
+    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+
+    .gallery-img-container: {
+      height: 100px;
+    }
+
+    .gallery-img {
+      transition: ${styles.linearTransition};
+      box-shadow: ${styles.lightShadow};
+      width: 100%;
+      height: 100%;
+
+      :hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .promo {
+    font-size: 1.2rem;
+    position: absolute;
+    color: ${styles.colors.white};
+    background: ${styles.colors.red};
+    padding: 0.5rem 0.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    top: 0%;
+    right: 0%;
+  }
+
+  @media (min-width: 576px) {
+    .gallery {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .main-image-wrapper {
+      max-width: 400px;
+      max-height: 300px;
+    }
+  }
+`;
+
+// Styles description rich text field.
+const StyledText = styled.div`
+  text-align: left;
+
+  p {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  h4 {
+    padding: 0.2rem 1rem;
+    font-weight: 600;
+  }
+
+  li {
+    list-style-type: none;
   }
 `;
 
