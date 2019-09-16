@@ -12,7 +12,7 @@ import { PrimaryButton } from "../Button";
 const propTypes = {
   advice: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    publishDate: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
     content: PropTypes.shape({
       json: PropTypes.object.isRequired,
     }).isRequired,
@@ -20,7 +20,7 @@ const propTypes = {
 };
 
 const AdviceDetails = ({ advice }) => {
-  const { title, publishDate, content } = advice;
+  const { title, date, content } = advice;
 
   const options = {
     renderNode: {
@@ -70,11 +70,11 @@ const AdviceDetails = ({ advice }) => {
     <Wrapper>
       <div className="center">
         <h1>{title}</h1>
-        <h4>Objavljeno : {publishDate}</h4>
+        <h4>Objavljeno : {date}</h4>
         <article className="post">
           {documentToReactComponents(content.json, options)}
         </article>
-        <Link to="/nasveti" className="link">
+        <Link to="/nasvet-in-ideje" className="link">
           <PrimaryButton text="nazaj" />
         </Link>
       </div>

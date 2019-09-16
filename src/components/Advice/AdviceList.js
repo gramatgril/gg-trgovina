@@ -10,7 +10,7 @@ const propTypes = {
       node: PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        publishDate: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
         slug: PropTypes.string.isRequired,
         shortDesc: PropTypes.string.isRequired,
         image: PropTypes.shape({

@@ -39,7 +39,7 @@ export const query = graphql`
           category {
             slug
           }
-          image {
+          images {
             fluid {
               ...GatsbyContentfulFluid
             }

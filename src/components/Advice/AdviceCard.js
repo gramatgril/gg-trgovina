@@ -11,7 +11,7 @@ const propTypes = {
     title: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     shortDesc: PropTypes.string.isRequired,
-    publishDate: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
     image: PropTypes.shape({
       fluid: PropTypes.object.isRequired,
     }).isRequired,
@@ -19,15 +19,15 @@ const propTypes = {
 };
 
 const AdviceCard = ({ advice }) => {
-  const { title, slug, shortDesc, image, publishDate } = advice;
+  const { title, slug, shortDesc, image, date } = advice;
 
   return (
     <Wrapper>
-      <Link to={`/nasveti/${slug}`} className="link">
+      <Link to={`/nasveti-in-ideje/${slug}`} className="link">
         <div className="center">
           <div className="img-container">
             <Img fluid={image.fluid} alt="advice" className="img" />
-            <p className="date">{publishDate}</p>
+            <p className="date">{date}</p>
           </div>
           <div className="desc">
             <h2>{title}</h2>

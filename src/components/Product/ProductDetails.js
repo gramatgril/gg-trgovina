@@ -19,7 +19,6 @@ const propTypes = {
     category: PropTypes.shape({
       slug: PropTypes.string.isRequired,
     }).isRequired,
-    image: PropTypes.object.isRequired,
     promo: PropTypes.bool.isRequired,
     images: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,
@@ -27,10 +26,10 @@ const propTypes = {
 };
 
 const ProductDetails = ({ product, categorySlug }) => {
-  const { title, price, image, description, images, promo } = product;
+  const { title, price, description, images, promo } = product;
 
-  const [mainImage, setMainImage] = useState(image);
   const [galleryImages] = useState(images);
+  const [mainImage, setMainImage] = useState(images[0]);
 
   // Changes main image to the one that is selected in the gallery
   const setAsMainImage = id => {
@@ -49,19 +48,15 @@ const ProductDetails = ({ product, categorySlug }) => {
         </StyledTitle>
         <div className="panels">
           <StyledGallery>
-            <div className="main-image">
-              <div
-                className="main-img-container"
-                onClick={() => setMainImage(image)}
-              >
-                <Img fluid={mainImage.fluid} className="main-img" />
-                {promo && (
-                  <p className="promo">
-                    <span>Izdelek v akciji</span>
-                  </p>
-                )}
-              </div>
+            <div className="main-img-container">
+              <Img fluid={mainImage.fluid} className="main-img" />
+              {promo && (
+                <p className="promo">
+                  <span>Izdelek v akciji</span>
+                </p>
+              )}
             </div>
+
             <div className="gallery">
               {galleryImages &&
                 galleryImages
@@ -156,13 +151,14 @@ const StyledTitle = styled.div`
 
 const StyledGallery = styled.div`
   position: relative;
+  max-width: 400px;
 
-  .main-image-wrapper {
-    max-width: 400px;
-    max-height: 300px;
+  .main-img-container {
+
 
     .main-img {
-      box-shadow: ${styles.lightShadow};
+      /* box-shadow: ${styles.lightShadow}; */
+
       width: 100%;
       height: 100%;
     }
@@ -181,7 +177,7 @@ const StyledGallery = styled.div`
 
     .gallery-img {
       transition: ${styles.linearTransition};
-      box-shadow: ${styles.lightShadow};
+      /* box-shadow: ${styles.lightShadow}; */
       width: 100%;
       height: 100%;
 
@@ -208,9 +204,9 @@ const StyledGallery = styled.div`
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
-    .main-image-wrapper {
-      max-width: 400px;
-      max-height: 300px;
+    .main-img-container {
+      width: 400px;
+      height: 300px;
     }
   }
 `;

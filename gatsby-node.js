@@ -54,7 +54,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   data.advices.edges.forEach(({ node }) => {
     createPage({
-      path: `/nasveti/${node.slug}`,
+      path: `/nasveti-in-ideje/${node.slug}`,
       component: path.resolve("./src/templates/single-advice-template.js"),
       context: { id: node.adviceId },
     });

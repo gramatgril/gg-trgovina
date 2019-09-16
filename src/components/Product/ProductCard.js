@@ -15,15 +15,17 @@ const propTypes = {
     category: PropTypes.shape({
       slug: PropTypes.string.isRequired,
     }).isRequired,
-    image: PropTypes.shape({
-      fluid: PropTypes.object.isRequired,
-    }).isRequired,
+    images: PropTypes.arrayOf(
+      PropTypes.shape({
+        fluid: PropTypes.object.isRequired,
+      }).isRequired
+    ).isRequired,
   }).isRequired,
 };
 
 const ProductCard = ({ product }) => {
   /* eslint-disable no-unused-vars */
-  const { price, slug, title, image, category, promo } = product;
+  const { price, slug, title, images, category, promo } = product;
 
   return (
     <Wrapper>
@@ -32,7 +34,7 @@ const ProductCard = ({ product }) => {
           <h4>{title}</h4>
         </div>
         <div className="img-container">
-          <Img fluid={image.fluid} className="img" />
+          <Img fluid={images[0].fluid} className="img" />
           <h4 className="price">{price}</h4>
           {promo && (
             <p className="promo">

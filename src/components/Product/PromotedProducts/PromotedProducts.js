@@ -20,7 +20,7 @@ const getPromoItems = graphql`
             slug
           }
           id: contentful_id
-          image {
+          images {
             fluid {
               ...GatsbyContentfulFluid
             }

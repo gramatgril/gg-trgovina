@@ -21,7 +21,7 @@ export const query = graphql`
   query($id: String!) {
     advice: contentfulNasvetiInIdeje(contentful_id: { eq: $id }) {
       title
-      publishDate(formatString: "D. M. YYYY")
+      date(formatString: "D. M. YYYY")
       content {
         json
       }

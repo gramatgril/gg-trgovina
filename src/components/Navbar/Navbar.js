@@ -15,8 +15,8 @@ const Navbar = () => {
   return (
     <Wrapper>
       <div className="top-bar">
-        <p>e: info@gramat-gril.si</p>
-        <p>t: 01 786 33 64</p>
+        <p>info@gramat-gril.si</p>
+        <p>01 786 33 64</p>
       </div>
       <div className="center">
         <NavbarHeader toggleOpen={toggleOpen} />

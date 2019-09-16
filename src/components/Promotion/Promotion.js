@@ -21,7 +21,7 @@ const getPromotedItems = graphql`
           category {
             slug
           }
-          image {
+          images {
             fluid {
               ...GatsbyContentfulFluid
             }

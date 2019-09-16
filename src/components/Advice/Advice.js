@@ -20,7 +20,7 @@ const getAllAdvice = graphql`
         node {
           id: contentful_id
           title
-          publishDate(formatString: "D. M. YYYY")
+          date(formatString: "D. M. YYYY")
           slug
           shortDesc
           image {

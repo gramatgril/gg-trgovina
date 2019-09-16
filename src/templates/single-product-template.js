@@ -33,11 +33,6 @@ export const query = graphql`
         slug
       }
       promo
-      image {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
-      }
       images {
         id: contentful_id
         fluid {

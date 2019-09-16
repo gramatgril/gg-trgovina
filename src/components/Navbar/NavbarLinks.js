@@ -25,11 +25,9 @@ const NavbarLinks = ({ isOpen }) => {
 };
 
 const Wrapper = styled.ul`
-  height: ${({ isOpen }) => (isOpen ? "240px" : "0px")};
+  height: ${({ isOpen }) => (isOpen ? "200px" : "0px")};
   overflow: hidden;
   transition: ${styles.transition({ time: "0.3s" })};
-
-
 
 
 /* Colors last link as red "Akcija" */

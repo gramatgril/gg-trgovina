@@ -19,9 +19,11 @@ const propTypes = {
         category: PropTypes.shape({
           slug: PropTypes.string.isRequired,
         }).isRequired,
-        image: PropTypes.shape({
-          fluid: PropTypes.object.isRequired,
-        }).isRequired,
+        images: PropTypes.arrayOf(
+          PropTypes.shape({
+            fluid: PropTypes.object.isRequired,
+          }).isRequired
+        ).isRequired,
       }).isRequired,
     }).isRequired
   ).isRequired,

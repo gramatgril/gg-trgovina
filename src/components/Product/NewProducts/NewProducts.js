@@ -22,7 +22,7 @@ const getNewProducts = graphql`
             slug
           }
           id: contentful_id
-          image {
+          images {
             fluid {
               ...GatsbyContentfulFluid
             }
