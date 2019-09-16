@@ -57,6 +57,7 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-playground`,
     `gatsby-plugin-sitemap`,
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
@@ -67,20 +68,6 @@ module.exports = {
             policy: [{ userAgent: "*", allow: "/" }],
           },
         },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [
-          `/kontakt/`,
-          `/gradnja/*`,
-          `/barve-in-fasade/*`,
-          `/keramika-in-talne-obloge/*`,
-          `/vrt-in-okolica/*`,
-          `/vse-za-kopalnico/*`,
-          `/nasveti-in-ideje/*`,
-        ],
       },
     },
   ],
