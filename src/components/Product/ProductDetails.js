@@ -30,7 +30,7 @@ const ProductDetails = ({ product, categorySlug }) => {
   const { title, price, image, description, images, promo } = product;
 
   const [mainImage, setMainImage] = useState(image);
-  const [galleryImages] = useState([mainImage, ...images]);
+  const [galleryImages] = useState(images);
 
   // Changes main image to the one that is selected in the gallery
   const setAsMainImage = id => {
