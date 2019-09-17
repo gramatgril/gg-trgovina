@@ -32,7 +32,7 @@ const ProductDetails = ({ product, categorySlug }) => {
   const [mainImage, setMainImage] = useState(images[0]);
 
   // Changes main image to the one that is selected in the gallery
-  const setAsMainImage = id => {
+  const changeImage = id => {
     setMainImage(galleryImages.find(el => el.id === id));
   };
 
@@ -65,7 +65,7 @@ const ProductDetails = ({ product, categorySlug }) => {
                     <div
                       key={id}
                       className="gallery-img-container"
-                      onClick={() => setAsMainImage(id)}
+                      onClick={() => changeImage(id)}
                     >
                       <Img fluid={fluid} className="gallery-img" />
                     </div>
@@ -81,6 +81,63 @@ const ProductDetails = ({ product, categorySlug }) => {
     </Wrapper>
   );
 };
+
+const StyledGallery = styled.div`
+  position: relative;
+
+  .main-img-container {
+    margin: 0 auto;
+    height: 300px;
+    width: auto;
+  }
+
+  .main-img {
+    /* object-fit: contain; */
+    width: 100%;
+    height: 100%;
+  }
+
+  .gallery {
+    padding: 2rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+
+    .gallery-img {
+      transition: ${styles.linearTransition};
+      width: 100%;
+      height: 100%;
+
+      :hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .promo {
+    font-size: 0.9rem;
+    position: absolute;
+    color: ${styles.colors.white};
+    background: ${styles.colors.red};
+    padding: 0.5rem 0.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    top: 0%;
+    left: 0%;
+  }
+
+  @media (min-width: 576px) {
+    .main-img-container {
+      width: 400px;
+      height: 400px;
+    }
+
+    .promo {
+      font-size: 1.2rem;
+    }
+  }
+`;
 
 const Wrapper = styled.div`
   .center {
@@ -145,68 +202,6 @@ const StyledTitle = styled.div`
     .title-bar {
       display: flex;
       justify-content: space-between;
-    }
-  }
-`;
-
-const StyledGallery = styled.div`
-  position: relative;
-  max-width: 400px;
-
-  .main-img-container {
-
-
-    .main-img {
-      /* box-shadow: ${styles.lightShadow}; */
-
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  .gallery {
-    padding: 2rem 0;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 0.5rem;
-    grid-row-gap: 0.5rem;
-
-    .gallery-img-container: {
-      height: 100px;
-    }
-
-    .gallery-img {
-      transition: ${styles.linearTransition};
-      /* box-shadow: ${styles.lightShadow}; */
-      width: 100%;
-      height: 100%;
-
-      :hover {
-        opacity: 0.5;
-      }
-    }
-  }
-
-  .promo {
-    font-size: 1.2rem;
-    position: absolute;
-    color: ${styles.colors.white};
-    background: ${styles.colors.red};
-    padding: 0.5rem 0.8rem;
-    text-align: center;
-    text-transform: uppercase;
-    top: 0%;
-    right: 0%;
-  }
-
-  @media (min-width: 576px) {
-    .gallery {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-    .main-img-container {
-      width: 400px;
-      height: 300px;
     }
   }
 `;
