@@ -20,7 +20,7 @@ const propTypes = {
       slug: PropTypes.string.isRequired,
     }).isRequired,
     promo: PropTypes.bool.isRequired,
-    images: PropTypes.arrayOf(PropTypes.object),
+    images: PropTypes.arrayOf(PropTypes.object.isRequired),
   }).isRequired,
   categorySlug: PropTypes.string.isRequired,
 };
@@ -39,6 +39,7 @@ const ProductDetails = ({ product, categorySlug }) => {
   return (
     <Wrapper>
       <div className="center">
+        {/* Title bar */}
         <StyledTitle>
           <div className="title-bar">
             <h2>{title}</h2>
@@ -47,18 +48,25 @@ const ProductDetails = ({ product, categorySlug }) => {
           <hr />
         </StyledTitle>
         <div className="panels">
+          {/* Main image and gallery */}
           <StyledGallery>
             <div className="main-img-container">
-              <Img fluid={mainImage.fluid} className="main-img" />
+              {/* imgStyle is used so image fits the parent container */}
+              <Img
+                fluid={mainImage.fluid}
+                className="main-img"
+                imgStyle={{ objectFit: "contain" }}
+              />
+              {/* Promo tag */}
               {promo && (
                 <p className="promo">
                   <span>Izdelek v akciji</span>
                 </p>
               )}
             </div>
-
+            {/* Gallery images render only if there is more than one image */}
             <div className="gallery">
-              {galleryImages &&
+              {galleryImages.length > 1 &&
                 galleryImages
                   .filter((_, i) => i < 4)
                   .map(({ id, fluid }) => (
@@ -72,6 +80,7 @@ const ProductDetails = ({ product, categorySlug }) => {
                   ))}
             </div>
           </StyledGallery>
+          {/* Rich Text, contains H4 and p tags */}
           <StyledText>{documentToReactComponents(description.json)}</StyledText>
         </div>
         <Link to={`/${categorySlug}`}>
@@ -81,63 +90,6 @@ const ProductDetails = ({ product, categorySlug }) => {
     </Wrapper>
   );
 };
-
-const StyledGallery = styled.div`
-  position: relative;
-
-  .main-img-container {
-    margin: 0 auto;
-    height: 300px;
-    width: auto;
-  }
-
-  .main-img {
-    /* object-fit: contain; */
-    width: 100%;
-    height: 100%;
-  }
-
-  .gallery {
-    padding: 2rem 1rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-column-gap: 0.5rem;
-    grid-row-gap: 0.5rem;
-
-    .gallery-img {
-      transition: ${styles.linearTransition};
-      width: 100%;
-      height: 100%;
-
-      :hover {
-        opacity: 0.5;
-      }
-    }
-  }
-
-  .promo {
-    font-size: 0.9rem;
-    position: absolute;
-    color: ${styles.colors.white};
-    background: ${styles.colors.red};
-    padding: 0.5rem 0.8rem;
-    text-align: center;
-    text-transform: uppercase;
-    top: 0%;
-    left: 0%;
-  }
-
-  @media (min-width: 576px) {
-    .main-img-container {
-      width: 400px;
-      height: 400px;
-    }
-
-    .promo {
-      font-size: 1.2rem;
-    }
-  }
-`;
 
 const Wrapper = styled.div`
   .center {
@@ -149,6 +101,7 @@ const Wrapper = styled.div`
 
   .panels {
     padding: 1rem 0;
+    margin-bottom: 1rem;
   }
 
   @media (min-width: 576px) {
@@ -160,6 +113,7 @@ const Wrapper = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 1rem;
+      margin-bottom: 3rem;
     }
 
     .img-container {
@@ -174,6 +128,7 @@ const Wrapper = styled.div`
   }
 `;
 
+// Title bar
 const StyledTitle = styled.div`
   text-align: left;
 
@@ -206,8 +161,58 @@ const StyledTitle = styled.div`
   }
 `;
 
-// Styles description rich text field.
+// Main image and gallery
+const StyledGallery = styled.div`
+  position: relative;
+
+  .main-img-container {
+    height: 400px;
+  }
+
+  .main-img {
+    height: 100%;
+  }
+
+  .gallery {
+    padding: 1rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 0.5rem;
+
+    .gallery-img {
+      transition: ${styles.linearTransition};
+      width: 100%;
+      height: 100%;
+
+      :hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .promo {
+    font-size: 0.9rem;
+    position: absolute;
+    color: ${styles.colors.white};
+    background: ${styles.colors.red};
+    padding: 0.5rem 0.8rem;
+    text-align: center;
+    text-transform: uppercase;
+    top: 0%;
+    left: 0%;
+  }
+
+  @media (min-width: 576px) {
+    .promo {
+      font-size: 1.2rem;
+    }
+  }
+`;
+
+// Description rich text field.
 const StyledText = styled.div`
+  padding: 2rem 0;
   text-align: left;
 
   p {
@@ -222,6 +227,10 @@ const StyledText = styled.div`
 
   li {
     list-style-type: none;
+  }
+
+  @media (min-width: 576px) {
+    padding: 0;
   }
 `;
 

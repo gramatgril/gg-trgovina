@@ -24,7 +24,6 @@ const propTypes = {
 };
 
 const ProductCard = ({ product }) => {
-  /* eslint-disable no-unused-vars */
   const { price, slug, title, images, category, promo } = product;
 
   return (
@@ -34,8 +33,13 @@ const ProductCard = ({ product }) => {
           <h4>{title}</h4>
         </div>
         <div className="img-container">
-          <Img fluid={images[0].fluid} className="img" />
+          <Img
+            fluid={images[0].fluid}
+            className="img"
+            imgStyle={{ objectFit: "contain" }}
+          />
           <h4 className="price">{price}</h4>
+          {/* Promo tag that says "Akcija" */}
           {promo && (
             <p className="promo">
               <span>Akcija</span>
@@ -69,10 +73,12 @@ const Wrapper = styled.article`
     transition: ${styles.linearTransition};
     text-align: left;
     background: ${styles.colors.white};
+
     h4 {
       position: absolute;
       bottom: 0;
       padding: 0.5rem 0;
+      margin: 0.5rem 0;
       transition: ${styles.linearTransition};
       color: ${styles.colors.black};
       font-size: 1.2rem;
@@ -122,8 +128,6 @@ const Wrapper = styled.article`
     text-decoration: none;
   }
 `;
-
-const promoBadge = styled.div``;
 
 ProductCard.propTypes = propTypes;
 

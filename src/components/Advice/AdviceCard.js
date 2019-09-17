@@ -26,7 +26,12 @@ const AdviceCard = ({ advice }) => {
       <Link to={`/nasveti-in-ideje/${slug}`} className="link">
         <div className="center">
           <div className="img-container">
-            <Img fluid={image.fluid} alt="advice" className="img" />
+            <Img
+              fluid={image.fluid}
+              alt="advice"
+              className="img"
+              imgStyle={{ objectFit: "contain" }}
+            />
             <p className="date">{date}</p>
           </div>
           <div className="desc">

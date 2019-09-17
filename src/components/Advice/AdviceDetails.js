@@ -71,10 +71,10 @@ const AdviceDetails = ({ advice }) => {
       <div className="center">
         <h1>{title}</h1>
         <h4>Objavljeno : {date}</h4>
-        <article className="post">
+        <div className="post">
           {documentToReactComponents(content.json, options)}
-        </article>
-        <Link to="/nasvet-in-ideje" className="link">
+        </div>
+        <Link to="/nasveti-in-ideje" className="link">
           <PrimaryButton text="nazaj" />
         </Link>
       </div>
@@ -83,7 +83,8 @@ const AdviceDetails = ({ advice }) => {
 };
 
 const Wrapper = styled.div`
-  padding: 4rem 0;
+  padding: 3rem 0;
+  margin: 0 auto;
 
   .img {
     padding: 1rem;
@@ -91,6 +92,7 @@ const Wrapper = styled.div`
   }
 
   .center {
+    text-align: left;
     width: 80vw;
     margin: 0 auto;
   }
@@ -98,9 +100,8 @@ const Wrapper = styled.div`
   h1,
   h4 {
     text-transform: capitalize;
-    padding: 1rem 0;
+    /* padding: 1rem 0; */
     margin: 2rem 0;
-    text-transform: uppercase;
     letter-spacing: ${styles.letterSpacing};
     margin-bottom: 1rem;
   }
@@ -111,6 +112,16 @@ const Wrapper = styled.div`
 
   .post img {
     max-width: 70vw;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  @media (min-width: 576px) {
+    .center {
+      width: 60vw;
+    }
   }
 `;
 

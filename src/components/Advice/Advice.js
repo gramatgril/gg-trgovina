@@ -3,11 +3,11 @@ import { graphql, useStaticQuery, Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import AdviceList from "./AdviceList";
+import AdviceCard from "./AdviceCard";
 import Title from "../Title";
+import { PrimaryButton } from "../Button";
 
 import { styles } from "../../utils";
-import { PrimaryButton } from "../Button";
 
 const propTypes = {
   embed: PropTypes.bool.isRequired,
@@ -47,7 +47,9 @@ const Advice = ({ embed }) => {
     <Wrapper embed={embed}>
       <div className="center">
         {embed && <Title title="Nasveti" subtitle="in ideje" />}
-        <AdviceList advices={advices} />
+        {advices.map(({ node }) => (
+          <AdviceCard advice={node} key={node.id} />
+        ))}
         {embed && (
           <Link to="nasveti-in-ideje">
             <PrimaryButton text="vsi nasveti in ideje" />
@@ -67,7 +69,7 @@ const Wrapper = styled.div`
   text-align: center;
 
   .center {
-    padding: 1rem 0.6rem;
+    padding: 3rem 0.6rem;
     margin: 0 auto;
   }
 

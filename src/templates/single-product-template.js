@@ -35,7 +35,7 @@ export const query = graphql`
       promo
       images {
         id: contentful_id
-        fluid {
+        fluid(maxHeight: 400) {
           ...GatsbyContentfulFluid
         }
       }
