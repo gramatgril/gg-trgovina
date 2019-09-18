@@ -22,15 +22,15 @@ const AdviceCard = ({ advice }) => {
   const { title, slug, shortDesc, image, date } = advice;
 
   return (
-    <Wrapper>
+    <StyledAdviceCard>
       <Link to={`/nasveti-in-ideje/${slug}`} className="link">
-        <div className="center">
+        <div className="card">
           <div className="img-container">
             <Img
               fluid={image.fluid}
               alt="advice"
               className="img"
-              imgStyle={{ objectFit: "contain" }}
+              imgStyle={{ objectFit: "cover" }}
             />
             <p className="date">{date}</p>
           </div>
@@ -40,12 +40,18 @@ const AdviceCard = ({ advice }) => {
           </div>
         </div>
       </Link>
-    </Wrapper>
+    </StyledAdviceCard>
   );
 };
 
-const Wrapper = styled.div`
-  .link {
+AdviceCard.propTypes = propTypes;
+
+export default AdviceCard;
+
+const StyledAdviceCard = styled.div`
+  padding: 2rem 0;
+
+  :.link  {
     text-decoration: none;
   }
 
@@ -53,15 +59,16 @@ const Wrapper = styled.div`
     transition: ${styles.linearTransition};
   }
 
-  .center {
+  .card {
     transition: ${styles.linearTransition};
-    display: inline-block;
+    display: block;
 
     :hover {
       h2 {
         transition: ${styles.linearTransition};
         color: ${styles.colors.green};
       }
+
       .img-container {
         transition: ${styles.linearTransition};
         opacity: 0.9;
@@ -70,13 +77,16 @@ const Wrapper = styled.div`
   }
 
   .img-container {
+    margin: 0 auto;
     align-self: left;
     position: relative;
+    height: 200px;
+    width: 300px;
   }
 
   .img {
-    height: 200px;
-    width: 300px;
+    height: 100%;
+    width: 100%;
   }
 
   .date {
@@ -91,7 +101,7 @@ const Wrapper = styled.div`
 
   .desc {
     text-align: center;
-    width: 100%;
+    /* width: 100%; */
     padding: 2rem 0;
   }
 
@@ -105,7 +115,6 @@ const Wrapper = styled.div`
 
   h4 {
     color: ${styles.colors.black};
-    font-size: 1rem;
     font-weight: 400;
   }
 
@@ -114,26 +123,24 @@ const Wrapper = styled.div`
   }
 
   @media (min-width: 576px) {
-    .center {
-      width: 80vw;
+    .card {
       display: flex;
-      justify-content: start;
+      justify-content: flex-start;
     }
 
     .desc {
       text-align: left;
-      width: 100%;
+      /* width: 100%; */
       padding: 0 2rem;
+      h4 {
+        width: 70%;
+      }
     }
   }
 
   @media (min-width: 1200px) {
-    .center {
+    .card {
       width: 70vw;
     }
   }
 `;
-
-AdviceCard.propTypes = propTypes;
-
-export default AdviceCard;

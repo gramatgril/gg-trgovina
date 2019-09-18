@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { styles } from "../../utils/";
 
 import ProductCard from "./../Product/ProductCard";
-import { PrimaryButton } from "../Button/";
+import PrimaryButton from "../Button/";
 
 const propTypes = {
   products: PropTypes.arrayOf(
@@ -30,7 +30,7 @@ const propTypes = {
 
 const PromotionList = ({ products }) => {
   return (
-    <Wrapper>
+    <StyledPromotionList>
       <div className="center">
         {products.map(({ node }) => (
           <ProductCard key={node.id} product={node} />
@@ -39,11 +39,15 @@ const PromotionList = ({ products }) => {
       <Link to="/">
         <PrimaryButton text="nazaj na kategorije" />
       </Link>
-    </Wrapper>
+    </StyledPromotionList>
   );
 };
 
-const Wrapper = styled.div`
+PromotionList.propTyes = propTypes;
+
+export default PromotionList;
+
+const StyledPromotionList = styled.div`
   background: ${styles.colors.white};
   padding: 1rem 0 4rem;
   text-align: center;
@@ -70,7 +74,3 @@ const Wrapper = styled.div`
     }
   }
 `;
-
-PromotionList.propTyes = propTypes;
-
-export default PromotionList;

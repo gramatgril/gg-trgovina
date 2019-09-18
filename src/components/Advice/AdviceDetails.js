@@ -7,7 +7,8 @@ import styled from "styled-components";
 
 import { styles } from "../../utils";
 
-import { PrimaryButton } from "../Button";
+import PrimaryButton from "../Button";
+import { Container } from "./../../utils";
 
 const propTypes = {
   advice: PropTypes.shape({
@@ -67,40 +68,32 @@ const AdviceDetails = ({ advice }) => {
   };
 
   return (
-    <Wrapper>
-      <div className="center">
-        <h1>{title}</h1>
-        <h4>Objavljeno : {date}</h4>
-        <div className="post">
-          {documentToReactComponents(content.json, options)}
-        </div>
-        <Link to="/nasveti-in-ideje" className="link">
-          <PrimaryButton text="nazaj" />
-        </Link>
+    <StyledContainer>
+      <h1>{title}</h1>
+      <h4>Objavljeno : {date}</h4>
+      <div className="post">
+        {documentToReactComponents(content.json, options)}
       </div>
-    </Wrapper>
+      <Link to="/nasveti-in-ideje" className="link">
+        <PrimaryButton text="nazaj" />
+      </Link>
+    </StyledContainer>
   );
 };
 
-const Wrapper = styled.div`
-  padding: 3rem 0;
-  margin: 0 auto;
+AdviceDetails.propTypes = propTypes;
 
+export default AdviceDetails;
+
+const StyledContainer = styled(Container)`
   .img {
     padding: 1rem;
     height: 400px;
   }
 
-  .center {
-    text-align: left;
-    width: 80vw;
-    margin: 0 auto;
-  }
-
   h1,
   h4 {
     text-transform: capitalize;
-    /* padding: 1rem 0; */
     margin: 2rem 0;
     letter-spacing: ${styles.letterSpacing};
     margin-bottom: 1rem;
@@ -116,12 +109,6 @@ const Wrapper = styled.div`
 
   li {
     list-style-type: none;
-  }
-
-  @media (min-width: 576px) {
-    .center {
-      width: 60vw;
-    }
   }
 `;
 
@@ -140,7 +127,3 @@ const IframeContainer = styled.span`
     left: 0;
   }
 `;
-
-AdviceDetails.propTypes = propTypes;
-
-export default AdviceDetails;

@@ -7,17 +7,19 @@ import { navIcons } from "../../utils";
 
 const NavbarIcons = () => {
   return (
-    <Wrapper>
+    <StyledIcons>
       {navIcons.map(({ id, path, icon }) => (
         <a key={id} href={path} target="_blank" rel="noopener noreferrer">
           {icon}
         </a>
       ))}
-    </Wrapper>
+    </StyledIcons>
   );
 };
 
-const Wrapper = styled.div`
+export default NavbarIcons;
+
+const StyledIcons = styled.div`
   .icon {
     font-size: 1.6rem;
     cursor: pointer;
@@ -51,5 +53,3 @@ const Wrapper = styled.div`
     justify-content: space-around;
   }
 `;
-
-export default NavbarIcons;

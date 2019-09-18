@@ -12,16 +12,20 @@ const propTypes = {
 
 const NavbarHeader = ({ toggleOpen }) => {
   return (
-    <Wrapper>
+    <StyledHeader>
       <Link to="/" className="link">
         <h1>GramatGril</h1>
       </Link>
       <FaBars className="toggle-icon" onClick={() => toggleOpen()} />
-    </Wrapper>
+    </StyledHeader>
   );
 };
 
-const Wrapper = styled.div`
+NavbarHeader.propTypes = propTypes;
+
+export default NavbarHeader;
+
+const StyledHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,7 +59,3 @@ const Wrapper = styled.div`
     }
   }
 `;
-
-NavbarHeader.propTypes = propTypes;
-
-export default NavbarHeader;

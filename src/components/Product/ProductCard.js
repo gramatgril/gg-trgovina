@@ -36,7 +36,7 @@ const ProductCard = ({ product }) => {
           <Img
             fluid={images[0].fluid}
             className="img"
-            imgStyle={{ objectFit: "contain" }}
+            imgStyle={{ objectFit: "contain", objectPosition: "50% 50%" }}
           />
           <h4 className="price">{price}</h4>
           {/* Promo tag that says "Akcija" */}
@@ -50,6 +50,10 @@ const ProductCard = ({ product }) => {
     </Wrapper>
   );
 };
+
+ProductCard.propTypes = propTypes;
+
+export default ProductCard;
 
 const Wrapper = styled.article`
   transition: ${styles.linearTransition};
@@ -87,15 +91,21 @@ const Wrapper = styled.article`
   }
 
   .img-container {
-    height: 300px;
+    height: 280px;
+
     position: relative;
-    background: ${styles.colors.white};
+    box-shadow: ${styles.boxShadow}:
+    /* background: ${styles.colors.offWhite}; */
     transition: ${styles.linearTransition};
   }
 
   .img {
     height: 100%;
     transition: ${styles.linearTransition};
+
+    &:hover {
+      opacity: 0.8;
+    }
   }
 
   .price {
@@ -128,7 +138,3 @@ const Wrapper = styled.article`
     text-decoration: none;
   }
 `;
-
-ProductCard.propTypes = propTypes;
-
-export default ProductCard;

@@ -1,10 +1,8 @@
 import React from "react";
-import { useStaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import CategoryCard from "./CategoryCard";
-import Title from "./../Title";
 
 const propTypes = {
   categories: PropTypes.arrayOf(
@@ -23,8 +21,7 @@ const propTypes = {
 
 const CategoryList = ({ categories, adviceCardImg }) => {
   return (
-    <Wrapper>
-      {/* <Title title="kategorije" /> */}
+    <StyledCategoryList>
       <div className="center">
         {categories.map(({ node }) => (
           <CategoryCard
@@ -41,11 +38,11 @@ const CategoryList = ({ categories, adviceCardImg }) => {
           image={adviceCardImg}
         />
       </div>
-    </Wrapper>
+    </StyledCategoryList>
   );
 };
 
-const Wrapper = styled.div`
+const StyledCategoryList = styled.div`
   padding: 4rem 0;
   text-align: center;
 

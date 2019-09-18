@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
-import Advice from "../Advice/Advice";
+import AdviceList from "../Advice/";
 import Banner from "./../Banner";
 import PromotionList from "./PromotionList";
 
@@ -41,7 +41,7 @@ const Promotion = () => {
         info="Oglejte si izdelke v akciji ter posebne priložnosti"
       />
       <PromotionList products={promotedProducts.edges} />
-      <Advice embed={true} />
+      <AdviceList embed={true} />
     </Fragment>
   );
 };

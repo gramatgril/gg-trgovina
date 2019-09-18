@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Advice from "../components/Advice/";
+import AdviceList from "../components/Advice/";
 import Category from "./../components/Category";
 import Layout from "../components/layout";
 import NewProducts from "../components/Product/NewProducts";
@@ -16,7 +16,7 @@ export default ({ data }) => {
       <Category />
       <Services />
       <PromotedProducts />
-      <Advice embed={true} />
+      <AdviceList embed={true} />
       <NewProducts />
     </Layout>
   );

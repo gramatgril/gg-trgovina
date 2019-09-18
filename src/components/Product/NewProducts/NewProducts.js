@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
-import NewProductsList from "./NewProductsList";
+import ProductList from "./../ProductList";
+import Title from "../../Title";
 
 const getNewProducts = graphql`
   {
@@ -38,7 +39,8 @@ const NewProducts = () => {
 
   return (
     <Fragment>
-      <NewProductsList products={products.edges} />
+      <Title title="novi" subtitle="izdelki" />
+      <ProductList products={products.edges} />
     </Fragment>
   );
 };

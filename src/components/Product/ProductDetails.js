@@ -7,7 +7,8 @@ import styled from "styled-components";
 
 import { styles } from "../../utils";
 
-import { PrimaryButton } from "../Button/Button";
+import PrimaryButton from "../Button/Button";
+import { Container } from "./../../utils";
 
 const propTypes = {
   product: PropTypes.shape({
@@ -38,7 +39,7 @@ const ProductDetails = ({ product, categorySlug }) => {
 
   return (
     <Wrapper>
-      <div className="center">
+      <Container align="center">
         {/* Title bar */}
         <StyledTitle>
           <div className="title-bar">
@@ -86,29 +87,22 @@ const ProductDetails = ({ product, categorySlug }) => {
         <Link to={`/${categorySlug}`}>
           <PrimaryButton text="nazaj na kategorijo" />
         </Link>
-      </div>
+      </Container>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.div`
-  .center {
-    padding: 4rem 0;
-    width: 90vw;
-    margin: 0 auto;
-    text-align: center;
-  }
+ProductDetails.propTypes = propTypes;
 
+export default ProductDetails;
+
+const Wrapper = styled.div`
   .panels {
     padding: 1rem 0;
     margin-bottom: 1rem;
   }
 
   @media (min-width: 576px) {
-    .center {
-      width: 80vw;
-    }
-
     .panels {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -122,9 +116,6 @@ const Wrapper = styled.div`
   }
 
   @media (min-width: 1200px) {
-    .center {
-      width: 50vw;
-    }
   }
 `;
 
@@ -134,13 +125,15 @@ const StyledTitle = styled.div`
 
   .title-bar {
     h2 {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
       font-weight: 500;
     }
 
     .price {
+      padding: 1rem 0;
+      letter-spacing: 2px;
+      font-weight: 500;
       color: ${styles.colors.green};
-      font-weight: 600;
     }
   }
 
@@ -157,6 +150,15 @@ const StyledTitle = styled.div`
     .title-bar {
       display: flex;
       justify-content: space-between;
+
+      h2 {
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+
+      .price {
+        padding: 0;
+      }
     }
   }
 `;
@@ -216,11 +218,13 @@ const StyledText = styled.div`
   text-align: left;
 
   p {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    padding: 0.2rem 0.5rem;
   }
 
   h4 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
     padding: 0.2rem 1rem;
     font-weight: 600;
   }
@@ -231,9 +235,9 @@ const StyledText = styled.div`
 
   @media (min-width: 576px) {
     padding: 0;
+    p {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
   }
 `;
-
-ProductDetails.propTypes = propTypes;
-
-export default ProductDetails;

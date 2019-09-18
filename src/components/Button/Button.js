@@ -11,19 +11,25 @@ const propTypes = {
 
 const PrimaryButton = ({ text, className, type }) => {
   return (
-    <Wrapper className={className} type={type || "button"}>
+    <StyledButton className={className} type={type || "button"}>
       {text}
-    </Wrapper>
+    </StyledButton>
   );
 };
 
-const Wrapper = styled.button`
-  background: ${styles.colors.white};
+PrimaryButton.propTypes = propTypes;
+
+export default PrimaryButton;
+
+const StyledButton = styled.button`
+  max-width: 90vw;
+  font-weight: 400;
+  background: ${styles.colors.green};
   text-transform: uppercase;
   letter-spacing: ${styles.letterSpacing};
-  color: ${styles.colors.green};
+  color: ${styles.colors.white};
   border: 2px solid ${styles.colors.green};
-  padding: 0.6rem 2.5rem;
+  padding: 0.6rem 1.5rem;
   font-size: 1rem;
   display: inline-block;
   transition: ${styles.linearTransition};
@@ -31,24 +37,13 @@ const Wrapper = styled.button`
 
   :hover {
     background: transparent;
-    background: ${styles.colors.green};
-    color: ${styles.colors.white};
-  }
-`;
-
-const SecondaryButton = styled(PrimaryButton)`
-  border: 2px solid ${styles.colors.green};
-  background: ${styles.colors.green};
-  color: ${styles.colors.white};
-
-  :hover {
     background: ${styles.colors.white};
-    border: 2px solid ${styles.colors.green};
     color: ${styles.colors.green};
   }
+
+  @media (min-width: 576px) {
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: 0.8rem 2.5rem;
+  }
 `;
-
-PrimaryButton.propTypes = propTypes;
-SecondaryButton.propTypes = propTypes;
-
-export { PrimaryButton, SecondaryButton };

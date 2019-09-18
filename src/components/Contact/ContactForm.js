@@ -3,18 +3,17 @@ import styled from "styled-components";
 
 import { styles } from "../../utils";
 
-import { PrimaryButton } from "../Button";
+import PrimaryButton from "../Button";
 
 const ContactForm = () => {
   return (
-    <Wrapper>
+    <StyledContactForm>
       <form
         className="form"
         action="https://formspree.io/praecorloth@gmail.com"
         method="POST"
       >
         <div>
-          {/* <label htmlFor="name">Ime:</label> */}
           <input
             autoComplete="off"
             type="text"
@@ -25,7 +24,6 @@ const ContactForm = () => {
           />
         </div>
         <div>
-          {/* <label htmlFor="name">Email naslov:</label> */}
           <input
             autoComplete="off"
             type="email"
@@ -36,7 +34,6 @@ const ContactForm = () => {
           />
         </div>
         <div>
-          {/* <label htmlFor="name">Sporočilo:</label> */}
           <textarea
             autoComplete="off"
             type="email"
@@ -51,12 +48,14 @@ const ContactForm = () => {
           <PrimaryButton text="Pošlji" type="submit" className="submit" />
         </div>
       </form>
-    </Wrapper>
+    </StyledContactForm>
   );
 };
 
-const Wrapper = styled.div`
-margin-top: 2rem;
+export default ContactForm;
+
+const StyledContactForm = styled.div`
+margin-top: 1.5rem;
 
 label {
     text-transform: capitalize;
@@ -66,7 +65,6 @@ label {
 
   .form-control,
   .submit {
-    /* background: ${styles.colors.offWhite}; */
     font-family: 'Montserrat', sans-serif;
     width: 100%;
     font-size: 1rem;
@@ -77,21 +75,8 @@ label {
   }
 
   .submit {
-    background-color: ${styles.colors.white};
-    border-color: ${styles.colors.green};
     text-transform: uppercase;
-    color: ${styles.colors.green};
     transition: ${styles.linearTransition}
     cursor: pointer;
-
-    :hover {
-    background: ${styles.colors.green};
-    color: ${styles.colors.white};
-    border-color: ${styles.colors.green};
-    }
-
   }
-
   `;
-
-export default ContactForm;

@@ -5,10 +5,9 @@ import styled from "styled-components";
 
 import AdviceCard from "./AdviceCard";
 import Title from "../Title";
-import { PrimaryButton } from "../Button";
+import PrimaryButton from "../Button";
 
-import { styles } from "../../utils";
-
+import { styles, Container } from "../../utils";
 const propTypes = {
   embed: PropTypes.bool.isRequired,
 };
@@ -36,7 +35,9 @@ const getAllAdvice = graphql`
 
 // If prop <embed> is supplied, component is being embeded into some other component.
 // Number of items is limited to 3 and title is displayed
-const Advice = ({ embed }) => {
+// Since component stretches whole width, Container is not parent div, but instead its
+
+const AdviceList = ({ embed }) => {
   const { allAdvices } = useStaticQuery(getAllAdvice);
 
   const advices = embed
@@ -44,8 +45,8 @@ const Advice = ({ embed }) => {
     : allAdvices.edges;
 
   return (
-    <Wrapper embed={embed}>
-      <div className="center">
+    <StyledAdviceList embed={embed}>
+      <Container align="center">
         {embed && <Title title="Nasveti" subtitle="in ideje" />}
         {advices.map(({ node }) => (
           <AdviceCard advice={node} key={node.id} />
@@ -55,38 +56,20 @@ const Advice = ({ embed }) => {
             <PrimaryButton text="vsi nasveti in ideje" />
           </Link>
         )}
-      </div>
-    </Wrapper>
+      </Container>
+    </StyledAdviceList>
   );
 };
 
-const Wrapper = styled.div`
-  width: 100%;
+AdviceList.propTypes = propTypes;
+
+export default AdviceList;
+
+const StyledAdviceList = styled.div`
   margin: 0 auto;
+  width: 100%;
+
   padding: 1rem 0;
-  background: ${props =>
-    props.embed ? `${styles.colors.offWhite}` : `${styles.colors.white}`};
-  text-align: center;
-
-  .center {
-    padding: 3rem 0.6rem;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 576px) {
-    .center {
-      width: 80vw;
-    }
-  }
-
-  @media (min-width: 1200px) {
-    .center {
-      width: 60vw;
-      max-width: 1170px;
-    }
-  }
+  background: ${({ embed }) =>
+    embed ? `${styles.colors.offWhite}` : `${styles.colors.white}`};
 `;
-
-Advice.propTypes = propTypes;
-
-export default Advice;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const GoogleMap = () => {
   return (
-    <Wrapper>
+    <StyledGoogleMap>
       <div id="canvasfor-googlemap" className="canvas">
         <iframe
           className="map"
@@ -12,11 +12,13 @@ const GoogleMap = () => {
           src="https://www.google.com/maps/embed/v1/place?q=Rožna+dolina+9+grosuplje&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
         ></iframe>
       </div>
-    </Wrapper>
+    </StyledGoogleMap>
   );
 };
 
-const Wrapper = styled.div`
+export default GoogleMap;
+
+const StyledGoogleMap = styled.div`
   overflow: hidden;
   max-width: 100%;
   width: 100%;
@@ -33,5 +35,3 @@ const Wrapper = styled.div`
     border: 0;
   }
 `;
-
-export default GoogleMap;

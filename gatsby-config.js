@@ -29,7 +29,7 @@ module.exports = {
       celovito ponudbo materiala za kopalnice.`,
     },
     contactInfo: {
-      phone: `+386 1 786 33 64`,
+      phone: `+386 1 786 33 63`,
       fax: `+386 1 786 44 64`,
       mail: `info@gramat-gril.si`,
       web: `www.gramat-gril.si`,

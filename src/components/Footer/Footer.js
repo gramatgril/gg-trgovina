@@ -37,7 +37,7 @@ const Footer = () => {
   const { phone, mail, web, fax } = site.siteMetadata.contactInfo;
 
   return (
-    <Wrapper>
+    <StyledFooter>
       <div className="segments">
         <div className="segment">
           <h4>informacije</h4>
@@ -65,8 +65,8 @@ const Footer = () => {
           <p>{name}</p>
           <p>{street}</p>
           <p>{city}</p>
-          <p className="open-hours">pon - pet: 7.00 - 19.00</p>
-          <p className="open-hours">sob: 7.00 - 13.00</p>
+          <p>pon - pet: 7.00 - 19.00</p>
+          <p>sob: 7.00 - 13.00</p>
         </div>
         <div className="segment">
           <h4>kontakt</h4>
@@ -86,17 +86,18 @@ const Footer = () => {
       <div className="bottom-bar">
         <p>&copy; {copyright}</p>
       </div>
-    </Wrapper>
+    </StyledFooter>
   );
 };
 
-const Wrapper = styled.footer`
+export default Footer;
+
+const StyledFooter = styled.footer`
   background: ${styles.colors.black};
   color: ${styles.colors.white};
   text-align: center;
 
   .segments {
-    /* align-items: start; */
     min-height: 300px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -121,10 +122,6 @@ const Wrapper = styled.footer`
     padding: 0.2rem 0;
   }
 
-  /* .open-hours {
-    font-weight: 700;
-  } */
-
   .link {
     text-decoration: none;
 
@@ -135,8 +132,6 @@ const Wrapper = styled.footer`
   }
 
   .bottom-bar {
-    /* display: flex; */
-    /* justify-content: center; */
     background: ${styles.colors.green};
 
     p {
@@ -181,5 +176,3 @@ const IconWrapper = styled.div`
     color: ${styles.colors.green};
   }
 `;
-
-export default Footer;

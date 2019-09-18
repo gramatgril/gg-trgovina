@@ -20,6 +20,10 @@ const Banner = ({ title, info, children }) => {
   );
 };
 
+Banner.propTypes = propTypes;
+
+export default Banner;
+
 const BannerWrapper = styled.div`
   margin: 0 auto;
   padding-top: 2rem;
@@ -47,7 +51,3 @@ const BannerWrapper = styled.div`
     width: 80vw;
   }
 `;
-
-Banner.propTypes = propTypes;
-
-export default Banner;

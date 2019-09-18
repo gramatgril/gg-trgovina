@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
 import { styles } from "../../utils";
@@ -7,27 +8,43 @@ import NavbarHeader from "./NavbarHeader";
 import NavbarIcons from "./NavbarIcons";
 import NavbarLinks from "./NavbarLinks";
 
+const getInfo = graphql`
+  query {
+    site {
+      siteMetadata {
+        contactInfo {
+          phone
+          mail
+        }
+      }
+    }
+  }
+`;
+
 const Navbar = () => {
+  const { site } = useStaticQuery(getInfo);
+  const { phone, mail } = site.siteMetadata.contactInfo;
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <Wrapper>
+    <StyledNavbar>
       <div className="top-bar">
-        <p>info@gramat-gril.si</p>
-        <p>01 786 33 64</p>
+        <p>{mail}</p>
+        <p>{phone}</p>
       </div>
-      <div className="center">
+      <div className="main-bar">
         <NavbarHeader toggleOpen={toggleOpen} />
         <NavbarLinks isOpen={isOpen} />
         <NavbarIcons />
       </div>
-    </Wrapper>
+    </StyledNavbar>
   );
 };
 
-const Wrapper = styled.div`
+const StyledNavbar = styled.div`
   background: ${styles.colors.white};
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
 
@@ -39,12 +56,9 @@ const Wrapper = styled.div`
 
     p {
       align-items: center;
-      padding: 0.1rem 1rem;
-    }
-
-    .icon {
-      padding-top: 2px;
-      font-size: 14px;
+      font-size: 1rem;
+      padding: 0.1rem 0.5rem;
+      letter-spacing: 1px;
     }
   }
 
@@ -53,17 +67,14 @@ const Wrapper = styled.div`
       justify-content: space-between;
     }
 
-    .top-bar p {
-      font-size: 0.8rem;
-    }
-
-    .top-bar .icon {
-      padding-top: 3px;
+    p {
+      padding: 0.5rem 2rem;
+      letter-spacing: 2px;
     }
   }
 
   @media (min-width: 768px) {
-    .center {
+    .main-bar {
       padding: 0.2rem 0;
       width: 100vw;
       margin: 0 auto;
@@ -73,7 +84,7 @@ const Wrapper = styled.div`
     }
   }
   @media (min-width: 1200px) {
-    .center {
+    .main-bar {
       width: 80vw;
     }
   }

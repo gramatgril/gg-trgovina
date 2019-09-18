@@ -16,18 +16,22 @@ const propTypes = {
 
 const CategoryCard = ({ title, slug, image }) => {
   return (
-    <Wrapper>
+    <StyledCategoryCard>
       <Link to={`/${slug}`}>
         <div className="img-container">
           <Img fluid={image.fluid} alt="category" className="img" />
           <div className="title-box">{title}</div>
         </div>
       </Link>
-    </Wrapper>
+    </StyledCategoryCard>
   );
 };
 
-const Wrapper = styled.div`
+CategoryCard.propTypes = propTypes;
+
+export default CategoryCard;
+
+const StyledCategoryCard = styled.div`
   transition: ${styles.transition({ time: "0.1s", type: "linear" })};
 
   .img {
@@ -63,7 +67,3 @@ const Wrapper = styled.div`
     border: ${styles.colors.white};
   }
 `;
-
-CategoryCard.propTypes = propTypes;
-
-export default CategoryCard;

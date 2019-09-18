@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import Footer from "./Footer/Footer";
 import Navbar from "./Navbar";
+import { Container } from "../utils";
 
 const propTypes = {
   children: PropTypes.node.isRequired,

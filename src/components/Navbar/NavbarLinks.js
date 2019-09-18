@@ -12,7 +12,7 @@ const propTypes = {
 
 const NavbarLinks = ({ isOpen }) => {
   return (
-    <Wrapper isOpen={isOpen}>
+    <StyledLinks isOpen={isOpen}>
       {navLinks.map(({ id, path, name }) => (
         <li key={id}>
           <Link to={path} className="nav-link">
@@ -20,11 +20,15 @@ const NavbarLinks = ({ isOpen }) => {
           </Link>
         </li>
       ))}
-    </Wrapper>
+    </StyledLinks>
   );
 };
 
-const Wrapper = styled.ul`
+NavbarLinks.propTypes = propTypes;
+
+export default NavbarLinks;
+
+const StyledLinks = styled.ul`
   height: ${({ isOpen }) => (isOpen ? "220px" : "0px")};
   overflow: hidden;
   transition: ${styles.transition({ time: "0.3s" })};
@@ -89,7 +93,3 @@ const Wrapper = styled.ul`
     }
   }
 `;
-
-NavbarLinks.propTypes = propTypes;
-
-export default NavbarLinks;
