@@ -1,18 +1,20 @@
 import React, { Fragment } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
-import ProductList from "./../ProductList";
-import Title from "../../Title";
+import ProductList from "./ProductList";
+import Title from "../Title";
 
-const getPromoItems = graphql`
+const getNewProducts = graphql`
   {
     products: allContentfulArtikel(
-      filter: { promo: { eq: true } }
       limit: 4
       sort: { fields: createdAt, order: DESC }
     ) {
       edges {
         node {
+          category {
+            slug
+          }
           title
           slug
           price
@@ -32,15 +34,15 @@ const getPromoItems = graphql`
   }
 `;
 
-const PromotedProducts = () => {
-  const { products } = useStaticQuery(getPromoItems);
+const NewProducts = () => {
+  const { products } = useStaticQuery(getNewProducts);
 
   return (
     <Fragment>
-      <Title title="posebna" subtitle="ponudba" />
+      <Title title="novi" subtitle="izdelki" />
       <ProductList products={products.edges} />
     </Fragment>
   );
 };
 
-export default PromotedProducts;
+export default NewProducts;

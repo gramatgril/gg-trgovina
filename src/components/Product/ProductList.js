@@ -3,9 +3,9 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles, Container } from "../../utils";
+import { Container } from "../../styles";
 
-import PrimaryButton from "../Button/Button";
+import PrimaryButton from "../Button";
 import ProductCard from "./ProductCard";
 
 const propTypes = {
@@ -32,16 +32,18 @@ const propTypes = {
 
 const ProductList = ({ products }) => {
   return (
-    <StyledList align="center">
-      <div className="gallery">
-        {products.map(({ node }) => (
-          <ProductCard key={node.id} product={node} />
-        ))}
-      </div>
-      <Link to="/">
-        <PrimaryButton text="nazaj na kategorije" />
-      </Link>
-    </StyledList>
+    <Wrapper>
+      <Container align="center">
+        <StyledProductGallery>
+          {products.map(({ node }) => (
+            <ProductCard key={node.id} product={node} />
+          ))}
+        </StyledProductGallery>
+        <Link to="/" className="link">
+          <PrimaryButton text="nazaj na kategorije" />
+        </Link>
+      </Container>
+    </Wrapper>
   );
 };
 
@@ -49,29 +51,24 @@ ProductList.propTypes = propTypes;
 
 export default ProductList;
 
-const StyledList = styled(Container)`
+const Wrapper = styled.div`
   padding: 1rem 0 4rem;
+`;
 
-  .gallery {
-    width: 90vw;
-    margin: 3rem auto;
-    grid-column-gap: 0.5rem;
-    grid-row-gap: 2rem;
-  }
+const StyledProductGallery = styled.div`
+  width: 90vw;
+  margin: 3rem auto;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 2rem;
 
   @media (min-width: 576px) {
-    .gallery {
-      display: grid;
-      width: 80vw;
-      grid-template-columns: repeat(2, 1fr);
-    }
+    display: grid;
+    width: 80vw;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   @media (min-width: 1200px) {
-    .gallery {
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-
-      width: 100%;
-    }
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    width: 100%;
   }
 `;

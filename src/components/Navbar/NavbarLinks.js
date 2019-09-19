@@ -3,8 +3,8 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
-import { navLinks } from "./../../utils";
+import { styles } from "../../styles";
+import { navLinks } from "./../../styles/links";
 
 const propTypes = {
   isOpen: PropTypes.bool.isRequired,
@@ -12,7 +12,7 @@ const propTypes = {
 
 const NavbarLinks = ({ isOpen }) => {
   return (
-    <StyledLinks isOpen={isOpen}>
+    <Wrapper isOpen={isOpen}>
       {navLinks.map(({ id, path, name }) => (
         <li key={id}>
           <Link to={path} className="nav-link">
@@ -20,7 +20,7 @@ const NavbarLinks = ({ isOpen }) => {
           </Link>
         </li>
       ))}
-    </StyledLinks>
+    </Wrapper>
   );
 };
 
@@ -28,10 +28,10 @@ NavbarLinks.propTypes = propTypes;
 
 export default NavbarLinks;
 
-const StyledLinks = styled.ul`
+const Wrapper = styled.ul`
   height: ${({ isOpen }) => (isOpen ? "220px" : "0px")};
   overflow: hidden;
-  transition: ${styles.transition({ time: "0.3s" })};
+  transition: ${styles.easeInOut};
 
   /* Colors last link as red "Akcija" */
   li {
@@ -58,7 +58,7 @@ const StyledLinks = styled.ul`
     text-transform: capitalize;
 
     cursor: pointer;
-    transition: ${styles.transition({ time: "0.3s" })};
+    transition: ${styles.easeInOut};
 
     :hover {
       color: ${styles.colors.green};

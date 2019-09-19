@@ -5,10 +5,10 @@ import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 
-import PrimaryButton from "../Button/Button";
-import { Container } from "./../../utils";
+import PrimaryButton from "../Button";
+import { Container } from "./../../styles";
 
 const propTypes = {
   product: PropTypes.shape({
@@ -183,7 +183,7 @@ const StyledGallery = styled.div`
     grid-row-gap: 0.5rem;
 
     .gallery-img {
-      transition: ${styles.linearTransition};
+      transition: ${styles.linear};
       width: 100%;
       height: 100%;
 
@@ -229,9 +229,9 @@ const StyledText = styled.div`
     font-weight: 600;
   }
 
-  li {
+  /* li {
     list-style-type: none;
-  }
+  } */
 
   @media (min-width: 576px) {
     padding: 0;

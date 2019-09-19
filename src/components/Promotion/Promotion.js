@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
-import AdviceList from "../Advice/";
+import { AdviceList } from "../Advice";
 import Banner from "./../Banner";
-import PromotionList from "./PromotionList";
+import ProductList from "./../Product/ProductList";
 
 const getPromotedItems = graphql`
   query {
@@ -40,7 +40,7 @@ const Promotion = () => {
         title="Akcije in promocije"
         info="Oglejte si izdelke v akciji ter posebne priložnosti"
       />
-      <PromotionList products={promotedProducts.edges} />
+      <ProductList products={promotedProducts.edges} />
       <AdviceList embed={true} />
     </Fragment>
   );

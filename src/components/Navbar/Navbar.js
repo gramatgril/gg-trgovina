@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 
 import NavbarHeader from "./NavbarHeader";
 import NavbarIcons from "./NavbarIcons";
@@ -30,7 +30,7 @@ const Navbar = () => {
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <StyledNavbar>
+    <Wrapper>
       <div className="top-bar">
         <p>{mail}</p>
         <p>{phone}</p>
@@ -40,11 +40,11 @@ const Navbar = () => {
         <NavbarLinks isOpen={isOpen} />
         <NavbarIcons />
       </div>
-    </StyledNavbar>
+    </Wrapper>
   );
 };
 
-const StyledNavbar = styled.div`
+const Wrapper = styled.div`
   background: ${styles.colors.white};
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
 

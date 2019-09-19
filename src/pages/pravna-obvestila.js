@@ -3,8 +3,8 @@ import { graphql } from "gatsby";
 
 import Banner from "../components/Banner";
 import Hero from "../components/Hero";
-import Layout from "../components/layout";
-import Legal from "../components/Legal/Legal";
+import Layout from "../styles/layout";
+import Legal from "../components/Legal";
 import SEO from "../components/seo";
 
 export default ({ data }) => {

@@ -1,11 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import AdviceList from "../components/Advice/";
+import { AdviceList } from "../components/Advice/";
+import { PromotedProducts, NewProducts } from "./../components/Product";
 import Category from "./../components/Category";
-import Layout from "../components/layout";
-import NewProducts from "../components/Product/NewProducts";
-import PromotedProducts from "./../components/Product/PromotedProducts";
+import Layout from "../styles/layout";
 import SEO from "../components/seo";
 import Services from "../components/Services";
 

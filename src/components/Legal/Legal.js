@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-import { styles, Container } from "../../utils";
+import { styles, Container } from "../../styles";
 
 const Legal = () => {
   return (
-    <StyledContainer>
+    <Wrapper>
       <h4>1. Izvensodno reševanje potrošniških sporov</h4>
       <p>
         Gramat Gril d.o.o. skladno z določbo 3. odstavka 32. člena Zakona o
@@ -36,13 +36,13 @@ const Legal = () => {
         Spletna stran gramat-gril.si uporablja Google Analytics, ki zbira samo
         anonimne podatke in ne zadrži informacij o uporabnikih dlje kot 14 dni.
       </p>
-    </StyledContainer>
+    </Wrapper>
   );
 };
 
 export default Legal;
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled(Container)`
   h4 {
     letter-spacing: ${styles.letterSpacing};
     font-weight: bold;

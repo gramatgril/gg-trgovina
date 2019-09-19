@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import AdviceList from "../components/Advice";
+import { AdviceList } from "../components/Advice";
 import Banner from "../components/Banner";
 import Hero from "../components/Hero";
-import Layout from "../components/layout";
+import Layout from "../styles/layout";
 import SEO from "../components/seo";
 
 export default ({ data }) => {

@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Link, graphql, useStaticQuery } from "gatsby";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 
-import { navLinks, navIcons, siteLinks } from "./../../utils/constants";
+import { navLinks, navIcons, siteLinks } from "./../../styles/links";
 
 const getData = graphql`
   query {
@@ -31,35 +31,32 @@ const getData = graphql`
 
 const Footer = () => {
   const { site } = useStaticQuery(getData);
-
   const { name, city, copyright, street } = site.siteMetadata.companyInfo;
-
   const { phone, mail, web, fax } = site.siteMetadata.contactInfo;
 
   return (
-    <StyledFooter>
+    <Wrapper>
       <div className="segments">
         <div className="segment">
           <h4>informacije</h4>
           {navLinks.map(({ id, path, name }) => (
-            <Link to={path} key={id} className="link">
+            <StyledLink to={path} key={id} className="link">
               <p>{name}</p>
-            </Link>
+            </StyledLink>
           ))}
-          <Link className="link" to="/pravna-obvestila">
+          <StyledLink className="link" to="/pravna-obvestila">
             <p>Pravna obvestila</p>
-          </Link>
+          </StyledLink>
         </div>
 
         <div className="segment">
           <h4>naša ponudba</h4>
           {siteLinks.map(({ id, path, name }) => (
-            <Link to={path} key={id} className="link">
+            <StyledLink to={path} key={id} className="link">
               <p>{name}</p>
-            </Link>
+            </StyledLink>
           ))}
         </div>
-
         <div className="segment">
           <h4>o nas</h4>
           <p>{name}</p>
@@ -74,25 +71,25 @@ const Footer = () => {
           <p>f: {fax}</p>
           <p>e: {mail}</p>
           <p>w: {web}</p>
-          <IconWrapper>
+          <StyledIconWrapper>
             {navIcons.map(({ id, path, icon }) => (
               <a key={id} href={path} target="_blank" rel="noopener noreferrer">
                 {icon}
               </a>
             ))}
-          </IconWrapper>
+          </StyledIconWrapper>
         </div>
       </div>
-      <div className="bottom-bar">
+      <StyledBottomBar>
         <p>&copy; {copyright}</p>
-      </div>
-    </StyledFooter>
+      </StyledBottomBar>
+    </Wrapper>
   );
 };
 
 export default Footer;
 
-const StyledFooter = styled.footer`
+const Wrapper = styled.footer`
   background: ${styles.colors.black};
   color: ${styles.colors.white};
   text-align: center;
@@ -117,37 +114,34 @@ const StyledFooter = styled.footer`
   }
 
   p {
-    transition: ${styles.linearTransition};
+    transition: ${styles.linear};
     color: ${styles.colors.white};
     padding: 0.2rem 0;
   }
 
-  .link {
-    text-decoration: none;
-
-    :hover p {
-      transition: ${styles.linearTransition};
-      color: ${styles.colors.green};
-    }
-  }
-
-  .bottom-bar {
-    background: ${styles.colors.green};
-
-    p {
-      color: ${styles.colors.black};
-    }
-  }
-
   @media (max-width: 768px) {
-    .segments,
-    .bottom-bar {
+    .segments {
       display: block;
     }
   }
 `;
 
-const IconWrapper = styled.div`
+const StyledBottomBar = styled.div`
+  background: ${styles.colors.green};
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
+
+const StyledLink = styled(Link)`
+  :hover p {
+    transition: ${styles.linear};
+    color: ${styles.colors.green};
+  }
+`;
+
+const StyledIconWrapper = styled.div`
   padding: 1rem 0;
   margin 0 auto;
   display: flex;
@@ -157,7 +151,7 @@ const IconWrapper = styled.div`
   .icon {
     font-size: 1.6rem;
     cursor: pointer;
-    transition: ${styles.linearTransition};
+    transition: ${styles.linear};
 
     :hover {
     color: ${styles.colors.white};

@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../components/layout";
+import Layout from "../styles/layout";
 
-import AdviceDetails from "../components/Advice/AdviceDetails";
 import SEO from "../components/seo";
+import { AdviceDetails } from "./../components/Advice";
 
 export default ({ data }) => {
   const { title } = data.advice;

@@ -5,10 +5,10 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 
 import PrimaryButton from "../Button";
-import { Container } from "./../../utils";
+import { Container } from "./../../styles";
 
 const propTypes = {
   advice: PropTypes.shape({
@@ -68,16 +68,18 @@ const AdviceDetails = ({ advice }) => {
   };
 
   return (
-    <StyledContainer>
-      <h1>{title}</h1>
-      <h4>Objavljeno : {date}</h4>
-      <div className="post">
-        {documentToReactComponents(content.json, options)}
-      </div>
-      <Link to="/nasveti-in-ideje" className="link">
-        <PrimaryButton text="nazaj" />
-      </Link>
-    </StyledContainer>
+    <Wrapper>
+      <Container>
+        <h1>{title}</h1>
+        <h4>Objavljeno : {date}</h4>
+        <div className="post">
+          {documentToReactComponents(content.json, options)}
+        </div>
+        <Link to="/nasveti-in-ideje" className="link">
+          <PrimaryButton text="nazaj" />
+        </Link>
+      </Container>
+    </Wrapper>
   );
 };
 
@@ -85,7 +87,7 @@ AdviceDetails.propTypes = propTypes;
 
 export default AdviceDetails;
 
-const StyledContainer = styled(Container)`
+const Wrapper = styled.div`
   .img {
     padding: 1rem;
     height: 400px;
@@ -105,10 +107,6 @@ const StyledContainer = styled(Container)`
 
   .post img {
     max-width: 70vw;
-  }
-
-  li {
-    list-style-type: none;
   }
 `;
 

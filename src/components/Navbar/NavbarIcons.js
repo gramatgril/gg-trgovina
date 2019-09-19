@@ -1,29 +1,29 @@
 import React from "react";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 
-import { navIcons } from "../../utils";
+import { navIcons } from "../../styles/links";
 
 const NavbarIcons = () => {
   return (
-    <StyledIcons>
+    <Wrapper>
       {navIcons.map(({ id, path, icon }) => (
         <a key={id} href={path} target="_blank" rel="noopener noreferrer">
           {icon}
         </a>
       ))}
-    </StyledIcons>
+    </Wrapper>
   );
 };
 
 export default NavbarIcons;
 
-const StyledIcons = styled.div`
+const Wrapper = styled.div`
   .icon {
     font-size: 1.6rem;
     cursor: pointer;
-    transition: ${styles.linearTransition};
+    transition: ${styles.linear};
 
     :hover {
       color: ${styles.colors.white};

@@ -4,7 +4,7 @@ import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 
 const propTypes = {
   product: PropTypes.shape({
@@ -56,16 +56,16 @@ ProductCard.propTypes = propTypes;
 export default ProductCard;
 
 const Wrapper = styled.article`
-  transition: ${styles.linearTransition};
+  transition: ${styles.linear};
 
   :hover {
     .img {
-      transition: ${styles.linearTransition};
+      transition: ${styles.linear};
       opacity: 0.9;
     }
     .header {
       h4 {
-        transition: ${styles.linearTransition};
+        transition: ${styles.linear};
         color: ${styles.colors.green};
       }
     }
@@ -74,7 +74,7 @@ const Wrapper = styled.article`
   .header {
     position: relative;
     height: 5rem;
-    transition: ${styles.linearTransition};
+    transition: ${styles.linear};
     text-align: left;
     background: ${styles.colors.white};
 
@@ -83,7 +83,7 @@ const Wrapper = styled.article`
       bottom: 0;
       padding: 0.5rem 0;
       margin: 0.5rem 0;
-      transition: ${styles.linearTransition};
+      transition: ${styles.linear};
       color: ${styles.colors.black};
       font-size: 1.2rem;
       font-weight: 500;
@@ -96,12 +96,12 @@ const Wrapper = styled.article`
     position: relative;
     box-shadow: ${styles.boxShadow}:
     /* background: ${styles.colors.offWhite}; */
-    transition: ${styles.linearTransition};
+    transition: ${styles.linear};
   }
 
   .img {
     height: 100%;
-    transition: ${styles.linearTransition};
+    transition: ${styles.linear};
 
     &:hover {
       opacity: 0.8;

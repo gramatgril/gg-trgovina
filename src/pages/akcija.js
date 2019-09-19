@@ -2,7 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 
 import Hero from "../components/Hero";
-import Layout from "../components/layout";
+import Layout from "../styles/layout";
 import SEO from "../components/seo";
 import Promotion from "./../components/Promotion";
 

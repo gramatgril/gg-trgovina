@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import { styles, Container } from "../../utils";
+import { styles, Container } from "../../styles";
 import ContactForm from "./ContactForm";
 import GoogleMap from "../GoogleMap/GoogleMap";
 
@@ -37,31 +37,31 @@ const Contact = ({ companyInfo, contactInfo }) => {
   const { phone, fax, mail, web } = contactInfo;
 
   return (
-    <StyledContact>
+    <Wrapper>
       <Container>
         <div className="contact-panels">
           <div className="info-segment">
             <h2>Kontaktni podatki</h2>
-            <div className="info-block">
+            <StyledInfoBlock>
               <p className="company-name">{nameShort}</p>
               <p className="long-name">{nameLong}</p>
               <p>{street}</p>
               <p>{city}</p>
-              <div className="info-block">
+              <StyledInfoBlock>
                 <p>t: {phone}</p>
                 <p>f: {fax}</p>
                 <p>e: {mail}</p>
                 <p>w: {web}</p>
-              </div>
-              <div className="info-block">
+              </StyledInfoBlock>
+              <div>
                 <p>Matična številka: {companyId}</p>
                 <p>ID številka za DDV: {vatId}</p>
               </div>
-              <div className="info-block">
+              <StyledInfoBlock>
                 <p>pon - pet: 7.00 - 19.00</p>
                 <p>sob: 7.00 - 13.00</p>
-              </div>
-            </div>
+              </StyledInfoBlock>
+            </StyledInfoBlock>
           </div>
           <div className="form-segment">
             <h2>Pustite nam sporočilo</h2>
@@ -74,7 +74,7 @@ const Contact = ({ companyInfo, contactInfo }) => {
         </div>
       </Container>
       <GoogleMap />
-    </StyledContact>
+    </Wrapper>
   );
 };
 
@@ -82,7 +82,7 @@ Contact.propTypes = propTypes;
 
 export default Contact;
 
-const StyledContact = styled.section`
+const Wrapper = styled.section`
   padding: 1rem 0 0;
 
   h2 {
@@ -99,10 +99,6 @@ const StyledContact = styled.section`
   .info-segment,
   .form-segment {
     text-align: left;
-  }
-
-  .info-block {
-    padding: 1rem 0;
   }
 
   .company-name {
@@ -129,7 +125,8 @@ const StyledContact = styled.section`
       width: 70%;
     }
   }
+`;
 
-  @media (min-width: 1200px) {
-  }
+const StyledInfoBlock = styled.div`
+  padding: 1rem 0;
 `;

@@ -4,7 +4,7 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 
 const propTypes = {
   toggleOpen: PropTypes.func.isRequired,
@@ -12,12 +12,12 @@ const propTypes = {
 
 const NavbarHeader = ({ toggleOpen }) => {
   return (
-    <StyledHeader>
+    <Wrapper>
       <Link to="/" className="link">
         <h1>GramatGril</h1>
       </Link>
       <FaBars className="toggle-icon" onClick={() => toggleOpen()} />
-    </StyledHeader>
+    </Wrapper>
   );
 };
 
@@ -25,7 +25,7 @@ NavbarHeader.propTypes = propTypes;
 
 export default NavbarHeader;
 
-const StyledHeader = styled.div`
+const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

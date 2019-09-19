@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 
 const propTypes = {
   text: PropTypes.string.isRequired,
@@ -32,7 +32,7 @@ const StyledButton = styled.button`
   padding: 0.6rem 1.5rem;
   font-size: 1rem;
   display: inline-block;
-  transition: ${styles.linearTransition};
+  transition: ${styles.linear};
   cursor: pointer;
 
   :hover {

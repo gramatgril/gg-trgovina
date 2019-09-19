@@ -1,12 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "./../components/layout";
-import ProductList from "./../components/Product";
+import Layout from "./../styles/layout";
+import { ProductList } from "./../components/Product";
 import SEO from "./../components/seo";
-import Hero from "../components/Hero/Hero";
+import Hero from "../components/Hero";
 import Banner from "../components/Banner/Banner";
-import AdviceList from "./../components/Advice/";
+import { AdviceList } from "./../components/Advice/";
 
 export default ({ data }) => {
   const { allProducts } = data;

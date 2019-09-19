@@ -4,7 +4,7 @@ import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 
 const propTypes = {
   title: PropTypes.string.isRequired,
@@ -16,14 +16,14 @@ const propTypes = {
 
 const CategoryCard = ({ title, slug, image }) => {
   return (
-    <StyledCategoryCard>
+    <Wrapper>
       <Link to={`/${slug}`}>
         <div className="img-container">
           <Img fluid={image.fluid} alt="category" className="img" />
           <div className="title-box">{title}</div>
         </div>
       </Link>
-    </StyledCategoryCard>
+    </Wrapper>
   );
 };
 
@@ -31,8 +31,8 @@ CategoryCard.propTypes = propTypes;
 
 export default CategoryCard;
 
-const StyledCategoryCard = styled.div`
-  transition: ${styles.transition({ time: "0.1s", type: "linear" })};
+const Wrapper = styled.div`
+  transition: ${styles.linear};
 
   .img {
     height: 280px;
@@ -40,7 +40,7 @@ const StyledCategoryCard = styled.div`
 
   :hover {
     .title-box {
-      transition: ${styles.linearTransition};
+      transition: ${styles.linear};
       color: ${styles.colors.white};
       background: ${styles.colors.green};
     }
@@ -58,7 +58,7 @@ const StyledCategoryCard = styled.div`
     background: ${styles.colors.white};
     padding: 0.5rem;
     display: inline-block;
-    transition: ${styles.linearTransition};
+    transition: ${styles.linear};
   }
 
   .img-container {

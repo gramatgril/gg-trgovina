@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { FaRegLightbulb, FaRegCheckCircle } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 import Title from "./../Title/Title";
 
 const Services = () => {

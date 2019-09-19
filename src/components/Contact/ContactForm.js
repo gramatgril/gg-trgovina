@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 
 import PrimaryButton from "../Button";
 
 const ContactForm = () => {
   return (
-    <StyledContactForm>
+    <Wrapper>
       <form
         className="form"
         action="https://formspree.io/praecorloth@gmail.com"
@@ -48,13 +48,13 @@ const ContactForm = () => {
           <PrimaryButton text="Pošlji" type="submit" className="submit" />
         </div>
       </form>
-    </StyledContactForm>
+    </Wrapper>
   );
 };
 
 export default ContactForm;
 
-const StyledContactForm = styled.div`
+const Wrapper = styled.div`
 margin-top: 1.5rem;
 
 label {
@@ -76,7 +76,7 @@ label {
 
   .submit {
     text-transform: uppercase;
-    transition: ${styles.linearTransition}
+    transition: ${styles.linear}
     cursor: pointer;
   }
   `;

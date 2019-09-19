@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../utils";
+import { styles } from "../../styles";
 
 const propTypes = {
   title: PropTypes.string.isRequired,
@@ -12,11 +12,11 @@ const propTypes = {
 
 const Banner = ({ title, info, children }) => {
   return (
-    <BannerWrapper>
+    <Wrapper>
       <h1>{title}</h1>
       <p>{info}</p>
       {children}
-    </BannerWrapper>
+    </Wrapper>
   );
 };
 
@@ -24,7 +24,7 @@ Banner.propTypes = propTypes;
 
 export default Banner;
 
-const BannerWrapper = styled.div`
+const Wrapper = styled.div`
   margin: 0 auto;
   padding-top: 2rem;
   text-align: center;

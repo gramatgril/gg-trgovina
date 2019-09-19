@@ -7,7 +7,7 @@ import AdviceCard from "./AdviceCard";
 import Title from "../Title";
 import PrimaryButton from "../Button";
 
-import { styles, Container } from "../../utils";
+import { styles, Container } from "../../styles";
 const propTypes = {
   embed: PropTypes.bool.isRequired,
 };
@@ -45,19 +45,19 @@ const AdviceList = ({ embed }) => {
     : allAdvices.edges;
 
   return (
-    <StyledAdviceList embed={embed}>
+    <Wrapper embed={embed}>
       <Container align="center">
         {embed && <Title title="Nasveti" subtitle="in ideje" />}
         {advices.map(({ node }) => (
           <AdviceCard advice={node} key={node.id} />
         ))}
         {embed && (
-          <Link to="nasveti-in-ideje">
+          <Link to="nasveti-in-ideje" className="link">
             <PrimaryButton text="vsi nasveti in ideje" />
           </Link>
         )}
       </Container>
-    </StyledAdviceList>
+    </Wrapper>
   );
 };
 
@@ -65,7 +65,7 @@ AdviceList.propTypes = propTypes;
 
 export default AdviceList;
 
-const StyledAdviceList = styled.div`
+const Wrapper = styled.div`
   margin: 0 auto;
   width: 100%;
 

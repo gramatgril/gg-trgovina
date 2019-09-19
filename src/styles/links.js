@@ -74,9 +74,4 @@ export const siteLinks = [
     name: "Vse za kopalnico",
     path: "/vse-za-kopalnico",
   },
-  //   {
-  //     id: 5,
-  //     name: "Nasveti in ideje",
-  //     path: "/nasveti",
-  //   },
 ];
