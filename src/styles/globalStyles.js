@@ -1,16 +1,15 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* text-shadow: 0 2px 0 rgba(0, 0, 0, 0.07); */
-
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', 'Nunito', sans-serif;
   background: #fff;
   line-height: 1.4;
   font-size: 1rem;
@@ -28,9 +27,9 @@ body {
 
 
 main {
-min-height: 100vh;
-display: flex;
-flex-direction: column;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 

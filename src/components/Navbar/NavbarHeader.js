@@ -3,19 +3,40 @@ import { FaBars } from "react-icons/fa";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { graphql, useStaticQuery } from "gatsby";
 
 import { styles } from "../../styles";
+import Img from "gatsby-image";
 
 const propTypes = {
   toggleOpen: PropTypes.func.isRequired,
 };
 
+const getLogo = graphql`
+  query {
+    logo: file(relativePath: { eq: "gg_logo.jpg" }) {
+      image: childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`;
+
 const NavbarHeader = ({ toggleOpen }) => {
+  const { logo } = useStaticQuery(getLogo);
+
   return (
     <Wrapper>
-      <Link to="/" className="link">
-        <h1>GramatGril</h1>
-      </Link>
+      <StyledLogo to="/">
+        <Img
+          fluid={logo.image.fluid}
+          alt="Logo"
+          className="img"
+          imgStyle={{ objectFit: "contain" }}
+        />
+      </StyledLogo>
       <FaBars className="toggle-icon" onClick={() => toggleOpen()} />
     </Wrapper>
   );
@@ -25,30 +46,24 @@ NavbarHeader.propTypes = propTypes;
 
 export default NavbarHeader;
 
+const StyledLogo = styled(Link)`
+  width: 200px;
+`;
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.25rem;
-
-  .logo {
-    width: 2rem;
-    height: 2rem;
-  }
+  padding: 0.2rem 0.5rem 0 0;
 
   .link {
     display: flex;
     justify-content: space-between;
-    text-decoration: none;
   }
 
   .toggle-icon {
     font-size: 1.5rem;
     cursor: pointer;
-    color: ${styles.colors.green};
-  }
-
-  h1 {
     color: ${styles.colors.green};
   }
 

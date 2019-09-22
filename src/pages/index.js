@@ -11,7 +11,7 @@ import Services from "../components/Services";
 export default ({ data }) => {
   return (
     <Layout>
-      <SEO title="Ponudba" />
+      <SEO title="Doma" />
       <Category />
       <Services />
       <PromotedProducts />

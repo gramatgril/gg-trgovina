@@ -130,9 +130,9 @@ const StyledTitle = styled.div`
     }
 
     .price {
-      padding: 1rem 0;
+      /* padding: 1rem 0; */
       letter-spacing: 2px;
-      font-weight: 500;
+      font-weight: 700;
       color: ${styles.colors.green};
     }
   }

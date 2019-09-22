@@ -32,6 +32,7 @@ export default () => {
 
 const Wrapper = styled.div`
   height: 960px;
+
   iframe {
     width: 100%;
     height: 100%;

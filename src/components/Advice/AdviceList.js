@@ -3,11 +3,11 @@ import { graphql, useStaticQuery, Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import AdviceCard from "./AdviceCard";
-import Title from "../Title";
-import PrimaryButton from "../Button";
-
 import { styles, Container } from "../../styles";
+import AdviceCard from "./AdviceCard";
+import PrimaryButton from "../Button";
+import Title from "../Title";
+
 const propTypes = {
   embed: PropTypes.bool.isRequired,
 };

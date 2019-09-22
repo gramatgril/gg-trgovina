@@ -73,6 +73,10 @@ function SEO({ description, lang, meta, title }) {
         href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
         rel="stylesheet"
       />
+      <link
+        href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+        rel="stylesheet"
+      />
     </Helmet>
   );
 }

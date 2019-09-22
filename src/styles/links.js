@@ -25,8 +25,9 @@ export const navLinks = [
   },
   {
     id: 5,
-    name: "Akcija",
+    name: "Akcija!",
     path: "/akcija",
+    color: "red",
   },
 ];
 

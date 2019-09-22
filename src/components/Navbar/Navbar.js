@@ -31,15 +31,15 @@ const Navbar = () => {
 
   return (
     <Wrapper>
-      <div className="top-bar">
+      <StyledTopBar>
         <p>{mail}</p>
         <p>{phone}</p>
-      </div>
-      <div className="main-bar">
+      </StyledTopBar>
+      <StyledMainBar>
         <NavbarHeader toggleOpen={toggleOpen} />
         <NavbarLinks isOpen={isOpen} />
         <NavbarIcons />
-      </div>
+      </StyledMainBar>
     </Wrapper>
   );
 };
@@ -47,46 +47,43 @@ const Navbar = () => {
 const Wrapper = styled.div`
   background: ${styles.colors.white};
   box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
+`;
 
-  .top-bar {
-    display: flex;
-    justify-content: flex-end;
-    background: ${styles.colors.green};
-    color: ${styles.colors.white};
+const StyledTopBar = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  background: ${styles.colors.green};
+  color: ${styles.colors.white};
 
-    p {
-      align-items: center;
-      font-size: 1rem;
-      padding: 0.1rem 0.5rem;
-      letter-spacing: 1px;
-    }
+  p {
+    align-items: center;
+    font-size: 0.8rem;
+    padding: 0.5rem 1rem;
+    letter-spacing: 1px;
   }
 
   @media (max-width: 768px) {
-    .top-bar {
-      justify-content: space-between;
-    }
+    justify-content: space-between;
 
     p {
-      padding: 0.5rem 2rem;
       letter-spacing: 2px;
     }
   }
+`;
 
+const StyledMainBar = styled.div`
+  padding: 0;
   @media (min-width: 768px) {
-    .main-bar {
-      padding: 0.2rem 0;
-      width: 100vw;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    padding: 0.2rem 1rem;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+    align-items: center;
   }
+
   @media (min-width: 1200px) {
-    .main-bar {
-      width: 80vw;
-    }
+    /* width: 90vw; */
   }
 `;
 

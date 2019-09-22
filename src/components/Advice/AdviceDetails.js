@@ -5,10 +5,9 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../styles";
-
-import PrimaryButton from "../Button";
 import { Container } from "./../../styles";
+import { styles } from "../../styles";
+import PrimaryButton from "../Button";
 
 const propTypes = {
   advice: PropTypes.shape({

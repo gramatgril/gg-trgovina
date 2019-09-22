@@ -13,11 +13,12 @@ const propTypes = {
 const NavbarLinks = ({ isOpen }) => {
   return (
     <Wrapper isOpen={isOpen}>
-      {navLinks.map(({ id, path, name }) => (
+      {navLinks.map(({ id, path, name, color }) => (
         <li key={id}>
-          <Link to={path} className="nav-link">
+          <StyledLink to={path} activeClassName="active" color={color}>
             {name}
-          </Link>
+            <StyledActiveBar />
+          </StyledLink>
         </li>
       ))}
     </Wrapper>
@@ -28,68 +29,75 @@ NavbarLinks.propTypes = propTypes;
 
 export default NavbarLinks;
 
-const Wrapper = styled.ul`
-  height: ${({ isOpen }) => (isOpen ? "220px" : "0px")};
-  overflow: hidden;
+const StyledActiveBar = styled.div`
+  height: 3px;
+`;
+
+const StyledLink = styled(Link)`
+  /* Mobile style */
+  display: block;
+  text-decoration: none;
+  font-family: "Nunito";
+  font-weight: 500;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-transform: capitalize;
+  cursor: pointer;
   transition: ${styles.easeInOut};
 
-  /* Colors last link as red "Akcija" */
-  li {
-    list-style-type: none;
+  color: ${({ color }) =>
+    color === "red" ? `${styles.colors.red}` : `${styles.colors.black}`};
 
-    :last-child .nav-link {
-      font-weight: 700;
-      color: ${styles.colors.red};
-
-      :hover {
-        color: ${styles.colors.green};
-      }
-    }
+  :hover {
+    color: ${styles.colors.white};
+    background: ${styles.colors.green};
+    padding: 0.5rem 1rem 0.5rem 1.3rem;
   }
 
-  .nav-link {
-    color: ${styles.colors.black};
-    display: block;
-    text-decoration: none;
-    padding: 0.5rem 1rem 0.5rem 1rem;
+  /* Desktop style */
+  @media (min-width: 768px) {
+    padding: 0.8rem 1rem 0.5rem 1rem;
+    font-family: "Nunito";
     font-weight: 500;
-    letter-spacing: 1px;
-    font-size: 1.2rem;
-    text-transform: capitalize;
-
-    cursor: pointer;
-    transition: ${styles.easeInOut};
+    letter-spacing: 2px;
+    color: ${({ color }) =>
+      color === "red" ? `${styles.colors.red}` : `${styles.colors.black}`};
 
     :hover {
-      color: ${styles.colors.green};
-      padding: 0.5rem 1rem 0.5rem 1.3rem;
-    }
-  }
+      background: ${styles.colors.white};
+      color: ${({ color }) =>
+        color === "red" ? `${styles.colors.red}` : `${styles.colors.black}`};
 
-  @media (min-width: 768px) {
-    color: ${styles.colors.white};
-    height: auto;
-    display: flex;
-    margin: 0 auto;
-
-    .nav-link {
-      font-size: 0.8rem;
-
-      :hover {
-        color: ${styles.colors.green};
-        padding: 0.5rem 1rem 0.5rem 1rem;
+      ${StyledActiveBar} {
+        background: ${styles.colors.green};
       }
+
+      padding: 0.8rem 1rem 0.5rem 1rem;
     }
   }
 
   @media (min-width: 1300px) {
-    .nav-link {
-      font-size: 1rem;
-    }
+    font-size: 1.4rem;
+  }
+`;
 
-    :hover {
-      color: ${styles.colors.green};
-      padding: 0.5rem 1rem 0.5rem 1rem;
+const Wrapper = styled.ul`
+  /* border: 1px solid green; */
+  height: ${({ isOpen }) => (isOpen ? "200px" : "0px")};
+  overflow: hidden;
+  transition: ${styles.easeInOut};
+
+  @media (min-width: 768px) {
+    height: auto;
+    display: flex;
+    margin: 0 auto;
+
+    /* Styling applied when link is active */
+    .active {
+      ${StyledActiveBar} {
+        background: ${styles.colors.green};
+      }
     }
   }
 `;

@@ -33,6 +33,7 @@ module.exports = {
       fax: `+386 1 786 44 64`,
       mail: `info@gramat-gril.si`,
       web: `www.gramat-gril.si`,
+      stilUrl: `https://gramat-gril.si/`,
     },
     image: "/defaultBcg.jpg",
   },
