@@ -1,20 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
+import logo from "../../images/stil_logo.png";
 
 // import { styles } from "../../styles";
 
 const getData = graphql`
   query {
-    logo: file(relativePath: { eq: "stil_logo.png" }) {
-      image: childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-
     url: site {
       siteMetadata {
         contactInfo {
@@ -26,7 +18,7 @@ const getData = graphql`
 `;
 
 const NavbarIcons = () => {
-  const { logo, url } = useStaticQuery(getData);
+  const { url } = useStaticQuery(getData);
 
   return (
     <Wrapper>
@@ -35,12 +27,7 @@ const NavbarIcons = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Img
-          fluid={logo.image.fluid}
-          alt="Logo"
-          className="img"
-          imgStyle={{ objectFit: "contain" }}
-        />
+        <img src={logo} alt="logo" className="img" />
       </a>
     </Wrapper>
   );
@@ -49,7 +36,9 @@ const NavbarIcons = () => {
 export default NavbarIcons;
 
 const Wrapper = styled.div`
+  margin-left: 3rem;
   display: none;
+  width: 120px;
   height: 60px;
 
   @media (min-width: 768px) {

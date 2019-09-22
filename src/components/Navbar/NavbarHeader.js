@@ -3,39 +3,21 @@ import { FaBars } from "react-icons/fa";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { graphql, useStaticQuery } from "gatsby";
+import logo from "../../images/gg_logo.jpg";
 
 import { styles } from "../../styles";
-import Img from "gatsby-image";
 
 const propTypes = {
   toggleOpen: PropTypes.func.isRequired,
 };
 
-const getLogo = graphql`
-  query {
-    logo: file(relativePath: { eq: "gg_logo.jpg" }) {
-      image: childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;
-
 const NavbarHeader = ({ toggleOpen }) => {
-  const { logo } = useStaticQuery(getLogo);
+  // const { logo } = useStaticQuery(getLogo);
 
   return (
     <Wrapper>
       <StyledLogo to="/">
-        <Img
-          fluid={logo.image.fluid}
-          alt="Logo"
-          className="img"
-          imgStyle={{ objectFit: "contain" }}
-        />
+        <img src={logo} alt="logo" className="img" />
       </StyledLogo>
       <FaBars className="toggle-icon" onClick={() => toggleOpen()} />
     </Wrapper>
