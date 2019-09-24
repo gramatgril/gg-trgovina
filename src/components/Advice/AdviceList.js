@@ -52,7 +52,7 @@ const AdviceList = ({ embed }) => {
           <AdviceCard advice={node} key={node.id} />
         ))}
         {embed && (
-          <Link to="nasveti-in-ideje" className="link">
+          <Link to="/nasveti-in-ideje" className="link">
             <PrimaryButton text="vsi nasveti in ideje" />
           </Link>
         )}

@@ -97,9 +97,19 @@ ProductDetails.propTypes = propTypes;
 export default ProductDetails;
 
 const Wrapper = styled.div`
+  padding: 3rem 0;
+
   .panels {
     padding: 1rem 0;
     margin-bottom: 1rem;
+  }
+
+  ul {
+    padding: 20px;
+  }
+
+  li {
+    list-style-type: none;
   }
 
   @media (min-width: 576px) {
@@ -126,7 +136,8 @@ const StyledTitle = styled.div`
   .title-bar {
     h2 {
       font-size: 1.4rem;
-      font-weight: 500;
+      letter-spacing: 1px;
+      font-weight: 600;
     }
 
     .price {
@@ -152,8 +163,8 @@ const StyledTitle = styled.div`
       justify-content: space-between;
 
       h2 {
-        font-size: 1.8rem;
-        font-weight: 500;
+        letter-spacing: 1px;
+        font-size: 2rem;
       }
 
       .price {
@@ -223,15 +234,10 @@ const StyledText = styled.div`
   }
 
   h4 {
-    font-size: 1.8rem;
-    letter-spacing: 2px;
+    font-size: 1.3rem;
     padding: 0.2rem 1rem;
     font-weight: 600;
   }
-
-  /* li {
-    list-style-type: none;
-  } */
 
   @media (min-width: 576px) {
     padding: 0;

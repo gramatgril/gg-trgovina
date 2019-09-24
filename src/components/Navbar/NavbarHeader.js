@@ -12,8 +12,6 @@ const propTypes = {
 };
 
 const NavbarHeader = ({ toggleOpen }) => {
-  // const { logo } = useStaticQuery(getLogo);
-
   return (
     <Wrapper>
       <StyledLogo to="/">

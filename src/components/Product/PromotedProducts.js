@@ -38,7 +38,7 @@ const PromotedProducts = () => {
   return (
     <Fragment>
       <Title title="posebna" subtitle="ponudba" />
-      <ProductList products={products.edges} />
+      <ProductList products={products.edges} path="/akcija" text="vse akcije" />
     </Fragment>
   );
 };

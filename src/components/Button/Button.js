@@ -29,6 +29,7 @@ const StyledButton = styled.button`
   letter-spacing: ${styles.letterSpacing};
   color: ${styles.colors.white};
   border: 2px solid ${styles.colors.green};
+  border-radius: 30px;
   padding: 0.6rem 1.5rem;
   font-size: 1rem;
   display: inline-block;

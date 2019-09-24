@@ -19,9 +19,11 @@ const Wrapper = styled.div`
   font-size: 2rem;
   padding: 1rem 0;
   margin-bottom: 1rem;
+
   h4 {
+    font-weight: 800;
     text-align: center;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     color: ${styles.colors.green};
   }
 

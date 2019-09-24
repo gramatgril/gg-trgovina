@@ -28,9 +28,16 @@ const propTypes = {
       }).isRequired,
     }).isRequired
   ).isRequired,
+  path: PropTypes.string,
+  text: PropTypes.string,
 };
 
-const ProductList = ({ products }) => {
+const defaultProps = {
+  path: "/",
+  text: "nazaj na kategorije",
+};
+
+const ProductList = ({ products, path, text }) => {
   return (
     <Wrapper>
       <Container align="center">
@@ -39,8 +46,9 @@ const ProductList = ({ products }) => {
             <ProductCard key={node.id} product={node} />
           ))}
         </StyledProductGallery>
-        <Link to="/" className="link">
-          <PrimaryButton text="nazaj na kategorije" />
+        {/* Button link gets path and text from parent component*/}
+        <Link to={path} className="link">
+          <PrimaryButton text={text} />
         </Link>
       </Container>
     </Wrapper>
@@ -48,6 +56,7 @@ const ProductList = ({ products }) => {
 };
 
 ProductList.propTypes = propTypes;
+ProductList.defaultProps = defaultProps;
 
 export default ProductList;
 
@@ -57,7 +66,7 @@ const Wrapper = styled.div`
 
 const StyledProductGallery = styled.div`
   width: 90vw;
-  margin: 3rem auto;
+  /* margin: 3rem auto; */
   grid-column-gap: 0.5rem;
   grid-row-gap: 2rem;
 
@@ -65,6 +74,7 @@ const StyledProductGallery = styled.div`
     display: grid;
     width: 80vw;
     grid-template-columns: repeat(2, 1fr);
+    padding: 2rem 0;
   }
 
   @media (min-width: 1200px) {
