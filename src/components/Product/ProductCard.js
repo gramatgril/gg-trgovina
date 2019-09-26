@@ -9,7 +9,8 @@ import { styles } from "../../styles";
 const propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    priceUnit: PropTypes.string.isRequired,
     promo: PropTypes.bool.isRequired,
     slug: PropTypes.string.isRequired,
     category: PropTypes.shape({
@@ -24,7 +25,7 @@ const propTypes = {
 };
 
 const ProductCard = ({ product }) => {
-  const { price, slug, title, images, category, promo } = product;
+  const { price, priceUnit, slug, title, images, category, promo } = product;
 
   return (
     <Wrapper>
@@ -38,7 +39,9 @@ const ProductCard = ({ product }) => {
             className="img"
             imgStyle={{ objectFit: "contain", objectPosition: "50% 50%" }}
           />
-          <h4 className="price">{price}</h4>
+          <h4 className="price">
+            {price.toFixed(2)} <span>{priceUnit}</span>
+          </h4>
           {/* Promo tag that says "Akcija" */}
           {promo && (
             <p className="promo">

@@ -16,6 +16,7 @@ const getPromoItems = graphql`
           title
           slug
           price
+          priceUnit
           promo
           category {
             slug

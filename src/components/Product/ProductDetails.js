@@ -13,7 +13,8 @@ import { Container } from "./../../styles";
 const propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    priceUnit: PropTypes.string.isRequired,
     description: PropTypes.shape({
       json: PropTypes.object.isRequired,
     }).isRequired,
@@ -27,7 +28,7 @@ const propTypes = {
 };
 
 const ProductDetails = ({ product, categorySlug }) => {
-  const { title, price, description, images, promo } = product;
+  const { title, price, priceUnit, description, images, promo } = product;
 
   const [galleryImages] = useState(images);
   const [mainImage, setMainImage] = useState(images[0]);
@@ -44,7 +45,9 @@ const ProductDetails = ({ product, categorySlug }) => {
         <StyledTitle>
           <div className="title-bar">
             <h2>{title}</h2>
-            <h2 className="price">{price}</h2>
+            <h2 className="price">
+              {price.toFixed(2)} <span>{priceUnit}</span>
+            </h2>
           </div>
           <hr />
         </StyledTitle>

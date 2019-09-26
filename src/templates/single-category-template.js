@@ -45,11 +45,11 @@ export default ({ data }) => {
       <SEO title={title} />
       <Hero img={image.fluid}></Hero>
       <Banner title={title} info={description.description} />
-      <SortMenu
+      {/* <SortMenu
         dispatch={dispatch}
         showAllProducts={showAllProducts}
         inputValue={inputValue}
-      />
+      /> */}
 
       <ProductList products={products} />
       <AdviceList embed={true} />
@@ -66,6 +66,7 @@ export const query = graphql`
         node {
           title
           price
+          priceUnit
           id: contentful_id
           slug
           promo

@@ -14,7 +14,8 @@ const propTypes = {
       node: PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
-        price: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired,
+        priceUnit: PropTypes.string.isRequired,
         slug: PropTypes.string.isRequired,
         promo: PropTypes.bool.isRequired,
         category: PropTypes.shape({

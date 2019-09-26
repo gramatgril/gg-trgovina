@@ -15,6 +15,7 @@ const getPromotedItems = graphql`
         node {
           title
           price
+          priceUnit
           promo
           slug
           id: contentful_id
