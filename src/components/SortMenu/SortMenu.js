@@ -1,21 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { FaSearch, FaFilter } from "react-icons/fa";
 
 import { styles, links } from "../../styles";
 import { types } from "../../utils";
+import { SHOW_PROMOTED } from "../../utils/constants";
 
 const { INPUT_CHANGE, SEARCH_PRODUCTS } = types;
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
   searchInput: PropTypes.string,
+  promo: PropTypes.bool, // If promo prop is supplied, component doesn't display Akcija link
 };
 
-const SortMenu = ({ dispatch, searchInput }) => {
+const SortMenu = ({ dispatch, searchInput, promo }) => {
   const [menuLinks, setMenuLinks] = useState(links.sortMenuLinks);
   const [isMenuOpen, setMenuOpen] = useState(false);
+
+  // Check if component is on Akcija page
+  useEffect(() => {
+    promo && setMenuLinks(menuLinks.filter(l => l.action !== SHOW_PROMOTED));
+  }, []);
 
   const handleClickLink = (id, action) => {
     // Makes link active
@@ -41,7 +48,7 @@ const SortMenu = ({ dispatch, searchInput }) => {
     dispatch({ type: INPUT_CHANGE, searchInput: e.target.value });
   };
 
-  const handleSubmit = e => {
+  const productSearch = e => {
     e.preventDefault();
     dispatch({ type: SEARCH_PRODUCTS });
   };
@@ -65,7 +72,7 @@ const SortMenu = ({ dispatch, searchInput }) => {
           </StyledSortLink>
         ))}
       </StyledLinks>
-      <StyledForm onSubmit={handleSubmit}>
+      <StyledForm onSubmit={productSearch}>
         <input
           placeholder="Iskanje"
           type="text"

@@ -8,6 +8,7 @@ module.exports = {
     description: `Opis Strani`,
     author: `@praecorloth`,
     siteUrl: `https://ggtrgovina.netlify.com/`,
+    image: "/defaultBcg.jpg",
     companyInfo: {
       nameLong: `Proizvodnja, transport in trgovina gradbenega materiala Gramat Gril d.o.o.`,
       nameShort: `GRAMAT GRIL d.o.o.`,
@@ -35,7 +36,10 @@ module.exports = {
       web: `www.gramat-gril.si`,
       stilUrl: `https://gramat-gril.si/`,
     },
-    image: "/defaultBcg.jpg",
+    presentation: {
+      gramat: "",
+      stil: "",
+    },
   },
   plugins: [
     {

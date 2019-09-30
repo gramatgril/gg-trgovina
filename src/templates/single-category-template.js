@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import { graphql } from "gatsby";
 
 import { AdviceList } from "./../components/Advice/";
-import { ProductList } from "./../components/Product";
+import { ProductList, PromotedProducts } from "./../components/Product";
 import Banner from "../components/Banner";
 import Hero from "../components/Hero";
 import Layout from "./../styles/layout";
@@ -36,6 +36,7 @@ export default ({ data }) => {
       <SortMenu dispatch={dispatch} searchInput={searchInput} />
       <ProductList products={products} />
       <AdviceList embed={true} />
+      <PromotedProducts embed={true} />
     </Layout>
   );
 };

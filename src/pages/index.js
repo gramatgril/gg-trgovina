@@ -7,16 +7,18 @@ import Category from "./../components/Category";
 import Layout from "../styles/layout";
 import SEO from "../components/seo";
 import Services from "../components/Services";
+import PresentationGramat from "../components/Presentation/";
 
 export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Doma" />
       <Category />
-      <Services />
+      <PresentationGramat />
       <PromotedProducts />
-      <AdviceList embed={true} />
+      <Services />
       <NewProducts />
+      <AdviceList embed={true} />
     </Layout>
   );
 };
