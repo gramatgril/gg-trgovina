@@ -51,9 +51,8 @@ const PresentationGramat = () => {
   return (
     <Wrapper>
       <Title title="obiščite" subtitle="nas" />
+      {/*//? Gramat  Presentation */}
       <StyledRow top>
-        {/*//? Gramat  Presentation */}
-
         <StyledImage>
           <Img fluid={imageGramat.image.fluid} className="img" />
         </StyledImage>
@@ -63,7 +62,6 @@ const PresentationGramat = () => {
         </StyledText>
       </StyledRow>
       {/*//? Stil Presentation */}
-
       <StyledRow>
         <StyledText>
           <h2>{stilTitle}</h2>
@@ -126,6 +124,7 @@ const StyledRow = styled.div`
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: ${({ top }) => (top ? `1fr 2fr` : `2fr 1fr`)};
+    padding: 2rem 0 5rem;
   }
 
   @media (min-width: 1200px) {
