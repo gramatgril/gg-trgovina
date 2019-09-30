@@ -1,95 +1,197 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { FaSearch, FaFilter } from "react-icons/fa";
 
-import styles from "../../styles";
-import { Container } from "./../../styles";
-import { types } from "./../../utils/";
+import { styles, links } from "../../styles";
+import { types } from "../../utils";
+
+const { INPUT_CHANGE, SEARCH_PRODUCTS } = types;
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
-  showAllProducts: PropTypes.func.isRequired,
-  inputValue: PropTypes.string,
+  searchInput: PropTypes.string,
 };
 
-const defaultProps = {
-  inputValue: "",
-};
+const SortMenu = ({ dispatch, searchInput }) => {
+  const [menuLinks, setMenuLinks] = useState(links.sortMenuLinks);
+  const [isMenuOpen, setMenuOpen] = useState(false);
 
-const SortMenu = ({ dispatch, showAllProducts, inputValue }) => {
+  const handleClickLink = (id, action) => {
+    // Makes link active
+    setMenuLinks(
+      menuLinks.map(link =>
+        link.id === id
+          ? {
+              ...link,
+              active: true,
+            }
+          : {
+              ...link,
+              active: false,
+            }
+      )
+    );
+
+    // Every menu link has an action constant that is passed to the reducer
+    dispatch({ type: action });
+  };
+
+  const handleInputChange = e => {
+    dispatch({ type: INPUT_CHANGE, searchInput: e.target.value });
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    dispatch({ type: SEARCH_PRODUCTS });
+  };
+
   return (
-    <Wrapper>
-      <button
-        type="button"
-        onClick={() => dispatch({ type: types.SHOW_PROMOTED })}
-      >
-        Promoted only
-      </button>
-      <button type="button" onClick={showAllProducts}>
-        All items
-      </button>
-      <div>
+    <Wrapper isMenuOpen={isMenuOpen}>
+      <div onClick={() => setMenuOpen(!isMenuOpen)} className="menu-toggle">
+        <FaFilter className="icon" />
+        <h4>Filtri in iskanje</h4>
+      </div>
+
+      <StyledLinks>
+        {menuLinks.map(({ name, id, active, action }) => (
+          <StyledSortLink
+            key={id}
+            active={active}
+            onClick={() => handleClickLink(id, action)}
+          >
+            <h4>{name}</h4>
+            <div className="active-bar" />
+          </StyledSortLink>
+        ))}
+      </StyledLinks>
+      <StyledForm onSubmit={handleSubmit}>
         <input
+          placeholder="Iskanje"
           type="text"
-          value={inputValue}
-          onChange={e =>
-            dispatch({ type: types.INPUT_CHANGE, inputValue: e.target.value })
-          }
+          onChange={handleInputChange}
+          value={searchInput}
         />
-        <button
-          type="button"
-          onClick={() => dispatch({ type: types.SEARCH_PRODUCT })}
-        >
-          Išči
+        <button type="submit">
+          <FaSearch />
         </button>
-      </div>
-      <div>
-        <button
-          type="button"
-          onClick={() => dispatch({ type: types.SET_SORT_DATE_UP })}
-        >
-          Date up
-        </button>
-        <button
-          type="button"
-          onClick={() => dispatch({ type: types.SET_SORT_DATE_DOWN })}
-        >
-          Date down
-        </button>
-      </div>
-      <div>
-        <button
-          type="button"
-          onClick={() => dispatch({ type: types.SET_SORT_PRICE_UP })}
-        >
-          Price up
-        </button>
-        <button
-          type="button"
-          onClick={() => dispatch({ type: types.SET_SORT_PRICE_DOWN })}
-        >
-          Price down
-        </button>
-      </div>
+      </StyledForm>
     </Wrapper>
   );
 };
 
 SortMenu.propTypes = propTypes;
-SortMenu.defaultProps = defaultProps;
 
 export default SortMenu;
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
+  /* Mobile */
+  height: ${({ isMenuOpen }) => (isMenuOpen ? "200px" : "30px")};
+  overflow: hidden;
+  width: 90vw;
   margin: 0 auto;
+  transition: ${styles.easeInOut};
+  background: ${styles.colors.offWhite};
 
+  .menu-toggle {
+    padding: 0 0.4rem;
+    display: flex;
+    justify-content: start;
+    cursor: pointer;
+    color: ${styles.colors.grey};
+
+    h4 {
+      font-size: 1.2rem;
+    }
+
+    .icon {
+      margin: 0.25rem 0.5rem 0 0;
+    }
+  }
+
+  /* Desktop */
   @media (min-width: 768px) {
-    width: 80vw;
+    height: auto;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 70vw;
+
+    .menu-toggle {
+      display: none;
+    }
   }
 
   @media (min-width: 1200px) {
     width: 60vw;
+  }
+`;
+
+const StyledLinks = styled.ul`
+  /* Mobile */
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    height: auto;
+    display: flex;
+  }
+
+  @media (min-width: 1200px) {
+  }
+`;
+
+const StyledSortLink = styled.li`
+  cursor: pointer;
+  padding: 0.2rem 0;
+  color: ${({ active }) =>
+    active ? `${styles.colors.green}` : `${styles.colors.black}`};
+
+  .active-bar {
+    height: 2px;
+  }
+
+  h4 {
+    margin: 0;
+    padding: 0 0.5rem;
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    width: auto;
+
+    :hover {
+      .active-bar {
+        background: ${styles.colors.green};
+      }
+    }
+  }
+`;
+
+const StyledForm = styled.form`
+  padding: 1rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+
+  input,
+  button {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    color: ${styles.colors.black};
+  }
+
+  input {
+    width: 100%;
+    border-bottom: 1px solid ${styles.colors.green};
+  }
+
+  button {
+    padding: 0 1rem;
+    cursor: pointer;
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    width: auto;
   }
 `;

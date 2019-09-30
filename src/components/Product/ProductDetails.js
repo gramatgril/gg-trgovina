@@ -38,6 +38,9 @@ const ProductDetails = ({ product, categorySlug }) => {
     setMainImage(galleryImages.find(el => el.id === id));
   };
 
+  // Adds 2 decimals and replaces dot with a comma
+  const stylePrice = price => `${price.toFixed(2)}`.replace(/\./g, ",");
+
   return (
     <Wrapper>
       <Container align="center">
@@ -46,7 +49,7 @@ const ProductDetails = ({ product, categorySlug }) => {
           <div className="title-bar">
             <h2>{title}</h2>
             <h2 className="price">
-              {price.toFixed(2)} <span>{priceUnit}</span>
+              {stylePrice(price)} <span>{priceUnit}</span>
             </h2>
           </div>
           <hr />

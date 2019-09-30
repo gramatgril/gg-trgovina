@@ -27,6 +27,8 @@ const propTypes = {
 const ProductCard = ({ product }) => {
   const { price, priceUnit, slug, title, images, category, promo } = product;
 
+  const stylePrice = price => `${price.toFixed(2)}`.replace(/\./g, ",");
+
   return (
     <Wrapper>
       <Link className="link" to={`/${category.slug}/${slug}`}>
@@ -40,7 +42,7 @@ const ProductCard = ({ product }) => {
             imgStyle={{ objectFit: "contain", objectPosition: "50% 50%" }}
           />
           <h4 className="price">
-            {price.toFixed(2)} <span>{priceUnit}</span>
+            {stylePrice(price)} <span>{priceUnit}</span>
           </h4>
           {/* Promo tag that says "Akcija" */}
           {promo && (
@@ -70,6 +72,7 @@ const Wrapper = styled.article`
       h4 {
         transition: ${styles.linear};
         color: ${styles.colors.green};
+
       }
     }
   }
@@ -89,7 +92,7 @@ const Wrapper = styled.article`
       transition: ${styles.linear};
       color: ${styles.colors.black};
       font-size: 1.2rem;
-      font-weight: 500;
+      font-weight: 600;
     }
   }
 

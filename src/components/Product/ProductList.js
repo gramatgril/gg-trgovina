@@ -62,7 +62,7 @@ ProductList.defaultProps = defaultProps;
 export default ProductList;
 
 const Wrapper = styled.div`
-  padding: 1rem 0 4rem;
+  padding: 0rem 0 4rem;
 `;
 
 const StyledProductGallery = styled.div`
@@ -75,7 +75,7 @@ const StyledProductGallery = styled.div`
     display: grid;
     width: 80vw;
     grid-template-columns: repeat(2, 1fr);
-    padding: 2rem 0;
+    padding: 0 0 4rem;
   }
 
   @media (min-width: 1200px) {

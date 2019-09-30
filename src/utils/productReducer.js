@@ -1,45 +1,49 @@
-import * as types from "./constants";
+import {
+  RESET_PRODUCTS,
+  SHOW_PROMOTED,
+  SORT_BY_PRICE_UP,
+  SORT_BY_PRICE_DOWN,
+  INPUT_CHANGE,
+  SEARCH_PRODUCTS,
+} from "./constants";
 
-/* State schema:
-    {
-      inputValue: "",
-      sortBy: types.DATE_UP,
-      products: []
-    }
-*/
+/*
+
+ {
+  searchInput: "",
+  initialProducts: data.allProducts.edges,
+  products: [],
+};
+
+ */
 
 const productReducer = (state, action) => {
+  const { products, initialProducts, searchInput } = state;
   switch (action.type) {
-    case types.UPDATE_PRODUCTS:
-      return { ...state, products: [...action.payload] };
+    case RESET_PRODUCTS:
+      return { ...state, products: [...initialProducts] };
 
-    case types.SHOW_PROMOTED:
-      return {
-        ...state,
-        products: [...state.products.filter(({ node }) => node.promo)],
-      };
+    case SHOW_PROMOTED:
+      const promoted = initialProducts.filter(({ node }) => node.promo);
+      return { ...state, products: [...promoted] };
 
-    case types.SHOW_ALL:
-      const { products } = action;
+    case SORT_BY_PRICE_UP:
+      const priceUp = products.sort((a, b) => a.node.price - b.node.price);
+      return { ...state, products: [...priceUp] };
 
-      return { ...state, products };
+    case SORT_BY_PRICE_DOWN:
+      const priceDown = products.sort((a, b) => b.node.price - a.node.price);
+      return { ...state, products: [...priceDown] };
 
-    case types.INPUT_CHANGE:
-      const { inputValue } = action;
+    case INPUT_CHANGE:
+      return { ...state, searchInput: action.searchInput };
 
-      return { ...state, inputValue };
+    case SEARCH_PRODUCTS:
+      const newProducts = products.filter(({ node }) =>
+        node.title.toLowerCase().includes(searchInput.toLowerCase())
+      );
 
-    case types.SET_SORT_DATE_UP:
-      return { ...state, sortBy: types.DATE_UP };
-
-    case types.SET_SORT_DATE_DOWN:
-      return { ...state, sortBy: types.DATE_DOWN };
-
-    case types.SET_SORT_PRICE_UP:
-      return { ...state, sortBy: types.PRICE_UP };
-
-    case types.SET_SORT_PRICE_DOWN:
-      return { ...state, sortBy: types.PRICE_DOWN };
+      return { ...state, searchInput: "", products: [...newProducts] };
 
     default:
       return state;

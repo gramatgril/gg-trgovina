@@ -55,7 +55,7 @@ const Services = () => {
 };
 
 const StyledServices = styled.div`
-  width: 60vw;
+  width: 80vw;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -78,6 +78,7 @@ const StyledServices = styled.div`
     }
 
     p {
+      text-align: justify;
       margin-bottom: 2rem;
       padding: 1rem 0;
     }

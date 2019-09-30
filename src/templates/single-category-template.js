@@ -1,56 +1,39 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useReducer } from "react";
 import { graphql } from "gatsby";
 
-import Layout from "./../styles/layout";
-import { ProductList } from "./../components/Product";
-import SEO from "./../components/seo";
-import Hero from "../components/Hero";
-import Banner from "../components/Banner";
 import { AdviceList } from "./../components/Advice/";
+import { ProductList } from "./../components/Product";
+import Banner from "../components/Banner";
+import Hero from "../components/Hero";
+import Layout from "./../styles/layout";
+import SEO from "./../components/seo";
 import SortMenu from "../components/SortMenu";
 
-import { productReducer as reducer, types, sortProducts } from "./../utils";
+import { productReducer as reducer } from "./../utils";
+
+/*
+  Displays a page of products belonging to a single category.
+*/
 
 export default ({ data }) => {
   const { title, description, image } = data.category;
 
-  // Reducers initial state is data pulled from graphQl
   const initialState = {
-    inputValue: "",
-    sortBy: types.DATE_UP,
+    searchInput: "",
+    initialProducts: data.allProducts.edges,
     products: data.allProducts.edges,
   };
 
-  // Reducer for sorting and filtering products
+  // Reducer handles filtering, sorting and searching
   const [state, dispatch] = useReducer(reducer, initialState);
-  const { products, inputValue, sortBy } = state;
-
-  // Updates product list on sort setting change
-  useEffect(() => {
-    dispatch({
-      type: types.UPDATE_PRODUCTS,
-      payload: sortProducts(products, sortBy),
-    });
-  }, [sortBy]);
-
-  // Shows all products
-  const showAllProducts = () => {
-    const { products } = initialState;
-
-    dispatch({ type: types.SHOW_ALL, products });
-  };
+  const { products, searchInput } = state;
 
   return (
     <Layout>
       <SEO title={title} />
       <Hero img={image.fluid}></Hero>
       <Banner title={title} info={description.description} />
-      {/* <SortMenu
-        dispatch={dispatch}
-        showAllProducts={showAllProducts}
-        inputValue={inputValue}
-      /> */}
-
+      <SortMenu dispatch={dispatch} searchInput={searchInput} />
       <ProductList products={products} />
       <AdviceList embed={true} />
     </Layout>
