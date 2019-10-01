@@ -44,10 +44,6 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
         {
-          name: `image`,
-          content: image,
-        },
-        {
           property: `og:title`,
           content: metaTitle,
         },
@@ -59,17 +55,16 @@ function SEO({ description, lang, meta, title }) {
           property: `og:type`,
           content: `website`,
         },
-        // {
-        //   property: `og:image`,
-        //   content: `${siteUrl}${image}`,
-        // },
+        {
+          property: `og:image`,
+          content: image,
+        },
       ].concat(meta)}
     >
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
         rel="stylesheet"
       />
-      <meta name="og:image" content={`${siteUrl}${image}`} />
     </Helmet>
   );
 }
