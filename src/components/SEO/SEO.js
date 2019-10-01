@@ -10,67 +10,81 @@ const propTypes = {
   meta: PropTypes.arrayOf(PropTypes.object),
 };
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            siteTitle: title
-            siteDesc: description
-            author
-            image
-            siteUrl
-          }
-        }
+const getData = graphql`
+  query {
+    site {
+      siteMetadata {
+        siteTitle: title
+        siteDesc: description
+        image
+        siteUrl
       }
-    `
-  );
+    }
+  }
+`;
+
+function SEO({ description, lang, meta, title }) {
+  const { site } = useStaticQuery(getData);
 
   const { image, siteUrl, siteTitle, siteDesc } = site.siteMetadata;
-  const metaDescription = description || siteDesc;
-  const metaTitle = title || siteTitle;
-  const metaImage = `${siteUrl}${image}`;
+  // const metaDescription = description || siteDesc;
+  // const metaTitle = title || siteTitle;
+  // const metaImage = `${siteUrl}${image}`;
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={metaTitle}
-      titleTemplate={`%s | ${siteTitle}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:url`,
-          content: siteUrl,
-        },
-        {
-          property: `og:title`,
-          content: metaTitle,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:image`,
-          content: metaImage,
-        },
-      ].concat(meta)}
-    >
+    <Helmet htmlAttributes={{ lang: "en" }} title={`${title} | ${siteTitle}`}>
+      <meta name="description" content={description || siteDesc} />
+      <meta name="image" content={image} />
+      {/* Facebook card */}
+      <meta name="og:url" content={siteUrl} />
+      <meta name="og:type" content="website" />
+      <meta name="og:title" content={siteTitle} />
+      <meta name="og:description" content={siteDesc} />
+      <meta name="og:image" content={`${siteUrl}${image}`} />
+      <meta name="og:image:width" content="400" />
+      <meta name="og:image:height" content="300" />
+
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
         rel="stylesheet"
       />
     </Helmet>
+
+    // <Helmet
+    //   htmlAttributes={{
+    //     lang,
+    //   }}
+    //   title={metaTitle}
+    //   titleTemplate={`%s | ${siteTitle}`}
+    //   meta={[
+    //     {
+    //       name: `description`,
+    //       content: metaDescription,
+    //     },
+    //     {
+    //       property: `og:url`,
+    //       content: siteUrl,
+    //     },
+    //     {
+    //       property: `og:title`,
+    //       content: metaTitle,
+    //     },
+    //     {
+    //       property: `og:description`,
+    //       content: metaDescription,
+    //     },
+    //     {
+    //       property: `og:type`,
+    //       content: `website`,
+    //     },
+    //     {
+    //       property: `og:image`,
+    //       content: metaImage,
+    //     },
+    //   ].concat(meta)}
+    // >
+
+    // </Helmet>
   );
 }
 
