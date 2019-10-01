@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Trgovina z gradbenim materialom`,
-    description: `Trgovina z gradbenim materialom in salon kopalniške opreme Gramat Gril v Grosuplju.`,
+    description: `Barve, fasade, keramika, talne obloge, kopalnice, vse za vrt in okolico. Najdete nas v Rožni dolini 9 v Grosuplju.`,
     author: `@praecorloth`,
     siteUrl: `https://ggtrgovina.netlify.com`,
     image: `/defaultBcg.jpg`,

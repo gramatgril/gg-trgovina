@@ -39,39 +39,17 @@ function SEO({ description, lang, meta, title }) {
       }}
       title={metaTitle}
       titleTemplate={`%s | ${siteTitle}`}
-      // meta={[
-      //   {
-      //     name: `description`,
-      //     content: metaDescription,
-      //   },
-      //   {
-      //     property: `og:title`,
-      //     content: metaTitle,
-      //   },
-      //   {
-      //     property: `og:description`,
-      //     content: metaDescription,
-      //   },
-      //   {
-      //     property: `og:type`,
-      //     content: `website`,
-      //   },
-      //   {
-      //     property: `og:image`,
-      //     content: metaImage,
-      //   },
-      // ].concat(meta)}
     >
       <meta name="description" content={metaDescription} />
       <meta name="image" content={image} />
       {/* Facebook card */}
-      <meta name="og:url" content={siteUrl} />
-      <meta name="og:type" content="website" />
-      <meta name="og:title" content={metaTitle} />
-      <meta name="og:description" content={metaDescription} />
-      <meta name="og:image" content={`${siteUrl}${image}`} />
-      <meta name="og:image:width" content="400" />
-      <meta name="og:image:height" content="300" />
+      <meta property="og:url" content={siteUrl} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={metaTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:image" content={`${siteUrl}${image}`} />
+      <meta property="og:image:width" content="400" />
+      <meta property="og:image:height" content="300" />
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
         rel="stylesheet"
