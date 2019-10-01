@@ -5,9 +5,8 @@ import { FaSearch, FaFilter } from "react-icons/fa";
 
 import { styles, links } from "../../styles";
 import { types } from "../../utils";
-import { SHOW_PROMOTED } from "../../utils/constants";
 
-const { INPUT_CHANGE, SEARCH_PRODUCTS } = types;
+const { INPUT_CHANGE, SEARCH_PRODUCTS, SHOW_PROMOTED } = types;
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
@@ -49,7 +48,7 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
     <Wrapper isMenuOpen={isMenuOpen}>
       <div onClick={() => setMenuOpen(!isMenuOpen)} className="menu-toggle">
         <FaFilter className="icon" />
-        <h4>Filtri in iskanje</h4>
+        <h4>Filter in iskanje</h4>
       </div>
 
       <StyledLinks>
@@ -85,7 +84,7 @@ export default SortMenu;
 
 const Wrapper = styled.div`
   /* Mobile */
-  height: ${({ isMenuOpen }) => (isMenuOpen ? "200px" : "30px")};
+  height: ${({ isMenuOpen }) => (isMenuOpen ? "250px" : "30px")};
   overflow: hidden;
   width: 90vw;
   margin: 0 auto;
@@ -127,20 +126,16 @@ const Wrapper = styled.div`
 `;
 
 const StyledLinks = styled.ul`
-  /* Mobile */
-
   /* Desktop */
   @media (min-width: 768px) {
     padding: 0 1rem;
     height: auto;
     display: flex;
   }
-
-  @media (min-width: 1200px) {
-  }
 `;
 
 const StyledSortLink = styled.li`
+  /* Mobile */
   cursor: pointer;
   padding: 0.2rem 0;
   color: ${({ active }) =>

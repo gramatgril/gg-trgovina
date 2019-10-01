@@ -42,17 +42,24 @@ const Services = () => {
       <Title title="nudimo" subtitle="vam" />
       <StyledServices>
         {services.map(({ id, icon, title, text }) => (
-          <article key={id} className="service">
+          <StyledSegment key={id}>
             <span>{icon}</span>
             <h4>{title}</h4>
-            <hr className="divider" />
+            <StyledDivider />
             <p>{text}</p>
-          </article>
+          </StyledSegment>
         ))}
       </StyledServices>
     </Wrapper>
   );
 };
+
+export default Services;
+
+const Wrapper = styled.div`
+  background: ${styles.colors.offWhite};
+  padding: 2rem 0;
+`;
 
 const StyledServices = styled.div`
   width: 80vw;
@@ -60,43 +67,36 @@ const StyledServices = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-column-gap: 2rem;
+`;
 
-  .service {
-    font-size: 1rem;
-    text-align: center;
+const StyledSegment = styled.article`
+  font-size: 1rem;
+  text-align: center;
 
-    span {
-      color: ${styles.colors.green};
-      display: inline-block;
-      font-size: 7rem;
-    }
+  span {
+    color: ${styles.colors.green};
+    display: inline-block;
+    font-size: 7rem;
+  }
 
-    h4 {
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: ${styles.letterSpacing};
-    }
+  h4 {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: ${styles.letterSpacing};
+  }
 
-    p {
-      text-align: justify;
-      margin-bottom: 2rem;
-      padding: 1rem 0;
-    }
+  p {
+    text-align: justify;
+    margin-bottom: 2rem;
+    padding: 1rem 0;
   }
 `;
 
-const Wrapper = styled.div`
-  background: ${styles.colors.offWhite};
-  padding: 2rem 0;
-
-  .divider {
-    border-radius: 10px;
-    height: 3px;
-    border: none;
-    background: ${styles.colors.green};
-    margin: 2rem auto;
-    width: 50px;
-  }
+const StyledDivider = styled.hr`
+  border-radius: 10px;
+  height: 3px;
+  border: none;
+  background: ${styles.colors.green};
+  margin: 2rem auto;
+  width: 100px;
 `;
-
-export default Services;

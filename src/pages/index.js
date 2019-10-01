@@ -1,5 +1,4 @@
 import React from "react";
-import { graphql } from "gatsby";
 
 import { AdviceList } from "../components/Advice/";
 import { PromotedProducts, NewProducts } from "./../components/Product";
@@ -9,7 +8,7 @@ import SEO from "../components/seo";
 import Services from "../components/Services";
 import PresentationGramat from "../components/Presentation/";
 
-export default ({ data }) => {
+export default () => {
   return (
     <Layout>
       <SEO title="Gramat Gril" />
@@ -22,15 +21,3 @@ export default ({ data }) => {
     </Layout>
   );
 };
-
-export const query = graphql`
-  query {
-    heroImg: file(relativePath: { eq: "defaultBcg.jpg" }) {
-      image: childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
-  }
-`;

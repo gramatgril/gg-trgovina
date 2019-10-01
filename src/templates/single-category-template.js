@@ -54,7 +54,7 @@ export const query = graphql`
           id: contentful_id
           slug
           promo
-          createdAt
+          createdAt(formatString: "D M YYYY")
           category {
             slug
           }

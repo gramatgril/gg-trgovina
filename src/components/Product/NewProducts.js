@@ -1,5 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import styled from "styled-components";
 
 import ProductList from "./ProductList";
 import Title from "../Title";
@@ -39,11 +40,15 @@ const NewProducts = () => {
   const { products } = useStaticQuery(getNewProducts);
 
   return (
-    <Fragment>
+    <Wrapper>
       <Title title="novi" subtitle="izdelki" />
       <ProductList products={products.edges} />
-    </Fragment>
+    </Wrapper>
   );
 };
 
 export default NewProducts;
+
+const Wrapper = styled.div`
+  padding: 3rem 0 0;
+`;

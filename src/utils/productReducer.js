@@ -5,6 +5,7 @@ import {
   SORT_BY_PRICE_DOWN,
   INPUT_CHANGE,
   SEARCH_PRODUCTS,
+  SORT_BY_DATE_DOWN,
 } from "./constants";
 
 /*
@@ -45,6 +46,12 @@ const productReducer = (state, action) => {
 
       return { ...state, searchInput: "", products: [...newProducts] };
 
+    case SORT_BY_DATE_DOWN:
+      const newestProducts = products.sort(
+        (a, b) => parseInt(b.node.createdAt) - parseInt(a.node.createdAt)
+      );
+
+      return { ...state, products: [...newestProducts] };
     default:
       return state;
   }

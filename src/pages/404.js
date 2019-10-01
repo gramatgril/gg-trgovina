@@ -1,12 +1,12 @@
 import React from "react";
 
 import Layout from "../styles/layout";
+import NotFound from "../components/NotFound/NotFound";
 import SEO from "../components/seo";
 
 export default () => (
   <Layout>
-    <SEO title="404: Not found" />
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <SEO title="Stran ni najdena" />
+    <NotFound />
   </Layout>
 );
