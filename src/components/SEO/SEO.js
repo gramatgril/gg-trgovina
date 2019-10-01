@@ -28,9 +28,9 @@ function SEO({ description, lang, meta, title }) {
   );
 
   const { image, siteUrl, siteTitle, siteDesc } = site.siteMetadata;
+  console.log("image:", image);
   const metaDescription = description || siteDesc;
   const metaTitle = title || siteTitle;
-  // const metaImage = `${siteUrl}${image}`;
 
   return (
     <Helmet

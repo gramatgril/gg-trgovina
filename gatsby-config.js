@@ -93,17 +93,17 @@ module.exports = {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_ID,
-        // head: true,
+        head: true,
         // anonymize: true,
       },
     },
-    {
-      resolve: `gatsby-plugin-gtag`,
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_ID,
-        // head: true,
-        // anonymize: true,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-gtag`,
+    //   options: {
+    //     trackingId: process.env.GOOGLE_ANALYTICS_ID,
+    //     // head: true,
+    //     // anonymize: true,
+    //   },
+    // },
   ],
 };
