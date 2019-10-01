@@ -49,48 +49,12 @@ function SEO({ description, lang, meta, title }) {
         rel="stylesheet"
       />
     </Helmet>
-
-    // <Helmet
-    //   htmlAttributes={{
-    //     lang,
-    //   }}
-    //   title={metaTitle}
-    //   titleTemplate={`%s | ${siteTitle}`}
-    //   meta={[
-    //     {
-    //       name: `description`,
-    //       content: metaDescription,
-    //     },
-    //     {
-    //       property: `og:url`,
-    //       content: siteUrl,
-    //     },
-    //     {
-    //       property: `og:title`,
-    //       content: metaTitle,
-    //     },
-    //     {
-    //       property: `og:description`,
-    //       content: metaDescription,
-    //     },
-    //     {
-    //       property: `og:type`,
-    //       content: `website`,
-    //     },
-    //     {
-    //       property: `og:image`,
-    //       content: metaImage,
-    //     },
-    //   ].concat(meta)}
-    // >
-
-    // </Helmet>
   );
 }
 
 SEO.defaultProps = {
+  title: `Gramat Gril`,
   lang: `en`,
-  meta: [],
   description: ``,
 };
 
