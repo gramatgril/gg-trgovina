@@ -3,8 +3,8 @@ import { graphql } from "gatsby";
 
 import Layout from "../styles/layout";
 
-import SEO from "../components/seo";
 import { AdviceDetails } from "./../components/Advice";
+import SEO from "./../components/seo/";
 
 export default ({ data }) => {
   const { title } = data.advice;

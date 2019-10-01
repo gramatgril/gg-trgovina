@@ -7,7 +7,6 @@ const propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
 };
 
 const getData = graphql`
@@ -23,13 +22,10 @@ const getData = graphql`
   }
 `;
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, title }) {
   const { site } = useStaticQuery(getData);
 
   const { image, siteUrl, siteTitle, siteDesc } = site.siteMetadata;
-  // const metaDescription = description || siteDesc;
-  // const metaTitle = title || siteTitle;
-  // const metaImage = `${siteUrl}${image}`;
 
   return (
     <Helmet htmlAttributes={{ lang: "en" }} title={`${title} | ${siteTitle}`}>

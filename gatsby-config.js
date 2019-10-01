@@ -7,8 +7,8 @@ module.exports = {
     title: `Trgovina z gradbenim materialom`,
     description: `Barve, fasade, keramika, talne obloge, kopalnice, vse za vrt in okolico. Najdete nas v Rožni dolini 9 v Grosuplju.`,
     author: `@praecorloth`,
-    siteUrl: `https://ggtrgovina.netlify.com`,
-    image: `/defaultBcg.jpg`,
+    siteUrl: `https://ggtrgovina.netlify.com/`,
+    image: "defaultBcg.jpg",
     companyInfo: {
       nameLong: `Proizvodnja, transport in trgovina gradbenega materiala Gramat Gril d.o.o.`,
       nameShort: `GRAMAT GRIL d.o.o.`,

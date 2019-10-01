@@ -5,7 +5,7 @@ import { AdviceList } from "../components/Advice";
 import Banner from "../components/Banner";
 import Hero from "../components/Hero";
 import Layout from "../styles/layout";
-import SEO from "../components/seo";
+import SEO from "./../components/seo";
 
 export default ({ data }) => {
   const heroImg = data.heroImg.image.fluid;
