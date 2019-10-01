@@ -31,8 +31,6 @@ function SEO({ description, lang, meta, title }) {
   const metaDescription = description || siteDesc;
   const metaTitle = title || siteTitle;
 
-  console.log("imageurl", `${siteUrl}${image}`);
-
   return (
     <Helmet
       htmlAttributes={{
@@ -61,16 +59,17 @@ function SEO({ description, lang, meta, title }) {
           property: `og:type`,
           content: `website`,
         },
-        {
-          property: `og:image`,
-          content: `${siteUrl}${image}`,
-        },
+        // {
+        //   property: `og:image`,
+        //   content: `${siteUrl}${image}`,
+        // },
       ].concat(meta)}
     >
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
         rel="stylesheet"
       />
+      <meta name="og:image" content={`${siteUrl}${image}`} />
     </Helmet>
   );
 }
