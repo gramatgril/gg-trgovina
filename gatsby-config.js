@@ -7,7 +7,7 @@ module.exports = {
     title: `Trgovina z gradbenim materialom`,
     description: `Trgovina z gradbenim materialom in salon kopalniške opreme Gramat Gril v Grosuplju.`,
     author: `@praecorloth`,
-    siteUrl: `https://ggtrgovina.netlify.com/`,
+    siteUrl: `https://ggtrgovina.netlify.com`,
     image: `/defaultBcg.jpg`,
     companyInfo: {
       nameLong: `Proizvodnja, transport in trgovina gradbenega materiala Gramat Gril d.o.o.`,
@@ -89,14 +89,14 @@ module.exports = {
         },
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-google-analytics`,
-    //   options: {
-    //     trackingId: process.env.GOOGLE_ANALYTICS_ID,
-    //     head: true,
-    //     anonymize: true,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+        head: true,
+        anonymize: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-gtag`,
       options: {
