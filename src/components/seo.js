@@ -4,71 +4,46 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
 };
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
+const getData = graphql`
+  query {
+    site {
+      siteMetadata {
+        siteTitle: title
+        siteDesc: description
+        image
+        siteUrl
       }
-    `
-  );
+    }
+  }
+`;
 
-  const metaDescription = description || site.siteMetadata.description;
+function SEO({ description, lang, meta, title }) {
+  const { site } = useStaticQuery(getData);
+
+  const { image, siteUrl, siteTitle, siteDesc } = site.siteMetadata;
+  // const metaDescription = description || siteDesc;
+  // const metaTitle = title || siteTitle;
+  // const metaImage = `${siteUrl}${image}`;
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    >
+    <Helmet htmlAttributes={{ lang: "en" }} title={`${title} | ${siteTitle}`}>
+      <meta name="description" content={description || siteDesc} />
+      <meta name="image" content={image} />
+      {/* Facebook card */}
+      <meta property="og:url" content={siteUrl} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={siteTitle} />
+      <meta property="og:description" content={siteDesc} />
+      <meta property="og:image" content={`${siteUrl}${image}`} />
+      <meta property="og:image:width" content="400" />
+      <meta property="og:image:height" content="300" />
+
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
         rel="stylesheet"
@@ -82,8 +57,8 @@ function SEO({ description, lang, meta, title }) {
 }
 
 SEO.defaultProps = {
+  title: `Gramat Gril`,
   lang: `en`,
-  meta: [],
   description: ``,
 };
 
