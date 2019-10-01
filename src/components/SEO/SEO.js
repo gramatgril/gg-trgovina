@@ -36,13 +36,13 @@ function SEO({ description, lang, meta, title }) {
       <meta name="description" content={description || siteDesc} />
       <meta name="image" content={image} />
       {/* Facebook card */}
-      <meta name="og:url" content={siteUrl} />
-      <meta name="og:type" content="website" />
-      <meta name="og:title" content={siteTitle} />
-      <meta name="og:description" content={siteDesc} />
-      <meta name="og:image" content={`${siteUrl}${image}`} />
-      <meta name="og:image:width" content="400" />
-      <meta name="og:image:height" content="300" />
+      <meta property="og:url" content={siteUrl} />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={siteTitle} />
+      <meta property="og:description" content={siteDesc} />
+      <meta property="og:image" content={`${siteUrl}${image}`} />
+      <meta property="og:image:width" content="400" />
+      <meta property="og:image:height" content="300" />
 
       <link
         href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
