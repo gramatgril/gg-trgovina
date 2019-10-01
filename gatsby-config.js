@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gramat Gril`,
-    description: `Trgovina z gradbenim materialom`,
+    title: `Trgovina z gradbenim materialom Gramat Gril`,
+    description: `Trgovina z gradbenim materialom in salon kopalniške opreme v Grosuplju.`,
     author: `@praecorloth`,
     siteUrl: `https://ggtrgovina.netlify.com/`,
     image: "/defaultBcg.jpg",

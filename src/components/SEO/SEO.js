@@ -20,6 +20,7 @@ function SEO({ description, lang, meta, title }) {
             description
             author
             image
+            siteUrl
           }
         }
       }
@@ -27,6 +28,7 @@ function SEO({ description, lang, meta, title }) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  const { image, siteUrl } = site.siteMetadata;
 
   return (
     <Helmet
@@ -39,6 +41,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `description`,
           content: metaDescription,
+        },
+        {
+          name: `image`,
+          content: site.siteMetadata.image,
         },
         {
           property: `og:title`,
@@ -54,7 +60,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: site.siteMetadata.image,
+          content: `${siteUrl}${image}`,
         },
       ].concat(meta)}
     >
