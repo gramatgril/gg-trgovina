@@ -27,9 +27,6 @@ function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(getData);
 
   const { image, siteUrl, siteTitle, siteDesc } = site.siteMetadata;
-  // const metaDescription = description || siteDesc;
-  // const metaTitle = title || siteTitle;
-  // const metaImage = `${siteUrl}${image}`;
 
   return (
     <Helmet htmlAttributes={{ lang: "en" }} title={`${title} | ${siteTitle}`}>
@@ -58,7 +55,7 @@ function SEO({ description, lang, meta, title }) {
 
 SEO.defaultProps = {
   title: `Gramat Gril`,
-  lang: `en`,
+  lang: `sl`,
   description: ``,
 };
 
