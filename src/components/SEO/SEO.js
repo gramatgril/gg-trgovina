@@ -4,7 +4,7 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
@@ -16,8 +16,8 @@ function SEO({ description, lang, meta, title }) {
       query {
         site {
           siteMetadata {
-            title
-            description
+            siteTitle: title
+            siteDesc: description
             author
             image
             siteUrl
@@ -27,16 +27,19 @@ function SEO({ description, lang, meta, title }) {
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
-  const { image, siteUrl } = site.siteMetadata;
+  const { image, siteUrl, siteTitle, siteDesc } = site.siteMetadata;
+  const metaDescription = description || siteDesc;
+  const metaTitle = title || siteTitle;
+
+  console.log("imageurl", `${siteUrl}${image}`);
 
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={metaTitle}
+      titleTemplate={`%s | ${siteTitle}`}
       meta={[
         {
           name: `description`,
@@ -44,11 +47,11 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `image`,
-          content: site.siteMetadata.image,
+          content: image,
         },
         {
           property: `og:title`,
-          content: title,
+          content: metaTitle,
         },
         {
           property: `og:description`,

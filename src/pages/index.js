@@ -12,7 +12,7 @@ import PresentationGramat from "../components/Presentation/";
 export default ({ data }) => {
   return (
     <Layout>
-      <SEO title="Doma" />
+      <SEO title="Gramat Gril" />
       <Category />
       <PresentationGramat />
       <PromotedProducts />
