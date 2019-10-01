@@ -6,7 +6,7 @@ import { ProductList, PromotedProducts } from "./../components/Product";
 import Banner from "../components/Banner";
 import Hero from "../components/Hero";
 import Layout from "./../styles/layout";
-import SEO from "./../components/seo/";
+import SEO from "./../components/seo";
 import SortMenu from "../components/SortMenu";
 
 import { productReducer as reducer } from "./../utils";

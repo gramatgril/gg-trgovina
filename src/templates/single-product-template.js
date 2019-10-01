@@ -5,7 +5,7 @@ import { AdviceList } from "../components/Advice";
 import Layout from "./../styles/layout";
 import { ProductDetails } from "../components/Product";
 import { PromotedProducts } from "./../components/Product";
-import SEO from "./../components/seo/";
+import SEO from "./../components/seo";
 
 export default ({ data }) => {
   const { title } = data.product;

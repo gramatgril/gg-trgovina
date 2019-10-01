@@ -1,7 +1,7 @@
 import React from "react";
 
 import Layout from "../styles/layout";
-import SEO from "./../components/seo";
+import SEO from "../components/seo";
 
 export default () => (
   <Layout>
