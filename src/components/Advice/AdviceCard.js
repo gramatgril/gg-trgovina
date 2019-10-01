@@ -32,7 +32,7 @@ const AdviceCard = ({ advice }) => {
               className="img"
               imgStyle={{ objectFit: "cover" }}
             />
-            <p className="date">{date}</p>
+            <StyledDate>{date}</StyledDate>
           </StyledImage>
           <StyledDescription>
             <h2>{title}</h2>
@@ -59,16 +59,16 @@ const StyledImage = styled.div`
   position: relative;
   height: 200px;
   width: 300px;
+`;
 
-  .date {
-    font-size: 1.2rem;
-    color: ${styles.colors.white};
-    position: absolute;
-    left: 0%;
-    top: 0%;
-    background: ${styles.colors.green};
-    padding: 0.3rem 1rem;
-  }
+const StyledDate = styled.p`
+  font-size: 1.2rem;
+  color: ${styles.colors.white};
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  background: ${styles.colors.green};
+  padding: 0.3rem 1rem;
 `;
 
 const StyledDescription = styled.div`

@@ -18,10 +18,10 @@ const CategoryCard = ({ title, slug, image }) => {
   return (
     <Wrapper>
       <Link to={`/${slug}`}>
-        <div className="img-container">
+        <StyledImage>
           <Img fluid={image.fluid} alt="category" className="img" />
-          <div className="title-box">{title}</div>
-        </div>
+          <StyledTitleBox>{title}</StyledTitleBox>
+        </StyledImage>
       </Link>
     </Wrapper>
   );
@@ -31,39 +31,33 @@ CategoryCard.propTypes = propTypes;
 
 export default CategoryCard;
 
+const StyledImage = styled.div`
+  position: relative;
+  background: ${styles.colors.white};
+  border: ${styles.colors.white};
+  height: 280px;
+`;
+
+const StyledTitleBox = styled.div`
+  width: 80%;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  letter-spacing: 1.8px;
+  color: ${styles.colors.green};
+  background: ${styles.colors.white};
+  padding: 0.5rem;
+  display: inline-block;
+  transition: ${styles.linear};
+`;
+
 const Wrapper = styled.div`
   transition: ${styles.linear};
 
-  .img {
-    height: 280px;
-  }
-
-  :hover {
-    .title-box {
-      transition: ${styles.linear};
-      color: ${styles.colors.white};
-      background: ${styles.colors.green};
-    }
-  }
-
-  .title-box {
-    width: 80%;
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-transform: uppercase;
-    letter-spacing: 1.8px;
-    color: ${styles.colors.green};
-    background: ${styles.colors.white};
-    padding: 0.5rem;
-    display: inline-block;
-    transition: ${styles.linear};
-  }
-
-  .img-container {
-    position: relative;
-    background: ${styles.colors.white};
-    border: ${styles.colors.white};
+  :hover ${StyledTitleBox} {
+    color: ${styles.colors.white};
+    background: ${styles.colors.green};
   }
 `;

@@ -28,15 +28,7 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
     // Makes link active
     setMenuLinks(
       menuLinks.map(link =>
-        link.id === id
-          ? {
-              ...link,
-              active: true,
-            }
-          : {
-              ...link,
-              active: false,
-            }
+        link.id === id ? { ...link, active: true } : { ...link, active: false }
       )
     );
 
@@ -139,6 +131,7 @@ const StyledLinks = styled.ul`
 
   /* Desktop */
   @media (min-width: 768px) {
+    padding: 0 1rem;
     height: auto;
     display: flex;
   }

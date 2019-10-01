@@ -71,9 +71,9 @@ const AdviceDetails = ({ advice }) => {
       <Container>
         <h1>{title}</h1>
         <h4>Objavljeno : {date}</h4>
-        <div className="post">
+        <StyledPost>
           {documentToReactComponents(content.json, options)}
-        </div>
+        </StyledPost>
         <Link to="/nasveti-in-ideje" className="link">
           <PrimaryButton text="nazaj" />
         </Link>
@@ -99,12 +99,12 @@ const Wrapper = styled.div`
     letter-spacing: ${styles.letterSpacing};
     margin-bottom: 1rem;
   }
+`;
 
-  .post {
-    margin: 2rem 0;
-  }
+const StyledPost = styled.div`
+  margin: 2rem 0;
 
-  .post img {
+  img {
     max-width: 70vw;
   }
 `;

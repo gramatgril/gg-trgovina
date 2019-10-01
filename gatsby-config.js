@@ -5,7 +5,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Gramat Gril`,
-    description: `Opis Strani`,
+    description: `Trgovina z gradbenim materialom`,
     author: `@praecorloth`,
     siteUrl: `https://ggtrgovina.netlify.com/`,
     image: "/defaultBcg.jpg",
@@ -87,6 +87,12 @@ module.exports = {
             policy: [{ userAgent: "*", allow: "/" }],
           },
         },
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
       },
     },
   ],

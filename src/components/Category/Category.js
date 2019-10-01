@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
 import CategoryList from "./CategoryList";
@@ -33,12 +33,12 @@ const Category = () => {
   const { categories, adviceCardImg } = useStaticQuery(getCategories);
 
   return (
-    <div>
+    <Fragment>
       <CategoryList
         categories={categories.edges}
         adviceCardImg={adviceCardImg.image}
       />
-    </div>
+    </Fragment>
   );
 };
 
