@@ -3,9 +3,9 @@ import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
 
-import { styles, Container } from "../../styles";
+import { styles } from "../../styles";
+import Map from "./../Map/";
 import Title from "../Title";
-import GoogleMap from "./../GoogleMap/GoogleMap";
 
 const query = graphql`
   query {
@@ -71,9 +71,6 @@ const PresentationGramat = () => {
           <Img fluid={imageStil.image.fluid} className="img" />
         </StyledImage>
       </StyledRow>
-      <StyledMap>
-        <GoogleMap />
-      </StyledMap>
     </Wrapper>
   );
 };
@@ -127,12 +124,6 @@ const StyledRow = styled.div`
     padding: 2rem 0 5rem;
   }
 
-  @media (min-width: 1200px) {
-    width: 70vw;
-  }
-`;
-
-const StyledMap = styled(Container)`
   @media (min-width: 1200px) {
     width: 70vw;
   }

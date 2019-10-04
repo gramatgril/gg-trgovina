@@ -22,11 +22,11 @@ export const navLinks = [
     name: "Nasveti in ideje",
     path: "/nasveti-in-ideje",
   },
-  {
-    id: 2,
-    name: "Katalog",
-    path: "/katalog",
-  },
+  // {
+  //   id: 2,
+  //   name: "Katalog",
+  //   path: "/katalog",
+  // },
   {
     id: 4,
     name: "Kontakt",

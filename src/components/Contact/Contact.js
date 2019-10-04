@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import { styles, Container } from "../../styles";
 import ContactForm from "./ContactForm";
-import GoogleMap from "../GoogleMap/GoogleMap";
+import Map from "./../Map/";
 
 const propTypes = {
   companyInfo: PropTypes.shape({
@@ -73,7 +73,15 @@ const Contact = ({ companyInfo, contactInfo }) => {
           <p>{companyDesc}</p>
         </div>
       </Container>
-      <GoogleMap />
+      <Map
+        isMarkerShown
+        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=
+        ${process.env.GOOGLE_MAPS_API_KEY}
+                &v=3.exp&libraries=geometry,drawing,places`}
+        loadingElement={<div style={{ height: `100%` }} />}
+        containerElement={<div style={{ height: `400px` }} />}
+        mapElement={<div style={{ height: `100%` }} />}
+      />
     </Wrapper>
   );
 };

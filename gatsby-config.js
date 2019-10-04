@@ -81,7 +81,7 @@ module.exports = {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
         host: `https://ggtrgovina.netlify.com/`,
-        sitemap: `https://ggtrgovina.netlify.com//sitemap.xml`,
+        sitemap: `https://ggtrgovina.netlify.com/sitemap.xml`,
         env: {
           production: {
             policy: [{ userAgent: "*", allow: "/" }],

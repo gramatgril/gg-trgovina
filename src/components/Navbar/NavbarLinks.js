@@ -84,7 +84,7 @@ const StyledLink = styled(Link)`
 
 const Wrapper = styled.ul`
   /* border: 1px solid green; */
-  height: ${({ isOpen }) => (isOpen ? "200px" : "0px")};
+  height: ${({ isOpen }) => (isOpen ? "170px" : "0px")};
   overflow: hidden;
   transition: ${styles.easeInOut};
 

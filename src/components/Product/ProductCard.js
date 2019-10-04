@@ -27,6 +27,7 @@ const propTypes = {
 const ProductCard = ({ product }) => {
   const { price, priceUnit, slug, title, images, category, promo } = product;
 
+  // Replaces dots with commas
   const stylePrice = price => `${price.toFixed(2)}`.replace(/\./g, ",");
 
   return (
