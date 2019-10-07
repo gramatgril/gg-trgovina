@@ -88,7 +88,9 @@ const ProductDetails = ({ product, categorySlug }) => {
             </div>
           </StyledGallery>
           {/* Rich Text, contains H4 and p tags */}
-          <StyledText>{documentToReactComponents(description.json)}</StyledText>
+          <StyledRichText>
+            {documentToReactComponents(description.json)}
+          </StyledRichText>
         </div>
         <Link to={`/${categorySlug}`}>
           <PrimaryButton text="nazaj na kategorijo" />
@@ -230,7 +232,7 @@ const StyledGallery = styled.div`
 `;
 
 // Description rich text field.
-const StyledText = styled.div`
+const StyledRichText = styled.article`
   padding: 2rem 0;
   text-align: left;
 
@@ -243,6 +245,16 @@ const StyledText = styled.div`
     font-size: 1.3rem;
     padding: 0.2rem 1rem;
     font-weight: 600;
+  }
+
+  ul,
+  ol {
+    padding: 1rem;
+    margin: 0 2rem;
+
+    li {
+      list-style-type: circle;
+    }
   }
 
   @media (min-width: 576px) {

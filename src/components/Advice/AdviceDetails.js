@@ -27,29 +27,18 @@ const AdviceDetails = ({ advice }) => {
       // Finds embedded images and displays them
       "embedded-asset-block": node => {
         return (
-          <div>
+          <StyledImage>
             <img
               className="img"
               src={node.data.target.fields.file["en-US"].url}
               alt="single blog"
             />
-          </div>
+          </StyledImage>
         );
       },
       // Finds linked Youtube and Vimeo links and creates player
       [INLINES.HYPERLINK]: node => {
-        if (node.data.uri.includes("player.vimeo.com/video")) {
-          return (
-            <IframeContainer>
-              <iframe
-                title="Unique Title 001"
-                src={node.data.uri}
-                frameBorder="0"
-                allowFullScreen
-              ></iframe>
-            </IframeContainer>
-          );
-        } else if (node.data.uri.includes("youtube.com/embed")) {
+        if (node.data.uri.includes("youtube.com/embed")) {
           return (
             <IframeContainer>
               <iframe
@@ -67,18 +56,18 @@ const AdviceDetails = ({ advice }) => {
   };
 
   return (
-    <Wrapper>
-      <Container>
+    <Container>
+      <Wrapper>
         <h1>{title}</h1>
-        <h4>Objavljeno : {date}</h4>
-        <StyledPost>
+        <h3>Objavljeno: {date}</h3>
+        <StyledRichText>
           {documentToReactComponents(content.json, options)}
-        </StyledPost>
+        </StyledRichText>
         <Link to="/nasveti-in-ideje" className="link">
           <PrimaryButton text="nazaj" />
         </Link>
-      </Container>
-    </Wrapper>
+      </Wrapper>
+    </Container>
   );
 };
 
@@ -87,25 +76,46 @@ AdviceDetails.propTypes = propTypes;
 export default AdviceDetails;
 
 const Wrapper = styled.div`
-  .img {
-    padding: 1rem;
-    height: 400px;
+  h1 {
+    margin: 1rem 0 3rem;
+    text-align: center;
   }
 
-  h1,
-  h4 {
-    text-transform: capitalize;
-    margin: 2rem 0;
-    letter-spacing: ${styles.letterSpacing};
-    margin-bottom: 1rem;
+  h3 {
+    color: ${styles.colors.green};
   }
 `;
 
-const StyledPost = styled.div`
+const StyledImage = styled.div`
+  height: auto;
+  max-width: 500px;
+  padding: 1rem 2rem;
+`;
+
+const StyledRichText = styled.article`
   margin: 2rem 0;
 
-  img {
-    max-width: 70vw;
+  h1 {
+    font-size: 2rem;
+  }
+
+  h4 {
+    font-size: 1.3rem;
+  }
+
+  p {
+    letter-spacing: 0.5px;
+  }
+
+  ol,
+  ul {
+    padding: 1rem;
+    margin: 0 2rem;
+
+    li {
+      list-style-type: circle;
+      padding: 0.5rem 1rem;
+    }
   }
 `;
 

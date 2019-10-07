@@ -8,7 +8,7 @@ const {
   SHOW_PROMOTED,
   SORT_BY_PRICE_UP,
   SORT_BY_PRICE_DOWN,
-  SORT_BY_DATE_DOWN,
+  // SORT_BY_DATE_DOWN,
 } = types;
 
 export const navLinks = [
@@ -107,14 +107,14 @@ export const sortMenuLinks = [
   },
   {
     id: 3,
-    name: "Akcija",
+    name: "Promovirano",
     active: false,
     action: SHOW_PROMOTED,
   },
-  {
-    id: 4,
-    name: "Najnovejše",
-    active: false,
-    action: SORT_BY_DATE_DOWN,
-  },
+  // {
+  //   id: 4,
+  //   name: "Najnovejše",
+  //   active: false,
+  //   action: SORT_BY_DATE_DOWN,
+  // },
 ];
