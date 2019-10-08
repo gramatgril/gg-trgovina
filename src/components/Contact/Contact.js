@@ -75,9 +75,6 @@ const Contact = ({ companyInfo, contactInfo }) => {
       </Container>
       <Map
         isMarkerShown
-        // googleMapURL={`https://maps.googleapis.com/maps/api/js?key=
-        // ${process.env.GOOGLE_MAPS_API_KEY}
-        //         &v=3.exp&libraries=geometry,drawing,places`}
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7NYaR2FH2BDpiDmgUI9NaEBI4TDmgUOU&v=3.exp&libraries=geometry,drawing,places"
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
@@ -92,7 +89,7 @@ Contact.propTypes = propTypes;
 export default Contact;
 
 const Wrapper = styled.section`
-  padding: 1rem 0 0;
+  padding: 3rem 0;
 
   h2 {
     padding-bottom: 0.2rem;

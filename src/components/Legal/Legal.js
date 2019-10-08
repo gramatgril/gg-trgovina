@@ -43,15 +43,16 @@ const Legal = () => {
 export default Legal;
 
 const Wrapper = styled(Container)`
+  padding: 3rem 0;
   h4 {
     letter-spacing: ${styles.letterSpacing};
-    font-weight: bold;
+    font-weight: 500;
     font-size: 1.2rem;
     letter-spacing: 2px;
   }
 
   p {
-    letter-spacing: 1px;
+    /* letter-spacing: 1px; */
     text-align: left;
     padding: 2rem 0;
   }
