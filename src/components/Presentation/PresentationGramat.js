@@ -4,7 +4,6 @@ import styled from "styled-components";
 import Img from "gatsby-image";
 
 import { styles } from "../../styles";
-import Map from "./../Map/";
 import Title from "../Title";
 
 const query = graphql`

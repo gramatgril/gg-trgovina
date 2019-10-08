@@ -5,6 +5,7 @@ import Contact from "./../components/Contact";
 import Hero from "../components/Hero";
 import Layout from "./../styles/layout";
 import SEO from "./../components/seo";
+import Banner from "../components/Banner";
 
 export default ({ data }) => {
   const heroImg = data.heroImg.image.fluid;
@@ -13,7 +14,12 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title="Kontakt" />
-      <Hero img={heroImg} />
+      <Hero img={heroImg}>
+        <Banner
+          title="kontakt"
+          info="Pošljite nam povpraševanje ali komentar. "
+        />
+      </Hero>
       <Contact companyInfo={companyInfo} contactInfo={contactInfo} />
     </Layout>
   );

@@ -49,10 +49,6 @@ const Promotion = () => {
 
   return (
     <Fragment>
-      <Banner
-        title="Akcije in promocije"
-        info="Oglejte si izdelke v akciji ter posebne priložnosti"
-      />
       <SortMenu dispatch={dispatch} searchInput={searchInput} promo />
       <ProductList products={products} />
       <AdviceList embed={true} />

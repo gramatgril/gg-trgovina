@@ -31,8 +31,10 @@ export default ({ data }) => {
   return (
     <Layout>
       <SEO title={title} />
-      <Hero img={image.fluid}></Hero>
-      <Banner title={title} info={description.description} />
+      <Hero img={image.fluid}>
+        <Banner title={title} info={description.description} />
+      </Hero>
+
       <SortMenu dispatch={dispatch} searchInput={searchInput} />
       <ProductList products={products} />
       <AdviceList embed={true} />

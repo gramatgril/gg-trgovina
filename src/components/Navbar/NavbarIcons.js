@@ -41,7 +41,7 @@ const Wrapper = styled.div`
   width: 120px;
   height: 60px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     /* width: 10rem; */
     display: block;
   }

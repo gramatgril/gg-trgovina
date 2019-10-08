@@ -15,6 +15,7 @@ const getInfo = graphql`
         contactInfo {
           phone
           mail
+          stilUrl
         }
       }
     }
@@ -23,7 +24,7 @@ const getInfo = graphql`
 
 const Navbar = () => {
   const { site } = useStaticQuery(getInfo);
-  const { phone, mail } = site.siteMetadata.contactInfo;
+  const { phone, mail, stilUrl } = site.siteMetadata.contactInfo;
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -35,9 +36,10 @@ const Navbar = () => {
         <p>{mail}</p>
         <p>{phone}</p>
       </StyledTopBar>
+      {/* Breakpoint is 900px. Header shows menu icon, Links go from flex to block and Icon is hidden */}
       <StyledMainBar>
         <NavbarHeader toggleOpen={toggleOpen} />
-        <NavbarLinks isOpen={isOpen} />
+        <NavbarLinks isOpen={isOpen} stilUrl={stilUrl} />
         <NavbarIcons />
       </StyledMainBar>
     </Wrapper>
@@ -45,45 +47,43 @@ const Navbar = () => {
 };
 
 const Wrapper = styled.div`
-  background: ${styles.colors.white};
-  box-shadow: 1px 2px 2px 0px rgba(0, 0, 0, 0.2);
-`;
-
-const StyledTopBar = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  background: ${styles.colors.green};
-  color: ${styles.colors.white};
-
-  p {
-    align-items: center;
-    font-size: 0.8rem;
-    padding: 0.5rem 1rem;
-    letter-spacing: 1px;
-  }
-
-  @media (max-width: 768px) {
-    justify-content: space-between;
-
-    p {
-      letter-spacing: 2px;
-    }
-  }
+  box-shadow: ${styles.boxShadow};
 `;
 
 const StyledMainBar = styled.div`
   padding: 0;
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     padding: 0.2rem 1rem;
     width: 100%;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 7fr 1fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
   }
+`;
 
-  @media (min-width: 1200px) {
-    /* width: 90vw; */
+const StyledTopBar = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: ${styles.colors.green};
+  color: ${styles.colors.white};
+
+  p {
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+  }
+
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+
+    p {
+      align-items: center;
+      font-size: 1.2rem;
+      padding: 0.5rem 1rem;
+      letter-spacing: 1px;
+    }
   }
 `;
 

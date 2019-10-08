@@ -40,13 +40,12 @@ function SEO({ description, lang, meta, title }) {
       <meta property="og:image" content={`${siteUrl}${image}`} />
       <meta property="og:image:width" content="400" />
       <meta property="og:image:height" content="300" />
-
       <link
-        href="https://fonts.googleapis.com/css?family=Montserrat&display=swap"
+        href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700&display=swap"
         rel="stylesheet"
       />
       <link
-        href="https://fonts.googleapis.com/css?family=Nunito&display=swap"
+        href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
         rel="stylesheet"
       />
     </Helmet>

@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  font-family: 'Montserrat', 'Nunito', sans-serif;
+  font-family: 'Montserrat', 'Roboto', sans-serif;
   background: #fff;
   line-height: 1.4;
   font-size: 1rem;

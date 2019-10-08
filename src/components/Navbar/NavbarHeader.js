@@ -48,7 +48,8 @@ const Wrapper = styled.div`
   }
 
   /* Menu icon hidden on mobile screen size */
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
+    box-shadow: none;
     .toggle-icon {
       display: none;
     }
