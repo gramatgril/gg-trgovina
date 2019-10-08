@@ -48,9 +48,9 @@ const ProductDetails = ({ product, categorySlug }) => {
         <StyledTitle>
           <div className="title-bar">
             <h2>{title}</h2>
-            <h2 className="price">
+            <div className="price">
               {stylePrice(price)} <span>{priceUnit}</span>
-            </h2>
+            </div>
           </div>
           <hr />
         </StyledTitle>
@@ -67,7 +67,7 @@ const ProductDetails = ({ product, categorySlug }) => {
               {/* Promo tag */}
               {promo && (
                 <p className="promo">
-                  <span>Izdelek v akciji</span>
+                  <span>Posebna cena</span>
                 </p>
               )}
             </div>
@@ -109,49 +109,33 @@ const Wrapper = styled.div`
 
   .panels {
     padding: 1rem 0;
-    margin-bottom: 1rem;
-  }
-
-  ul {
-    padding: 20px;
-  }
-
-  li {
-    list-style-type: none;
   }
 
   @media (min-width: 576px) {
     .panels {
       display: grid;
+      padding: 3rem 0;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 1rem;
-      margin-bottom: 3rem;
     }
-
-    .img-container {
-      padding: 2rem 0;
-    }
-  }
-
-  @media (min-width: 1200px) {
   }
 `;
 
-// Title bar
 const StyledTitle = styled.div`
+  /* Mobile */
   text-align: left;
 
   .title-bar {
     h2 {
       font-size: 1.4rem;
       letter-spacing: 1px;
-      font-weight: 600;
+      font-weight: 500;
+      text-transform: uppercase;
     }
-
     .price {
-      /* padding: 1rem 0; */
       letter-spacing: 2px;
-      font-weight: 700;
+      font-weight: 500;
+      text-transform: none;
       color: ${styles.colors.green};
     }
   }
@@ -160,11 +144,12 @@ const StyledTitle = styled.div`
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid ${styles.colors.green};
+    border-top: 1px solid ${styles.colors.grey};
     margin: 0.5em 0;
     padding: 0;
   }
 
+  /* Desktop */
   @media (min-width: 576px) {
     .title-bar {
       display: flex;
@@ -172,11 +157,17 @@ const StyledTitle = styled.div`
 
       h2 {
         letter-spacing: 1px;
-        font-size: 2rem;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        font-weight: 500;
       }
 
       .price {
-        padding: 0;
+        padding: 0.2rem 1rem;
+        border-radius: 5px;
+        letter-spacing: 1px;
+        font-size: 1.4rem;
+        font-weight: 500;
       }
     }
   }
@@ -213,15 +204,16 @@ const StyledGallery = styled.div`
   }
 
   .promo {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     position: absolute;
     color: ${styles.colors.white};
     background: ${styles.colors.red};
-    padding: 0.5rem 0.8rem;
+    padding: 0.4rem 0.8rem;
     text-align: center;
     text-transform: uppercase;
     top: 0%;
     left: 0%;
+    border-radius: 0.3rem;
   }
 
   @media (min-width: 576px) {

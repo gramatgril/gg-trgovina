@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 // Container div makes sure site is responsive
 export const Container = styled.div`
-  padding: 2rem 0;
+  /* padding: 2rem 0; */
   width: 90vw;
   margin: 0 auto;
   text-align: ${({ align }) => (align ? `${align}` : `left`)};

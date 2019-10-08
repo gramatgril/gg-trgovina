@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   text-align: center;
   position: absolute;
   bottom: 10%;
-  text-shadow: 3px 3px 3px ${styles.colors.black};
+  text-shadow: 1px 1px 1px ${styles.colors.black};
 
   h1 {
     font-size: 1.5rem;

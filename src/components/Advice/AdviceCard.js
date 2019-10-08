@@ -49,7 +49,7 @@ AdviceCard.propTypes = propTypes;
 export default AdviceCard;
 
 const Wrapper = styled.div`
-  padding: 2rem 0;
+  padding: 1rem 0;
 `;
 
 const StyledImage = styled.div`

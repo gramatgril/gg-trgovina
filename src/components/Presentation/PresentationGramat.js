@@ -98,7 +98,7 @@ const StyledText = styled.div`
 `;
 
 const Wrapper = styled.div`
-  padding: 2rem 0;
+  padding: 3rem 0;
   background: ${styles.colors.offWhite};
 `;
 
@@ -113,14 +113,14 @@ const StyledRow = styled.div`
   display: flex;
   flex-flow: ${({ top }) => (top ? `column-reverse` : `column`)};
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 3rem 0;
   width: 90vw;
 
   /* Desktop */
   @media (min-width: 768px) {
     display: grid;
     grid-template-columns: ${({ top }) => (top ? `1fr 2fr` : `2fr 1fr`)};
-    padding: 2rem 0 5rem;
+    padding: 3rem 0 5rem;
   }
 
   @media (min-width: 1200px) {

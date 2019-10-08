@@ -36,9 +36,14 @@ const StyledImage = styled.div`
   background: ${styles.colors.white};
   border: ${styles.colors.white};
   height: 280px;
+
+  .img {
+    transition: ${styles.linear};
+  }
 `;
 
 const StyledTitleBox = styled.div`
+  font-weight: 500;
   width: 80%;
   position: absolute;
   top: 80%;
@@ -54,10 +59,14 @@ const StyledTitleBox = styled.div`
 `;
 
 const Wrapper = styled.div`
-  transition: ${styles.linear};
+  &:hover {
+    ${StyledTitleBox} {
+      color: ${styles.colors.white};
+      background: ${styles.colors.green};
+    }
 
-  :hover ${StyledTitleBox} {
-    color: ${styles.colors.white};
-    background: ${styles.colors.green};
+    .img {
+      opacity: 0.8;
+    }
   }
 `;

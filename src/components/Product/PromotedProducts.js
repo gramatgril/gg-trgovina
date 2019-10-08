@@ -39,7 +39,7 @@ const PromotedProducts = () => {
 
   return (
     <Wrapper>
-      <Title title="posebna" subtitle="ponudba" />
+      <Title title="Promocije" subtitle="in akcije" />
       <ProductList products={products.edges} path="/akcija" text="vse akcije" />
     </Wrapper>
   );

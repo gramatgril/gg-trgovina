@@ -28,7 +28,6 @@ const Wrapper = styled.div`
   text-transform: uppercase;
   font-size: 2rem;
   padding: 1rem 0;
-  margin-bottom: 1rem;
 `;
 
 const StyledText = styled.h4`
@@ -38,7 +37,6 @@ const StyledText = styled.h4`
   color: ${styles.colors.green};
 
   span {
-    text-shadow: 1px 1px 1px ${styles.colors.grey};
     display: block;
   }
 

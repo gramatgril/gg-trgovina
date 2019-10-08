@@ -58,13 +58,14 @@ export default Services;
 
 const Wrapper = styled.div`
   background: ${styles.colors.offWhite};
-  padding: 2rem 0;
+  padding: 3rem 0;
 `;
 
 const StyledServices = styled.div`
   width: 80vw;
   margin: 0 auto;
   display: grid;
+  padding: 3rem 0;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-column-gap: 2rem;
 `;
@@ -80,15 +81,14 @@ const StyledSegment = styled.article`
   }
 
   h4 {
-    font-weight: 600;
+    font-weight: 500;
     text-transform: uppercase;
     letter-spacing: ${styles.letterSpacing};
   }
 
   p {
     text-align: justify;
-    margin-bottom: 2rem;
-    padding: 1rem 0;
+    font-weight: 400;
   }
 `;
 

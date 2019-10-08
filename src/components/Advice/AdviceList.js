@@ -48,9 +48,11 @@ const AdviceList = ({ embed }) => {
     <Wrapper embed={embed}>
       <Container align="center">
         {embed && <Title title="Nasveti" subtitle="in ideje" />}
-        {advices.map(({ node }) => (
-          <AdviceCard advice={node} key={node.id} />
-        ))}
+        <StyledAdviceGrid>
+          {advices.map(({ node }) => (
+            <AdviceCard advice={node} key={node.id} />
+          ))}
+        </StyledAdviceGrid>
         {embed && (
           <Link to="/nasveti-in-ideje" className="link">
             <PrimaryButton text="vsi nasveti in ideje" />
@@ -69,7 +71,11 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 100%;
 
-  padding: 1rem 0;
+  padding: 3rem 0;
   background: ${({ embed }) =>
     embed ? `${styles.colors.offWhite}` : `${styles.colors.white}`};
+`;
+
+const StyledAdviceGrid = styled.div`
+  padding: 3rem 0;
 `;

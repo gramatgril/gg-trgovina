@@ -87,7 +87,7 @@ const Wrapper = styled.div`
   height: ${({ isMenuOpen }) => (isMenuOpen ? "200px" : "30px")};
   overflow: hidden;
   width: 90vw;
-  margin: 3rem auto;
+  margin: 3rem auto 0;
   transition: ${styles.easeInOut};
   border-bottom: 1px solid ${styles.colors.grey};
 
