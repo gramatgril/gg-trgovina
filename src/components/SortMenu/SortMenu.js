@@ -18,7 +18,7 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
   const [menuLinks, setMenuLinks] = useState(links.sortMenuLinks);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
-  // Check if component is on Akcija page
+  // Check if component is on Akcija page and remove sort by promoted
   useEffect(() => {
     promo && setMenuLinks(menuLinks.filter(l => l.action !== SHOW_PROMOTED));
   }, []);
@@ -48,7 +48,7 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
     <Wrapper isMenuOpen={isMenuOpen}>
       <div onClick={() => setMenuOpen(!isMenuOpen)} className="menu-toggle">
         <FaFilter className="icon" />
-        <h4>Filter in iskanje</h4>
+        <h4>Filtri in iskanje</h4>
       </div>
 
       <StyledLinks>
@@ -84,34 +84,35 @@ export default SortMenu;
 
 const Wrapper = styled.div`
   /* Mobile */
-  height: ${({ isMenuOpen }) => (isMenuOpen ? "250px" : "30px")};
+  height: ${({ isMenuOpen }) => (isMenuOpen ? "200px" : "30px")};
   overflow: hidden;
   width: 90vw;
-  margin: 0 auto;
+  margin: 3rem auto;
   transition: ${styles.easeInOut};
-  background: ${styles.colors.offWhite};
+  border-bottom: 1px solid ${styles.colors.grey};
 
   .menu-toggle {
     padding: 0 0.4rem;
     display: flex;
     justify-content: start;
     cursor: pointer;
-    color: ${styles.colors.grey};
 
     h4 {
       font-size: 1.2rem;
+      font-weight: 500;
     }
 
     .icon {
-      margin: 0.25rem 0.5rem 0 0;
+      color: ${styles.colors.green};
+      margin: 0.35rem 0.5rem 0 0;
     }
   }
 
   /* Desktop */
   @media (min-width: 768px) {
-    height: auto;
-    align-items: center;
     display: flex;
+    height: 50px;
+    align-items: center;
     justify-content: space-between;
     width: 70vw;
 
@@ -125,19 +126,10 @@ const Wrapper = styled.div`
   }
 `;
 
-const StyledLinks = styled.ul`
-  /* Desktop */
-  @media (min-width: 768px) {
-    padding: 0 1rem;
-    height: auto;
-    display: flex;
-  }
-`;
-
 const StyledSortLink = styled.li`
   /* Mobile */
   cursor: pointer;
-  padding: 0.2rem 0;
+  padding: 0.2rem 2rem;
   color: ${({ active }) =>
     active ? `${styles.colors.green}` : `${styles.colors.black}`};
 
@@ -147,13 +139,17 @@ const StyledSortLink = styled.li`
 
   h4 {
     margin: 0;
-    padding: 0 0.5rem;
+    font-weight: 500;
   }
 
   /* Desktop */
   @media (min-width: 768px) {
     width: auto;
+    padding: 0;
 
+    h4 {
+      padding: 0 0.4rem;
+    }
     :hover {
       .active-bar {
         background: ${styles.colors.green};
@@ -162,8 +158,16 @@ const StyledSortLink = styled.li`
   }
 `;
 
+const StyledLinks = styled.ul`
+  /* Desktop */
+  @media (min-width: 768px) {
+    height: auto;
+    display: flex;
+  }
+`;
+
 const StyledForm = styled.form`
-  padding: 1rem 0.5rem;
+  padding: 0.5rem 2rem;
   display: flex;
   justify-content: space-between;
 
@@ -178,15 +182,20 @@ const StyledForm = styled.form`
   input {
     width: 100%;
     border-bottom: 1px solid ${styles.colors.green};
+
+    :focus {
+      outline: none;
+    }
   }
 
   button {
-    padding: 0 1rem;
     cursor: pointer;
+    color: ${styles.colors.green};
   }
 
   /* Desktop */
   @media (min-width: 768px) {
     width: auto;
+    padding: 0;
   }
 `;

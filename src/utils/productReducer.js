@@ -40,7 +40,7 @@ const productReducer = (state, action) => {
       return { ...state, searchInput: action.searchInput };
 
     case SEARCH_PRODUCTS:
-      const newProducts = products.filter(({ node }) =>
+      const newProducts = initialProducts.filter(({ node }) =>
         node.title.toLowerCase().includes(searchInput.toLowerCase())
       );
 

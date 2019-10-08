@@ -38,6 +38,7 @@ const StyledText = styled.h4`
   color: ${styles.colors.green};
 
   span {
+    text-shadow: 1px 1px 1px ${styles.colors.grey};
     display: block;
   }
 
