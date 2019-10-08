@@ -29,8 +29,8 @@ const StyledButton = styled.button`
   letter-spacing: ${styles.letterSpacing};
   color: ${styles.colors.white};
   border: 2px solid ${styles.colors.green};
-  border-radius: 30px;
-  padding: 0.6rem 1.5rem;
+  border-radius: 10px;
+  padding: 0.6rem 1.2rem;
   font-size: 1rem;
   display: inline-block;
   transition: ${styles.linear};
@@ -43,8 +43,8 @@ const StyledButton = styled.button`
   }
 
   @media (min-width: 576px) {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
-    padding: 0.8rem 2.5rem;
+    padding: 0.6rem 1.2rem;
   }
 `;

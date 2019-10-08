@@ -43,6 +43,7 @@ const StyledImage = styled.div`
 `;
 
 const StyledTitleBox = styled.div`
+  border-radius: 5px;
   font-weight: 500;
   width: 80%;
   position: absolute;
