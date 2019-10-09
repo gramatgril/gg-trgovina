@@ -128,15 +128,19 @@ const StyledTitle = styled.div`
   .title-bar {
     h2 {
       font-size: 1.4rem;
-      letter-spacing: 1px;
       font-weight: 500;
       text-transform: uppercase;
     }
     .price {
+      font-size: 1.3rem;
+      background: ${styles.colors.green};
+      color: ${styles.colors.white};
+      display: inline-block;
+      padding: 0.2rem 1rem;
       letter-spacing: 2px;
+      border-radius: 5px;
       font-weight: 500;
       text-transform: none;
-      color: ${styles.colors.green};
     }
   }
 

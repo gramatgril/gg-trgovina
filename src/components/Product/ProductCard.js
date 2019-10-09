@@ -120,6 +120,7 @@ const StyledPrice = styled.p`
 `;
 
 const StyledPromo = styled.p`
+  box-shadow: ${styles.boxShadow};
   font-size: 1.1rem;
   position: absolute;
   color: ${styles.colors.white};
