@@ -109,12 +109,12 @@ const StyledRichText = styled.article`
 
   ol,
   ul {
-    padding: 1rem;
+    padding: 0.5rem 0;
     margin: 0 2rem;
 
     li {
       list-style-type: circle;
-      padding: 0.5rem 1rem;
+      padding: 0.3rem 0.5rem;
     }
   }
 `;

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 import PropTypes from "prop-types";
@@ -87,7 +88,7 @@ const ProductDetails = ({ product, categorySlug }) => {
                   ))}
             </div>
           </StyledGallery>
-          {/* Rich Text, contains H4 and p tags */}
+          {/* Rich Text, contains h4 and p tags */}
           <StyledRichText>
             {documentToReactComponents(description.json)}
           </StyledRichText>
@@ -101,6 +102,42 @@ const ProductDetails = ({ product, categorySlug }) => {
 };
 
 ProductDetails.propTypes = propTypes;
+
+// Description rich text field.
+const StyledRichText = styled.article`
+  text-align: left;
+
+  p {
+    padding: 0.5rem 1rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  ul,
+  ol {
+    margin: 0 2.5rem;
+    li {
+      list-style-type: circle;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  @media (min-width: 576px) {
+    padding: 0;
+    p {
+      /* padding: 0.5rem 1rem; */
+    }
+  }
+`;
 
 export default ProductDetails;
 
@@ -223,41 +260,6 @@ const StyledGallery = styled.div`
   @media (min-width: 576px) {
     .promo {
       font-size: 1.2rem;
-    }
-  }
-`;
-
-// Description rich text field.
-const StyledRichText = styled.article`
-  padding: 2rem 0;
-  text-align: left;
-
-  p {
-    font-size: 1rem;
-    padding: 0.2rem 0.5rem;
-  }
-
-  h4 {
-    font-size: 1.3rem;
-    padding: 0.2rem 1rem;
-    font-weight: 600;
-  }
-
-  ul,
-  ol {
-    padding: 1rem;
-    margin: 0 2rem;
-
-    li {
-      list-style-type: circle;
-    }
-  }
-
-  @media (min-width: 576px) {
-    padding: 0;
-    p {
-      font-size: 1rem;
-      padding: 0.5rem 1rem;
     }
   }
 `;
