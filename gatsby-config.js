@@ -53,6 +53,11 @@ module.exports = {
       srednjega in višjega cenovnega razreda, ki si jih lahko v živo
       ogledate v našem salonu. Del vsake kopalnice je tudi sanitarna
       keramika: wc školjka, umivalnik, tuš kad in kopalna kad.`,
+      colorMix: `Sončno rumena, klasično bela ali karibsko modra? Barvni ton stenske
+            barve ali barva fasade naj bo točno po vaših željah. To lahko
+            dosežemo le z mešanjem različnih barv in nians. V mešalnici barv v
+            Gramat Grilu d.o.o. vedno dopolnjujemo ponudbo barv in materialov,
+            ter vam tako omogočamo pripravo vašega želenega odtenka.`,
     },
   },
   plugins: [
