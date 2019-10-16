@@ -17,6 +17,8 @@ const propTypes = {
 const SortMenu = ({ dispatch, searchInput, promo }) => {
   const [menuLinks, setMenuLinks] = useState(links.sortMenuLinks);
   const [isMenuOpen, setMenuOpen] = useState(false);
+  // ListHeight changes depending on whether user is on Akcija page or not
+  const listHeight = promo ? "170px" : "200px";
 
   // Check if component is on Akcija page and remove sort by promoted
   useEffect(() => {
@@ -45,7 +47,7 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
   };
 
   return (
-    <Wrapper isMenuOpen={isMenuOpen}>
+    <Wrapper isMenuOpen={isMenuOpen} listHeight={listHeight}>
       <div onClick={() => setMenuOpen(!isMenuOpen)} className="menu-toggle">
         <FaFilter className="icon" />
         <h4>Filtri in iskanje</h4>
@@ -84,12 +86,12 @@ export default SortMenu;
 
 const Wrapper = styled.div`
   /* Mobile */
-  height: ${({ isMenuOpen }) => (isMenuOpen ? "200px" : "30px")};
+  transition: ${styles.easeInOut};
+  height: ${({ isMenuOpen, listHeight }) =>
+    isMenuOpen ? `${listHeight}px` : "30px"};
   overflow: hidden;
   width: 90vw;
   margin: 3rem auto 0;
-
-  transition: ${styles.easeInOut};
   border-bottom: 1px solid ${styles.colors.grey};
 
   .menu-toggle {
@@ -112,7 +114,6 @@ const Wrapper = styled.div`
   /* Desktop */
   @media (min-width: 768px) {
     margin: 3rem auto 0;
-
     display: flex;
     height: 50px;
     align-items: center;
@@ -152,6 +153,7 @@ const StyledSortLink = styled.li`
 
     h4 {
       padding: 0 0.4rem;
+      margin-bottom: 0.2rem;
     }
     :hover {
       .active-bar {
@@ -162,7 +164,7 @@ const StyledSortLink = styled.li`
 `;
 
 const StyledLinks = styled.ul`
-  margin: 1rem 0 0;
+  margin: 0.5rem 0 0;
 
   /* Desktop */
   @media (min-width: 768px) {
