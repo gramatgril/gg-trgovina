@@ -88,6 +88,7 @@ const Wrapper = styled.div`
   overflow: hidden;
   width: 90vw;
   margin: 3rem auto 0;
+
   transition: ${styles.easeInOut};
   border-bottom: 1px solid ${styles.colors.grey};
 
@@ -110,6 +111,8 @@ const Wrapper = styled.div`
 
   /* Desktop */
   @media (min-width: 768px) {
+    margin: 3rem auto 0;
+
     display: flex;
     height: 50px;
     align-items: center;
@@ -159,9 +162,10 @@ const StyledSortLink = styled.li`
 `;
 
 const StyledLinks = styled.ul`
+  margin: 1rem 0 0;
+
   /* Desktop */
   @media (min-width: 768px) {
-    height: auto;
     display: flex;
   }
 `;

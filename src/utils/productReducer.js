@@ -20,6 +20,7 @@ import {
 
 const productReducer = (state, action) => {
   const { products, initialProducts, searchInput } = state;
+
   switch (action.type) {
     case RESET_PRODUCTS:
       return { ...state, products: [...initialProducts] };

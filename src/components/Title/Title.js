@@ -30,7 +30,7 @@ const Wrapper = styled.div`
   padding: 1rem 0;
 `;
 
-const StyledText = styled.h4`
+const StyledText = styled.h1`
   font-weight: 800;
   text-align: center;
   letter-spacing: 3px;

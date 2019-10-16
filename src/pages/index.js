@@ -4,9 +4,9 @@ import { AdviceList } from "../components/Advice/";
 import { PromotedProducts, NewProducts } from "./../components/Product";
 import Category from "./../components/Category";
 import Layout from "../styles/layout";
+import PresentationGramat from "../components/Presentation/";
 import SEO from "../components/seo";
 import Services from "../components/Services";
-import PresentationGramat from "../components/Presentation/";
 
 export default () => {
   return (

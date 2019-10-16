@@ -55,7 +55,6 @@ const Wrapper = styled.div`
 const StyledImage = styled.div`
   transition: ${styles.linear};
   margin: 0 auto;
-  align-self: left;
   position: relative;
   height: 200px;
   width: 300px;

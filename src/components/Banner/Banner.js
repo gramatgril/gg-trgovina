@@ -52,7 +52,6 @@ const Wrapper = styled.div`
   /* Desktop */
   @media (min-width: 768px) {
     width: 80vw;
-    background: rgba(33, 33, 33, 0.4);
 
     h1 {
       font-size: 2.5rem;

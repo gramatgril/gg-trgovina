@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { BLOCKS, MARKS } from "@contentful/rich-text-types";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 import PropTypes from "prop-types";
@@ -132,10 +131,7 @@ const StyledRichText = styled.article`
   }
 
   @media (min-width: 576px) {
-    padding: 0;
-    p {
-      /* padding: 0.5rem 1rem; */
-    }
+    /* Desktop tweaks */
   }
 `;
 
@@ -164,6 +160,7 @@ const StyledTitle = styled.div`
 
   .title-bar {
     h2 {
+      padding-top: 0.5rem;
       font-size: 1.4rem;
       font-weight: 500;
       text-transform: uppercase;

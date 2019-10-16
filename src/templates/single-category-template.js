@@ -10,14 +10,17 @@ import SEO from "./../components/seo";
 import SortMenu from "../components/SortMenu";
 
 import { productReducer as reducer } from "./../utils";
+import ColorMix from "../components/ColorMix";
 
 /*
   Displays a page of products belonging to a single category.
 */
 
 export default ({ data }) => {
-  const { title, description, image } = data.category;
+  // Category information based on graphql query
+  const { title, description, image, slug } = data.category;
 
+  // Initial state for sort menu reducer
   const initialState = {
     searchInput: "",
     initialProducts: data.allProducts.edges,
@@ -34,9 +37,10 @@ export default ({ data }) => {
       <Hero img={image.fluid}>
         <Banner title={title} info={description.description} />
       </Hero>
-
       <SortMenu dispatch={dispatch} searchInput={searchInput} />
       <ProductList products={products} />
+      {/* ColorMixing promotional component visible only on "Barve in Fasade page" */}
+      {slug === "barve-in-fasade" && <ColorMix />}
       <AdviceList embed={true} />
       <PromotedProducts embed={true} />
     </Layout>
@@ -70,6 +74,7 @@ export const query = graphql`
     }
     category: contentfulKategorija(contentful_id: { eq: $id }) {
       title
+      slug
       description {
         description
       }

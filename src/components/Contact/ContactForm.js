@@ -55,9 +55,9 @@ const ContactForm = () => {
 export default ContactForm;
 
 const Wrapper = styled.div`
-margin-top: 1.5rem;
+  margin-top: 1.5rem;
 
-label {
+  label {
     text-transform: capitalize;
     display: block;
     margin-bottom: 0.5rem;
@@ -65,7 +65,6 @@ label {
 
   .form-control,
   .submit {
-    font-family: 'Montserrat', sans-serif;
     width: 100%;
     font-size: 1rem;
     margin-bottom: 1rem;
@@ -76,7 +75,7 @@ label {
 
   .submit {
     text-transform: uppercase;
-    transition: ${styles.linear}
+    transition: ${styles.linear};
     cursor: pointer;
   }
-  `;
+`;

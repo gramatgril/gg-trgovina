@@ -42,7 +42,6 @@ const StyledLink = styled(Link)`
   /* Mobile style */
   display: block;
   text-decoration: none;
-  font-family: "Montserrat";
   font-weight: 700;
   padding: 0.3rem 0;
   letter-spacing: 1px;
@@ -75,7 +74,6 @@ const StyledLink = styled(Link)`
 const StyledAnchor = styled.a`
   display: block;
   text-decoration: none;
-  font-family: "Montserrat";
   font-weight: 700;
   padding: 0.3rem 0;
   letter-spacing: 1px;

@@ -62,10 +62,10 @@ ProductCard.propTypes = propTypes;
 export default ProductCard;
 
 const StyledTitle = styled.div`
-  position: relative;
   height: 5rem;
   transition: ${styles.linear};
   text-align: left;
+  padding: 0.5rem 0;
 
   h4 {
     transition: ${styles.linear};
@@ -77,12 +77,10 @@ const StyledTitle = styled.div`
 `;
 
 const Wrapper = styled.article`
-  /* border: 1px solid ${styles.colors.grey}; */
   transition: ${styles.linear};
-
+  border: none;
 
   :hover {
-
     ${StyledTitle} {
       h4 {
         transition: ${styles.linear};
@@ -96,14 +94,13 @@ const Wrapper = styled.article`
   }
 `;
 const StyledImage = styled.div`
-    height: 280px;
-    position: relative;
-    box-shadow: ${styles.boxShadow}:
-    transition: ${styles.linear};
+  height: 280px;
+  position: relative;
+  transition: ${styles.linear};
 
-    .img {
+  .img {
     transition: ${styles.linear};
-   }
+  }
 `;
 
 const StyledPrice = styled.p`

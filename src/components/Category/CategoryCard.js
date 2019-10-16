@@ -34,7 +34,6 @@ export default CategoryCard;
 const StyledImage = styled.div`
   position: relative;
   background: ${styles.colors.white};
-  border: ${styles.colors.white};
   height: 280px;
 
   .img {

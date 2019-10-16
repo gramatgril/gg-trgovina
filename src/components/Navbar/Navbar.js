@@ -63,6 +63,7 @@ const StyledMainBar = styled.div`
 `;
 
 const StyledTopBar = styled.div`
+  margin: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;

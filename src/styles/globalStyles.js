@@ -9,21 +9,24 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 body {
-  font-family: 'Montserrat', 'Roboto', sans-serif;
   background: #fff;
   line-height: 1.4;
   font-size: 1rem;
+}¸
+
+p {
+  margin-bottom: 0;
 }
 
 
-  h1,
+  /* h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
     margin: 0 0 5px 0;
-  }
+  } */
 
 
 main {
