@@ -161,6 +161,7 @@ const StyledTitle = styled.div`
   .title-bar {
     h2 {
       padding-top: 0.5rem;
+      margin-bottom: 0.2rem;
       font-size: 1.4rem;
       font-weight: 500;
       text-transform: uppercase;

@@ -18,7 +18,7 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
   const [menuLinks, setMenuLinks] = useState(links.sortMenuLinks);
   const [isMenuOpen, setMenuOpen] = useState(false);
   // ListHeight changes depending on whether user is on Akcija page or not
-  const listHeight = promo ? "170px" : "200px";
+  const listHeight = promo ? "150" : "180";
 
   // Check if component is on Akcija page and remove sort by promoted
   useEffect(() => {
@@ -84,13 +84,13 @@ SortMenu.propTypes = propTypes;
 
 export default SortMenu;
 
-const Wrapper = styled.div`
+const Wrapper = styled.ul`
   /* Mobile */
-  transition: ${styles.easeInOut};
   height: ${({ isMenuOpen, listHeight }) =>
     isMenuOpen ? `${listHeight}px` : "30px"};
   overflow: hidden;
   width: 90vw;
+  transition: ${styles.easeInOut};
   margin: 3rem auto 0;
   border-bottom: 1px solid ${styles.colors.grey};
 
@@ -113,6 +113,7 @@ const Wrapper = styled.div`
 
   /* Desktop */
   @media (min-width: 768px) {
+    transition: ${styles.easeInOut};
     margin: 3rem auto 0;
     display: flex;
     height: 50px;
@@ -165,7 +166,6 @@ const StyledSortLink = styled.li`
 
 const StyledLinks = styled.ul`
   margin: 0.5rem 0 0;
-
   /* Desktop */
   @media (min-width: 768px) {
     display: flex;
