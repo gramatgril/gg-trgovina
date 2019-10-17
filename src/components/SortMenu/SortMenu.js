@@ -18,7 +18,7 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
   const [menuLinks, setMenuLinks] = useState(links.sortMenuLinks);
   const [isMenuOpen, setMenuOpen] = useState(false);
   // ListHeight changes depending on whether user is on Akcija page or not
-  const listHeight = promo ? "150" : "180";
+  const listHeight = promo ? "160" : "190";
 
   // Check if component is on Akcija page and remove sort by promoted
   useEffect(() => {
@@ -60,8 +60,7 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
             active={active}
             onClick={() => handleClickLink(id, action)}
           >
-            <h4>{name}</h4>
-            <div className="active-bar" />
+            <p>{name}</p>
           </StyledSortLink>
         ))}
       </StyledLinks>
@@ -83,6 +82,43 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
 SortMenu.propTypes = propTypes;
 
 export default SortMenu;
+
+const StyledSortLink = styled.li`
+  /* Mobile */
+  cursor: pointer;
+  padding: 0.2rem 2rem;
+  color: ${({ active }) =>
+    active ? `${styles.colors.green}` : `${styles.colors.black}`};
+
+  p {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    width: auto;
+    padding: 0;
+
+    p {
+      padding: 0 0.4rem;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      border-radius: 2px;
+      height: 2px;
+      width: 100%;
+    }
+
+    &:hover {
+      :after {
+        background: ${styles.colors.lightGrey};
+      }
+    }
+  }
+`;
 
 const Wrapper = styled.ul`
   /* Mobile */
@@ -128,39 +164,6 @@ const Wrapper = styled.ul`
 
   @media (min-width: 1200px) {
     width: 60vw;
-  }
-`;
-
-const StyledSortLink = styled.li`
-  /* Mobile */
-  cursor: pointer;
-  padding: 0.2rem 2rem;
-  color: ${({ active }) =>
-    active ? `${styles.colors.green}` : `${styles.colors.black}`};
-
-  .active-bar {
-    height: 2px;
-  }
-
-  h4 {
-    margin: 0;
-    font-weight: 500;
-  }
-
-  /* Desktop */
-  @media (min-width: 768px) {
-    width: auto;
-    padding: 0;
-
-    h4 {
-      padding: 0 0.4rem;
-      margin-bottom: 0.2rem;
-    }
-    :hover {
-      .active-bar {
-        background: ${styles.colors.green};
-      }
-    }
   }
 `;
 

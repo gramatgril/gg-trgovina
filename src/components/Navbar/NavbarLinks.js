@@ -18,7 +18,6 @@ const NavbarLinks = ({ isOpen, stilUrl }) => {
         <li key={id}>
           <StyledLink to={path} activeClassName="active" color={color}>
             {name}
-            <StyledActiveBar />
           </StyledLink>
         </li>
       ))}
@@ -34,34 +33,37 @@ NavbarLinks.propTypes = propTypes;
 
 export default NavbarLinks;
 
-const StyledActiveBar = styled.div`
-  height: 3px;
-`;
-
 const StyledLink = styled(Link)`
   /* Mobile style */
   display: block;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   padding: 0.3rem 0;
   letter-spacing: 1px;
   font-size: 1rem;
   text-transform: uppercase;
   cursor: pointer;
-
-  color: ${({ color }) =>
-    color === "red" ? `${styles.colors.red}` : `${styles.colors.black}`};
+  color: ${({ color }) => color};
 
   /* Desktop style */
   @media (min-width: 900px) {
     padding: 0.8rem 0.5rem 0.5rem 1rem;
     letter-spacing: 1.5px;
 
-    :hover {
+    &:after {
+      content: "";
+      display: block;
+      background: ${styles.colors.white};
+      border-radius: 2px;
+      height: 3px;
+      width: 100%;
+    }
+
+    &:hover {
       padding: 0.8rem 0.5rem 0.5rem 1rem;
 
-      ${StyledActiveBar} {
-        background: ${styles.colors.green};
+      &:after {
+        background: ${styles.colors.lightGrey};
       }
     }
   }
@@ -74,7 +76,7 @@ const StyledLink = styled(Link)`
 const StyledAnchor = styled.a`
   display: block;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 600;
   padding: 0.3rem 0;
   letter-spacing: 1px;
   font-size: 1rem;
@@ -94,7 +96,7 @@ const StyledAnchor = styled.a`
 const Wrapper = styled.ul`
   /* Mobile */
   text-align: center;
-  height: ${({ isOpen }) => (isOpen ? "180px" : "0px")};
+  height: ${({ isOpen }) => (isOpen ? "170px" : "0px")};
   overflow: hidden;
   transition: ${styles.easeInOut};
 
@@ -106,7 +108,7 @@ const Wrapper = styled.ul`
 
     /* Styling applied when link is active */
     .active {
-      ${StyledActiveBar} {
+      :after {
         background: ${styles.colors.green};
       }
     }

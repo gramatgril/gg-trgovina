@@ -2,6 +2,9 @@ import React from "react";
 import { FaInstagram, FaFacebook } from "react-icons/fa";
 import logo from "../images/stil-logo.jpg";
 import { types } from "../utils";
+import { colors } from "./styles";
+
+colors;
 
 const {
   RESET_PRODUCTS,
@@ -16,27 +19,31 @@ export const navLinks = [
     id: 0,
     name: "Ponudba",
     path: "/",
+    color: colors.black,
   },
   {
     id: 1,
     name: "Nasveti in ideje",
     path: "/nasveti-in-ideje",
+    color: colors.black,
   },
   // {
   //   id: 2,
   //   name: "Katalog",
   //   path: "/katalog",
+  //   color: colors.black,
   // },
   {
     id: 4,
     name: "Kontakt",
     path: "/kontakt",
+    color: colors.black,
   },
   {
     id: 5,
     name: "Akcije",
     path: "/akcija",
-    color: "red",
+    color: colors.red,
   },
 ];
 
