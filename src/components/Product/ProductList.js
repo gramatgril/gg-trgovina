@@ -15,6 +15,7 @@ const propTypes = {
         id: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         price: PropTypes.number.isRequired,
+        oldPrice: PropTypes.number,
         priceUnit: PropTypes.string.isRequired,
         slug: PropTypes.string.isRequired,
         promo: PropTypes.bool.isRequired,

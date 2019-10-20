@@ -26,6 +26,7 @@ export const query = graphql`
     product: contentfulArtikel(contentful_id: { eq: $id }) {
       title
       price
+      oldPrice
       priceUnit
       description {
         json

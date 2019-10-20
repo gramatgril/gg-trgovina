@@ -4,13 +4,13 @@ import { graphql } from "gatsby";
 import { AdviceList } from "./../components/Advice/";
 import { ProductList, PromotedProducts } from "./../components/Product";
 import Banner from "../components/Banner";
+import ColorMix from "../components/ColorMix";
 import Hero from "../components/Hero";
 import Layout from "./../styles/layout";
 import SEO from "./../components/seo";
 import SortMenu from "../components/SortMenu";
 
 import { productReducer as reducer } from "./../utils";
-import ColorMix from "../components/ColorMix";
 
 /*
   Displays a page of products belonging to a single category.
@@ -28,8 +28,10 @@ export default ({ data }) => {
   };
 
   // Reducer handles filtering, sorting and searching
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const { products, searchInput } = state;
+  const [{ products, searchInput }, dispatch] = useReducer(
+    reducer,
+    initialState
+  );
 
   return (
     <Layout>
@@ -56,6 +58,7 @@ export const query = graphql`
         node {
           title
           price
+          oldPrice
           priceUnit
           id: contentful_id
           slug

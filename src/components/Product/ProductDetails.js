@@ -9,11 +9,13 @@ import { styles } from "../../styles";
 
 import PrimaryButton from "../Button";
 import { Container } from "./../../styles";
+import { stylePrice, calculateDiscount } from "./../../styles";
 
 const propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    oldPrice: PropTypes.number,
     priceUnit: PropTypes.string.isRequired,
     description: PropTypes.shape({
       json: PropTypes.object.isRequired,
@@ -28,18 +30,22 @@ const propTypes = {
 };
 
 const ProductDetails = ({ product, categorySlug }) => {
-  const { title, price, priceUnit, description, images, promo } = product;
+  const {
+    title,
+    price,
+    oldPrice,
+    priceUnit,
+    description,
+    images,
+    promo,
+  } = product;
 
   const [galleryImages] = useState(images);
   const [mainImage, setMainImage] = useState(images[0]);
 
   // Changes main image to the one that is selected in the gallery
-  const changeImage = id => {
+  const changeImage = id =>
     setMainImage(galleryImages.find(el => el.id === id));
-  };
-
-  // Adds 2 decimals and replaces dot with a comma
-  const stylePrice = price => `${price.toFixed(2)}`.replace(/\./g, ",");
 
   return (
     <Wrapper>
@@ -48,15 +54,12 @@ const ProductDetails = ({ product, categorySlug }) => {
         <StyledTitle>
           <div className="title-bar">
             <h2>{title}</h2>
-            <div className="price">
-              {stylePrice(price)} <span>{priceUnit}</span>
-            </div>
           </div>
           <hr />
         </StyledTitle>
         <div className="panels">
           {/* Main image and gallery */}
-          <StyledGallery>
+          <StyledImages>
             <div className="main-img-container">
               {/* imgStyle is used so image fits the parent container */}
               <Img
@@ -67,7 +70,7 @@ const ProductDetails = ({ product, categorySlug }) => {
               {/* Promo tag */}
               {promo && (
                 <p className="promo">
-                  <span>Posebna cena</span>
+                  <span>Izdelek v akciji</span>
                 </p>
               )}
             </div>
@@ -86,12 +89,32 @@ const ProductDetails = ({ product, categorySlug }) => {
                     </div>
                   ))}
             </div>
-          </StyledGallery>
-          {/* Rich Text, contains h4 and p tags */}
-          <StyledRichText>
-            {documentToReactComponents(description.json)}
-          </StyledRichText>
+          </StyledImages>
+          <StyledDetails>
+            <StyledPrice>
+              {/* Rich Text, contains h4 and p tags */}
+              {oldPrice && (
+                <>
+                  <p className="old-price">
+                    Stara cena: {stylePrice(oldPrice)} {priceUnit}
+                  </p>
+                  <p className="discount">
+                    Popust: {calculateDiscount(price, oldPrice)}%
+                  </p>
+                </>
+              )}
+
+              <p className="price">
+                Cena: {stylePrice(price)} {priceUnit}
+              </p>
+            </StyledPrice>
+            <StyledRichText>
+              <h3 className="description-title">Opis:</h3>
+              {documentToReactComponents(description.json)}
+            </StyledRichText>
+          </StyledDetails>
         </div>
+
         <Link to={`/${categorySlug}`}>
           <PrimaryButton text="nazaj na kategorijo" />
         </Link>
@@ -102,9 +125,44 @@ const ProductDetails = ({ product, categorySlug }) => {
 
 ProductDetails.propTypes = propTypes;
 
+const StyledPrice = styled.div`
+  text-align: right;
+
+  .old-price {
+    text-decoration: line-through;
+    text-decoration-color: ${styles.colors.grey};
+  }
+
+  .price {
+    font-size: 1.3rem;
+    color: ${styles.colors.red};
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  :after {
+    content: "";
+    display: block;
+    background: ${styles.colors.grey};
+    height: 1px;
+    width: 100%;
+  }
+`;
+
+const StyledDetails = styled.div``;
+
 // Description rich text field.
 const StyledRichText = styled.article`
   text-align: left;
+  margin-top: 0.5rem;
+
+  .description-title {
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0 0 1rem 1rem;
+  }
 
   p {
     padding: 0.5rem 1rem;
@@ -166,24 +224,13 @@ const StyledTitle = styled.div`
       font-weight: 500;
       text-transform: uppercase;
     }
-    .price {
-      font-size: 1.3rem;
-      background: ${styles.colors.green};
-      color: ${styles.colors.white};
-      display: inline-block;
-      padding: 0.2rem 1rem;
-      letter-spacing: 2px;
-      border-radius: 5px;
-      font-weight: 500;
-      text-transform: none;
-    }
   }
 
   hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid ${styles.colors.grey};
+    border-top: 1px solid ${styles.colors.green};
     margin: 0.5em 0;
     padding: 0;
   }
@@ -213,7 +260,7 @@ const StyledTitle = styled.div`
 `;
 
 // Main image and gallery
-const StyledGallery = styled.div`
+const StyledImages = styled.div`
   position: relative;
 
   .main-img-container {

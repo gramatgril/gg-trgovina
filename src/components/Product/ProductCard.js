@@ -5,11 +5,13 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { styles } from "../../styles";
+import { stylePrice, calculateDiscount } from "./../../styles";
 
 const propTypes = {
   product: PropTypes.shape({
     title: PropTypes.string.isRequired,
     price: PropTypes.number.isRequired,
+    oldPrice: PropTypes.number,
     priceUnit: PropTypes.string.isRequired,
     promo: PropTypes.bool.isRequired,
     slug: PropTypes.string.isRequired,
@@ -25,10 +27,16 @@ const propTypes = {
 };
 
 const ProductCard = ({ product }) => {
-  const { price, priceUnit, slug, title, images, category, promo } = product;
-
-  // Replaces dots with commas
-  const stylePrice = price => `${price.toFixed(2)}`.replace(/\./g, ",");
+  const {
+    price,
+    oldPrice,
+    priceUnit,
+    slug,
+    title,
+    images,
+    category,
+    promo,
+  } = product;
 
   return (
     <Wrapper>
@@ -42,10 +50,15 @@ const ProductCard = ({ product }) => {
           <StyledPrice>
             {stylePrice(price)} <span>{priceUnit}</span>
           </StyledPrice>
+          {oldPrice && (
+            <StyledDiscount>
+              <span>-{calculateDiscount(price, oldPrice)}%</span>
+            </StyledDiscount>
+          )}
           {/* Promo tag that says "Akcija" */}
           {promo && (
             <StyledPromo>
-              <span>Posebna cena</span>
+              <span>Akcija</span>
             </StyledPromo>
           )}
         </StyledImage>
@@ -60,6 +73,25 @@ const ProductCard = ({ product }) => {
 ProductCard.propTypes = propTypes;
 
 export default ProductCard;
+
+const StyledDiscount = styled.div`
+  padding: 0 0.2rem;
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  background: ${styles.colors.grey};
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  color: ${styles.colors.white};
+  display: flex;
+  font-size: 1.2rem;
+  box-shadow: ${styles.boxShadow};
+
+  span {
+    margin: auto;
+  }
+`;
 
 const StyledTitle = styled.div`
   height: 5rem;
@@ -93,6 +125,7 @@ const Wrapper = styled.article`
     }
   }
 `;
+
 const StyledImage = styled.div`
   height: 280px;
   position: relative;
@@ -110,7 +143,7 @@ const StyledPrice = styled.p`
   color: ${styles.colors.white};
   position: absolute;
   right: 0%;
-  top: 75%;
+  top: 85%;
   background: ${styles.colors.green};
   padding: 0.2rem 1rem;
   border-radius: 0.3rem;

@@ -104,6 +104,7 @@ const StyledSortLink = styled.li`
       padding: 0 0.4rem;
     }
 
+    /* Active bar under the link */
     &:after {
       content: "";
       display: block;
