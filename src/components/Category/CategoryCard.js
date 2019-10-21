@@ -4,8 +4,6 @@ import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../styles";
-
 const propTypes = {
   title: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
@@ -14,18 +12,16 @@ const propTypes = {
   }).isRequired,
 };
 
-const CategoryCard = ({ title, slug, image }) => {
-  return (
-    <Wrapper>
-      <Link to={`/${slug}`}>
-        <StyledImage>
-          <Img fluid={image.fluid} alt="category" className="img" />
-          <StyledTitleBox>{title}</StyledTitleBox>
-        </StyledImage>
-      </Link>
-    </Wrapper>
-  );
-};
+const CategoryCard = ({ title, slug, image }) => (
+  <Wrapper>
+    <Link to={`/${slug}`}>
+      <StyledImage>
+        <Img fluid={image.fluid} alt="category" className="img" />
+        <StyledTitleBox>{title}</StyledTitleBox>
+      </StyledImage>
+    </Link>
+  </Wrapper>
+);
 
 CategoryCard.propTypes = propTypes;
 
@@ -33,11 +29,11 @@ export default CategoryCard;
 
 const StyledImage = styled.div`
   position: relative;
-  background: ${styles.colors.white};
+  background: ${({ theme }) => theme.white};
   height: 280px;
 
   .img {
-    transition: ${styles.linear};
+    transition: ${({ theme }) => theme.linear};
   }
 `;
 
@@ -51,18 +47,18 @@ const StyledTitleBox = styled.div`
   transform: translate(-50%, -50%);
   text-transform: uppercase;
   letter-spacing: 1.8px;
-  color: ${styles.colors.green};
-  background: ${styles.colors.white};
+  color: ${({ theme }) => theme.green};
+  background: ${({ theme }) => theme.white};
   padding: 0.5rem;
   display: inline-block;
-  transition: ${styles.linear};
+  transition: ${({ theme }) => theme.linear};
 `;
 
 const Wrapper = styled.div`
   &:hover {
     ${StyledTitleBox} {
-      color: ${styles.colors.white};
-      background: ${styles.colors.green};
+      color: ${({ theme }) => theme.white};
+      background: ${({ theme }) => theme.green};
     }
 
     .img {

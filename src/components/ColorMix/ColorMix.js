@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 import styled from "styled-components";
 
-import { Container, styles } from "../../styles";
+import { Container } from "../../styles";
 import Title from "./../Title";
 
 const query = graphql`
@@ -52,7 +52,7 @@ const ColorMix = () => {
 export default ColorMix;
 
 const Wrapper = styled.article`
-  background: ${styles.colors.white};
+  background: ${({ theme }) => theme.white};
   padding: 3rem 0;
 `;
 

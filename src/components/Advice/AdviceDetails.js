@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { Container } from "./../../styles";
-import { styles } from "../../styles";
 import PrimaryButton from "../Button";
 
 const propTypes = {
@@ -82,7 +81,7 @@ const Wrapper = styled.div`
   }
 
   h3 {
-    color: ${styles.colors.green};
+    color: ${({ theme }) => theme.green};
   }
 `;
 
@@ -120,7 +119,6 @@ const StyledRichText = styled.article`
 `;
 
 const IframeContainer = styled.span`
-  /* padding-bottom: 56.25%; */
   position: relative;
   display: block;
   height: 400px;

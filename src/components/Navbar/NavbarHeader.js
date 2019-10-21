@@ -5,22 +5,18 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import logo from "../../images/gg_logo.jpg";
 
-import { styles } from "../../styles";
-
 const propTypes = {
   toggleOpen: PropTypes.func.isRequired,
 };
 
-const NavbarHeader = ({ toggleOpen }) => {
-  return (
-    <Wrapper>
-      <StyledLogo to="/">
-        <img src={logo} alt="logo" className="img" />
-      </StyledLogo>
-      <FaBars className="toggle-icon" onClick={() => toggleOpen()} />
-    </Wrapper>
-  );
-};
+const NavbarHeader = ({ toggleOpen }) => (
+  <Wrapper>
+    <StyledLogo to="/">
+      <img src={logo} alt="logo" className="img" />
+    </StyledLogo>
+    <FaBars className="toggle-icon" onClick={() => toggleOpen()} />
+  </Wrapper>
+);
 
 NavbarHeader.propTypes = propTypes;
 
@@ -44,7 +40,7 @@ const Wrapper = styled.div`
   .toggle-icon {
     font-size: 1.5rem;
     cursor: pointer;
-    color: ${styles.colors.green};
+    color: ${({ theme }) => theme.green};
   }
 
   /* Menu icon hidden on mobile screen size */

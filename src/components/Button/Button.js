@@ -2,21 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../styles";
-
 const propTypes = {
   text: PropTypes.string.isRequired,
   type: PropTypes.string,
 };
 
-const PrimaryButton = ({ text, className, type }) => {
-  return (
-    <StyledButton className={className} type={type || "button"}>
-      {text}
-    </StyledButton>
-  );
-};
-
+const PrimaryButton = ({ text, className, type }) => (
+  <StyledButton className={className} type={type || "button"}>
+    {text}
+  </StyledButton>
+);
 PrimaryButton.propTypes = propTypes;
 
 export default PrimaryButton;
@@ -24,22 +19,21 @@ export default PrimaryButton;
 const StyledButton = styled.button`
   max-width: 90vw;
   font-weight: 400;
-  background: ${styles.colors.green};
+  background: ${({ theme }) => theme.green};
   text-transform: uppercase;
-  letter-spacing: ${styles.letterSpacing};
-  color: ${styles.colors.white};
-  border: 2px solid ${styles.colors.green};
+  letter-spacing: ${({ theme }) => theme.letterSpacing};
+  color: ${({ theme }) => theme.white};
+  border: 2px solid ${({ theme }) => theme.green};
   border-radius: 10px;
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   display: inline-block;
-  transition: ${styles.linear};
+  transition: ${({ theme }) => theme.linear};
   cursor: pointer;
 
   :hover {
-    background: transparent;
-    background: ${styles.colors.white};
-    color: ${styles.colors.green};
+    background: ${({ theme }) => theme.white};
+    color: ${({ theme }) => theme.green};
   }
 
   @media (min-width: 576px) {

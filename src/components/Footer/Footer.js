@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Link, graphql, useStaticQuery } from "gatsby";
 
-import { styles } from "../../styles";
-
 import { navLinks, navIcons, siteLinks } from "./../../styles/links";
 
 const getData = graphql`
@@ -90,8 +88,8 @@ const Footer = () => {
 export default Footer;
 
 const Wrapper = styled.footer`
-  background: ${styles.colors.black};
-  color: ${styles.colors.white};
+  background: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.white};
   text-align: center;
 
   .segments {
@@ -108,14 +106,14 @@ const Wrapper = styled.footer`
   h4 {
     text-transform: uppercase;
     padding: 1rem 0;
-    letter-spacing: ${styles.letterSpacing};
+    letter-spacing: ${({ theme }) => theme.letterSpacing};
     font-size: 1.4rem;
     font-weight: 500;
   }
 
   p {
-    transition: ${styles.linear};
-    color: ${styles.colors.white};
+    transition: ${({ theme }) => theme.linear};
+    color: ${({ theme }) => theme.white};
     padding: 0.2rem 0;
   }
 
@@ -127,7 +125,7 @@ const Wrapper = styled.footer`
 `;
 
 const StyledBottomBar = styled.div`
-  background: ${styles.colors.green};
+  background: ${({ theme }) => theme.green};
 
   @media (max-width: 768px) {
     display: block;
@@ -136,14 +134,14 @@ const StyledBottomBar = styled.div`
 
 const StyledLink = styled(Link)`
   :hover p {
-    transition: ${styles.linear};
-    color: ${styles.colors.green};
+    transition: ${({ theme }) => theme.linear};
+    color: ${({ theme }) => theme.green};
   }
 `;
 
 const StyledIconWrapper = styled.div`
   padding: 1rem 0;
-  margin 0 auto;
+  margin: 0 auto;
   display: flex;
   width: 10rem;
   justify-content: space-around;
@@ -151,15 +149,15 @@ const StyledIconWrapper = styled.div`
   .icon {
     font-size: 1.6rem;
     cursor: pointer;
-    transition: ${styles.linear};
+    transition: ${({ theme }) => theme.linear};
 
     :hover {
-    color: ${styles.colors.white};
+      color: ${({ theme }) => theme.white};
     }
   }
 
   .facebook-icon {
-    color: ${styles.colors.green};
+    color: ${({ theme }) => theme.green};
   }
 
   .stil-icon {
@@ -167,6 +165,6 @@ const StyledIconWrapper = styled.div`
   }
 
   .instagram-icon {
-    color: ${styles.colors.green};
+    color: ${({ theme }) => theme.green};
   }
 `;

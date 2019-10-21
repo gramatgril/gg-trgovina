@@ -4,8 +4,6 @@ import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../styles";
-
 const propTypes = {
   advice: PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -53,7 +51,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledImage = styled.div`
-  transition: ${styles.linear};
+  transition: ${({ theme }) => theme.linear};
   margin: 0 auto;
   position: relative;
   height: 200px;
@@ -62,11 +60,11 @@ const StyledImage = styled.div`
 
 const StyledDate = styled.p`
   font-size: 1.2rem;
-  color: ${styles.colors.white};
+  color: ${({ theme }) => theme.white};
   position: absolute;
   left: 0%;
   top: 0%;
-  background: ${styles.colors.green};
+  background: ${({ theme }) => theme.green};
   padding: 0.3rem 1rem;
 `;
 
@@ -76,8 +74,8 @@ const StyledDescription = styled.div`
   padding: 2rem 0;
 
   h2 {
-    transition: ${styles.linear};
-    color: ${styles.colors.black};
+    transition: ${({ theme }) => theme.linear};
+    color: ${({ theme }) => theme.black};
     text-transform: capitalize;
     letter-spacing: 2px;
     margin-bottom: 1rem;
@@ -85,7 +83,7 @@ const StyledDescription = styled.div`
   }
 
   h4 {
-    color: ${styles.colors.black};
+    color: ${({ theme }) => theme.black};
     font-weight: 400;
   }
 `;
@@ -95,12 +93,12 @@ const StyledCard = styled.div`
 
   :hover {
     h2 {
-      transition: ${styles.linear};
-      color: ${styles.colors.green};
+      transition: ${({ theme }) => theme.linear};
+      color: ${({ theme }) => theme.green};
     }
 
     ${StyledImage} {
-      transition: ${styles.linear};
+      transition: ${({ theme }) => theme.linear};
       opacity: 0.8;
     }
   }

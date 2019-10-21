@@ -5,8 +5,6 @@ import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../styles";
-
 import PrimaryButton from "../Button";
 import { Container } from "./../../styles";
 import { stylePrice, calculateDiscount } from "./../../styles";
@@ -99,7 +97,7 @@ const ProductDetails = ({ product, categorySlug }) => {
                     Stara cena: {stylePrice(oldPrice)} {priceUnit}
                   </p>
                   <p className="discount">
-                    Popust: {calculateDiscount(price, oldPrice)}%
+                    Popust: -{calculateDiscount(price, oldPrice)}%
                   </p>
                 </>
               )}
@@ -125,78 +123,10 @@ const ProductDetails = ({ product, categorySlug }) => {
 
 ProductDetails.propTypes = propTypes;
 
-const StyledPrice = styled.div`
-  text-align: right;
-
-  .old-price {
-    text-decoration: line-through;
-    text-decoration-color: ${styles.colors.grey};
-  }
-
-  .price {
-    font-size: 1.3rem;
-    color: ${styles.colors.red};
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 0.5rem;
-  }
-
-  :after {
-    content: "";
-    display: block;
-    background: ${styles.colors.grey};
-    height: 1px;
-    width: 100%;
-  }
-`;
-
-const StyledDetails = styled.div``;
-
-// Description rich text field.
-const StyledRichText = styled.article`
-  text-align: left;
-  margin-top: 0.5rem;
-
-  .description-title {
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    padding: 0 0 1rem 1rem;
-  }
-
-  p {
-    padding: 0.5rem 1rem;
-  }
-
-  h4 {
-    font-size: 1.2rem;
-    padding: 0.5rem 1rem;
-    font-weight: 500;
-    margin: 0;
-  }
-
-  ul,
-  ol {
-    margin: 0 2.5rem;
-    li {
-      list-style-type: circle;
-    }
-
-    p {
-      margin: 0;
-      padding: 0;
-    }
-  }
-
-  @media (min-width: 576px) {
-    /* Desktop tweaks */
-  }
-`;
-
 export default ProductDetails;
 
 const Wrapper = styled.div`
-  padding: 3rem 0;
+  padding: 2rem 0;
 
   .panels {
     padding: 1rem 0;
@@ -230,7 +160,7 @@ const StyledTitle = styled.div`
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid ${styles.colors.green};
+    border-top: 1px solid ${({ theme }) => theme.green};
     margin: 0.5em 0;
     padding: 0;
   }
@@ -279,7 +209,7 @@ const StyledImages = styled.div`
     grid-row-gap: 0.5rem;
 
     .gallery-img {
-      transition: ${styles.linear};
+      transition: ${({ theme }) => theme.linear};
       width: 100%;
       height: 100%;
 
@@ -292,8 +222,8 @@ const StyledImages = styled.div`
   .promo {
     font-size: 1.1rem;
     position: absolute;
-    color: ${styles.colors.white};
-    background: ${styles.colors.red};
+    color: ${({ theme }) => theme.white};
+    background: ${({ theme }) => theme.red};
     padding: 0.4rem 0.8rem;
     text-align: center;
     text-transform: uppercase;
@@ -306,5 +236,74 @@ const StyledImages = styled.div`
     .promo {
       font-size: 1.2rem;
     }
+  }
+`;
+
+const StyledPrice = styled.div`
+  text-align: right;
+  font-weight: 600;
+
+  .old-price {
+    text-decoration: line-through;
+    text-decoration-color: ${({ theme }) => theme.grey};
+  }
+
+  .price {
+    font-size: 1.3rem;
+    color: ${({ theme }) => theme.red};
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  :after {
+    content: "";
+    display: block;
+    background: ${({ theme }) => theme.grey};
+    height: 1px;
+    width: 100%;
+  }
+`;
+
+const StyledDetails = styled.div``;
+
+// Description rich text field.
+const StyledRichText = styled.article`
+  text-align: left;
+  margin-top: 0.5rem;
+
+  .description-title {
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0 0 1rem 1rem;
+  }
+
+  p {
+    padding: 0.5rem 1rem;
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  ul,
+  ol {
+    margin: 0 2.5rem;
+    li {
+      list-style-type: circle;
+    }
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  @media (min-width: 576px) {
+    /* Desktop tweaks */
   }
 `;

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { Container, styles } from "../../styles";
+import { Container } from "../../styles";
 import PrimaryButton from "../Button/Button";
 
 const NotFound = () => {
@@ -33,7 +33,7 @@ const StyledDescription = styled.h3`
 const Wrapper = styled.div`
   text-align: center;
   padding: 2rem 0;
-  color: ${styles.colors.grey};
+  color: ${({ theme }) => theme.grey};
 
   @media (min-width: 768px) {
     ${StyledHeader} {

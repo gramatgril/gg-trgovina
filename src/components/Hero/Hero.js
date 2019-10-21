@@ -8,13 +8,11 @@ const propTypes = {
   children: PropTypes.node,
 };
 
-const Hero = ({ img, className, children }) => {
-  return (
-    <BackgroundImage className={className} fluid={img}>
-      {children}
-    </BackgroundImage>
-  );
-};
+const Hero = ({ img, className, children }) => (
+  <BackgroundImage className={className} fluid={img}>
+    {children}
+  </BackgroundImage>
+);
 
 export default styled(Hero)`
   height: 40vh;

@@ -3,7 +3,7 @@ import { graphql, useStaticQuery, Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles, Container } from "../../styles";
+import { Container } from "../../styles";
 import AdviceCard from "./AdviceCard";
 import PrimaryButton from "../Button";
 import Title from "../Title";
@@ -70,10 +70,9 @@ export default AdviceList;
 const Wrapper = styled.div`
   margin: 0 auto;
   width: 100%;
-
   padding: 3rem 0;
-  background: ${({ embed }) =>
-    embed ? `${styles.colors.offWhite}` : `${styles.colors.white}`};
+  background: ${({ embed, theme }) =>
+    embed ? `${theme.offWhite}` : `${theme.white}`};
 `;
 
 const StyledAdviceGrid = styled.div`

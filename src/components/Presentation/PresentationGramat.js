@@ -3,7 +3,6 @@ import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 import Img from "gatsby-image";
 
-import { styles } from "../../styles";
 import Title from "../Title";
 
 const query = graphql`
@@ -99,13 +98,13 @@ const StyledText = styled.div`
 
 const Wrapper = styled.div`
   padding: 3rem 0;
-  background: ${styles.colors.offWhite};
+  background: ${({ theme }) => theme.offWhite};
 `;
 
 const StyledImage = styled.div`
   height: 300px;
   width: auto;
-  box-shadow: ${styles.deepBoxShadow};
+  box-shadow: ${({ theme }) => theme.deepBoxShadow};
 `;
 
 const StyledRow = styled.div`

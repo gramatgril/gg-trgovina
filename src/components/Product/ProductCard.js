@@ -4,7 +4,6 @@ import Img from "gatsby-image";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../styles";
 import { stylePrice, calculateDiscount } from "./../../styles";
 
 const propTypes = {
@@ -79,14 +78,14 @@ const StyledDiscount = styled.div`
   position: absolute;
   top: 0%;
   right: 0%;
-  background: ${styles.colors.grey};
+  background: ${({ theme }) => theme.grey};
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  color: ${styles.colors.white};
+  color: ${({ theme }) => theme.white};
   display: flex;
   font-size: 1.2rem;
-  box-shadow: ${styles.boxShadow};
+  box-shadow: ${({ theme }) => theme.boxShadow};
 
   span {
     margin: auto;
@@ -95,13 +94,13 @@ const StyledDiscount = styled.div`
 
 const StyledTitle = styled.div`
   height: 5rem;
-  transition: ${styles.linear};
+  transition: ${({ theme }) => theme.linear};
   text-align: left;
   padding: 0.5rem 0;
 
   h4 {
-    transition: ${styles.linear};
-    color: ${styles.colors.black};
+    transition: ${({ theme }) => theme.linear};
+    color: ${({ theme }) => theme.black};
     font-size: 1.1rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -109,18 +108,18 @@ const StyledTitle = styled.div`
 `;
 
 const Wrapper = styled.article`
-  transition: ${styles.linear};
+  transition: ${({ theme }) => theme.linear};
   border: none;
 
   :hover {
     ${StyledTitle} {
       h4 {
-        transition: ${styles.linear};
-        color: ${styles.colors.green};
+        transition: ${({ theme }) => theme.linear};
+        color: ${({ theme }) => theme.green};
       }
     }
     .img {
-      transition: ${styles.linear};
+      transition: ${({ theme }) => theme.linear};
       opacity: 0.8;
     }
   }
@@ -129,32 +128,32 @@ const Wrapper = styled.article`
 const StyledImage = styled.div`
   height: 280px;
   position: relative;
-  transition: ${styles.linear};
+  transition: ${({ theme }) => theme.linear};
 
   .img {
-    transition: ${styles.linear};
+    transition: ${({ theme }) => theme.linear};
   }
 `;
 
 const StyledPrice = styled.p`
-  box-shadow: ${styles.boxShadow};
+  box-shadow: ${({ theme }) => theme.boxShadow};
   font-size: 1.1rem;
   font-weight: 500;
-  color: ${styles.colors.white};
+  color: ${({ theme }) => theme.white};
   position: absolute;
   right: 0%;
   top: 85%;
-  background: ${styles.colors.green};
+  background: ${({ theme }) => theme.green};
   padding: 0.2rem 1rem;
   border-radius: 0.3rem;
 `;
 
 const StyledPromo = styled.p`
-  box-shadow: ${styles.boxShadow};
+  box-shadow: ${({ theme }) => theme.boxShadow};
   font-size: 1.1rem;
   position: absolute;
-  color: ${styles.colors.white};
-  background: ${styles.colors.red};
+  color: ${({ theme }) => theme.white};
+  background: ${({ theme }) => theme.red};
   padding: 0.2rem 0.5rem;
   text-align: center;
   text-transform: uppercase;

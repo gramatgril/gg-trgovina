@@ -21,28 +21,26 @@ const propTypes = {
   ).isRequired,
 };
 
-const CategoryList = ({ categories, adviceCardImg }) => {
-  return (
-    <Wrapper>
-      <StyledCategoryGallery>
-        {categories.map(({ node }) => (
-          <CategoryCard
-            key={node.id}
-            title={node.title}
-            slug={node.slug}
-            image={node.image}
-          />
-        ))}
+const CategoryList = ({ categories, adviceCardImg }) => (
+  <Wrapper>
+    <StyledCategoryGallery>
+      {categories.map(({ node }) => (
         <CategoryCard
-          key="nasveti"
-          title="Nasveti in ideje"
-          slug="nasveti-in-ideje"
-          image={adviceCardImg}
+          key={node.id}
+          title={node.title}
+          slug={node.slug}
+          image={node.image}
         />
-      </StyledCategoryGallery>
-    </Wrapper>
-  );
-};
+      ))}
+      <CategoryCard
+        key="nasveti"
+        title="Nasveti in ideje"
+        slug="nasveti-in-ideje"
+        image={adviceCardImg}
+      />
+    </StyledCategoryGallery>
+  </Wrapper>
+);
 
 CategoryList.propTypes = propTypes;
 

@@ -1,7 +1,8 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
+import { ThemeProvider } from "styled-components";
 
-import { GlobalStyle } from "./../styles";
+import { GlobalStyle, theme } from "./../styles";
 
 import Footer from "./../components/Footer";
 import Navbar from "./../components/Navbar";
@@ -12,12 +13,14 @@ const propTypes = {
 
 const Layout = ({ children }) => {
   return (
-    <Fragment>
-      <GlobalStyle />
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
-    </Fragment>
+    <ThemeProvider theme={theme}>
+      <Fragment>
+        <GlobalStyle />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </Fragment>
+    </ThemeProvider>
   );
 };
 

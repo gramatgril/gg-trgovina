@@ -1,7 +1,7 @@
 import { Container } from "./container";
 import { GlobalStyle } from "./globalStyles";
 import * as links from "./links";
-import * as styles from "./styles";
 import { stylePrice, calculateDiscount } from "./helpers";
+import { theme } from "./theme";
 
-export { GlobalStyle, links, Container, styles, stylePrice, calculateDiscount };
+export { GlobalStyle, links, Container, stylePrice, calculateDiscount, theme };

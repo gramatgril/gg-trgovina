@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { FaSearch, FaFilter } from "react-icons/fa";
 
-import { styles, links } from "../../styles";
+import { links } from "../../styles";
 import { types } from "../../utils";
 
 const { INPUT_CHANGE, SEARCH_PRODUCTS, SHOW_PROMOTED } = types;
@@ -87,8 +87,8 @@ const StyledSortLink = styled.li`
   /* Mobile */
   cursor: pointer;
   padding: 0.2rem 2rem;
-  color: ${({ active }) =>
-    active ? `${styles.colors.green}` : `${styles.colors.black}`};
+  color: ${({ active, theme }) =>
+    active ? `${theme.green}` : `${theme.black}`};
 
   p {
     margin: 0;
@@ -115,7 +115,7 @@ const StyledSortLink = styled.li`
 
     &:hover {
       :after {
-        background: ${styles.colors.lightGrey};
+        background: ${({ theme }) => theme.lightGrey};
       }
     }
   }
@@ -127,9 +127,9 @@ const Wrapper = styled.ul`
     isMenuOpen ? `${listHeight}px` : "30px"};
   overflow: hidden;
   width: 90vw;
-  transition: ${styles.easeInOut};
+  transition: ${({ theme }) => theme.easeInOut};
   margin: 3rem auto 0;
-  border-bottom: 1px solid ${styles.colors.grey};
+  border-bottom: 1px solid ${({ theme }) => theme.green};
 
   .menu-toggle {
     padding: 0 0.4rem;
@@ -143,14 +143,14 @@ const Wrapper = styled.ul`
     }
 
     .icon {
-      color: ${styles.colors.green};
+      color: ${({ theme }) => theme.green};
       margin: 0.35rem 0.5rem 0 0;
     }
   }
 
   /* Desktop */
   @media (min-width: 768px) {
-    transition: ${styles.easeInOut};
+    transition: ${({ theme }) => theme.easeInOut};
     margin: 3rem auto 0;
     display: flex;
     height: 50px;
@@ -186,12 +186,12 @@ const StyledForm = styled.form`
     border: none;
     background: none;
     font-size: 1.2rem;
-    color: ${styles.colors.black};
+    color: ${({ theme }) => theme.black};
   }
 
   input {
     width: 100%;
-    border-bottom: 1px solid ${styles.colors.green};
+    border-bottom: 1px solid ${({ theme }) => theme.green};
 
     :focus {
       outline: none;
@@ -200,7 +200,7 @@ const StyledForm = styled.form`
 
   button {
     cursor: pointer;
-    color: ${styles.colors.green};
+    color: ${({ theme }) => theme.green};
   }
 
   /* Desktop */

@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../styles";
 import { navLinks } from "./../../styles/links";
 
 const propTypes = {
@@ -11,23 +10,21 @@ const propTypes = {
   stilUrl: PropTypes.string.isRequired,
 };
 
-const NavbarLinks = ({ isOpen, stilUrl }) => {
-  return (
-    <Wrapper isOpen={isOpen}>
-      {navLinks.map(({ id, path, name, color }) => (
-        <li key={id}>
-          <StyledLink to={path} activeClassName="active" color={color}>
-            {name}
-          </StyledLink>
-        </li>
-      ))}
-      {/* Shows anchor only when display is mobile. */}
-      <StyledAnchor href={stilUrl} target="_blank" rel="noopener noreferrer">
-        STIL by gramat gril
-      </StyledAnchor>
-    </Wrapper>
-  );
-};
+const NavbarLinks = ({ isOpen, stilUrl }) => (
+  <Wrapper isOpen={isOpen}>
+    {navLinks.map(({ id, path, name, color }) => (
+      <li key={id}>
+        <StyledLink to={path} activeClassName="active" color={color}>
+          {name}
+        </StyledLink>
+      </li>
+    ))}
+    {/* Shows anchor only when display is mobile. */}
+    <StyledAnchor href={stilUrl} target="_blank" rel="noopener noreferrer">
+      STIL by gramat gril
+    </StyledAnchor>
+  </Wrapper>
+);
 
 NavbarLinks.propTypes = propTypes;
 
@@ -53,7 +50,7 @@ const StyledLink = styled(Link)`
     &:after {
       content: "";
       display: block;
-      background: ${styles.colors.white};
+      background: ${({ theme }) => theme.white};
       border-radius: 2px;
       height: 3px;
       width: 100%;
@@ -63,7 +60,7 @@ const StyledLink = styled(Link)`
       padding: 0.8rem 0.5rem 0.5rem 1rem;
 
       &:after {
-        background: ${styles.colors.lightGrey};
+        background: ${({ theme }) => theme.lightGrey};
       }
     }
   }
@@ -98,7 +95,7 @@ const Wrapper = styled.ul`
   text-align: center;
   height: ${({ isOpen }) => (isOpen ? "170px" : "0px")};
   overflow: hidden;
-  transition: ${styles.easeInOut};
+  transition: ${({ theme }) => theme.easeInOut};
 
   /* Desktop */
   @media (min-width: 900px) {
@@ -109,7 +106,7 @@ const Wrapper = styled.ul`
     /* Styling applied when link is active */
     .active {
       :after {
-        background: ${styles.colors.green};
+        background: ${({ theme }) => theme.green};
       }
     }
   }

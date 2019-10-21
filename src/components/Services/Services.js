@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { FaRegLightbulb, FaRegCheckCircle } from "react-icons/fa";
 import { FiSettings } from "react-icons/fi";
 
-import { styles } from "../../styles";
 import Title from "./../Title/Title";
 
 const Services = () => {
@@ -57,7 +56,7 @@ const Services = () => {
 export default Services;
 
 const Wrapper = styled.div`
-  background: ${styles.colors.offWhite};
+  background: ${({ theme }) => theme.offWhite};
   padding: 3rem 0;
 `;
 
@@ -75,7 +74,7 @@ const StyledSegment = styled.article`
   text-align: center;
 
   span {
-    color: ${styles.colors.green};
+    color: ${({ theme }) => theme.green};
     display: inline-block;
     font-size: 7rem;
   }
@@ -83,7 +82,7 @@ const StyledSegment = styled.article`
   h4 {
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: ${styles.letterSpacing};
+    letter-spacing: ${({ theme }) => theme.letterSpacing};
   }
 
   p {
@@ -96,7 +95,7 @@ const StyledDivider = styled.hr`
   border-radius: 10px;
   height: 3px;
   border: none;
-  background: ${styles.colors.green};
+  background: ${({ theme }) => theme.green};
   margin: 2rem auto;
   width: 100px;
 `;

@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import { styles } from "../../styles";
-
 const propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
@@ -34,7 +32,7 @@ const StyledText = styled.h1`
   font-weight: 800;
   text-align: center;
   letter-spacing: 3px;
-  color: ${styles.colors.green};
+  color: ${({ theme }) => theme.green};
 
   span {
     display: block;

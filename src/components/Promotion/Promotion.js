@@ -2,7 +2,6 @@ import React, { Fragment, useReducer } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
 import { AdviceList } from "../Advice";
-import Banner from "./../Banner";
 import ProductList from "./../Product/ProductList";
 import SortMenu from "./../SortMenu";
 import { productReducer as reducer } from "./../../utils";

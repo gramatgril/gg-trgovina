@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "styled-components";
 
-import { styles } from "../../styles";
-
 import NavbarHeader from "./NavbarHeader";
 import NavbarIcons from "./NavbarIcons";
 import NavbarLinks from "./NavbarLinks";
@@ -47,7 +45,7 @@ const Navbar = () => {
 };
 
 const Wrapper = styled.div`
-  box-shadow: ${styles.boxShadow};
+  box-shadow: ${({ theme }) => theme.boxShadow};
 `;
 
 const StyledMainBar = styled.div`
@@ -67,8 +65,8 @@ const StyledTopBar = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: ${styles.colors.green};
-  color: ${styles.colors.white};
+  background: ${({ theme }) => theme.green};
+  color: ${({ theme }) => theme.white};
 
   p {
     letter-spacing: 2px;

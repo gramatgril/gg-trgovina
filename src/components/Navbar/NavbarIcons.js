@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import logo from "../../images/stil_logo.png";
 
-// import { styles } from "../../styles";
-
 const getData = graphql`
   query {
     url: site {
@@ -42,7 +40,6 @@ const Wrapper = styled.div`
   height: 60px;
 
   @media (min-width: 900px) {
-    /* width: 10rem; */
     display: block;
   }
 `;

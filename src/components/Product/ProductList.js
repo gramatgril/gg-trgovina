@@ -39,23 +39,21 @@ const defaultProps = {
   text: "nazaj na kategorije",
 };
 
-const ProductList = ({ products, path, text }) => {
-  return (
-    <Wrapper>
-      <Container align="center">
-        <StyledProductGallery>
-          {products.map(({ node }) => (
-            <ProductCard key={node.id} product={node} />
-          ))}
-        </StyledProductGallery>
-        {/* Button link gets path and text from parent component*/}
-        <Link to={path} className="link">
-          <PrimaryButton text={text} />
-        </Link>
-      </Container>
-    </Wrapper>
-  );
-};
+const ProductList = ({ products, path, text }) => (
+  <Wrapper>
+    <Container align="center">
+      <StyledProductGallery>
+        {products.map(({ node }) => (
+          <ProductCard key={node.id} product={node} />
+        ))}
+      </StyledProductGallery>
+      {/* Button link gets path and text from parent component*/}
+      <Link to={path} className="link">
+        <PrimaryButton text={text} />
+      </Link>
+    </Container>
+  </Wrapper>
+);
 
 ProductList.propTypes = propTypes;
 ProductList.defaultProps = defaultProps;

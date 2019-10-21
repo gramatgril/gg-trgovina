@@ -2,23 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { styles } from "../../styles";
-
 const propTypes = {
   title: PropTypes.string.isRequired,
   info: PropTypes.string,
   children: PropTypes.node,
 };
 
-const Banner = ({ title, info, children }) => {
-  return (
-    <Wrapper>
-      <h1>{title}</h1>
-      <p>{info}</p>
-      {children}
-    </Wrapper>
-  );
-};
+const Banner = ({ title, info, children }) => (
+  <Wrapper>
+    <h1>{title}</h1>
+    <p>{info}</p>
+    {children}
+  </Wrapper>
+);
 
 Banner.propTypes = propTypes;
 
@@ -27,13 +23,13 @@ export default Banner;
 const Wrapper = styled.div`
   /* Mobile */
   background: rgba(33, 33, 33, 0.2);
-  color: ${styles.colors.white};
+  color: ${({ theme }) => theme.white};
   margin: 0 auto;
   padding-top: 0.5rem;
   text-align: center;
   position: absolute;
   bottom: 10%;
-  text-shadow: 1px 1px 1px ${styles.colors.black};
+  text-shadow: 1px 1px 1px ${({ theme }) => theme.black};
 
   h1 {
     font-size: 1.5rem;

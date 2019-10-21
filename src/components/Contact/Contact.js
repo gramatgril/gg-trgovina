@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-import { styles, Container } from "../../styles";
+import { Container } from "../../styles";
 import ContactForm from "./ContactForm";
 import Map from "./../Map/";
 
@@ -95,7 +95,7 @@ const Wrapper = styled.section`
     padding-bottom: 0.2rem;
     font-size: 1.8rem;
     font-weight: 500;
-    border-bottom: 1px solid ${styles.colors.green};
+    border-bottom: 1px solid ${({ theme }) => theme.green};
   }
 
   p {
