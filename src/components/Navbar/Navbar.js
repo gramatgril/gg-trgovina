@@ -69,7 +69,7 @@ const StyledTopBar = styled.div`
   color: ${({ theme }) => theme.white};
 
   p {
-    display: inline-block;
+    white-space: nowrap;
     letter-spacing: 1px;
     font-size: 0.8rem;
     padding: 0.5rem 0;
