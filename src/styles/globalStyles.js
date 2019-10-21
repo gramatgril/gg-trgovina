@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
-*{
+*, *:before, *:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -14,16 +14,14 @@ body {
   font-size: 1rem;
 }
 
-p {
-  margin-bottom: 0;
-}
-
-
-
 main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+p {
+  margin-bottom: 0;
 }
 
 
@@ -31,7 +29,7 @@ main {
   text-decoration: none;
 }
 
-li{
+li {
   list-style-type: none;
 }
 
@@ -39,6 +37,4 @@ li{
     height: 100%;
     width: 100%;
   }
-
-
 `;
