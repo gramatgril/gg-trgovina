@@ -14,7 +14,7 @@ const LeafletMap = () => {
   if (typeof window !== "undefined") {
     return (
       <Wrapper>
-        <Map center={position} zoom={zoom} class="map">
+        <Map center={position} zoom={zoom} className="map">
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <Marker position={position}>
             <Popup>Gramat Gril, Rožna dolina 9</Popup>
