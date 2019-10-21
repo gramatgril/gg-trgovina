@@ -63,15 +63,15 @@ const StyledMainBar = styled.div`
 const StyledTopBar = styled.div`
   margin: 0;
   display: flex;
-  justify-content: space-between;
-  padding: 0 0.5rem;
+  justify-content: space-around;
   align-items: center;
   background: ${({ theme }) => theme.green};
   color: ${({ theme }) => theme.white};
 
   p {
-    letter-spacing: 2px;
-    font-size: 0.9rem;
+    display: inline-block;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
     padding: 0.5rem 0;
   }
 
@@ -82,7 +82,7 @@ const StyledTopBar = styled.div`
       align-items: center;
       font-size: 1.2rem;
       padding: 0.5rem 1rem;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
     }
   }
 `;
