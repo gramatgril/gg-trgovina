@@ -46,15 +46,17 @@ const ProductCard = ({ product }) => {
             className="img"
             imgStyle={{ objectFit: "contain", objectPosition: "50% 50%" }}
           />
+          {/* Price Tag */}
           <StyledPrice>
             {stylePrice(price)} <span>{priceUnit}</span>
           </StyledPrice>
+          {/* Discount tag */}
           {oldPrice && (
             <StyledDiscount>
               <span>-{calculateDiscount(price, oldPrice)}%</span>
             </StyledDiscount>
           )}
-          {/* Promo tag that says "Akcija" */}
+          {/* Promo tag */}
           {promo && (
             <StyledPromo>
               <span>Akcija</span>

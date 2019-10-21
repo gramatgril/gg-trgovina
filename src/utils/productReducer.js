@@ -8,15 +8,11 @@ import {
   SORT_BY_DATE_DOWN,
 } from "./constants";
 
-/*
-
- {
-  searchInput: "",
+/* Reducer state:
+ {  searchInput: "",
   initialProducts: data.allProducts.edges,
-  products: [],
-};
-
- */
+  products: [] }
+*/
 
 const productReducer = (state, action) => {
   const { products, initialProducts, searchInput } = state;

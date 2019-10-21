@@ -88,9 +88,10 @@ const ProductDetails = ({ product, categorySlug }) => {
                   ))}
             </div>
           </StyledImages>
+          {/* Price tag */}
           <StyledDetails>
+            {/* Contditionally renders old price and discount percent */}
             <StyledPrice>
-              {/* Rich Text, contains h4 and p tags */}
               {oldPrice && (
                 <>
                   <p className="old-price">
@@ -106,13 +107,14 @@ const ProductDetails = ({ product, categorySlug }) => {
                 Cena: {stylePrice(price)} {priceUnit}
               </p>
             </StyledPrice>
+            {/* Rich text node */}
             <StyledRichText>
               <h3 className="description-title">Opis:</h3>
               {documentToReactComponents(description.json)}
             </StyledRichText>
           </StyledDetails>
         </div>
-
+        {/* Link back */}
         <Link to={`/${categorySlug}`}>
           <PrimaryButton text="nazaj na kategorijo" />
         </Link>

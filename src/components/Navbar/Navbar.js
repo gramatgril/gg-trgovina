@@ -63,7 +63,8 @@ const StyledMainBar = styled.div`
 const StyledTopBar = styled.div`
   margin: 0;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  padding: 0 0.5rem;
   align-items: center;
   background: ${({ theme }) => theme.green};
   color: ${({ theme }) => theme.white};
