@@ -4,8 +4,9 @@ import PropTypes from "prop-types";
 
 import { Container } from "../../styles";
 import ContactForm from "./ContactForm";
-import Map from "./../Map/";
+// import Map from "./../Map/";
 import LeafletMap from "../Map/LeafletMap";
+// import LeafletSecond from "../Map/LeafletSecond";
 
 const propTypes = {
   companyInfo: PropTypes.shape({
@@ -74,14 +75,17 @@ const Contact = ({ companyInfo, contactInfo }) => {
           <p>{companyDesc}</p>
         </div>
       </Container>
-      {/* <LeafletMap /> */}
-      <Map
+      <LeafletMap />
+      {/* <LeafletSecond>
+        <Marker ref={markerRef} position={CENTER} />
+      </LeafletSecond> */}
+      {/* <Map
         isMarkerShown
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyD7NYaR2FH2BDpiDmgUI9NaEBI4TDmgUOU&v=3.exp&libraries=geometry,drawing,places`}
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `400px` }} />}
         mapElement={<div style={{ height: `100%` }} />}
-      />
+      /> */}
     </Wrapper>
   );
 };
