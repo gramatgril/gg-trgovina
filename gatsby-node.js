@@ -1,19 +1,19 @@
 const path = require("path");
 
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === "build-html") {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /react-leaflet|leaflet/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    });
-  }
-};
+// exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
+//   if (stage === "build-html") {
+//     actions.setWebpackConfig({
+//       module: {
+//         rules: [
+//           {
+//             test: /react-leaflet|leaflet/,
+//             use: loaders.null(),
+//           },
+//         ],
+//       },
+//     });
+//   }
+// };
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;

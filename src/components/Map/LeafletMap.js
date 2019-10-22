@@ -15,7 +15,10 @@ const LeafletMap = () => {
     return (
       <Wrapper>
         <Map center={position} zoom={zoom} className="map">
-          <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            className="tile-layer"
+          />
           <Marker position={position}>
             <Popup>Gramat Gril, Rožna dolina 9</Popup>
           </Marker>
@@ -30,7 +33,13 @@ export default LeafletMap;
 
 const Wrapper = styled.div`
   .map {
-    height: 600px;
+    height: 500px;
     width: 100%;
+    margin: 0 auto;
+  }
+
+  .tile-layer {
+    height: 300px;
+    width: 500px;
   }
 `;
