@@ -31,5 +31,6 @@ export default LeafletMap;
 const Wrapper = styled.div`
   .map {
     height: 600px;
+    width: 100%;
   }
 `;
