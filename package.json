@@ -26,10 +26,10 @@
     "gatsby-source-filesystem": "^2.1.11",
     "gatsby-transformer-sharp": "^2.2.12",
     "leaflet": "^1.5.1",
+    "netlify-lambda": "^1.6.3",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-google-maps": "^9.4.5",
     "react-helmet": "^5.2.1",
     "react-icons": "^3.7.0",
     "react-leaflet": "^2.5.0",
@@ -50,7 +50,10 @@
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \"",
+    "start:lambda": "netlify-lambda serve functions",
+    "build:lambda": "netlify-lambda build functions",
+    "prod": "npm run build; npm run build:lambda"
   },
   "repository": {
     "type": "git",
