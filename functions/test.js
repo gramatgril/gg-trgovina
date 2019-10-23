@@ -11,31 +11,34 @@ const headers = {
 
 exports.handler = async (event, context) => {
   const { name, email, message } = JSON.parse(event.body);
+  console.log("message:", message);
+  console.log("email:", email);
+  console.log("name:", name);
 
-  async function sendMail() {
-    let transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: process.env.GOOGLE_EMAIL_USER,
-        pass: process.env.GOOGLE_EMAIL_PASS,
-      },
-    });
+  // async function sendMail() {
+  //   let transporter = nodemailer.createTransport({
+  //     service: "gmail",
+  //     auth: {
+  //       user: process.env.GOOGLE_EMAIL_USER,
+  //       pass: process.env.GOOGLE_EMAIL_PASS,
+  //     },
+  //   });
 
-    let info = await transporter.sendMail({
-      from: email,
-      to: process.env.GOOGLE_EMAIL_USER,
-      subject: `Povpraševanje: ${name}`,
-      text: message,
-      html: `<h3>Besedilo:</h3>
-              <p>${message}</p>
-              <h3>Poslal:</h3>
-              <p> ${email}</p>`,
-    });
+  //   let info = await transporter.sendMail({
+  //     from: email,
+  //     to: process.env.GOOGLE_EMAIL_USER,
+  //     subject: `Povpraševanje: ${name}`,
+  //     text: message,
+  //     html: `<h3>Besedilo:</h3>
+  //             <p>${message}</p>
+  //             <h3>Poslal:</h3>
+  //             <p> ${email}</p>`,
+  //   });
 
-    console.log(`Sender: ${email}, MessageId: ${info.messageId}`);
-  }
+  //   console.log(`Sender: ${email}, MessageId: ${info.messageId}`);
+  // }
 
-  sendMail();
+  // sendMail();
 
   return {
     statusCode: 200,
