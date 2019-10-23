@@ -25,13 +25,8 @@ const ContactForm = () => {
     });
 
     console.log(res.status);
-
-    if (res.status !== 200) {
-      console.log("Something went wrong");
-    } else {
-      const { msg } = await res.json();
-      console.log(msg);
-    }
+    const data = await res.json();
+    console.log(data.msg);
   };
 
   return (

@@ -9,7 +9,7 @@ const headers = {
   "Access-Control-Allow-Methods": "POST",
 };
 
-exports.handler = async (event, context) => {
+exports.handler = (event, context, callback) => {
   const { name, email, message } = JSON.parse(event.body);
 
   let transporter = nodemailer.createTransport({
@@ -20,8 +20,8 @@ exports.handler = async (event, context) => {
     },
   });
 
-  transporter
-    .sendMail({
+  transporter.sendMail(
+    {
       from: email,
       to: process.env.GOOGLE_EMAIL_USER,
       subject: `Povpraševanje: ${name}`,
@@ -30,14 +30,21 @@ exports.handler = async (event, context) => {
               <p>${message}</p>
               <h3>Poslal:</h3>
               <p> ${email}</p>`,
-    })
-    .catch(error => {
-      console.log(error);
-    });
-
-  return {
-    statusCode: 200,
-    headers,
-    body: JSON.stringify({ msg: "Email sent" }),
-  };
+    },
+    function(error, info) {
+      if (error) {
+        callback(null, {
+          statusCode: 502,
+          headers,
+          body: JSON.stringify({ msg: "Email Failed" }),
+        });
+      } else {
+        callback(null, {
+          statusCode: 200,
+          headers,
+          body: JSON.stringify({ msg: "Email sent" }),
+        });
+      }
+    }
+  );
 };
