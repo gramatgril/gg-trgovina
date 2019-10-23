@@ -5,7 +5,7 @@ import PrimaryButton from "../Button";
 
 // "https://ggtrgovina.netlify.com/.netlify/functions/test"
 // "http://localhost:9000/test"
-const lambdaPath = "http://localhost:9000/test";
+const lambdaPath = "https://ggtrgovina.netlify.com/.netlify/functions/test";
 
 const ContactForm = () => {
   const [values, setValues] = useState({ name: "", email: "", message: "" });
