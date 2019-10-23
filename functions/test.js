@@ -20,6 +20,8 @@ exports.handler = (event, context, callback) => {
     },
   });
 
+  console.log(process.env.GOOGLE_EMAIL_USER);
+  console.log(name, email, message);
   transporter.sendMail(
     {
       from: email,
@@ -33,12 +35,14 @@ exports.handler = (event, context, callback) => {
     },
     function(error, info) {
       if (error) {
+        console.log(error);
         callback(null, {
-          statusCode: 502,
+          statusCode: 503,
           headers,
           body: JSON.stringify({ msg: "Email Failed" }),
         });
       } else {
+        console.log("Success");
         callback(null, {
           statusCode: 200,
           headers,
