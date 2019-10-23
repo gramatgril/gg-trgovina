@@ -7,11 +7,12 @@ const propTypes = {
   type: PropTypes.string,
 };
 
-const PrimaryButton = ({ text, className, type }) => (
-  <StyledButton className={className} type={type || "button"}>
+const PrimaryButton = ({ text, className, type, ...rest }) => (
+  <StyledButton className={className} type={type || "button"} {...rest}>
     {text}
   </StyledButton>
 );
+
 PrimaryButton.propTypes = propTypes;
 
 export default PrimaryButton;

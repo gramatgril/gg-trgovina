@@ -1,52 +1,90 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 import PrimaryButton from "../Button";
 
-const ContactForm = () => (
-  <Wrapper>
-    <form
-      className="form"
-      action="https://formspree.io/praecorloth@gmail.com"
-      method="POST"
-    >
-      <div>
-        <input
-          autoComplete="off"
-          type="text"
-          name="name"
-          id="name"
-          className="form-control"
-          placeholder="Ime in Priimek"
-        />
-      </div>
-      <div>
-        <input
-          autoComplete="off"
-          type="email"
-          name="email"
-          id="email"
-          className="form-control"
-          placeholder="E-mail naslov"
-        />
-      </div>
-      <div>
-        <textarea
-          autoComplete="off"
-          type="email"
-          rows="10"
-          name="message"
-          id="message"
-          className="form-control"
-          placeholder="Sporočilo"
-        />
-      </div>
-      <div>
-        <PrimaryButton text="Pošlji" type="submit" className="submit" />
-      </div>
-    </form>
-  </Wrapper>
-);
+// "https://ggtrgovina.netlify.com/.netlify/functions/test"
+// "http://localhost:9000/test"
+const lambdaPath = "https://ggtrgovina.netlify.com/.netlify/functions/test";
+
+const ContactForm = () => {
+  const [values, setValues] = useState({ name: "", email: "", message: "" });
+
+  const handleChange = e =>
+    setValues({ ...values, [e.target.name]: e.target.value });
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+
+    const res = await fetch(lambdaPath, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: JSON.stringify(values),
+    });
+
+    if (res.status !== 200) {
+      const data = await res.json();
+      return console.log(data.msg);
+    }
+
+    const data = await res.json();
+    console.log("data:", data.msg);
+  };
+
+  return (
+    <Wrapper>
+      <form
+        className="form"
+        action="https://formspree.io/praecorloth@gmail.com"
+        method="POST"
+      >
+        <div>
+          <input
+            autoComplete="off"
+            type="text"
+            name="name"
+            id="name"
+            className="form-control"
+            placeholder="Ime in Priimek"
+            onChange={e => handleChange(e)}
+          />
+        </div>
+        <div>
+          <input
+            autoComplete="off"
+            type="email"
+            name="email"
+            id="email"
+            className="form-control"
+            placeholder="E-mail naslov"
+            onChange={e => handleChange(e)}
+          />
+        </div>
+        <div>
+          <textarea
+            autoComplete="off"
+            type="email"
+            rows="10"
+            name="message"
+            id="message"
+            className="form-control"
+            placeholder="Sporočilo"
+            onChange={e => handleChange(e)}
+          />
+        </div>
+        <div>
+          <PrimaryButton
+            text="Pošlji"
+            onClick={handleSubmit}
+            className="submit"
+          />
+        </div>
+      </form>
+    </Wrapper>
+  );
+};
 
 export default ContactForm;
 
