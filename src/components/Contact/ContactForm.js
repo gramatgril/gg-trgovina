@@ -24,13 +24,14 @@ const ContactForm = () => {
       body: JSON.stringify(values),
     });
 
-    if (res.status !== 200) {
-      const data = await res.json();
-      return console.log(data.msg);
-    }
+    console.log(res.status);
 
-    const data = await res.json();
-    console.log("data:", data.msg);
+    if (res.status !== 200) {
+      console.log("Something went wrong");
+    } else {
+      const { msg } = await res.json();
+      console.log(msg);
+    }
   };
 
   return (
