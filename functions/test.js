@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+var smtpTransport = require("nodemailer-smtp-transport");
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -12,13 +13,15 @@ const headers = {
 exports.handler = (event, context, callback) => {
   const { name, email, message } = JSON.parse(event.body);
 
-  let transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.GOOGLE_EMAIL_USER,
-      pass: process.env.GOOGLE_EMAIL_PASS,
-    },
-  });
+  let transporter = nodemailer.createTransport(
+    smtpTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.GOOGLE_EMAIL_USER,
+        pass: process.env.GOOGLE_EMAIL_PASS,
+      },
+    })
+  );
 
   console.log(process.env.GOOGLE_EMAIL_USER);
   console.log(name, email, message);
