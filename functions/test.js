@@ -16,6 +16,7 @@ exports.handler = (event, context, callback) => {
   let transporter = nodemailer.createTransport(
     smtpTransport({
       service: "gmail",
+      host: "smtp.gmail.com",
       auth: {
         user: process.env.GOOGLE_EMAIL_USER,
         pass: process.env.GOOGLE_EMAIL_PASS,
@@ -46,6 +47,7 @@ exports.handler = (event, context, callback) => {
         });
       } else {
         console.log("Success");
+        console.log(info.response);
         callback(null, {
           statusCode: 200,
           headers,
