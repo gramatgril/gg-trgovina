@@ -24,18 +24,17 @@ const ContactForm = () => {
       body: JSON.stringify(values),
     });
 
-    console.log(res.status);
     const data = await res.json();
-    console.log(data.msg);
+
+    if (res.status !== 200) {
+      console.log(`Status: ${data.msg} - ${res.status}`);
+    }
+    console.log(`Status: ${data.msg} - ${res.status}`);
   };
 
   return (
     <Wrapper>
-      <form
-        className="form"
-        action="https://formspree.io/praecorloth@gmail.com"
-        method="POST"
-      >
+      <form className="form" name="contact">
         <div>
           <input
             autoComplete="off"
@@ -73,6 +72,7 @@ const ContactForm = () => {
         <div>
           <PrimaryButton
             text="Pošlji"
+            type="submit"
             onClick={handleSubmit}
             className="submit"
           />

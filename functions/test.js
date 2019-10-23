@@ -24,8 +24,6 @@ exports.handler = (event, context, callback) => {
     })
   );
 
-  console.log(process.env.GOOGLE_EMAIL_USER);
-  console.log(name, email, message);
   transporter.sendMail(
     {
       from: email,
