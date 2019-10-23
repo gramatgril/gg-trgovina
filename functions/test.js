@@ -35,13 +35,13 @@ exports.handler = function(event, context, callback) {
     if (error) {
       callback(null, {
         statusCode: 400,
-        headers,
+        // headers,
         body: { msg: "Mail Not Sent" },
       });
     } else {
       callback(null, {
         statusCode: 200,
-        headers,
+        // headers,
         body: { msg: "Mail  Sent" },
       });
     }
