@@ -25,21 +25,19 @@ exports.handler = async (event, context) => {
     to: process.env.GOOGLE_EMAIL_USER,
     subject: `Povpraševanje: ${name}`,
     text: message,
-    html: `<h4>Besedilo:</h4>
+    html: `<h3>Besedilo:</h3>
               <p>${message}</p>
-              <h4>Poslal:</h4>
-              <p>${email}</p>`,
+              <h3>Poslal:</h3>
+              <p> ${email}</p>`,
   };
 
   transporter.sendMail(mailOptions, (err, data) => {
     if (err) {
       console.log("Email not sent");
-      console.log(err);
-
       return {
         statusCode: 400,
         headers,
-        body: JSON.stringify({ msg: "Something went wrong" }),
+        body: JSON.stringify({ msg: "Fail" }),
       };
     } else {
       console.log("Email sent");
