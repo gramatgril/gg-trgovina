@@ -3,12 +3,13 @@ import styled from "styled-components";
 
 import PrimaryButton from "../Button";
 
-// "https://ggtrgovina.netlify.com/.netlify/functions/test"
-// "http://localhost:9000/test"
-const lambdaPath = "https://ggtrgovina.netlify.com/.netlify/functions/test";
+// "https://ggtrgovina.netlify.com/.netlify/functions/sendMail"
+// "http://localhost:9000/sendMail"
+const path = "https://ggtrgovina.netlify.com/.netlify/functions/sendMail";
+const initialValues = { name: "", email: "", message: "" };
 
 const ContactForm = () => {
-  const [values, setValues] = useState({ name: "", email: "", message: "" });
+  const [values, setValues] = useState(initialValues);
 
   const handleChange = e =>
     setValues({ ...values, [e.target.name]: e.target.value });
@@ -16,13 +17,15 @@ const ContactForm = () => {
   const handleSubmit = async e => {
     e.preventDefault();
 
-    const res = await fetch(lambdaPath, {
+    const res = await fetch(path, {
       method: "POST",
       headers: {
         Accept: "application/json",
       },
       body: JSON.stringify(values),
     });
+
+    setValues(initialValues);
 
     const data = await res.json();
 

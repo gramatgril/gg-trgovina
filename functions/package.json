@@ -1,7 +1,0 @@
-{
-  "name": "functions",
-  "description": "functions",
-  "dependencies": {
-     "nodemailer": "^6.3.1"
-  }
-}
