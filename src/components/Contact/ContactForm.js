@@ -1,85 +1,117 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
+import useForm from "react-hook-form";
 
 import PrimaryButton from "../Button";
 
+import { validators } from "../../utils";
+const { nameValidation, emailValidation, messageValidation } = validators;
+
 // "https://ggtrgovina.netlify.com/.netlify/functions/sendMail"
 // "http://localhost:9000/sendMail"
-const path = "https://ggtrgovina.netlify.com/.netlify/functions/sendMail";
-const initialValues = { name: "", email: "", message: "" };
+const path = "http://localhost:9000/sendMail";
 
-const ContactForm = () => {
-  const [values, setValues] = useState(initialValues);
+const ContactForm = ({ setFormStatus }) => {
+  const { register, handleSubmit, errors } = useForm({ mode: "onBlur" });
 
-  const handleChange = e =>
-    setValues({ ...values, [e.target.name]: e.target.value });
+  const onSubmit = async (data, e) => {
+    // Honeypot break
+    if (data.phone) return;
 
-  const handleSubmit = async e => {
-    e.preventDefault();
+    try {
+      // Sends data to server
+      const res = await fetch(path, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data),
+      });
 
-    const res = await fetch(path, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-      },
-      body: JSON.stringify(values),
-    });
+      // Defaults input fields to empty
+      e.target.reset();
 
-    setValues(initialValues);
+      // Parses response
+      const { msg } = await res.json();
 
-    const data = await res.json();
-
-    if (res.status !== 200) {
-      console.log(`Status: ${data.msg} - ${res.status}`);
+      console.log(`Status: ${msg} - ${res.status}`);
+      setFormStatus({ statusCode: res.status, msg });
+    } catch (error) {
+      console.log(error);
     }
-    console.log(`Status: ${data.msg} - ${res.status}`);
   };
 
   return (
-    <Wrapper>
-      <form className="form" name="contact">
-        <div>
+    <Wrapper errors={errors}>
+      <form className="form" name="contact" onSubmit={handleSubmit(onSubmit)}>
+        <FormField>
+          <div className="top-line">
+            <label htmlFor="name">Ime</label>
+            {errors.name && <p className="error-text">{errors.name.message}</p>}
+          </div>
           <input
             autoComplete="off"
             type="text"
             name="name"
             id="name"
-            className="form-control"
-            placeholder="Ime in Priimek"
-            onChange={e => handleChange(e)}
+            className="input-field"
+            placeholder="Jože Novak"
+            ref={register(nameValidation)}
           />
-        </div>
-        <div>
+        </FormField>
+        <FormField>
+          <div className="top-line">
+            <label htmlFor="email">Email naslov</label>
+            {errors.email && (
+              <p className="error-text">{errors.email.message}</p>
+            )}
+          </div>
           <input
             autoComplete="off"
-            type="email"
+            type="text"
             name="email"
             id="email"
-            className="form-control"
-            placeholder="E-mail naslov"
-            onChange={e => handleChange(e)}
+            className="input-field"
+            placeholder="Jože.Novak@gmail.com"
+            ref={register(emailValidation)}
           />
-        </div>
-        <div>
+        </FormField>
+        <FormField>
+          <div className="top-line">
+            <label htmlFor="message">Sporočilo</label>
+            {errors.message && (
+              <p className="error-text">{errors.message.message}</p>
+            )}
+          </div>
           <textarea
             autoComplete="off"
             type="email"
             rows="10"
             name="message"
             id="message"
-            className="form-control"
-            placeholder="Sporočilo"
-            onChange={e => handleChange(e)}
+            className="input-field"
+            placeholder="Sporočilo, mnenje, predlog, naročilo..."
+            ref={register(messageValidation)}
           />
-        </div>
-        <div>
+        </FormField>
+        <FormField>
+          <input
+            autoComplete="off"
+            type="text"
+            name="phone"
+            id="phone"
+            className="form-control phone"
+            placeholder="Telefon"
+            ref={register}
+          />
+        </FormField>
+        <FormField>
           <PrimaryButton
             text="Pošlji"
             type="submit"
-            onClick={handleSubmit}
-            className="submit"
+            className="submit-button"
           />
-        </div>
+        </FormField>
       </form>
     </Wrapper>
   );
@@ -87,28 +119,56 @@ const ContactForm = () => {
 
 export default ContactForm;
 
-const Wrapper = styled.div`
-  margin-top: 1.5rem;
+const FormField = styled.div`
+  margin-bottom: 0.5rem;
 
-  label {
-    text-transform: capitalize;
-    display: block;
-    margin-bottom: 0.5rem;
+  .top-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .error-text {
+      color: ${({ theme }) => theme.red};
+    }
   }
 
-  .form-control,
-  .submit {
+  .input-field,
+  .submit-button {
     width: 100%;
     font-size: 1rem;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     padding: 0.375rem 0.75rem;
-    border: 1px solid ${({ theme }) => theme.grey};
+    border: 1px solid;
     border-radius: 0.25rem;
   }
 
-  .submit {
+  .submit-button {
     text-transform: uppercase;
     transition: ${({ theme }) => theme.linear};
     cursor: pointer;
+  }
+
+  .phone {
+    display: none !important;
+    opacity: 0;
+  }
+`;
+
+const Wrapper = styled.div`
+  margin: 1.5rem 0;
+
+  #name {
+    border-color: ${({ errors, theme }) =>
+      errors.name ? theme.red : theme.grey};
+  }
+
+  #email {
+    border-color: ${({ errors, theme }) =>
+      errors.email ? theme.red : theme.grey};
+  }
+
+  #message {
+    border-color: ${({ errors, theme }) =>
+      errors.message ? theme.red : theme.grey};
   }
 `;

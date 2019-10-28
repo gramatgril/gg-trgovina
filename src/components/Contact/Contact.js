@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import { Container } from "../../styles";
 import ContactForm from "./ContactForm";
 import LeafletMap from "./../Map";
-
-// import LeafletSecond from "../Map/LeafletSecond";
+import MailConfirmation from "./MailConfirmation";
 
 const propTypes = {
   companyInfo: PropTypes.shape({
@@ -37,6 +36,8 @@ const Contact = ({ companyInfo, contactInfo }) => {
     city,
   } = companyInfo;
   const { phone, fax, mail, web } = contactInfo;
+  // When the form is submitted, state and msg are received from the server and sent to the MailConfirmation component
+  const [formStatus, setFormStatus] = useState({ statusCode: null, msg: "" });
 
   return (
     <Wrapper>
@@ -65,9 +66,15 @@ const Contact = ({ companyInfo, contactInfo }) => {
               </StyledInfoBlock>
             </StyledInfoBlock>
           </div>
+          {/* Contact Form */}
           <div className="form-segment">
             <h2>Pustite nam sporočilo</h2>
-            <ContactForm />
+            {/* Renders confirmation component when mail is sent*/}
+            {!formStatus.statusCode ? (
+              <ContactForm setFormStatus={setFormStatus} />
+            ) : (
+              <MailConfirmation formStatus={formStatus} />
+            )}
           </div>
         </div>
         <div className="about-segment">

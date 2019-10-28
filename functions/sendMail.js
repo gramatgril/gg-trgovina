@@ -3,11 +3,11 @@ require("dotenv").config({
 });
 const { SENDGRID_API_KEY, DESTINATION_EMAIL } = process.env;
 
-// Initializing SendGrid service and API
+// Initializes SendGrid service and API
 const sgMail = require("@sendgrid/mail");
 sgMail.setApiKey(SENDGRID_API_KEY);
 
-// Assigning headers
+// Assigns headers
 const headers = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "Content-Type",
@@ -15,21 +15,33 @@ const headers = {
 };
 
 exports.handler = (event, context, callback) => {
-  const { name, email, message } = JSON.parse(event.body);
+  const { name, email, message, phone } = JSON.parse(event.body);
 
-  // Defining email content
+  // Bot detection
+  if (phone) {
+    console.log("***BAIT FIELD ACTIVATED***");
+    return callback(null, {
+      statusCode: 504,
+      headers,
+      body: JSON.stringify({
+        msg: "Bad bot!",
+      }),
+    });
+  }
+
+  // Defines email content
   const mail = {
     from: email,
     to: DESTINATION_EMAIL,
     subject: `Povpraševanje: ${name}`,
     text: message,
-    html: `<h3>Besedilo:</h3>
+    html: `<h3>Sporočilo:</h3>
     <p>${message}</p>
     <h3>Poslal:</h3>
     <p> ${email}</p>`,
   };
 
-  // Sending email
+  // Sends email
   sgMail
     .send(mail)
     .then(() => {
@@ -38,7 +50,9 @@ exports.handler = (event, context, callback) => {
       callback(null, {
         statusCode: 200,
         headers,
-        body: JSON.stringify({ msg: "Email sent" }),
+        body: JSON.stringify({
+          msg: "poročilo je bilo uspešno poslano. Hvala.",
+        }),
       });
     })
     .catch(error => {
@@ -46,7 +60,9 @@ exports.handler = (event, context, callback) => {
       callback(null, {
         statusCode: 503,
         headers,
-        body: JSON.stringify({ msg: "Email Failed" }),
+        body: JSON.stringify({
+          msg: "Nekaj se je zalomilo. Poskusite pozneje. Hvala",
+        }),
       });
     });
 };
