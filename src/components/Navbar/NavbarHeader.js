@@ -23,7 +23,7 @@ NavbarHeader.propTypes = propTypes;
 export default NavbarHeader;
 
 const StyledLogo = styled(Link)`
-  margin-top: 1rem;
+  margin: 1rem 1rem 0;
   width: 220px;
 `;
 

@@ -20,6 +20,7 @@ const propTypes = {
 
 const AdviceDetails = ({ advice }) => {
   const { title, date, content } = advice;
+  console.log("content:", content);
 
   const options = {
     renderNode: {
@@ -35,7 +36,7 @@ const AdviceDetails = ({ advice }) => {
           </StyledImage>
         );
       },
-      // Finds linked Youtube and Vimeo links and creates player
+      // Finds linked Youtube links and creates player
       [INLINES.HYPERLINK]: node => {
         if (node.data.uri.includes("youtube.com/embed")) {
           return (
@@ -48,6 +49,13 @@ const AdviceDetails = ({ advice }) => {
                 allowFullScreen
               ></iframe>
             </IframeContainer>
+          );
+          // Takes a hyperlink and displays it
+        } else {
+          return (
+            <a className="hyperlink" href={node.data.uri}>
+              {node.content[0].value}
+            </a>
           );
         }
       },
@@ -100,6 +108,7 @@ const StyledRichText = styled.article`
 
   h4 {
     font-size: 1.3rem;
+    margin-bottom: 1rem;
   }
 
   p {
@@ -114,6 +123,15 @@ const StyledRichText = styled.article`
     li {
       list-style-type: circle;
       padding: 0.3rem 0.5rem;
+    }
+  }
+
+  .hyperlink {
+    text-decoration: none;
+    color: ${({ theme }) => theme.green};
+
+    &:hover {
+      text-decoration: underline;
     }
   }
 `;
