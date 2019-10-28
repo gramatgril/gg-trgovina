@@ -22,29 +22,11 @@ const query = graphql`
         }
       }
     }
-
-    site {
-      siteMetadata {
-        presentation {
-          gramatText
-          gramatTitle
-          stilText
-          stilTitle
-        }
-      }
-    }
   }
 `;
 
 const PresentationGramat = () => {
-  const { imageGramat, imageStil, site } = useStaticQuery(query);
-
-  const {
-    gramatTitle,
-    stilTitle,
-    gramatText,
-    stilText,
-  } = site.siteMetadata.presentation;
+  const { imageGramat, imageStil } = useStaticQuery(query);
 
   return (
     <Wrapper>
@@ -55,15 +37,48 @@ const PresentationGramat = () => {
           <Img fluid={imageGramat.image.fluid} className="img" />
         </StyledImage>
         <StyledText top>
-          <h2>{gramatTitle}</h2>
-          <p>{gramatText}</p>
+          <h2>Trgovina z gradbenim materialom</h2>
+          <p>
+            Podjetje Gramat Gril že z dolgoletno tradicijo in predanostjo
+            zagotavlja pestro ponudbo{" "}
+            <strong>
+              gradbenega materiala, orodja, železnine, vodovodnega in
+              elektromateriala, keramike, kopalniške opreme, talnih oblog,
+              stavbnega pohištva, izdelkov za vrt
+            </strong>{" "}
+            ter ostalo. Od samega začetka se v podjetju zavedamo, da ste za naš
+            razvoj zelo pomemben dejavnik prav vi, končni kupci, ki svoje
+            izdelke vključujete v svoj bivalni prostor. V želji, da bi vam bili
+            naši izdelki bolj dostopni, so vam na voljo dve trgovini , in sicer
+            v <strong>Grosuplju</strong> ter v{" "}
+            <strong>Dolenjskih toplicah</strong>. Na obeh lokacijah se ponašamo
+            tako s kakovostno ponudbo, kot prijaznostjo in strokovnostjo
+            prodajnih svetovalcev.
+          </p>
         </StyledText>
       </StyledRow>
       {/*//? Stil Presentation */}
       <StyledRow>
         <StyledText>
-          <h2>{stilTitle}</h2>
-          <p>{stilText}</p>
+          <h2>Salon keramičnih ploščic STIL by Gramat Gril</h2>
+          <p>
+            Širina prodajnega programa se razteza vse od gradbenega materiala do
+            talnih oblog ter vse za kopalnico kar najdete v salonu{" "}
+            <strong>Stil by Gramat Gril</strong>. Pri nas si lahko ogledate
+            pestro ponudbo <strong>keramičnih ploščic</strong>. Poleg tega lahko
+            izbirate med različnimi dizajni{" "}
+            <strong>
+              sanitarne keramike, kopalniških ali kuhinjskih armatur, tuš kabin,
+              kopalniškega pohištva in ostale kopalniške opreme.{" "}
+            </strong>
+            S predstavitvijo ambientov kopalnic, panojev, vzorcev, katalogov in
+            profesionalnih prikazov se lahko seznanite s številnimi priznanimi
+            italijanskimi proizvajalci keramičnih ploščic srednjega in višjega
+            cenovnega razreda ter preostalo raznolikostjo naše ponudbe. Poseben
+            poudarek pa dajemo osebnemu pristopu, saj so vam strokovni nasveti
+            naših prodajalcev vedno na voljo.
+          </p>
+          <p>Obiščite salon na naslovu </p>
         </StyledText>
         <StyledImage>
           <Img fluid={imageStil.image.fluid} className="img" />

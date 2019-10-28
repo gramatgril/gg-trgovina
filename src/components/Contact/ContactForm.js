@@ -1,11 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import useForm from "react-hook-form";
+import PropTypes from "prop-types";
 
 import PrimaryButton from "../Button";
 
 import { validators } from "../../utils";
 const { nameValidation, emailValidation, messageValidation } = validators;
+
+const propTypes = {
+  setFormStatus: PropTypes.func.isRequired,
+};
 
 // "https://ggtrgovina.netlify.com/.netlify/functions/sendMail"
 // "http://localhost:9000/sendMail"
@@ -117,6 +122,8 @@ const ContactForm = ({ setFormStatus }) => {
   );
 };
 
+ContactForm.propTypes = propTypes;
+
 export default ContactForm;
 
 const FormField = styled.div`
@@ -136,7 +143,6 @@ const FormField = styled.div`
   .submit-button {
     width: 100%;
     font-size: 1rem;
-    /* margin-bottom: 1rem; */
     padding: 0.375rem 0.75rem;
     border: 1px solid;
     border-radius: 0.25rem;

@@ -15,27 +15,24 @@ const query = graphql`
         }
       }
     }
-
-    site {
-      siteMetadata {
-        presentation {
-          colorMix
-        }
-      }
-    }
   }
 `;
 
 const ColorMix = () => {
-  const { caparol, site } = useStaticQuery(query);
-  const { colorMix } = site.siteMetadata.presentation;
+  const { caparol } = useStaticQuery(query);
 
   return (
     <Wrapper>
       <Title title="mešalnica" subtitle="barv" />
       <StyledContainer>
         <StyledDescription>
-          <p>{colorMix}</p>
+          <p>
+            Sončno rumena, klasično bela ali karibsko modra? Barvni ton stenske
+            barve ali barva fasade naj bo točno po vaših željah. To lahko
+            dosežemo le z mešanjem različnih barv in nians. V mešalnici barv v
+            Gramat Grilu d.o.o. vedno dopolnjujemo ponudbo barv in materialov,
+            ter vam tako omogočamo pripravo vašega želenega odtenka.
+          </p>
         </StyledDescription>
         <StyledImage>
           <Img

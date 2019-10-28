@@ -51,7 +51,7 @@ exports.handler = (event, context, callback) => {
         statusCode: 200,
         headers,
         body: JSON.stringify({
-          msg: "poročilo je bilo uspešno poslano. Hvala.",
+          msg: "Sporočilo je bilo uspešno poslano. Hvala.",
         }),
       });
     })

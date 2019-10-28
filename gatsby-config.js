@@ -37,29 +37,6 @@ module.exports = {
       web: `www.gramat-gril.si`,
       stilUrl: `https://gramat-gril.si/`,
     },
-    presentation: {
-      gramatTitle: `Trgovina z gradbenim materialom`,
-      stilTitle: `Salon keramičnih ploščic STIL`,
-      gramatText: `Tradicija podjetništva v družini Gril sega v leto 1967. Takrat sta
-      Ana in August Gril odprla obrtno delavnico za izdelavo cementnih
-      izdelkov. Leta 1989 sta jo reorganizirala v podjetje GRAMAT GRIL
-      d.o.o. ter odprla trgovino z gradbenim materialom in keramiko. Leta
-      2009 je podjetje prevzel sin Peter Gril. Danes gradbeni oddelek ter
-      salon keramike in kopalniške opreme na 700m2 svojim kupcem nudi
-      celovito ponudbo materiala za kopalnice.`,
-      stilText: `V našem salonu keramike STIL by Gramat Gril nudimo široko izbiro
-      keramičnih ploščic, sanitarne keramike, armatur, tuš kabin,
-      kopalniškega pohištva in ostale kopalniške opreme. Zastopamo
-      številne priznane italijanske proizvajalce keramičnih ploščic
-      srednjega in višjega cenovnega razreda, ki si jih lahko v živo
-      ogledate v našem salonu. Del vsake kopalnice je tudi sanitarna
-      keramika: wc školjka, umivalnik, tuš kad in kopalna kad.`,
-      colorMix: `Sončno rumena, klasično bela ali karibsko modra? Barvni ton stenske
-            barve ali barva fasade naj bo točno po vaših željah. To lahko
-            dosežemo le z mešanjem različnih barv in nians. V mešalnici barv v
-            Gramat Grilu d.o.o. vedno dopolnjujemo ponudbo barv in materialov,
-            ter vam tako omogočamo pripravo vašega želenega odtenka.`,
-    },
   },
   plugins: [
     {

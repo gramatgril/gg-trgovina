@@ -3,7 +3,7 @@ import { FaBars } from "react-icons/fa";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import logo from "../../images/gg_logo.jpg";
+import logo from "../../images/gg-logo.png";
 
 const propTypes = {
   toggleOpen: PropTypes.func.isRequired,
@@ -23,7 +23,8 @@ NavbarHeader.propTypes = propTypes;
 export default NavbarHeader;
 
 const StyledLogo = styled(Link)`
-  width: 200px;
+  margin-top: 1rem;
+  width: 220px;
 `;
 
 const Wrapper = styled.div`

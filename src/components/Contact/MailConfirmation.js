@@ -1,6 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { FaRegCheckCircle, FaRegTimesCircle } from "react-icons/fa";
+import PropTypes from "prop-types";
+
+const propTypes = {
+  formStatus: PropTypes.shape({
+    statusCode: PropTypes.number.isRequired,
+    msg: PropTypes.string.isRequired,
+  }),
+};
 
 const MailConfirmation = ({ formStatus }) => {
   const { statusCode, msg } = formStatus;
@@ -25,6 +33,8 @@ const MailConfirmation = ({ formStatus }) => {
     );
   }
 };
+
+MailConfirmation.propTypes = propTypes;
 
 export default MailConfirmation;
 
