@@ -9,7 +9,7 @@ const { nameValidation, emailValidation, messageValidation } = validators;
 
 // "https://ggtrgovina.netlify.com/.netlify/functions/sendMail"
 // "http://localhost:9000/sendMail"
-const path = "http://localhost:9000/sendMail";
+const path = "https://ggtrgovina.netlify.com/.netlify/functions/sendMail";
 
 const ContactForm = ({ setFormStatus }) => {
   const { register, handleSubmit, errors } = useForm({ mode: "onBlur" });
