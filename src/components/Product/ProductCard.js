@@ -26,16 +26,7 @@ const propTypes = {
 };
 
 const ProductCard = ({ product }) => {
-  const {
-    price,
-    oldPrice,
-    priceUnit,
-    slug,
-    title,
-    images,
-    category,
-    promo,
-  } = product;
+  const { price, oldPrice, priceUnit, slug, title, images, category } = product;
 
   return (
     <Wrapper>
@@ -57,11 +48,11 @@ const ProductCard = ({ product }) => {
             </StyledDiscount>
           )}
           {/* Promo tag */}
-          {promo && (
+          {/* {promo && (
             <StyledPromo>
               <span>Akcija</span>
             </StyledPromo>
-          )}
+          )} */}
         </StyledImage>
         <StyledTitle>
           <h4>{title}</h4>
@@ -79,10 +70,10 @@ const StyledDiscount = styled.div`
   padding: 0 0.2rem;
   position: absolute;
   top: 0%;
-  right: 0%;
-  background: ${({ theme }) => theme.grey};
-  width: 50px;
-  height: 50px;
+  left: 0%;
+  background: ${({ theme }) => theme.darkRed};
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   color: ${({ theme }) => theme.white};
   display: flex;
@@ -150,16 +141,16 @@ const StyledPrice = styled.p`
   border-radius: 0.3rem;
 `;
 
-const StyledPromo = styled.p`
-  box-shadow: ${({ theme }) => theme.boxShadow};
-  font-size: 1.1rem;
-  position: absolute;
-  color: ${({ theme }) => theme.white};
-  background: ${({ theme }) => theme.red};
-  padding: 0.2rem 0.5rem;
-  text-align: center;
-  text-transform: uppercase;
-  top: 0%;
-  left: 0%;
-  border-radius: 0.3rem;
-`;
+// const StyledPromo = styled.p`
+//   box-shadow: ${({ theme }) => theme.boxShadow};
+//   font-size: 1.1rem;
+//   position: absolute;
+//   color: ${({ theme }) => theme.white};
+//   background: ${({ theme }) => theme.red};
+//   padding: 0.2rem 0.5rem;
+//   text-align: center;
+//   text-transform: uppercase;
+//   top: 0%;
+//   left: 0%;
+//   border-radius: 0.3rem;
+// `;

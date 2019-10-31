@@ -5,6 +5,7 @@ export const theme = {
   grey: `#6a6c6e`,
   lightGrey: `#D3D3D3`,
   red: `#ff0000`,
+  darkRed: `#DC143C`,
   white: `#fff`,
   offWhite: `#f7f7f7`,
   boxShadow: `0px 0px 10px rgba(0, 0, 0, 0.2),

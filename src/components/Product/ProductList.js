@@ -39,21 +39,23 @@ const defaultProps = {
   text: "nazaj na kategorije",
 };
 
-const ProductList = ({ products, path, text }) => (
-  <Wrapper>
-    <Container align="center">
-      <StyledProductGallery>
-        {products.map(({ node }) => (
-          <ProductCard key={node.id} product={node} />
-        ))}
-      </StyledProductGallery>
-      {/* Button link gets path and text from parent component*/}
-      <Link to={path} className="link">
-        <PrimaryButton text={text} />
-      </Link>
-    </Container>
-  </Wrapper>
-);
+const ProductList = ({ products, path, text }) => {
+  return (
+    <Wrapper>
+      <Container align="center">
+        <StyledProductGallery>
+          {products.map(({ node }) => (
+            <ProductCard key={node.id} product={node} />
+          ))}
+        </StyledProductGallery>
+        {/* Button link gets path and text from parent component*/}
+        <Link to={path} className="link">
+          <PrimaryButton text={text} />
+        </Link>
+      </Container>
+    </Wrapper>
+  );
+};
 
 ProductList.propTypes = propTypes;
 ProductList.defaultProps = defaultProps;
@@ -66,7 +68,7 @@ const Wrapper = styled.div`
 
 const StyledProductGallery = styled.div`
   width: 90vw;
-  grid-column-gap: 0.5rem;
+  grid-column-gap: 1rem;
   grid-row-gap: 2rem;
   padding: 0 0 3rem;
 

@@ -9,40 +9,41 @@ const {
   SORT_BY_PRICE_UP,
   SORT_BY_PRICE_DOWN,
   // SORT_BY_DATE_DOWN,
+  SORT_BY_DISCOUNT,
 } = types;
 
 export const navLinks = [
-         {
-           id: 0,
-           name: "Ponudba",
-           path: "/",
-           color: "#262626",
-         },
-         {
-           id: 1,
-           name: "Nasveti in ideje",
-           path: "/nasveti-in-ideje",
-           color: "#262626",
-         },
-         // {
-         //   id: 2,
-         //   name: "Katalog",
-         //   path: "/katalog",
-         //  color: "#262626",
-         // },
-         {
-           id: 4,
-           name: "Kontakt",
-           path: "/kontakt",
-           color: "#262626",
-         },
-         {
-           id: 5,
-           name: "Akcije",
-           path: "/akcija",
-           color: "#ff0000",
-         },
-       ];
+  {
+    id: 0,
+    name: "Domov",
+    path: "/",
+    color: "#262626",
+  },
+  {
+    id: 1,
+    name: "Nasveti in ideje",
+    path: "/nasveti-in-ideje",
+    color: "#262626",
+  },
+  // {
+  //   id: 2,
+  //   name: "Katalog",
+  //   path: "/katalog",
+  //  color: "#262626",
+  // },
+  {
+    id: 4,
+    name: "Kontakt",
+    path: "/kontakt",
+    color: "#262626",
+  },
+  {
+    id: 5,
+    name: "Akcije",
+    path: "/akcija",
+    color: "#ff0000",
+  },
+];
 
 export const navIcons = [
   {
@@ -121,4 +122,10 @@ export const sortMenuLinks = [
   //   active: false,
   //   action: SORT_BY_DATE_DOWN,
   // },
+  {
+    id: 5,
+    name: "Popust",
+    active: false,
+    action: SORT_BY_DISCOUNT,
+  },
 ];

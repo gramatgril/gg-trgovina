@@ -225,7 +225,7 @@ const StyledImages = styled.div`
     font-size: 1.1rem;
     position: absolute;
     color: ${({ theme }) => theme.white};
-    background: ${({ theme }) => theme.red};
+    background: ${({ theme }) => theme.darkRed};
     padding: 0.4rem 0.8rem;
     text-align: center;
     text-transform: uppercase;
@@ -261,7 +261,7 @@ const StyledPrice = styled.div`
   :after {
     content: "";
     display: block;
-    background: ${({ theme }) => theme.grey};
+    background: ${({ theme }) => theme.lightGrey};
     height: 1px;
     width: 100%;
   }

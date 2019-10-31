@@ -90,6 +90,7 @@ const Wrapper = styled.div`
 
   h3 {
     color: ${({ theme }) => theme.green};
+    font-weight: 500;
   }
 `;
 
@@ -108,7 +109,8 @@ const StyledRichText = styled.article`
 
   h4 {
     font-size: 1.3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
   }
 
   p {

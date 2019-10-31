@@ -17,8 +17,8 @@ const propTypes = {
 const SortMenu = ({ dispatch, searchInput, promo }) => {
   const [menuLinks, setMenuLinks] = useState(links.sortMenuLinks);
   const [isMenuOpen, setMenuOpen] = useState(false);
-  // ListHeight changes depending on whether user is on Akcija page or not
-  const listHeight = promo ? "160" : "190";
+  // ListHeight changes depending on wether user is on Akcija page or not
+  const listHeight = promo ? "190" : "220";
 
   // Check if component is on Akcija page and remove sort by promoted
   useEffect(() => {
