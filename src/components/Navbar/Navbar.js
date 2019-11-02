@@ -44,7 +44,7 @@ const Navbar = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   box-shadow: ${({ theme }) => theme.boxShadow};
 `;
 

@@ -12,7 +12,7 @@ import {
 
 /* Reducer state:
  {  searchInput: "",
-  initialProducts: data.allProducts.edges,
+  initialProducts: [],
   products: [] }
 */
 

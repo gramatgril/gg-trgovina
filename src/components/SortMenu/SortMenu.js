@@ -22,7 +22,8 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
 
   // Check if component is on Akcija page and remove sort by promoted
   useEffect(() => {
-    promo && setMenuLinks(menuLinks.filter(l => l.action !== SHOW_PROMOTED));
+    promo &&
+      setMenuLinks(menuLinks.filter(link => link.action !== SHOW_PROMOTED));
   }, []);
 
   const handleClickLink = (id, action) => {
@@ -52,9 +53,8 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
         <FaFilter className="icon" />
         <h4>Filtri in iskanje</h4>
       </div>
-
       <StyledLinks>
-        {menuLinks.map(({ name, id, active, action }) => (
+        {menuLinks.map(({ id, name, active, action }) => (
           <StyledSortLink
             key={id}
             active={active}

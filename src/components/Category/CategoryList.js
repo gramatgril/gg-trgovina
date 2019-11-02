@@ -19,6 +19,9 @@ const propTypes = {
       }).isRequired,
     }).isRequired
   ).isRequired,
+  adviceCardImg: PropTypes.shape({
+    fluid: PropTypes.object.isRequired,
+  }),
 };
 
 const CategoryList = ({ categories, adviceCardImg }) => (

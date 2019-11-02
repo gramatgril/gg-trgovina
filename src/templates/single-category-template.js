@@ -30,10 +30,8 @@ export default ({ data }) => {
   };
 
   // Reducer handles filtering, sorting and searching
-  const [{ products, searchInput }, dispatch] = useReducer(
-    reducer,
-    initialState
-  );
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { products, searchInput } = state;
 
   // Adds discount field to fetched products and sends it to state
   useEffect(() => {
@@ -48,7 +46,7 @@ export default ({ data }) => {
         <Banner title={title} info={description.description} />
       </Hero>
       <SortMenu dispatch={dispatch} searchInput={searchInput} />
-      {<ProductList products={products} />}
+      <ProductList products={products} />
       {/* ColorMixing promotional component visible only on "Barve in Fasade page" */}
       {slug === "barve-in-fasade" && <ColorMix />}
       <AdviceList embed={true} />

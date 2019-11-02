@@ -201,6 +201,19 @@ const StyledImages = styled.div`
 
   .main-img {
     height: 100%;
+    /* Image blur effect */
+    animation: image-focus-in 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+
+    @keyframes image-focus-in {
+      0% {
+        filter: blur(12px);
+        opacity: 0;
+      }
+      100% {
+        filter: blur(0px);
+        opacity: 1;
+      }
+    }
   }
 
   .gallery {
