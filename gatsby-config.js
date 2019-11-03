@@ -100,7 +100,7 @@ module.exports = {
         background_color: `#f7f7f7`,
         theme_color: `#8db600`,
         display: `standalone`,
-        icon: `src/images/gg-logo.png`,
+        icon: `src/images/icon.png`,
       },
     },
     `gatsby-plugin-offline`,
