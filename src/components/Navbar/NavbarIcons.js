@@ -36,7 +36,7 @@ export default NavbarIcons;
 const Wrapper = styled.div`
   margin-left: 3rem;
   display: none;
-  width: 120px;
+  width: 106.2px;
   height: 60px;
 
   @media (min-width: 900px) {

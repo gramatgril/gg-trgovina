@@ -70,8 +70,14 @@ const Footer = () => {
           <p>e: {mail}</p>
           <p>w: {web}</p>
           <StyledIconWrapper>
-            {navIcons.map(({ id, path, icon }) => (
-              <a key={id} href={path} target="_blank" rel="noopener noreferrer">
+            {navIcons.map(({ id, path, icon, label }) => (
+              <a
+                key={id}
+                href={path}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+              >
                 {icon}
               </a>
             ))}

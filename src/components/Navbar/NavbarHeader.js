@@ -99,16 +99,10 @@ const Wrapper = styled.div`
     justify-content: space-between;
   }
 
-  .toggle-icon {
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: ${({ theme }) => theme.green};
-  }
-
   /* Menu icon hidden on mobile screen size */
   @media (min-width: 900px) {
     box-shadow: none;
-    .toggle-icon {
+    ${StyledIcon} {
       display: none;
     }
   }

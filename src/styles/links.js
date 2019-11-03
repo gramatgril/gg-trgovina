@@ -50,16 +50,19 @@ export const navIcons = [
     id: 0,
     icon: <img src={logo} alt="stil" className="icon stil-icon" />,
     path: "https://gramat-gril.si/",
+    label: "stil-link",
   },
   {
     id: 1,
     icon: <FaFacebook className="icon facebook-icon" />,
     path: "https://www.facebook.com",
+    label: "facebook-link",
   },
   {
     id: 2,
     icon: <FaInstagram className="icon instagram-icon" />,
     path: "https://www.instagram.com",
+    label: "instagram-link",
   },
 ];
 

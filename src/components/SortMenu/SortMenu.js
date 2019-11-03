@@ -66,12 +66,13 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
       </StyledLinks>
       <StyledForm onSubmit={productSearch}>
         <input
+          aria-label="iskanje"
           placeholder="Iskanje"
           type="text"
           onChange={handleInputChange}
           value={searchInput}
         />
-        <button type="submit">
+        <button type="submit" aria-label="iskanje">
           <FaSearch />
         </button>
       </StyledForm>
@@ -121,7 +122,7 @@ const StyledSortLink = styled.li`
   }
 `;
 
-const Wrapper = styled.ul`
+const Wrapper = styled.div`
   /* Mobile */
   height: ${({ isMenuOpen, listHeight }) =>
     isMenuOpen ? `${listHeight}px` : "30px"};
