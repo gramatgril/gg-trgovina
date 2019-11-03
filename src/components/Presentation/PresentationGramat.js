@@ -42,12 +42,12 @@ const PresentationGramat = () => {
             Podjetje Gramat Gril že z dolgoletno tradicijo in predanostjo
             zagotavlja pestro ponudbo{" "}
             <strong>
-              gradbenega materiala, orodja, železnine, vodovodnega in
-              elektromateriala, keramike, kopalniške opreme, talnih oblog,
-              stavbnega pohištva, izdelkov za vrt
+              gradbenega materiala, orodja, železnine, kopalniške opreme,
+              vodovodnega in elektromateriala, keramike, talnih oblog, stavbnega
+              pohištva, izdelkov za vrt
             </strong>{" "}
-            ter ostalo. Od samega začetka se v podjetju zavedamo, da ste za naš
-            razvoj zelo pomemben dejavnik prav vi, končni kupci, ki svoje
+            ter ostalega. Od samega začetka se v podjetju zavedamo, da ste za
+            naš razvoj zelo pomemben dejavnik prav vi, končni kupci, ki svoje
             izdelke vključujete v svoj bivalni prostor. V želji, da bi vam bili
             naši izdelki bolj dostopni, so vam na voljo dve trgovini , in sicer
             v <strong>Grosuplju</strong> ter v{" "}
@@ -88,7 +88,7 @@ const PresentationGramat = () => {
   );
 };
 
-const StyledText = styled.div`
+const StyledText = styled.article`
   text-align: justify;
 
   h2 {

@@ -36,7 +36,7 @@ const Navbar = () => {
       </StyledTopBar>
       {/* Breakpoint is 900px. Header shows menu icon, Links go from flex to block and Icon is hidden */}
       <StyledMainBar>
-        <NavbarHeader toggleOpen={toggleOpen} />
+        <NavbarHeader toggleOpen={toggleOpen} isOpen={isOpen} />
         <NavbarLinks isOpen={isOpen} stilUrl={stilUrl} />
         <NavbarIcons />
       </StyledMainBar>

@@ -41,6 +41,7 @@ export default Legal;
 
 const Wrapper = styled(Container)`
   padding: 3rem 0;
+
   h4 {
     letter-spacing: ${({ theme }) => theme.letterSpacing};
     font-weight: 500;
@@ -49,7 +50,6 @@ const Wrapper = styled(Container)`
   }
 
   p {
-    /* letter-spacing: 1px; */
     text-align: left;
     padding: 2rem 0;
   }

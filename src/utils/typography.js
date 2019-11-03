@@ -13,4 +13,5 @@ const typography = new Typography({
   bodyFontFamily: ["Montserrat", "serif"],
   blockMarginBottom: "true",
 });
+
 export default typography;
