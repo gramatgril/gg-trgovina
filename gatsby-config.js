@@ -94,12 +94,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gramat Gril Trgovina`,
+        name: `Gramat Gril`,
         short_name: `Gramat Gril`,
         start_url: `/`,
         background_color: `#f7f7f7`,
         theme_color: `#8db600`,
-        display: `standalone`,
+        display: `fullscreen`,
         icon: `src/images/icon.png`,
       },
     },
