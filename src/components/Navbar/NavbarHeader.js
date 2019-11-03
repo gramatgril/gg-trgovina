@@ -79,9 +79,6 @@ const StyledIcon = styled.div`
   }
 
   &.open span:nth-child(3) {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    -o-transform: rotate(-45deg);
     transform: rotate(-45deg);
     top: 39px;
     left: 8px;
