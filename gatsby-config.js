@@ -59,7 +59,6 @@ module.exports = {
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-playground`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
@@ -92,6 +91,19 @@ module.exports = {
         linkStyles: true, // (default: true) Enable/disable loading stylesheets via CDN
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Gramat Gril Trgovina`,
+        short_name: `Gramat Gril`,
+        start_url: `/`,
+        background_color: `#f7f7f7`,
+        theme_color: `#8db600`,
+        display: `standalone`,
+        icon: `src/images/gg-logo.png`,
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 
   developMiddleware: app => {
