@@ -120,7 +120,7 @@ const Wrapper = styled.footer`
   p {
     transition: ${({ theme }) => theme.linear};
     color: ${({ theme }) => theme.white};
-    padding: 0.2rem 0;
+    padding: 0.7rem 0;
   }
 
   @media (max-width: 768px) {
