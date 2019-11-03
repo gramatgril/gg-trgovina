@@ -99,7 +99,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#f7f7f7`,
         theme_color: `#8db600`,
-        display: `fullscreen`,
+        display: `standalone`,
         icon: `src/images/icon.png`,
       },
     },
