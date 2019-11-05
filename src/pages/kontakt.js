@@ -17,7 +17,7 @@ export default ({ data }) => {
       <Hero img={heroImg}>
         <Banner
           title="kontakt"
-          info="Pošljite nam povpraševanje ali komentar. "
+          info="Pošljite nam povpraševanje, komentarje in predloge."
         />
       </Hero>
       <Contact companyInfo={companyInfo} contactInfo={contactInfo} />

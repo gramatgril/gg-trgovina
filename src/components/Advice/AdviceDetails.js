@@ -20,7 +20,6 @@ const propTypes = {
 
 const AdviceDetails = ({ advice }) => {
   const { title, date, content } = advice;
-  console.log("content:", content);
 
   const options = {
     renderNode: {
