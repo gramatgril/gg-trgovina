@@ -116,7 +116,7 @@ const ProductDetails = ({ product, categorySlug }) => {
         </div>
         {/* Link back */}
         <Link to={`/${categorySlug}`}>
-          <PrimaryButton text="nazaj na kategorijo" />
+          <PrimaryButton text="nazaj na kategorijo" className="link" />
         </Link>
       </Container>
     </Wrapper>
@@ -132,6 +132,10 @@ const Wrapper = styled.div`
 
   .panels {
     padding: 1rem 0;
+  }
+
+  .link {
+    margin: 2rem 0;
   }
 
   @media (min-width: 576px) {
@@ -202,7 +206,7 @@ const StyledImages = styled.div`
   .main-img {
     height: 100%;
     /* Image blur effect */
-    animation: image-focus-in 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+    animation: image-focus-in 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
 
     @keyframes image-focus-in {
       0% {
