@@ -23,68 +23,67 @@ const getInfo = graphql`
 const Navbar = () => {
   const { site } = useStaticQuery(getInfo);
   const { phone, mail, stilUrl } = site.siteMetadata.contactInfo;
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
     <Wrapper>
-      <StyledTopBar>
+      <TopRow>
         <p>{mail}</p>
         <p>{phone}</p>
-      </StyledTopBar>
+      </TopRow>
       {/* Breakpoint is 900px. Header shows menu icon, Links go from flex to block and Icon is hidden */}
-      <StyledMainBar>
+      <BottomRow>
         <NavbarHeader toggleOpen={toggleOpen} isOpen={isOpen} />
         <NavbarLinks isOpen={isOpen} stilUrl={stilUrl} />
         <NavbarIcons />
-      </StyledMainBar>
+      </BottomRow>
     </Wrapper>
   );
 };
 
-const Wrapper = styled.header`
-  box-shadow: ${({ theme }) => theme.boxShadow};
-`;
+export default Navbar;
 
-const StyledMainBar = styled.div`
-  padding: 0;
-  @media (min-width: 900px) {
-    padding: 0.2rem 1rem;
-    width: 100%;
-    margin: 0 auto;
+const BottomRow = styled.div``;
+const TopRow = styled.div``;
+
+const Wrapper = styled.header`
+  /* === MOBILE === */
+  box-shadow: ${({ theme }) => theme.boxShadow};
+
+  ${TopRow} {
+    height: 3rem;
     display: flex;
     justify-content: space-between;
+    padding: 0 1.5rem;
     align-items: center;
-  }
-`;
-
-const StyledTopBar = styled.div`
-  margin: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background: ${({ theme }) => theme.green};
-  color: ${({ theme }) => theme.white};
-
-  p {
-    white-space: nowrap;
-    letter-spacing: 1px;
-    font-size: 0.8rem;
-    padding: 0.5rem 0;
+    background: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.white};
   }
 
-  @media (min-width: 768px) {
-    justify-content: flex-end;
+  ${BottomRow} {
+    min-height: 6rem;
+  }
 
-    p {
+  /* === DESKTOP === */
+  @media (min-width: 900px) {
+    ${TopRow} {
+      justify-content: flex-end;
+
+      p {
+        align-items: center;
+        font-size: 1.5rem;
+        margin: 0 1rem;
+        white-space: nowrap;
+      }
+    }
+
+    ${BottomRow} {
+      width: 100%;
+      display: flex;
+      justify-content: center;
       align-items: center;
-      font-size: 1.2rem;
-      padding: 0.5rem 1rem;
-      letter-spacing: 2px;
     }
   }
 `;
-
-export default Navbar;

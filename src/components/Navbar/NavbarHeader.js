@@ -11,14 +11,14 @@ const propTypes = {
 
 const NavbarHeader = ({ toggleOpen, isOpen }) => (
   <Wrapper>
-    <StyledLogo to="/">
+    <Logo to="/">
       <img src={logo} alt="logo" className="img" />
-    </StyledLogo>
-    <StyledIcon className={isOpen ? "open" : ""} onClick={() => toggleOpen()}>
+    </Logo>
+    <MenuIcon className={isOpen ? "open" : ""} onClick={() => toggleOpen()}>
       <span></span>
       <span></span>
       <span></span>
-    </StyledIcon>
+    </MenuIcon>
   </Wrapper>
 );
 
@@ -26,80 +26,81 @@ NavbarHeader.propTypes = propTypes;
 
 export default NavbarHeader;
 
-const StyledLogo = styled(Link)`
-  margin: 1rem 1rem 0;
-  width: 220px;
-`;
-
-const StyledIcon = styled.div`
-  width: 60px;
-  height: 45px;
-  position: relative;
-  transform: rotate(0deg) scale(0.5);
-  transition: 0.5s ease-in-out;
-  cursor: pointer;
-
-  span {
-    display: block;
-    position: absolute;
-    height: 9px;
-    width: 100%;
-    background: ${({ theme }) => theme.green};
-    border-radius: 9px;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: 0.25s ease-in-out;
-  }
-
-  span:nth-child(1) {
-    top: 0px;
-    transform-origin: left center;
-  }
-
-  span:nth-child(2) {
-    top: 18px;
-    transform-origin: left center;
-  }
-
-  span:nth-child(3) {
-    top: 36px;
-    transform-origin: left center;
-  }
-
-  &.open span:nth-child(1) {
-    transform: rotate(45deg);
-    top: -3px;
-    left: 8px;
-  }
-
-  &.open span:nth-child(2) {
-    width: 0%;
-    opacity: 0;
-  }
-
-  &.open span:nth-child(3) {
-    transform: rotate(-45deg);
-    top: 39px;
-    left: 8px;
-  }
-`;
+const Logo = styled(Link)``;
+const MenuIcon = styled.div``;
 
 const Wrapper = styled.div`
+  /* === MOBILE === */
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.2rem 0.5rem 0 0;
+  height: 6rem;
 
-  .link {
-    display: flex;
-    justify-content: space-between;
+  ${Logo} {
+    height: 4rem;
+    width: 12.625rem; /*  Keeping same scale in rem*/
   }
 
-  /* Menu icon hidden on mobile screen size */
+  ${MenuIcon} {
+    width: 60px;
+    height: 45px;
+    position: relative;
+    transform: rotate(0deg) scale(0.5);
+    transition: 0.5s ease-in-out;
+    cursor: pointer;
+
+    span {
+      display: block;
+      position: absolute;
+      height: 9px;
+      width: 100%;
+      background: ${({ theme }) => theme.green};
+      border-radius: 9px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: 0.25s ease-in-out;
+    }
+
+    span:nth-child(1) {
+      top: 0px;
+      transform-origin: left center;
+    }
+
+    span:nth-child(2) {
+      top: 18px;
+      transform-origin: left center;
+    }
+
+    span:nth-child(3) {
+      top: 36px;
+      transform-origin: left center;
+    }
+
+    &.open span:nth-child(1) {
+      transform: rotate(45deg);
+      top: -3px;
+      left: 8px;
+    }
+
+    &.open span:nth-child(2) {
+      width: 0%;
+      opacity: 0;
+    }
+
+    &.open span:nth-child(3) {
+      transform: rotate(-45deg);
+      top: 39px;
+      left: 8px;
+    }
+  }
+
+  /* === DESKTOP === */
   @media (min-width: 900px) {
-    box-shadow: none;
-    ${StyledIcon} {
+    box-shadow: none; /* Menu icon hidden on mobile screen size */
+
+    ${MenuIcon} {
       display: none;
     }
   }

@@ -10,7 +10,6 @@ export const GlobalStyle = createGlobalStyle`
 
 body {
   background: #fff;
-  line-height: 1.4;
   font-size: 1rem;
 }
 
