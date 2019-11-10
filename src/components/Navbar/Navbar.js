@@ -80,6 +80,7 @@ const Wrapper = styled.header`
     }
 
     ${BottomRow} {
+      padding: 0 2rem;
       width: 100%;
       display: flex;
       justify-content: center;

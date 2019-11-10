@@ -34,10 +34,11 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.2rem 0.5rem 0 0;
+
   height: 6rem;
 
   ${Logo} {
+    margin-left: 5%;
     height: 4rem;
     width: 12.625rem; /*  Keeping same scale in rem*/
   }
