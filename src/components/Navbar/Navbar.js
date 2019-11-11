@@ -60,6 +60,10 @@ const Wrapper = styled.header`
     align-items: center;
     background: ${({ theme }) => theme.primary[500]};
     color: ${({ theme }) => theme.primary[100]};
+
+    p {
+      white-space: nowrap;
+    }
   }
 
   ${BottomRow} {
