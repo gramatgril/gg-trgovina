@@ -1,12 +1,10 @@
-import React, { Fragment, useReducer, useEffect } from "react";
+import React, { Fragment, useReducer } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
 import { AdviceList } from "../Advice";
 import ProductList from "./../Product/ProductList";
 import SortMenu from "./../SortMenu";
 import { productReducer as reducer } from "./../../utils";
-import { enhanceProduct } from "./../../utils/enhanceProduct";
-import { LOAD_PRODUCTS } from "./../../utils/constants";
 
 const getPromotedItems = graphql`
   query {
@@ -42,18 +40,12 @@ const Promotion = () => {
 
   const initialState = {
     searchInput: "",
-    initialProducts: [],
-    products: [],
+    initialProducts: promotedProducts.edges,
+    products: promotedProducts.edges,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
   const { searchInput, products } = state;
-
-  // Adds discount field to fetched products and sends it to state
-  useEffect(() => {
-    const enhancedProducts = enhanceProduct(promotedProducts.edges);
-    dispatch({ type: LOAD_PRODUCTS, enhancedProducts });
-  }, []);
 
   return (
     <Fragment>

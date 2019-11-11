@@ -27,38 +27,42 @@ CategoryCard.propTypes = propTypes;
 
 export default CategoryCard;
 
-const StyledImage = styled.div`
-  position: relative;
-  background: ${({ theme }) => theme.white};
-  height: 280px;
+const StyledImage = styled.div``;
 
-  .img {
-    transition: ${({ theme }) => theme.linear};
-  }
-`;
-
-const StyledTitleBox = styled.div`
-  border-radius: 5px;
-  font-weight: 500;
-  width: 80%;
-  position: absolute;
-  top: 80%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-transform: uppercase;
-  letter-spacing: 1.8px;
-  color: ${({ theme }) => theme.green};
-  background: ${({ theme }) => theme.white};
-  padding: 0.5rem;
-  display: inline-block;
-  transition: ${({ theme }) => theme.linear};
-`;
+const StyledTitleBox = styled.div``;
 
 const Wrapper = styled.div`
+  ${StyledImage} {
+    position: relative;
+    background: ${({ theme }) => theme.white};
+    height: 280px;
+
+    .img {
+      transition: ${({ theme }) => theme.linear};
+    }
+  }
+
+  ${StyledTitleBox} {
+    border-radius: 5px;
+    font-weight: 500;
+    width: 80%;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: ${({ theme }) => theme.primary[500]};
+    background: ${({ theme }) => theme.grey[100]};
+    padding: 0.5rem;
+    display: inline-block;
+    transition: ${({ theme }) => theme.linear};
+  }
+
   &:hover {
     ${StyledTitleBox} {
-      color: ${({ theme }) => theme.white};
-      background: ${({ theme }) => theme.green};
+      color: ${({ theme }) => theme.grey[100]};
+      background: ${({ theme }) => theme.primary[500]};
     }
 
     .img {

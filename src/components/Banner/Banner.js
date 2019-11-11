@@ -11,7 +11,7 @@ const propTypes = {
 const Banner = ({ title, info, children }) => (
   <Wrapper>
     <h1>{title}</h1>
-    <p>{info}</p>
+    <h3>{info}</h3>
     {children}
   </Wrapper>
 );
@@ -22,42 +22,42 @@ export default Banner;
 
 const Wrapper = styled.div`
   /* Mobile */
-  background: rgba(33, 33, 33, 0.2);
-  color: ${({ theme }) => theme.white};
+  background: rgba(33, 33, 33, 0.4);
+  color: ${({ theme }) => theme.grey[100]};
   margin: 0 auto;
   padding-top: 0.5rem;
   text-align: center;
   position: absolute;
   bottom: 10%;
-  text-shadow: 1px 1px 1px ${({ theme }) => theme.black};
+  text-shadow: 1px 1px 1px ${({ theme }) => theme.grey[900]};
 
   h1 {
-    font-size: 1.5rem;
     text-transform: uppercase;
-    margin: 0.5rem 0;
+    margin: 1rem 0;
     letter-spacing: 4px;
   }
 
-  p {
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    width: 85%;
+  h3 {
+    font-size: 1rem;
+    line-height: 1.5;
+    width: 90%;
     margin: 0.5rem auto;
+    font-weight: 300;
   }
 
   /* Desktop */
   @media (min-width: 768px) {
-    width: 80vw;
+    width: 60vw;
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin: 1rem 0;
       letter-spacing: 6px;
     }
 
-    p {
-      font-size: 1.2rem;
-      letter-spacing: 1.2px;
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 400;
       margin: 1rem auto;
     }
   }

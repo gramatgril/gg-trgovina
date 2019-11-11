@@ -113,7 +113,7 @@ const StyledText = styled.article`
 
 const Wrapper = styled.div`
   padding: 3rem 0;
-  background: ${({ theme }) => theme.offWhite};
+  background: ${({ theme }) => theme.grey[100]};
 `;
 
 const StyledImage = styled.div`

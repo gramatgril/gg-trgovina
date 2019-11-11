@@ -10,10 +10,10 @@ const propTypes = {
 const Title = ({ title, subtitle }) => {
   return (
     <Wrapper>
-      <StyledText>
+      <Text>
         <span>{title}</span>
         <span>{subtitle}</span>
-      </StyledText>
+      </Text>
     </Wrapper>
   );
 };
@@ -22,26 +22,28 @@ Title.propTypes = propTypes;
 
 export default Title;
 
+const Text = styled.h1``;
+
 const Wrapper = styled.div`
   text-transform: uppercase;
   font-size: 2rem;
   padding: 1rem 0;
-`;
 
-const StyledText = styled.h1`
-  font-weight: 800;
-  text-align: center;
-  letter-spacing: 3px;
-  color: ${({ theme }) => theme.green};
+  ${Text} {
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 3px;
+    color: ${({ theme }) => theme.primary[700]};
 
-  span {
-    display: block;
-  }
-
-  @media (min-width: 576px) {
     span {
-      display: inline-block;
-      margin: 0 0.35rem;
+      display: block;
+    }
+
+    @media (min-width: 576px) {
+      span {
+        display: inline-block;
+        margin: 0 0.35rem;
+      }
     }
   }
 `;

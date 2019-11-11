@@ -58,8 +58,8 @@ const Wrapper = styled.header`
     justify-content: space-between;
     padding: 0 1.5rem;
     align-items: center;
-    background: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.white};
+    background: ${({ theme }) => theme.primary[500]};
+    color: ${({ theme }) => theme.primary[100]};
   }
 
   ${BottomRow} {

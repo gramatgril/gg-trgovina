@@ -1,4 +1,4 @@
-import React, { useReducer, useEffect } from "react";
+import React, { useReducer } from "react";
 import { graphql } from "gatsby";
 
 import { AdviceList } from "./../components/Advice/";
@@ -11,8 +11,6 @@ import SEO from "./../components/seo";
 import SortMenu from "../components/SortMenu";
 
 import { productReducer as reducer } from "./../utils";
-import { LOAD_PRODUCTS } from "./../utils/constants";
-import { enhanceProduct } from "./../utils";
 
 /*
   Displays a page of products belonging to a single category.
@@ -25,19 +23,13 @@ export default ({ data }) => {
   // Initial state for sort menu reducer
   const initialState = {
     searchInput: "",
-    initialProducts: [],
-    products: [],
+    initialProducts: data.allProducts.edges,
+    products: data.allProducts.edges,
   };
 
   // Reducer handles filtering, sorting and searching
   const [state, dispatch] = useReducer(reducer, initialState);
   const { products, searchInput } = state;
-
-  // Adds discount field to fetched products and sends it to state
-  useEffect(() => {
-    const enhancedProducts = enhanceProduct(data.allProducts.edges);
-    dispatch({ type: LOAD_PRODUCTS, enhancedProducts });
-  }, []);
 
   return (
     <Layout>

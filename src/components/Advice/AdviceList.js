@@ -66,6 +66,7 @@ const AdviceList = ({ embed }) => {
 AdviceList.propTypes = propTypes;
 
 export default AdviceList;
+const StyledAdviceGrid = styled.div``;
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -73,8 +74,8 @@ const Wrapper = styled.div`
   padding: 3rem 0;
   background: ${({ embed, theme }) =>
     embed ? `${theme.offWhite}` : `${theme.white}`};
-`;
 
-const StyledAdviceGrid = styled.div`
-  padding: 3rem 0;
+  ${StyledAdviceGrid} {
+    padding: 3rem 0;
+  }
 `;

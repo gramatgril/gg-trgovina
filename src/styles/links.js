@@ -17,31 +17,27 @@ export const navLinks = [
     id: 0,
     name: "Domov",
     path: "/",
-    color: "#262626",
   },
   {
     id: 1,
     name: "Nasveti in ideje",
     path: "/nasveti-in-ideje",
-    color: "#262626",
   },
   // {
   //   id: 2,
   //   name: "Katalog",
   //   path: "/katalog",
-  //  color: "#262626",
   // },
   {
     id: 4,
     name: "Kontakt",
     path: "/kontakt",
-    color: "#262626",
   },
   {
     id: 5,
     name: "Akcije",
     path: "/akcija",
-    color: "#ff0000",
+    accent: "true",
   },
 ];
 

@@ -55,47 +55,53 @@ const Services = () => {
 
 export default Services;
 
+const StyledServices = styled.div``;
+
+const StyledSegment = styled.article``;
+
+const StyledDivider = styled.hr``;
+
 const Wrapper = styled.div`
   background: ${({ theme }) => theme.offWhite};
   padding: 3rem 0;
-`;
 
-const StyledServices = styled.div`
-  width: 80vw;
-  margin: 0 auto;
-  display: grid;
-  padding: 3rem 0;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-column-gap: 2rem;
-`;
-
-const StyledSegment = styled.article`
-  font-size: 1rem;
-  text-align: center;
-
-  span {
-    color: ${({ theme }) => theme.green};
-    display: inline-block;
-    font-size: 7rem;
+  ${StyledServices} {
+    width: 80vw;
+    margin: 0 auto;
+    display: grid;
+    padding: 3rem 0;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-column-gap: 2rem;
   }
 
-  h4 {
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: ${({ theme }) => theme.letterSpacing};
+  ${StyledSegment} {
+    font-size: 1rem;
+    text-align: center;
+
+    span {
+      color: ${({ theme }) => theme.green};
+      display: inline-block;
+      font-size: 7rem;
+    }
+
+    h4 {
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: ${({ theme }) => theme.letterSpacing};
+    }
+
+    p {
+      text-align: justify;
+      font-weight: 400;
+    }
   }
 
-  p {
-    text-align: justify;
-    font-weight: 400;
+  ${StyledDivider} {
+    border-radius: 10px;
+    height: 3px;
+    border: none;
+    background: ${({ theme }) => theme.primary[500]};
+    margin: 2rem auto;
+    width: 100px;
   }
-`;
-
-const StyledDivider = styled.hr`
-  border-radius: 10px;
-  height: 3px;
-  border: none;
-  background: ${({ theme }) => theme.green};
-  margin: 2rem auto;
-  width: 100px;
 `;

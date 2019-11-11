@@ -49,28 +49,28 @@ CategoryList.propTypes = propTypes;
 
 export default CategoryList;
 
+const StyledCategoryGallery = styled.div``;
+
 const Wrapper = styled.div`
   padding: 1rem 0;
   text-align: center;
-`;
 
-const StyledCategoryGallery = styled.div`
-  /* Mobile */
-  width: 90vw;
-  margin: 1rem auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  grid-column-gap: 0.2rem;
-  grid-row-gap: 0.2rem;
+  ${StyledCategoryGallery} {
+    width: 90vw;
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-column-gap: 0.2rem;
+    grid-row-gap: 0.2rem;
 
-  /* Desktop */
-  @media (min-width: 576px) {
-    margin: 3rem auto;
-    grid-template-columns: repeat(auto-fill, minmax(368.66px, 1fr));
-  }
+    @media (min-width: 576px) {
+      margin: 3rem auto;
+      grid-template-columns: repeat(auto-fill, minmax(368.66px, 1fr));
+    }
 
-  @media (min-width: 1200px) {
-    width: 100%;
-    max-width: 1170px;
+    @media (min-width: 1200px) {
+      width: 100%;
+      max-width: 1170px;
+    }
   }
 `;

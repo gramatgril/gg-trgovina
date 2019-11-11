@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 import PropTypes from "prop-types";
@@ -26,7 +26,15 @@ const propTypes = {
 };
 
 const ProductCard = ({ product }) => {
+  const [discount, setDiscount] = useState(null);
   const { price, oldPrice, priceUnit, slug, title, images, category } = product;
+
+  useEffect(() => {
+    if (oldPrice) {
+      const { discount } = calculateDiscount(price, oldPrice);
+      setDiscount(discount);
+    }
+  }, []);
 
   return (
     <Wrapper>
@@ -37,22 +45,15 @@ const ProductCard = ({ product }) => {
             className="img"
             imgStyle={{ objectFit: "contain", objectPosition: "50% 50%" }}
           />
-          {/* Price Tag */}
           <StyledPrice>
             {stylePrice(price)} <span>{priceUnit}</span>
           </StyledPrice>
-          {/* Discount tag */}
-          {oldPrice && (
+          {/* Check if oldPrice is not lower than oldPrice because of users mistake */}
+          {oldPrice > price && (
             <StyledDiscount>
-              <span>-{calculateDiscount(price, oldPrice)}%</span>
+              <span>-{discount}%</span>
             </StyledDiscount>
           )}
-          {/* Promo tag */}
-          {/* {promo && (
-            <StyledPromo>
-              <span>Akcija</span>
-            </StyledPromo>
-          )} */}
         </StyledImage>
         <StyledTitle>
           <h4>{title}</h4>
@@ -140,17 +141,3 @@ const StyledPrice = styled.p`
   padding: 0.2rem 1rem;
   border-radius: 0.3rem;
 `;
-
-// const StyledPromo = styled.p`
-//   box-shadow: ${({ theme }) => theme.boxShadow};
-//   font-size: 1.1rem;
-//   position: absolute;
-//   color: ${({ theme }) => theme.white};
-//   background: ${({ theme }) => theme.red};
-//   padding: 0.2rem 0.5rem;
-//   text-align: center;
-//   text-transform: uppercase;
-//   top: 0%;
-//   left: 0%;
-//   border-radius: 0.3rem;
-// `;

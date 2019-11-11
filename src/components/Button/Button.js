@@ -19,27 +19,26 @@ export default PrimaryButton;
 
 const StyledButton = styled.button`
   max-width: 90vw;
-  font-weight: 400;
-  background: ${({ theme }) => theme.green};
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: ${({ theme }) => theme.letterSpacing};
-  color: ${({ theme }) => theme.white};
-  border: 2px solid ${({ theme }) => theme.green};
-  border-radius: 10px;
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
+  border-radius: 7px;
+  padding: 0.5rem 1.5rem;
   display: inline-block;
   transition: ${({ theme }) => theme.linear};
   cursor: pointer;
 
+  border: 2px solid ${({ theme }) => theme.primary[500]};
+  color: ${({ theme }) => theme.primary[500]};
+  background: ${({ theme }) => theme.grey[100]};
+
   :hover {
-    background: ${({ theme }) => theme.white};
-    color: ${({ theme }) => theme.green};
+    border: 2px solid ${({ theme }) => theme.primary[500]};
+    background: ${({ theme }) => theme.primary[500]};
+    color: ${({ theme }) => theme.grey[100]};
   }
 
   @media (min-width: 576px) {
-    font-size: 1rem;
-    font-weight: 400;
-    padding: 0.6rem 1.2rem;
+    /* font-size: 1rem; */
   }
 `;

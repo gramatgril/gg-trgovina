@@ -7,7 +7,6 @@ import {
   SEARCH_PRODUCTS,
   SORT_BY_DATE_DOWN,
   SORT_BY_DISCOUNT,
-  LOAD_PRODUCTS,
 } from "./constants";
 
 /* Reducer state:
@@ -20,13 +19,6 @@ const productReducer = (state, action) => {
   const { products, initialProducts, searchInput } = state;
 
   switch (action.type) {
-    case LOAD_PRODUCTS:
-      return {
-        ...state,
-        products: action.enhancedProducts,
-        initialProducts: action.enhancedProducts,
-      };
-
     case RESET_PRODUCTS:
       return { ...state, products: [...initialProducts] };
 

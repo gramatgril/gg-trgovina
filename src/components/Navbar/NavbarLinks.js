@@ -12,9 +12,9 @@ const propTypes = {
 
 const NavbarLinks = ({ isOpen, stilUrl }) => (
   <Wrapper isOpen={isOpen}>
-    {navLinks.map(({ id, path, name, color }) => (
+    {navLinks.map(({ id, path, name, accent }) => (
       <li key={id}>
-        <NavLink to={path} activeClassName="active" color={color}>
+        <NavLink to={path} activeClassName="active" accent={accent}>
           <h2>{name}</h2>
         </NavLink>
       </li>
@@ -31,7 +31,8 @@ NavbarLinks.propTypes = propTypes;
 export default NavbarLinks;
 
 const NavLink = styled(Link)`
-  color: ${({ color }) => color};
+  /* Link is different color if it provides accent prop */
+  color: ${({ accent, theme }) => (accent ? theme.red : theme.primary[900])};
 `;
 const StilLink = styled.a``;
 
@@ -54,10 +55,14 @@ const Wrapper = styled.ul`
     text-decoration: none;
     text-transform: uppercase;
     cursor: pointer;
+
+    h2 {
+      font-weight: 400;
+    }
   }
 
   ${StilLink} {
-    color: ${({ theme }) => theme.black};
+    color: ${({ theme }) => theme.grey[900]};
     :visited,
     :active {
       color: inherit;
@@ -81,24 +86,28 @@ const Wrapper = styled.ul`
       padding: 0 1rem;
       letter-spacing: 1.2px;
 
+      h2 {
+        font-weight: 600;
+      }
+
       &:after {
         content: "";
         display: block;
         background: ${({ theme }) => theme.white};
-        border-radius: 2px;
+        border-radius: 4px;
         height: 3px;
         width: 100%;
       }
 
       &:hover {
         padding: 0 1rem;
-        opacity: 0.8;
+        color: ${({ theme }) => theme.primary[500]};
       }
     }
     /* Styling applied when link is active */
     .active {
       &:after {
-        background: ${({ theme }) => theme.green};
+        background: ${({ theme }) => theme.primary[500]};
       }
     }
   }

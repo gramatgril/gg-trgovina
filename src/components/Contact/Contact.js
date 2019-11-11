@@ -91,8 +91,14 @@ Contact.propTypes = propTypes;
 
 export default Contact;
 
+const StyledInfoBlock = styled.div``;
+
 const Wrapper = styled.section`
   padding: 3rem 0 0;
+
+  ${StyledInfoBlock} {
+    padding: 1rem 0;
+  }
 
   h2 {
     padding-bottom: 0.2rem;
@@ -134,8 +140,4 @@ const Wrapper = styled.section`
       width: 70%;
     }
   }
-`;
-
-const StyledInfoBlock = styled.div`
-  padding: 1rem 0;
 `;
