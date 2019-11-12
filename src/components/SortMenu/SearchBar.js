@@ -59,7 +59,7 @@ const Wrapper = styled.form`
     width: 2rem;
     height: 2rem;
     display: flex;
-    align-content: center;
+    align-items: center;
     justify-content: center;
     background: ${({ theme }) => theme.primary[500]};
     color: ${({ theme }) => theme.primary[100]};
