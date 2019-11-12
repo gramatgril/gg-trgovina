@@ -1,38 +1,31 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { FaSearch, FaFilter } from "react-icons/fa";
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { links } from "../../styles";
-import { types } from "../../utils";
+import { links } from '../../styles';
+import { types } from '../../utils';
+import SearchBar from './SearchBar';
 
 const { INPUT_CHANGE, SEARCH_PRODUCTS, SHOW_PROMOTED } = types;
 
 const propTypes = {
   dispatch: PropTypes.func.isRequired,
   searchInput: PropTypes.string,
-  promo: PropTypes.bool, // If promo prop is supplied, component doesn't display Akcija link
+  promo: PropTypes.bool // If promo prop is supplied, component doesn't display Akcija link
 };
 
 const SortMenu = ({ dispatch, searchInput, promo }) => {
   const [menuLinks, setMenuLinks] = useState(links.sortMenuLinks);
-  const [isMenuOpen, setMenuOpen] = useState(false);
   // ListHeight changes depending on wether user is on Akcija page or not
-  const listHeight = promo ? "190" : "220";
 
   // Check if component is on Akcija page and remove sort by promoted
   useEffect(() => {
-    promo &&
-      setMenuLinks(menuLinks.filter(link => link.action !== SHOW_PROMOTED));
+    promo && setMenuLinks(menuLinks.filter(link => link.action !== SHOW_PROMOTED));
   }, []);
 
   const handleClickLink = (id, action) => {
     // Makes link active
-    setMenuLinks(
-      menuLinks.map(link =>
-        link.id === id ? { ...link, active: true } : { ...link, active: false }
-      )
-    );
+    setMenuLinks(menuLinks.map(link => (link.id === id ? { ...link, active: true } : { ...link, active: false })));
 
     // Every menu link has an action constant that is passed to the reducer
     dispatch({ type: action });
@@ -48,34 +41,15 @@ const SortMenu = ({ dispatch, searchInput, promo }) => {
   };
 
   return (
-    <Wrapper isMenuOpen={isMenuOpen} listHeight={listHeight}>
-      <div onClick={() => setMenuOpen(!isMenuOpen)} className="menu-toggle">
-        <FaFilter className="icon" />
-        <h4>Filtri in iskanje</h4>
-      </div>
-      <StyledLinks>
+    <Wrapper>
+      <SortLinks>
         {menuLinks.map(({ id, name, active, action }) => (
-          <StyledSortLink
-            key={id}
-            active={active}
-            onClick={() => handleClickLink(id, action)}
-          >
+          <SortButton key={id} active={active} onClick={() => handleClickLink(id, action)}>
             <p>{name}</p>
-          </StyledSortLink>
+          </SortButton>
         ))}
-      </StyledLinks>
-      <StyledForm onSubmit={productSearch}>
-        <input
-          aria-label="iskanje"
-          placeholder="Iskanje"
-          type="text"
-          onChange={handleInputChange}
-          value={searchInput}
-        />
-        <button type="submit" aria-label="iskanje">
-          <FaSearch />
-        </button>
-      </StyledForm>
+      </SortLinks>
+      <SearchBar handleInputChange={handleInputChange} productSearch={productSearch} searchInput={searchInput} />
     </Wrapper>
   );
 };
@@ -84,129 +58,85 @@ SortMenu.propTypes = propTypes;
 
 export default SortMenu;
 
-const StyledSortLink = styled.li`
-  /* Mobile */
-  cursor: pointer;
-  padding: 0.2rem 2rem;
-  color: ${({ active, theme }) =>
-    active ? `${theme.green}` : `${theme.black}`};
-
-  p {
-    margin: 0;
-    font-weight: 500;
-  }
-
-  /* Desktop */
-  @media (min-width: 768px) {
-    width: auto;
-    padding: 0;
-
-    p {
-      padding: 0 0.4rem;
-    }
-
-    /* Active bar under the link */
-    &:after {
-      content: "";
-      display: block;
-      border-radius: 2px;
-      height: 2px;
-      width: 100%;
-    }
-
-    &:hover {
-      :after {
-        background: ${({ theme }) => theme.lightGrey};
-      }
-    }
+const MenuTitle = styled.div``;
+const SortLinks = styled.ul``;
+const SortButton = styled.li`
+  &:after {
+    background: ${({ active, theme }) => (active ? `${theme.primary[300]}` : `${theme.grey[100]}`)};
   }
 `;
 
 const Wrapper = styled.div`
-  /* Mobile */
-  height: ${({ isMenuOpen, listHeight }) =>
-    isMenuOpen ? `${listHeight}px` : "30px"};
-  overflow: hidden;
+  /* === MOBILE === */
   width: 90vw;
-  transition: ${({ theme }) => theme.easeInOut};
   margin: 3rem auto 0;
-  border-bottom: 1px solid ${({ theme }) => theme.green};
+  padding: 0.5rem 0 1rem;
+  border-radius: 15px;
+  flex-direction: column-reverse;
+  background: ${({ theme }) => theme.grey[100]};
 
-  .menu-toggle {
-    padding: 0 0.4rem;
-    display: flex;
-    justify-content: start;
+  ${SortLinks} {
+    margin: 0.5rem 0 0;
+    color: ${({ theme }) => theme.grey[300]};
+  }
+
+  ${SortButton} {
     cursor: pointer;
+    padding: 0 2rem;
 
-    h4 {
-      font-size: 1.2rem;
+    p {
+      margin: 0;
       font-weight: 500;
-    }
-
-    .icon {
-      color: ${({ theme }) => theme.green};
-      margin: 0.35rem 0.5rem 0 0;
     }
   }
 
-  /* Desktop */
+  /* === DESKTOP === */
   @media (min-width: 768px) {
     transition: ${({ theme }) => theme.easeInOut};
     margin: 3rem auto 0;
+    height: 3rem;
     display: flex;
-    height: 50px;
     align-items: center;
     justify-content: space-between;
     width: 70vw;
+    flex-direction: row;
+    padding: 0;
 
-    .menu-toggle {
+    ${MenuTitle} {
       display: none;
+    }
+
+    ${SortLinks} {
+      display: flex;
+      margin: 0.5rem 0 0 1rem;
+    }
+
+    ${SortButton} {
+      width: auto;
+      padding: 0;
+      white-space: nowrap;
+
+      p {
+        padding: 0 0.5rem;
+      }
+
+      /* Active bar under the link */
+      &:after {
+        content: '';
+        display: block;
+        border-radius: 4px;
+        height: 2px;
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      &:hover {
+        color: ${({ theme }) => theme.primary[500]};
+      }
     }
   }
 
   @media (min-width: 1200px) {
     width: 60vw;
-  }
-`;
-
-const StyledLinks = styled.ul`
-  margin: 0.5rem 0 0;
-  /* Desktop */
-  @media (min-width: 768px) {
-    display: flex;
-  }
-`;
-
-const StyledForm = styled.form`
-  padding: 0.5rem 2rem;
-  display: flex;
-  justify-content: space-between;
-
-  input,
-  button {
-    border: none;
-    background: none;
-    font-size: 1.2rem;
-    color: ${({ theme }) => theme.black};
-  }
-
-  input {
-    width: 100%;
-    border-bottom: 1px solid ${({ theme }) => theme.green};
-
-    :focus {
-      outline: none;
-    }
-  }
-
-  button {
-    cursor: pointer;
-    color: ${({ theme }) => theme.green};
-  }
-
-  /* Desktop */
-  @media (min-width: 768px) {
-    width: auto;
-    padding: 0;
   }
 `;

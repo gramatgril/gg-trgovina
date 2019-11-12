@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 // Container div makes sure site is responsive
 export const Container = styled.div`
@@ -13,5 +13,9 @@ export const Container = styled.div`
 
   @media (min-width: 1200px) {
     width: 60vw;
+  }
+
+  @media (min-width: 2560px) {
+    width: 40vw;
   }
 `;

@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import logo from "../../images/gg-logo.png";
+import React from 'react';
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import logo from '../../images/gg-logo.png';
 
 const propTypes = {
   toggleOpen: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
+  isOpen: PropTypes.bool.isRequired
 };
 
 const NavbarHeader = ({ toggleOpen, isOpen }) => (
@@ -14,7 +14,7 @@ const NavbarHeader = ({ toggleOpen, isOpen }) => (
     <Logo to="/">
       <img src={logo} alt="logo" className="img" />
     </Logo>
-    <MenuIcon className={isOpen ? "open" : ""} onClick={() => toggleOpen()}>
+    <MenuIcon className={isOpen ? 'open' : ''} onClick={() => toggleOpen()}>
       <span></span>
       <span></span>
       <span></span>
@@ -40,7 +40,7 @@ const Wrapper = styled.div`
   ${Logo} {
     margin-left: 5%;
     height: 4rem;
-    width: 12.625rem; /*  Keeping same scale in rem*/
+    width: 210px;
   }
 
   ${MenuIcon} {

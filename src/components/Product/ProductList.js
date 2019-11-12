@@ -1,12 +1,12 @@
-import React from "react";
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { Container } from "../../styles";
+import { Container } from '../../styles';
 
-import PrimaryButton from "../Button";
-import ProductCard from "./ProductCard";
+import PrimaryButton from '../Button';
+import ProductCard from './ProductCard';
 
 const propTypes = {
   products: PropTypes.arrayOf(
@@ -20,23 +20,23 @@ const propTypes = {
         slug: PropTypes.string.isRequired,
         promo: PropTypes.bool.isRequired,
         category: PropTypes.shape({
-          slug: PropTypes.string.isRequired,
+          slug: PropTypes.string.isRequired
         }).isRequired,
         images: PropTypes.arrayOf(
           PropTypes.shape({
-            fluid: PropTypes.object.isRequired,
+            fluid: PropTypes.object.isRequired
           }).isRequired
-        ).isRequired,
-      }).isRequired,
+        ).isRequired
+      }).isRequired
     }).isRequired
   ).isRequired,
   path: PropTypes.string,
-  text: PropTypes.string,
+  text: PropTypes.string
 };
 
 const defaultProps = {
-  path: "/",
-  text: "nazaj na kategorije",
+  path: '/',
+  text: 'nazaj na kategorije'
 };
 
 const ProductList = ({ products, path, text }) => {

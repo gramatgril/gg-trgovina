@@ -1,21 +1,21 @@
-import React from "react";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import { INLINES } from "@contentful/rich-text-types";
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { INLINES } from '@contentful/rich-text-types';
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { Container } from "./../../styles";
-import PrimaryButton from "../Button";
+import { Container } from './../../styles';
+import PrimaryButton from '../Button';
 
 const propTypes = {
   advice: PropTypes.shape({
     title: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     content: PropTypes.shape({
-      json: PropTypes.object.isRequired,
-    }).isRequired,
-  }).isRequired,
+      json: PropTypes.object.isRequired
+    }).isRequired
+  }).isRequired
 };
 
 const AdviceDetails = ({ advice }) => {
@@ -24,20 +24,16 @@ const AdviceDetails = ({ advice }) => {
   const options = {
     renderNode: {
       // Finds embedded images and displays them
-      "embedded-asset-block": node => {
+      'embedded-asset-block': node => {
         return (
           <StyledImage>
-            <img
-              className="img"
-              src={node.data.target.fields.file["en-US"].url}
-              alt="single blog"
-            />
+            <img className="img" src={node.data.target.fields.file['en-US'].url} alt="single blog" />
           </StyledImage>
         );
       },
       // Finds linked Youtube links and creates player
       [INLINES.HYPERLINK]: node => {
-        if (node.data.uri.includes("youtube.com/embed")) {
+        if (node.data.uri.includes('youtube.com/embed')) {
           return (
             <IframeContainer>
               <iframe
@@ -57,8 +53,8 @@ const AdviceDetails = ({ advice }) => {
             </a>
           );
         }
-      },
-    },
+      }
+    }
   };
 
   return (
@@ -66,9 +62,7 @@ const AdviceDetails = ({ advice }) => {
       <Wrapper>
         <h1>{title}</h1>
         <h3>Objavljeno: {date}</h3>
-        <StyledRichText>
-          {documentToReactComponents(content.json, options)}
-        </StyledRichText>
+        <StyledRichText>{documentToReactComponents(content.json, options)}</StyledRichText>
         <Link to="/nasveti-in-ideje" className="link">
           <PrimaryButton text="nazaj" />
         </Link>
@@ -102,12 +96,7 @@ const StyledImage = styled.div`
 const StyledRichText = styled.article`
   margin: 2rem 0;
 
-  h1 {
-    font-size: 2rem;
-  }
-
   h4 {
-    font-size: 1.3rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
   }
@@ -138,10 +127,12 @@ const StyledRichText = styled.article`
 `;
 
 const IframeContainer = styled.span`
+  margin: 2rem 0;
   position: relative;
   display: block;
   height: 400px;
   width: 600px;
+  max-width: 100%;
 
   > iframe {
     height: 100%;

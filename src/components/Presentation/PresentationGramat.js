@@ -1,9 +1,9 @@
-import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import styled from "styled-components";
-import Img from "gatsby-image";
+import React from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
+import Img from 'gatsby-image';
 
-import Title from "../Title";
+import Title from '../Title';
 
 const query = graphql`
   query {
@@ -39,21 +39,16 @@ const PresentationGramat = () => {
         <StyledText top>
           <h2>Trgovina z gradbenim materialom</h2>
           <p>
-            Podjetje Gramat Gril že z dolgoletno tradicijo in predanostjo
-            zagotavlja pestro ponudbo{" "}
+            Podjetje Gramat Gril že z dolgoletno tradicijo in predanostjo zagotavlja pestro ponudbo{' '}
             <strong>
-              gradbenega materiala, orodja, železnine, kopalniške opreme,
-              vodovodnega in elektromateriala, keramike, talnih oblog, stavbnega
-              pohištva, izdelkov za vrt
-            </strong>{" "}
-            ter ostalega. Od samega začetka se v podjetju zavedamo, da ste za
-            naš razvoj zelo pomemben dejavnik prav vi, končni kupci, ki svoje
-            izdelke vključujete v svoj bivalni prostor. V želji, da bi vam bili
-            naši izdelki bolj dostopni, so vam na voljo dve trgovini , in sicer
-            v <strong>Grosuplju</strong> ter v{" "}
-            <strong>Dolenjskih toplicah</strong>. Na obeh lokacijah se ponašamo
-            tako s kakovostno ponudbo, kot prijaznostjo in strokovnostjo
-            prodajnih svetovalcev.
+              gradbenega materiala, orodja, železnine, kopalniške opreme, vodovodnega in elektromateriala, keramike,
+              talnih oblog, stavbnega pohištva, izdelkov za vrt
+            </strong>{' '}
+            ter ostalega. Od samega začetka se v podjetju zavedamo, da ste za naš razvoj zelo pomemben dejavnik prav vi,
+            končni kupci, ki svoje izdelke vključujete v svoj bivalni prostor. V želji, da bi vam bili naši izdelki bolj
+            dostopni, so vam na voljo dve trgovini , in sicer v <strong>Grosuplju</strong> ter v{' '}
+            <strong>Dolenjskih toplicah</strong>. Na obeh lokacijah se ponašamo tako s kakovostno ponudbo, kot
+            prijaznostjo in strokovnostjo prodajnih svetovalcev.
           </p>
         </StyledText>
       </StyledRow>
@@ -62,21 +57,17 @@ const PresentationGramat = () => {
         <StyledText>
           <h2>Salon keramičnih ploščic STIL by Gramat Gril</h2>
           <p>
-            Širina prodajnega programa se razteza vse od gradbenega materiala do
-            talnih oblog ter vse za kopalnico kar najdete v salonu{" "}
-            <strong>Stil by Gramat Gril</strong>. Pri nas si lahko ogledate
-            pestro ponudbo <strong>keramičnih ploščic</strong>. Poleg tega lahko
-            izbirate med različnimi dizajni{" "}
+            Širina prodajnega programa se razteza vse od gradbenega materiala do talnih oblog ter vse za kopalnico kar
+            najdete v salonu <strong>Stil by Gramat Gril</strong>. Pri nas si lahko ogledate pestro ponudbo{' '}
+            <strong>keramičnih ploščic</strong>. Poleg tega lahko izbirate med različnimi dizajni{' '}
             <strong>
-              sanitarne keramike, kopalniških ali kuhinjskih armatur, tuš kabin,
-              kopalniškega pohištva in ostale kopalniške opreme.{" "}
+              sanitarne keramike, kopalniških ali kuhinjskih armatur, tuš kabin, kopalniškega pohištva in ostale
+              kopalniške opreme.{' '}
             </strong>
-            S predstavitvijo ambientov kopalnic, panojev, vzorcev, katalogov in
-            profesionalnih prikazov se lahko seznanite s številnimi priznanimi
-            italijanskimi proizvajalci keramičnih ploščic srednjega in višjega
-            cenovnega razreda ter preostalo raznolikostjo naše ponudbe. Poseben
-            poudarek pa dajemo osebnemu pristopu, saj so vam strokovni nasveti
-            naših prodajalcev vedno na voljo.
+            S predstavitvijo ambientov kopalnic, panojev, vzorcev, katalogov in profesionalnih prikazov se lahko
+            seznanite s številnimi priznanimi italijanskimi proizvajalci keramičnih ploščic srednjega in višjega
+            cenovnega razreda ter preostalo raznolikostjo naše ponudbe. Poseben poudarek pa dajemo osebnemu pristopu,
+            saj so vam strokovni nasveti naših prodajalcev vedno na voljo.
           </p>
           <p>Obiščite salon na naslovu </p>
         </StyledText>

@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import React, { Fragment } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 
-import CategoryList from "./CategoryList";
+import CategoryList from './CategoryList';
 
 //* Container for the list of categories. Rendered on the index page. Fetches all categories and image for Advice("Nasveti in ideje") card.
 
@@ -37,10 +37,7 @@ const Category = () => {
 
   return (
     <Fragment>
-      <CategoryList
-        categories={categories.edges}
-        adviceCardImg={adviceCardImg.image}
-      />
+      <CategoryList categories={categories.edges} adviceCardImg={adviceCardImg.image} />
     </Fragment>
   );
 };

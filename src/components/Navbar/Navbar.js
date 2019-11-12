@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
+import styled from 'styled-components';
 
-import NavbarHeader from "./NavbarHeader";
-import NavbarIcons from "./NavbarIcons";
-import NavbarLinks from "./NavbarLinks";
+import NavbarHeader from './NavbarHeader';
+import NavbarIcons from './NavbarIcons';
+import NavbarLinks from './NavbarLinks';
 
 const getInfo = graphql`
   query {
@@ -50,7 +50,7 @@ const TopRow = styled.div``;
 
 const Wrapper = styled.header`
   /* === MOBILE === */
-  box-shadow: ${({ theme }) => theme.boxShadow};
+  box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #b3b3b3;
 
   ${TopRow} {
     height: 3rem;
@@ -68,6 +68,7 @@ const Wrapper = styled.header`
 
   ${BottomRow} {
     min-height: 6rem;
+    background: ${({ theme }) => theme.grey[100]};
   }
 
   /* === DESKTOP === */

@@ -1,8 +1,8 @@
-import React from "react";
-import { Link } from "gatsby";
-import Img from "gatsby-image";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'gatsby';
+import Img from 'gatsby-image';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const propTypes = {
   advice: PropTypes.shape({
@@ -11,9 +11,9 @@ const propTypes = {
     shortDesc: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired,
     image: PropTypes.shape({
-      fluid: PropTypes.object.isRequired,
-    }).isRequired,
-  }).isRequired,
+      fluid: PropTypes.object.isRequired
+    }).isRequired
+  }).isRequired
 };
 
 const AdviceCard = ({ advice }) => {
@@ -24,12 +24,7 @@ const AdviceCard = ({ advice }) => {
       <Link to={`/nasveti-in-ideje/${slug}`} className="link">
         <StyledCard>
           <StyledImage>
-            <Img
-              fluid={image.fluid}
-              alt="advice"
-              className="img"
-              imgStyle={{ objectFit: "cover" }}
-            />
+            <Img fluid={image.fluid} alt="advice" className="img" imgStyle={{ objectFit: 'cover' }} />
             <StyledDate>{date}</StyledDate>
           </StyledImage>
           <StyledDescription>
@@ -46,74 +41,89 @@ AdviceCard.propTypes = propTypes;
 
 export default AdviceCard;
 
+const StyledCard = styled.div``;
+const StyledDate = styled.p``;
+const StyledDescription = styled.div``;
+const StyledImage = styled.div``;
+
 const Wrapper = styled.div`
-  padding: 1rem 0;
-`;
+  margin: 1rem 0;
+  /* padding: 1rem 0; */
+  width: 90%;
+  overflow: hidden;
+  border-radius: 12px;
+  background: ${({ theme }) => theme.grey[100]};
 
-const StyledImage = styled.div`
-  transition: ${({ theme }) => theme.linear};
-  margin: 0 auto;
-  position: relative;
-  height: 200px;
-  width: 300px;
-`;
-
-const StyledDate = styled.p`
-  font-size: 1.2rem;
-  color: ${({ theme }) => theme.white};
-  position: absolute;
-  left: 0%;
-  top: 0%;
-  background: ${({ theme }) => theme.green};
-  padding: 0.3rem 1rem;
-`;
-
-const StyledDescription = styled.div`
-  text-align: center;
-  width: 100%;
-  padding: 2rem 0;
-
-  h2 {
+  ${StyledCard} {
+    display: block;
     transition: ${({ theme }) => theme.linear};
-    color: ${({ theme }) => theme.black};
-    text-transform: capitalize;
-    letter-spacing: 2px;
-    margin-bottom: 1rem;
-    font-weight: 500;
+
+    :hover {
+      background: ${({ theme }) => theme.primary[100]};
+      h2 {
+        color: ${({ theme }) => theme.primary[500]};
+      }
+
+      ${StyledImage} {
+        opacity: 0.8;
+      }
+    }
   }
 
-  h4 {
-    color: ${({ theme }) => theme.black};
-    font-weight: 400;
+  ${StyledImage} {
+    transition: ${({ theme }) => theme.linear};
+    margin: 0 auto;
+    position: relative;
+    height: 200px;
+    width: 300px;
   }
-`;
 
-const StyledCard = styled.div`
-  display: block;
+  ${StyledDate} {
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.white};
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    background: ${({ theme }) => theme.primary[500]};
+    padding: 0.3rem 1rem;
+  }
 
-  :hover {
+  ${StyledDescription} {
+    text-align: center;
+    width: 100%;
+    padding: 2rem 0;
+
     h2 {
       transition: ${({ theme }) => theme.linear};
-      color: ${({ theme }) => theme.green};
+      color: ${({ theme }) => theme.grey[900]};
+      text-transform: capitalize;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      font-weight: 500;
     }
 
-    ${StyledImage} {
-      transition: ${({ theme }) => theme.linear};
-      opacity: 0.8;
+    h4 {
+      color: ${({ theme }) => theme.grey[900]};
+      font-weight: 400;
     }
   }
 
   @media (min-width: 576px) {
-    display: flex;
-    justify-content: flex-start;
+    padding: 0;
+    ${StyledCard} {
+      display: flex;
+      justify-content: flex-start;
 
-    ${StyledDescription} {
-      text-align: left;
-      padding: 0 2rem;
+      ${StyledDescription} {
+        text-align: left;
+        padding: 1rem 2rem;
+      }
     }
   }
 
   @media (min-width: 1200px) {
-    width: 100%;
+    ${StyledCard} {
+      width: 100%;
+    }
   }
 `;

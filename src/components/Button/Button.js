@@ -1,14 +1,14 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const propTypes = {
   text: PropTypes.string.isRequired,
-  type: PropTypes.string,
+  type: PropTypes.string
 };
 
 const PrimaryButton = ({ text, className, type, ...rest }) => (
-  <StyledButton className={className} type={type || "button"} {...rest}>
+  <StyledButton className={className} type={type || 'button'} {...rest}>
     {text}
   </StyledButton>
 );
@@ -30,7 +30,7 @@ const StyledButton = styled.button`
 
   border: 2px solid ${({ theme }) => theme.primary[500]};
   color: ${({ theme }) => theme.primary[500]};
-  background: ${({ theme }) => theme.grey[100]};
+  background: ${({ theme }) => theme.white};
 
   :hover {
     border: 2px solid ${({ theme }) => theme.primary[500]};

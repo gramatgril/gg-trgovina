@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const propTypes = {
   title: PropTypes.string.isRequired,
   info: PropTypes.string,
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 const Banner = ({ title, info, children }) => (
@@ -22,9 +22,9 @@ export default Banner;
 
 const Wrapper = styled.div`
   /* Mobile */
-  background: rgba(33, 33, 33, 0.4);
   color: ${({ theme }) => theme.grey[100]};
   margin: 0 auto;
+  max-height: 100%;
   padding-top: 0.5rem;
   text-align: center;
   position: absolute;

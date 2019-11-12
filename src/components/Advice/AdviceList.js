@@ -1,15 +1,15 @@
-import React from "react";
-import { graphql, useStaticQuery, Link } from "gatsby";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import { graphql, useStaticQuery, Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { Container } from "../../styles";
-import AdviceCard from "./AdviceCard";
-import PrimaryButton from "../Button";
-import Title from "../Title";
+import { Container } from '../../styles';
+import AdviceCard from './AdviceCard';
+import PrimaryButton from '../Button';
+import Title from '../Title';
 
 const propTypes = {
-  embed: PropTypes.bool.isRequired,
+  embed: PropTypes.bool.isRequired
 };
 
 const getAllAdvice = graphql`
@@ -40,9 +40,7 @@ const getAllAdvice = graphql`
 const AdviceList = ({ embed }) => {
   const { allAdvices } = useStaticQuery(getAllAdvice);
 
-  const advices = embed
-    ? allAdvices.edges.filter((item, i) => i < 3)
-    : allAdvices.edges;
+  const advices = embed ? allAdvices.edges.filter((item, i) => i < 3) : allAdvices.edges;
 
   return (
     <Wrapper embed={embed}>
@@ -66,14 +64,14 @@ const AdviceList = ({ embed }) => {
 AdviceList.propTypes = propTypes;
 
 export default AdviceList;
+
 const StyledAdviceGrid = styled.div``;
 
 const Wrapper = styled.div`
   margin: 0 auto;
   width: 100%;
   padding: 3rem 0;
-  background: ${({ embed, theme }) =>
-    embed ? `${theme.offWhite}` : `${theme.white}`};
+  background: ${({ embed, theme }) => (embed ? `${theme.white}` : `${theme.white}`)};
 
   ${StyledAdviceGrid} {
     padding: 3rem 0;

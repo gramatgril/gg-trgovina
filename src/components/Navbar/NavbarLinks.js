@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { navLinks } from "./../../styles/links";
+import { navLinks } from './../../styles/links';
 
 const propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  stilUrl: PropTypes.string.isRequired,
+  stilUrl: PropTypes.string.isRequired
 };
 
 const NavbarLinks = ({ isOpen, stilUrl }) => (
@@ -41,7 +41,7 @@ const Wrapper = styled.ul`
   z-index: 1;
   white-space: nowrap;
   text-align: center;
-  height: ${({ isOpen }) => (isOpen ? "200px" : "0px")};
+  height: ${({ isOpen }) => (isOpen ? '200px' : '0px')};
   overflow: hidden;
   transition: ${({ theme }) => theme.easeInOut};
   display: flex;
@@ -91,9 +91,9 @@ const Wrapper = styled.ul`
       }
 
       &:after {
-        content: "";
+        content: '';
         display: block;
-        background: ${({ theme }) => theme.white};
+        background: ${({ theme }) => theme.grey[100]};
         border-radius: 4px;
         height: 3px;
         width: 100%;
@@ -107,7 +107,7 @@ const Wrapper = styled.ul`
     /* Styling applied when link is active */
     .active {
       &:after {
-        background: ${({ theme }) => theme.primary[500]};
+        background: ${({ theme }) => theme.primary[300]};
       }
     }
   }

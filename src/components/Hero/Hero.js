@@ -16,13 +16,14 @@ const Hero = ({ img, className, children }) => (
 
 export default styled(Hero)`
   height: 40vh;
-  background: none;
+  background: rgba(33, 33, 33, 0.4);
   background-position: center;
   background-size: cover;
   opacity: 1 !important;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 
 Hero.propTypes = propTypes;
