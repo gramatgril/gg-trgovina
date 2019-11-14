@@ -47,7 +47,7 @@ const StyledDescription = styled.div``;
 const StyledImage = styled.div``;
 
 const Wrapper = styled.div`
-  margin: 1rem 0;
+  margin: 1rem auto;
   /* padding: 1rem 0; */
   width: 90%;
   overflow: hidden;

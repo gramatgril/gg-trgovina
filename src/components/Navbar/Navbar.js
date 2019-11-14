@@ -72,7 +72,7 @@ const Wrapper = styled.header`
   }
 
   /* === DESKTOP === */
-  @media (min-width: 900px) {
+  @media (min-width: 1200px) {
     ${TopRow} {
       justify-content: flex-end;
 
@@ -88,7 +88,7 @@ const Wrapper = styled.header`
       padding: 0 2rem;
       width: 100%;
       display: flex;
-      justify-content: center;
+      justify-content: space-center;
       align-items: center;
     }
   }

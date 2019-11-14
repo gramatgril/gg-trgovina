@@ -76,6 +76,7 @@ AdviceDetails.propTypes = propTypes;
 export default AdviceDetails;
 
 const Wrapper = styled.div`
+  margin: 2rem 0;
   h1 {
     margin: 1rem 0 3rem;
     text-align: center;

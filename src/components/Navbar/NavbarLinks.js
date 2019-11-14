@@ -68,13 +68,13 @@ const Wrapper = styled.ul`
       color: inherit;
     }
 
-    @media (min-width: 900px) {
+    @media (min-width: 1200px) {
       display: none;
     }
   }
 
   /*  === DESKTOP === */
-  @media (min-width: 900px) {
+  @media (min-width: 1200px) {
     box-shadow: none;
     position: inherit;
     height: auto;

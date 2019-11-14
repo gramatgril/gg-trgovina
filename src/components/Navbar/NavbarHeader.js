@@ -98,7 +98,7 @@ const Wrapper = styled.div`
   }
 
   /* === DESKTOP === */
-  @media (min-width: 900px) {
+  @media (min-width: 1200px) {
     box-shadow: none; /* Menu icon hidden on mobile screen size */
 
     ${MenuIcon} {

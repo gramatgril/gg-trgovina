@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Img from 'gatsby-image';
 
 import Title from '../Title';
+import { Container } from '../../styles';
 
 const query = graphql`
   query {
@@ -79,58 +80,64 @@ const PresentationGramat = () => {
   );
 };
 
-const StyledText = styled.article`
-  text-align: justify;
+export default PresentationGramat;
 
-  h2 {
-    font-size: 1.3rem;
-    padding: 0 0 1rem 0;
-    text-align: left;
-  }
+const StyledImage = styled.div``;
+const StyledRow = styled.div`
+  flex-flow: ${({ top }) => (top ? `column-reverse` : `column`)};
 
-  p {
-    padding: 0 0 2rem 0;
-  }
-
-  /* Desktop */
   @media (min-width: 768px) {
-    padding: ${({ top }) => (top ? `0 0 0 2rem` : `0 2rem 0 0`)};
-
-    h2 {
-      font-size: 1.5rem;
-    }
+    grid-template-columns: ${({ top }) => (top ? `1fr 2fr` : `2fr 1fr`)};
+  }
+`;
+const StyledText = styled.article`
+  @media (min-width: 768px) {
+    padding: ${({ top }) => (top ? `0 0 0 3rem` : `0 3rem 0 0`)};
   }
 `;
 
 const Wrapper = styled.div`
+  width: 100%;
   padding: 3rem 0;
   background: ${({ theme }) => theme.grey[100]};
-`;
 
-const StyledImage = styled.div`
-  height: 300px;
-  width: auto;
-  box-shadow: ${({ theme }) => theme.deepBoxShadow};
-`;
+  ${StyledRow} {
+    display: flex;
+    margin: 0 auto;
+    padding: 3rem 0;
+    width: 90vw;
+  }
 
-const StyledRow = styled.div`
-  /* Mobile */
-  display: flex;
-  flex-flow: ${({ top }) => (top ? `column-reverse` : `column`)};
-  margin: 0 auto;
-  padding: 3rem 0;
-  width: 90vw;
+  ${StyledImage} {
+    height: 300px;
+    width: auto;
+    box-shadow: ${({ theme }) => theme.deepBoxShadow};
+  }
 
-  /* Desktop */
-  @media (min-width: 768px) {
-    display: grid;
-    grid-template-columns: ${({ top }) => (top ? `1fr 2fr` : `2fr 1fr`)};
-    padding: 3rem 0 5rem;
+  ${StyledText} {
+    text-align: left;
+
+    h2 {
+      padding: 0 0 1rem 0;
+      text-align: left;
+    }
+
+    p {
+      padding: 0 0 2rem 0;
+    }
+  }
+
+  @media (min-width: 576px) {
+    ${StyledRow} {
+      display: grid;
+      width: 80vw;
+      padding: 3rem 0 5rem;
+    }
   }
 
   @media (min-width: 1200px) {
-    width: 70vw;
+    ${StyledRow} {
+      width: 60vw;
+    }
   }
 `;
-
-export default PresentationGramat;

@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Link } from "gatsby";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import { Container } from "../../../styles";
-import Description from "./Description";
-import ImageGallery from "./ImageGallery";
-import PrimaryButton from "../../Button";
-import PriceCard from "./PriceCard";
+import { Container } from '../../../styles';
+import Description from './Description';
+import ImageGallery from './ImageGallery';
+import PrimaryButton from '../../Button';
+import PriceCard from './PriceCard';
 
 const propTypes = {
   product: PropTypes.shape({
@@ -16,45 +16,31 @@ const propTypes = {
     oldPrice: PropTypes.number,
     priceUnit: PropTypes.string.isRequired,
     description: PropTypes.shape({
-      json: PropTypes.object.isRequired,
+      json: PropTypes.object.isRequired
     }).isRequired,
     category: PropTypes.shape({
-      slug: PropTypes.string.isRequired,
+      slug: PropTypes.string.isRequired
     }).isRequired,
     promo: PropTypes.bool.isRequired,
-    images: PropTypes.arrayOf(PropTypes.object.isRequired),
+    images: PropTypes.arrayOf(PropTypes.object.isRequired)
   }).isRequired,
-  categorySlug: PropTypes.string.isRequired,
+  categorySlug: PropTypes.string.isRequired
 };
 
 const ProductDetails = ({ product, categorySlug }) => {
-  const {
-    title,
-    price,
-    oldPrice,
-    priceUnit,
-    description,
-    images,
-    promo,
-  } = product;
+  const { title, price, oldPrice, priceUnit, description, images, promo } = product;
 
   const [galleryImages] = useState(images);
   const [mainImage, setMainImage] = useState(images[0]);
 
   // Changes main image to the one that is selected in the gallery
-  const changeImage = id =>
-    setMainImage(galleryImages.find(el => el.id === id));
+  const changeImage = id => setMainImage(galleryImages.find(el => el.id === id));
 
   return (
     <Wrapper>
-      <Container align="center">
+      <StyledContainer align="center">
         <Panels>
-          <ImageGallery
-            mainImage={mainImage}
-            promo={promo}
-            galleryImages={galleryImages}
-            changeImage={changeImage}
-          />
+          <ImageGallery mainImage={mainImage} promo={promo} galleryImages={galleryImages} changeImage={changeImage} />
           <StyledDetails>
             <InfoSection>
               <StyledTitle>
@@ -62,17 +48,13 @@ const ProductDetails = ({ product, categorySlug }) => {
               </StyledTitle>
               <Description description={description} />
             </InfoSection>
-            <PriceCard
-              price={price}
-              oldPrice={oldPrice}
-              priceUnit={priceUnit}
-            />
+            <PriceCard price={price} oldPrice={oldPrice} priceUnit={priceUnit} />
           </StyledDetails>
         </Panels>
         <Link to={`/${categorySlug}`}>
           <PrimaryButton text="nazaj na kategorijo" className="link" />
         </Link>
-      </Container>
+      </StyledContainer>
     </Wrapper>
   );
 };
@@ -85,6 +67,13 @@ const Panels = styled.div``;
 const StyledDetails = styled.div``;
 const StyledTitle = styled.div``;
 const InfoSection = styled.div``;
+
+// Makes Product details closer together on ultra wide monitors
+const StyledContainer = styled(Container)`
+  @media (min-width: 1440px) {
+    width: 50vw;
+  }
+`;
 
 const Wrapper = styled.div`
   padding: 2rem 0;
@@ -100,7 +89,7 @@ const Wrapper = styled.div`
     }
 
     &:after {
-      content: "";
+      content: '';
       display: block;
       bottom: 0;
       left: 0;

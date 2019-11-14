@@ -1,8 +1,8 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
-import CategoryCard from "./CategoryCard";
+import CategoryCard from './CategoryCard';
 
 //* List of all categories. Last card is always Advice("Nasveti in ideje"). Clicking on a card links to single-category-template.
 
@@ -14,33 +14,23 @@ const propTypes = {
         title: PropTypes.string.isRequired,
         slug: PropTypes.string.isRequired,
         image: PropTypes.shape({
-          fluid: PropTypes.object.isRequired,
-        }).isRequired,
-      }).isRequired,
+          fluid: PropTypes.object.isRequired
+        }).isRequired
+      }).isRequired
     }).isRequired
   ).isRequired,
   adviceCardImg: PropTypes.shape({
-    fluid: PropTypes.object.isRequired,
-  }),
+    fluid: PropTypes.object.isRequired
+  })
 };
 
 const CategoryList = ({ categories, adviceCardImg }) => (
   <Wrapper>
     <StyledCategoryGallery>
       {categories.map(({ node }) => (
-        <CategoryCard
-          key={node.id}
-          title={node.title}
-          slug={node.slug}
-          image={node.image}
-        />
+        <CategoryCard key={node.id} title={node.title} slug={node.slug} image={node.image} />
       ))}
-      <CategoryCard
-        key="nasveti"
-        title="Nasveti in ideje"
-        slug="nasveti-in-ideje"
-        image={adviceCardImg}
-      />
+      <CategoryCard key="nasveti" title="Nasveti in ideje" slug="nasveti-in-ideje" image={adviceCardImg} />
     </StyledCategoryGallery>
   </Wrapper>
 );
@@ -64,6 +54,15 @@ const Wrapper = styled.div`
     grid-row-gap: 0.2rem;
 
     @media (min-width: 576px) {
+      margin: 3rem auto;
+    }
+
+    @media (min-width: 768) {
+      margin: 3rem auto;
+      grid-template-columns: repeat(auto-fill, minmax(368.66px, 1fr));
+    }
+
+    @media (min-width: 900px) {
       margin: 3rem auto;
       grid-template-columns: repeat(auto-fill, minmax(368.66px, 1fr));
     }

@@ -14,8 +14,4 @@ export const Container = styled.div`
   @media (min-width: 1200px) {
     width: 60vw;
   }
-
-  @media (min-width: 2560px) {
-    width: 40vw;
-  }
 `;

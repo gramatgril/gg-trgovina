@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { graphql, useStaticQuery } from "gatsby";
-import logo from "../../images/stil_logo.png";
+import React from 'react';
+import styled from 'styled-components';
+import { graphql, useStaticQuery } from 'gatsby';
+import logo from '../../images/stil_logo.png';
 
 const getData = graphql`
   query {
@@ -20,11 +20,7 @@ const NavbarIcons = () => {
 
   return (
     <Wrapper>
-      <a
-        href={url.siteMetadata.contactInfo.stilUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href={url.siteMetadata.contactInfo.stilUrl} target="_blank" rel="noopener noreferrer">
         <img src={logo} alt="logo" className="img" />
       </a>
     </Wrapper>
@@ -38,7 +34,7 @@ const Wrapper = styled.div`
   width: 7rem;
   height: 4rem;
 
-  @media (min-width: 900px) {
+  @media (min-width: 1200px) {
     display: block;
   }
 `;

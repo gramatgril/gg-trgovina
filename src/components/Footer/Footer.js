@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { Link, graphql, useStaticQuery } from "gatsby";
+import React from 'react';
+import styled from 'styled-components';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 
-import { navLinks, navIcons, siteLinks } from "./../../styles/links";
+import { navLinks, navIcons, siteLinks } from './../../styles/links';
 
 const getData = graphql`
   query {
@@ -71,13 +71,7 @@ const Footer = () => {
           <p>w: {web}</p>
           <StyledIconWrapper>
             {navIcons.map(({ id, path, icon, label }) => (
-              <a
-                key={id}
-                href={path}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-              >
+              <a key={id} href={path} target="_blank" rel="noopener noreferrer" aria-label={label}>
                 {icon}
               </a>
             ))}
@@ -120,7 +114,7 @@ const Wrapper = styled.footer`
   p {
     transition: ${({ theme }) => theme.linear};
     color: ${({ theme }) => theme.white};
-    padding: 0.7rem 0;
+    padding: 0.5rem 0;
   }
 
   @media (max-width: 768px) {
