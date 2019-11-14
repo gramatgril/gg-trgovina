@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import BackgroundImage from "gatsby-background-image";
+import React from 'react';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import BackgroundImage from 'gatsby-background-image';
 
 const propTypes = {
   img: PropTypes.object.isRequired,
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 const Hero = ({ img, className, children }) => (
@@ -23,7 +23,7 @@ export default styled(Hero)`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  /* position: relative; */
 `;
 
 Hero.propTypes = propTypes;

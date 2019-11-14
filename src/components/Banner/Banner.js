@@ -24,11 +24,7 @@ const Wrapper = styled.div`
   /* Mobile */
   color: ${({ theme }) => theme.grey[100]};
   margin: 0 auto;
-  max-height: 100%;
-  padding-top: 0.5rem;
   text-align: center;
-  position: absolute;
-  bottom: 10%;
   text-shadow: 1px 1px 1px ${({ theme }) => theme.grey[900]};
 
   h1 {
