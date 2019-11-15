@@ -107,19 +107,22 @@ const Wrapper = styled.footer`
     text-transform: uppercase;
     padding: 1rem 0;
     letter-spacing: ${({ theme }) => theme.letterSpacing};
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 500;
   }
 
   p {
     transition: ${({ theme }) => theme.linear};
     color: ${({ theme }) => theme.white};
-    padding: 0.5rem 0;
+    padding: 0.25rem 0;
   }
 
   @media (max-width: 768px) {
     .segments {
       display: block;
+    }
+    p {
+      padding: 0.5rem 0;
     }
   }
 `;

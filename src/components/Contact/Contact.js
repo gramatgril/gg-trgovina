@@ -6,7 +6,6 @@ import { Container } from '../../styles';
 import ContactForm from './ContactForm';
 import LeafletMap from './../Map';
 import MailConfirmation from './MailConfirmation';
-import { theme } from './../../styles/theme';
 
 const propTypes = {
   companyInfo: PropTypes.shape({
@@ -46,19 +45,37 @@ const Contact = ({ companyInfo, contactInfo }) => {
               <p>{street}</p>
               <p>{city}</p>
               <StyledInfoBlock>
-                <p>t: {phone}</p>
-                <p>f: {fax}</p>
-                <p>e: {mail}</p>
-                <p>w: {web}</p>
+                <p>
+                  <span>t:</span> {phone}
+                </p>
+                <p>
+                  <span>f:</span> {fax}
+                </p>
+                <p>
+                  <span>e:</span> {mail}
+                </p>
+                <p>
+                  <span>w:</span> {web}
+                </p>
               </StyledInfoBlock>
+
               <div>
-                <p>Matična številka: {companyId}</p>
-                <p>ID številka za DDV: {vatId}</p>
+                <p>
+                  <span>Matična številka:</span> {companyId}
+                </p>
+                <p>
+                  <span>ID številka za DDV:</span> {vatId}
+                </p>
               </div>
+
               <StyledInfoBlock>
                 <h4>Delovni čas: </h4>
-                <p>pon - pet: 7.00 - 19.00</p>
-                <p>sob: 7.00 - 13.00</p>
+                <p>
+                  <span>ponedeljek - petek:</span> 7.00 - 19.00
+                </p>
+                <p>
+                  <span>sobota:</span> 7.00 - 13.00
+                </p>
               </StyledInfoBlock>
             </StyledInfoBlock>
           </div>
@@ -97,6 +114,9 @@ const Wrapper = styled.section`
   padding: 3rem 0 0;
 
   ${StyledInfoBlock} {
+    span {
+      color: ${({ theme }) => theme.grey[500]};
+    }
     padding: 1rem 0;
   }
 
