@@ -69,7 +69,7 @@ const SortButton = styled.li`
 const Wrapper = styled.div`
   /* === MOBILE === */
   width: 90vw;
-  margin: 3rem auto 0;
+  margin: 2rem auto 0;
   padding: 0.5rem 0 1rem;
   border-radius: 15px;
   flex-direction: column-reverse;

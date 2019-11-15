@@ -40,7 +40,7 @@ const getAllAdvice = graphql`
 const AdviceList = ({ embed }) => {
   const { allAdvices } = useStaticQuery(getAllAdvice);
 
-  const advices = embed ? allAdvices.edges.filter((item, i) => i < 3) : allAdvices.edges;
+  const advices = embed ? allAdvices.edges.filter((_, i) => i < 3) : allAdvices.edges;
 
   return (
     <Wrapper embed={embed}>
@@ -51,9 +51,13 @@ const AdviceList = ({ embed }) => {
             <AdviceCard advice={node} key={node.id} />
           ))}
         </StyledAdviceGrid>
-        {embed && (
+        {embed ? (
           <Link to="/nasveti-in-ideje" className="link">
             <PrimaryButton text="vsi nasveti in ideje" />
+          </Link>
+        ) : (
+          <Link to="/" className="link">
+            <PrimaryButton text="domov" />
           </Link>
         )}
       </Container>
@@ -70,10 +74,10 @@ const StyledAdviceGrid = styled.div``;
 const Wrapper = styled.div`
   margin: 0 auto;
   width: 100%;
-  padding: 3rem 0;
+  padding: 2rem 0 4rem;
   background: ${({ embed, theme }) => (embed ? `${theme.white}` : `${theme.white}`)};
 
   ${StyledAdviceGrid} {
-    padding: 3rem 0;
+    padding: 0 0 3rem;
   }
 `;

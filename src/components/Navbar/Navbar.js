@@ -78,7 +78,7 @@ const Wrapper = styled.header`
 
       p {
         align-items: center;
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         margin: 0 1rem;
         white-space: nowrap;
       }

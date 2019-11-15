@@ -37,7 +37,7 @@ const Wrapper = styled.form`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 0 1.5rem;
+  padding: 0.5rem 1.5rem;
   border: ${({ theme }) => theme.primary[500]};
 
   ${SearchTerm} {

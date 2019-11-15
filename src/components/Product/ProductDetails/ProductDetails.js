@@ -86,6 +86,7 @@ const Wrapper = styled.div`
 
     h1 {
       margin: 1rem 0 0.5rem;
+      line-height: 1.2;
     }
 
     &:after {

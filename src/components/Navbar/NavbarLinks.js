@@ -87,7 +87,7 @@ const Wrapper = styled.ul`
       letter-spacing: 1.2px;
 
       h2 {
-        font-weight: 600;
+        font-weight: 500;
       }
 
       &:after {

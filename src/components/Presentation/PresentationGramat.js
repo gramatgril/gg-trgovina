@@ -86,9 +86,10 @@ const StyledRow = styled.div`
   flex-flow: ${({ top }) => (top ? `column-reverse` : `column`)};
 
   @media (min-width: 768px) {
-    grid-template-columns: ${({ top }) => (top ? `1fr 2fr` : `2fr 1fr`)};
+    grid-template-columns: ${({ top }) => (top ? `2fr 3fr` : `3fr 2fr`)};
   }
 `;
+
 const StyledText = styled.article`
   @media (min-width: 768px) {
     padding: ${({ top }) => (top ? `0 0 0 3rem` : `0 3rem 0 0`)};
@@ -108,7 +109,7 @@ const Wrapper = styled.div`
   }
 
   ${StyledImage} {
-    height: 300px;
+    height: 400px;
     width: auto;
     box-shadow: ${({ theme }) => theme.deepBoxShadow};
   }
@@ -126,10 +127,10 @@ const Wrapper = styled.div`
     }
   }
 
-  @media (min-width: 576px) {
+  @media (min-width: 768px) {
     ${StyledRow} {
       display: grid;
-      width: 80vw;
+      width: 90vw;
       padding: 3rem 0 5rem;
     }
   }
