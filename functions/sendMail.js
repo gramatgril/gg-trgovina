@@ -1,17 +1,17 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
 });
 const { SENDGRID_API_KEY, DESTINATION_EMAIL } = process.env;
 
 // Initializes SendGrid service and API
-const sgMail = require("@sendgrid/mail");
+const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(SENDGRID_API_KEY);
 
 // Assigns headers
 const headers = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "Content-Type",
-  "Access-Control-Allow-Methods": "POST",
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Methods': 'POST'
 };
 
 exports.handler = (event, context, callback) => {
@@ -19,13 +19,13 @@ exports.handler = (event, context, callback) => {
 
   // Bot detection
   if (phone) {
-    console.log("***BAIT FIELD ACTIVATED***");
+    console.log('***BAIT FIELD ACTIVATED***');
     return callback(null, {
       statusCode: 504,
       headers,
       body: JSON.stringify({
-        msg: "Bad bot!",
-      }),
+        msg: 'Bad bot!'
+      })
     });
   }
 
@@ -38,7 +38,7 @@ exports.handler = (event, context, callback) => {
     html: `<h3>Sporočilo:</h3>
     <p>${message}</p>
     <h3>Poslal:</h3>
-    <p> ${email}</p>`,
+    <p> ${email}</p>`
   };
 
   // Sends email
@@ -51,8 +51,8 @@ exports.handler = (event, context, callback) => {
         statusCode: 200,
         headers,
         body: JSON.stringify({
-          msg: "Sporočilo je bilo uspešno poslano. Hvala.",
-        }),
+          msg: 'Sporočilo je bilo uspešno poslano. Hvala za vaš odziv, odgovorimo vam v najkrajšem možnem času. Hvala!'
+        })
       });
     })
     .catch(error => {
@@ -61,8 +61,8 @@ exports.handler = (event, context, callback) => {
         statusCode: 503,
         headers,
         body: JSON.stringify({
-          msg: "Nekaj se je zalomilo. Poskusite pozneje. Hvala",
-        }),
+          msg: 'Nekaj se je zalomilo. Poskusite pozneje ali nas pa pokličite po telefonu ali e-pošti!'
+        })
       });
     });
 };

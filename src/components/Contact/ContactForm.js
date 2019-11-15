@@ -1,23 +1,23 @@
-import React from "react";
-import styled from "styled-components";
-import useForm from "react-hook-form";
-import PropTypes from "prop-types";
+import React from 'react';
+import styled from 'styled-components';
+import useForm from 'react-hook-form';
+import PropTypes from 'prop-types';
 
-import PrimaryButton from "../Button";
+import PrimaryButton from '../Button';
 
-import { validators } from "../../utils";
+import { validators } from '../../utils';
 const { nameValidation, emailValidation, messageValidation } = validators;
 
 const propTypes = {
-  setFormStatus: PropTypes.func.isRequired,
+  setFormStatus: PropTypes.func.isRequired
 };
 
 // "https://ggtrgovina.netlify.com/.netlify/functions/sendMail"
 // "http://localhost:9000/sendMail"
-const path = "https://ggtrgovina.netlify.com/.netlify/functions/sendMail";
+const path = 'https://ggtrgovina.netlify.com/.netlify/functions/sendMail';
 
 const ContactForm = ({ setFormStatus }) => {
-  const { register, handleSubmit, errors } = useForm({ mode: "onBlur" });
+  const { register, handleSubmit, errors } = useForm({ mode: 'onBlur' });
 
   const onSubmit = async (data, e) => {
     // Honeypot break
@@ -26,11 +26,11 @@ const ContactForm = ({ setFormStatus }) => {
     try {
       // Sends data to server
       const res = await fetch(path, {
-        method: "POST",
+        method: 'POST',
         headers: {
-          Accept: "application/json",
+          Accept: 'application/json'
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data)
       });
 
       // Defaults input fields to empty
@@ -67,9 +67,7 @@ const ContactForm = ({ setFormStatus }) => {
         <FormField>
           <div className="top-line">
             <label htmlFor="email">Email naslov</label>
-            {errors.email && (
-              <p className="error-text">{errors.email.message}</p>
-            )}
+            {errors.email && <p className="error-text">{errors.email.message}</p>}
           </div>
           <input
             autoComplete="off"
@@ -84,9 +82,7 @@ const ContactForm = ({ setFormStatus }) => {
         <FormField>
           <div className="top-line">
             <label htmlFor="message">Sporočilo</label>
-            {errors.message && (
-              <p className="error-text">{errors.message.message}</p>
-            )}
+            {errors.message && <p className="error-text">{errors.message.message}</p>}
           </div>
           <textarea
             autoComplete="off"
@@ -111,11 +107,7 @@ const ContactForm = ({ setFormStatus }) => {
           />
         </FormField>
         <FormField>
-          <PrimaryButton
-            text="Pošlji"
-            type="submit"
-            className="submit-button"
-          />
+          <PrimaryButton text="Pošlji" type="submit" className="submit-button" />
         </FormField>
       </form>
     </Wrapper>
@@ -143,9 +135,9 @@ const FormField = styled.div`
   .submit-button {
     width: 100%;
     font-size: 1rem;
-    padding: 0.375rem 0.75rem;
+    padding: 0.25rem 0.5rem;
     border: 1px solid;
-    border-radius: 0.25rem;
+    border-radius: 6px;
   }
 
   .submit-button {
@@ -164,17 +156,14 @@ const Wrapper = styled.div`
   margin: 1.5rem 0;
 
   #name {
-    border-color: ${({ errors, theme }) =>
-      errors.name ? theme.red : theme.grey[500]};
+    border-color: ${({ errors, theme }) => (errors.name ? theme.red : theme.grey[500])};
   }
 
   #email {
-    border-color: ${({ errors, theme }) =>
-      errors.email ? theme.red : theme.grey[500]};
+    border-color: ${({ errors, theme }) => (errors.email ? theme.red : theme.grey[500])};
   }
 
   #message {
-    border-color: ${({ errors, theme }) =>
-      errors.message ? theme.red : theme.grey[500]};
+    border-color: ${({ errors, theme }) => (errors.message ? theme.red : theme.grey[500])};
   }
 `;

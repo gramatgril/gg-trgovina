@@ -1,11 +1,12 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
+import React, { useState } from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-import { Container } from "../../styles";
-import ContactForm from "./ContactForm";
-import LeafletMap from "./../Map";
-import MailConfirmation from "./MailConfirmation";
+import { Container } from '../../styles';
+import ContactForm from './ContactForm';
+import LeafletMap from './../Map';
+import MailConfirmation from './MailConfirmation';
+import { theme } from './../../styles/theme';
 
 const propTypes = {
   companyInfo: PropTypes.shape({
@@ -15,36 +16,30 @@ const propTypes = {
     vatId: PropTypes.string.isRequired,
     companyDesc: PropTypes.string.isRequired,
     street: PropTypes.string.isRequired,
-    city: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired
   }).isRequired,
   contactInfo: PropTypes.shape({
     phone: PropTypes.string.isRequired,
     fax: PropTypes.string.isRequired,
     web: PropTypes.string.isRequired,
-    mail: PropTypes.string.isRequired,
-  }).isRequired,
+    mail: PropTypes.string.isRequired
+  }).isRequired
 };
 
 const Contact = ({ companyInfo, contactInfo }) => {
-  const {
-    companyDesc,
-    nameLong,
-    nameShort,
-    companyId,
-    vatId,
-    street,
-    city,
-  } = companyInfo;
+  const { companyDesc, nameLong, nameShort, companyId, vatId, street, city } = companyInfo;
   const { phone, fax, mail, web } = contactInfo;
   // When the form is submitted, state and msg are received from the server and sent to the MailConfirmation component
-  const [formStatus, setFormStatus] = useState({ statusCode: null, msg: "" });
+  const [formStatus, setFormStatus] = useState({ statusCode: null, msg: '' });
 
   return (
     <Wrapper>
       <Container>
         <div className="contact-panels">
           <div className="info-segment">
-            <h2>Kontaktni podatki</h2>
+            <div className="title">
+              <h1>Kontaktni podatki</h1>
+            </div>
             <StyledInfoBlock>
               <p className="company-name">{nameShort}</p>
               <p className="long-name">{nameLong}</p>
@@ -61,6 +56,7 @@ const Contact = ({ companyInfo, contactInfo }) => {
                 <p>ID številka za DDV: {vatId}</p>
               </div>
               <StyledInfoBlock>
+                <h4>Delovni čas: </h4>
                 <p>pon - pet: 7.00 - 19.00</p>
                 <p>sob: 7.00 - 13.00</p>
               </StyledInfoBlock>
@@ -68,7 +64,9 @@ const Contact = ({ companyInfo, contactInfo }) => {
           </div>
           {/* Contact Form */}
           <div className="form-segment">
-            <h2>Pustite nam sporočilo</h2>
+            <div className="title">
+              <h1>Pustite nam sporočilo</h1>
+            </div>
             {/* Renders confirmation component when mail is sent*/}
             {!formStatus.statusCode ? (
               <ContactForm setFormStatus={setFormStatus} />
@@ -78,7 +76,9 @@ const Contact = ({ companyInfo, contactInfo }) => {
           </div>
         </div>
         <div className="about-segment">
-          <h2>O nas</h2>
+          <div className="title">
+            <h1>O nas</h1>
+          </div>
           <p>{companyDesc}</p>
         </div>
       </Container>
@@ -100,26 +100,25 @@ const Wrapper = styled.section`
     padding: 1rem 0;
   }
 
-  h2 {
-    padding-bottom: 0.2rem;
-    font-size: 1.8rem;
-    font-weight: 500;
-    border-bottom: 1px solid ${({ theme }) => theme.green};
+  .title {
+    display: inline-block;
+    h1 {
+      border-bottom: 2px solid ${({ theme }) => theme.primary[300]};
+      font-weight: 500;
+    }
   }
 
-  p {
-    padding: 0.1rem 0;
+  h4 {
+    padding: 0.5rem 0 0.25rem;
   }
-
   .info-segment,
   .form-segment {
     text-align: left;
   }
 
   .company-name {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    letter-spacing: 2px;
   }
 
   .about-segment {
