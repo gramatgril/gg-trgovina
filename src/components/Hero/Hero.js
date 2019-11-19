@@ -23,7 +23,6 @@ export default styled(Hero)`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* position: relative; */
 `;
 
 Hero.propTypes = propTypes;

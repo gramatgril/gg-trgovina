@@ -91,7 +91,7 @@ const Wrapper = styled.div`
   }
 
   /* === DESKTOP === */
-  @media (min-width: 768px) {
+  @media (min-width: 900px) {
     transition: ${({ theme }) => theme.easeInOut};
     margin: 3rem auto 0;
     height: 3rem;

@@ -67,8 +67,10 @@ const Wrapper = styled.form`
     border-top-right-radius: 12px;
     border-bottom-right-radius: 12px;
   }
-
-  @media (min-width: 768px) {
+  @media (min-width: 576px) {
+    width: 50%;
+  }
+  @media (min-width: 900px) {
     width: 30%;
     padding: 0 0.5rem;
   }
