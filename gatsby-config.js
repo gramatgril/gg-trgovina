@@ -1,15 +1,15 @@
-require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
 });
-var proxy = require("http-proxy-middleware");
+var proxy = require('http-proxy-middleware');
 
 module.exports = {
   siteMetadata: {
     title: `Trgovina z gradbenim materialom`,
     description: `Barve, fasade, keramika, talne obloge, kopalnice, vse za vrt in okolico. Najdete nas v Rožni dolini 9 v Grosuplju.`,
     author: `@praecorloth`,
-    siteUrl: `https://ggtrgovina.netlify.com`,
-    image: "/defaultBcg.jpg",
+    siteUrl: `https://trgovina-gramat-gril.si`,
+    image: '/defaultBcg.jpg',
     companyInfo: {
       nameLong: `Proizvodnja, transport in trgovina gradbenega materiala Gramat Gril d.o.o.`,
       nameShort: `GRAMAT GRIL d.o.o.`,
@@ -28,30 +28,30 @@ module.exports = {
       d.o.o. ter odprla trgovino z gradbenim materialom in keramiko. Leta
       2009 je podjetje prevzel sin Peter Gril. Danes gradbeni oddelek ter
       salon keramike in kopalniške opreme na 700m2 svojim kupcem nudi
-      celovito ponudbo materiala za kopalnice.`,
+      celovito ponudbo materiala za kopalnice.`
     },
     contactInfo: {
       phone: `+386 1 786 33 63`,
       fax: `+386 1 786 44 64`,
       mail: `info@gramat-gril.si`,
       web: `www.gramat-gril.si`,
-      stilUrl: `https://gramat-gril.si/`,
-    },
+      stilUrl: `https://gramat-gril.si/`
+    }
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images/`,
-      },
+        path: `${__dirname}/src/images/`
+      }
     },
     {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-      },
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
@@ -62,34 +62,34 @@ module.exports = {
     {
       resolve: `gatsby-plugin-robots-txt`,
       options: {
-        host: `https://ggtrgovina.netlify.com/`,
-        sitemap: `https://ggtrgovina.netlify.com/sitemap.xml`,
+        host: `https://trgovina-gramat-gril.si/`,
+        sitemap: `https://trgovina-gramat-gril.si/sitemap.xml`,
         env: {
           production: {
-            policy: [{ userAgent: "*", allow: "/" }],
-          },
-        },
-      },
+            policy: [{ userAgent: '*', allow: '/' }]
+          }
+        }
+      }
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: process.env.GOOGLE_ANALYTICS_ID,
-        head: true,
-        // anonymize: true,
-      },
+        head: true
+        // anonymize: true
+      }
     },
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
+        pathToConfigModule: `src/utils/typography`
+      }
     },
     {
-      resolve: "gatsby-plugin-react-leaflet",
+      resolve: 'gatsby-plugin-react-leaflet',
       options: {
-        linkStyles: true, // (default: true) Enable/disable loading stylesheets via CDN
-      },
+        linkStyles: true // (default: true) Enable/disable loading stylesheets via CDN
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -100,21 +100,21 @@ module.exports = {
         background_color: `#f7f7f7`,
         theme_color: `#8db600`,
         display: `standalone`,
-        icon: `src/images/icon.png`,
-      },
+        icon: `src/images/icon.png`
+      }
     },
-    `gatsby-plugin-offline`,
+    `gatsby-plugin-offline`
   ],
 
   developMiddleware: app => {
     app.use(
-      "/.netlify/functions/",
+      '/.netlify/functions/',
       proxy({
-        target: "http://localhost:9000",
+        target: 'http://localhost:9000',
         pathRewrite: {
-          "/.netlify/functions/": "",
-        },
+          '/.netlify/functions/': ''
+        }
       })
     );
-  },
+  }
 };
