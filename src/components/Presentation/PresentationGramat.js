@@ -69,7 +69,12 @@ const PresentationGramat = () => {
             cenovnega razreda ter preostalo raznolikostjo naše ponudbe. Poseben poudarek pa dajemo osebnemu pristopu,
             saj so vam strokovni nasveti naših prodajalcev vedno na voljo.
           </p>
-          <p>Obiščite salon na naslovu </p>
+          <p>
+            Obiščite salon na naslovu{' '}
+            <a className="link" href="https://gramat-gril.si/">
+              gramat-gril.si
+            </a>{' '}
+          </p>
         </StyledText>
         <StyledImage>
           <Img fluid={imageStil.image.fluid} className="img" />
@@ -100,6 +105,14 @@ const Wrapper = styled.div`
   width: 100%;
   padding: 3rem 0;
   background: ${({ theme }) => theme.grey[100]};
+
+  .link {
+    color: ${({ theme }) => theme.green};
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
 
   ${StyledRow} {
     display: flex;
