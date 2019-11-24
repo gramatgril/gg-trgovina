@@ -7,7 +7,7 @@ import Title from '../Title';
 
 const query = graphql`
   query {
-    imageGramat: file(relativePath: { eq: "PresentationGramat.jpg" }) {
+    imageGramat: file(relativePath: { eq: "gg_photo_close.jpg" }) {
       image: childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid

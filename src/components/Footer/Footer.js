@@ -68,7 +68,6 @@ const Footer = () => {
           <p>t: {phone}</p>
           <p>f: {fax}</p>
           <p>e: {mail}</p>
-          <p>w: {web}</p>
           <StyledIconWrapper>
             {navIcons.map(({ id, path, icon, label }) => (
               <a key={id} href={path} target="_blank" rel="noopener noreferrer" aria-label={label}>
