@@ -30,12 +30,12 @@ const getData = graphql`
 const Footer = () => {
   const { site } = useStaticQuery(getData);
   const { name, city, copyright, street } = site.siteMetadata.companyInfo;
-  const { phone, mail, web, fax } = site.siteMetadata.contactInfo;
+  const { phone, mail, fax } = site.siteMetadata.contactInfo;
 
   return (
     <Wrapper>
-      <div className="segments">
-        <div className="segment">
+      <Segments>
+        <SingleSegment>
           <h4>informacije</h4>
           {navLinks.map(({ id, path, name }) => (
             <StyledLink to={path} key={id} className="link">
@@ -45,25 +45,27 @@ const Footer = () => {
           <StyledLink className="link" to="/pravna-obvestila">
             <p>Pravna obvestila</p>
           </StyledLink>
-        </div>
+        </SingleSegment>
 
-        <div className="segment">
+        <SingleSegment>
           <h4>naša ponudba</h4>
-          {siteLinks.map(({ id, path, name }) => (
-            <StyledLink to={path} key={id} className="link">
-              <p>{name}</p>
-            </StyledLink>
-          ))}
-        </div>
-        <div className="segment">
+          <LinkSegment>
+            {siteLinks.map(({ id, path, name }) => (
+              <StyledLink to={path} key={id} className="link">
+                <p>{name}</p>
+              </StyledLink>
+            ))}
+          </LinkSegment>
+        </SingleSegment>
+        <SingleSegment>
           <h4>o nas</h4>
           <p>{name}</p>
           <p>{street}</p>
           <p>{city}</p>
           <p>pon - pet: 7.00 - 19.00</p>
           <p>sob: 7.00 - 13.00</p>
-        </div>
-        <div className="segment">
+        </SingleSegment>
+        <SingleSegment>
           <h4>kontakt</h4>
           <p>t: {phone}</p>
           <p>f: {fax}</p>
@@ -75,31 +77,89 @@ const Footer = () => {
               </a>
             ))}
           </StyledIconWrapper>
-        </div>
-      </div>
-      <StyledBottomBar>
+        </SingleSegment>
+      </Segments>
+      <BottomBar>
         <p>&copy; {copyright}</p>
-      </StyledBottomBar>
+      </BottomBar>
     </Wrapper>
   );
 };
 
 export default Footer;
 
+const Segments = styled.div``;
+const SingleSegment = styled.div``;
+const BottomBar = styled.div``;
+const StyledLink = styled(Link)``;
+const StyledIconWrapper = styled.div``;
+const LinkSegment = styled.div``;
+
 const Wrapper = styled.footer`
-  background: ${({ theme }) => theme.black};
+  background: ${({ theme }) => theme.grey[900]};
   color: ${({ theme }) => theme.white};
   text-align: center;
 
-  .segments {
+  ${Segments} {
     min-height: 300px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 3fr 2fr 2fr;
     grid-column-gap: 1rem;
   }
 
-  .segment {
+  ${SingleSegment} {
     padding: 1.5rem 0;
+  }
+
+  ${LinkSegment} {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    p {
+      padding: 0.5rem 0;
+    }
+  }
+
+  ${BottomBar} {
+    background: ${({ theme }) => theme.primary[500]};
+    color: ${({ theme }) => theme.primary[100]};
+  }
+
+  ${StyledLink} {
+    &:hover p {
+      transition: ${({ theme }) => theme.linear};
+      color: ${({ theme }) => theme.primary[500]};
+    }
+  }
+
+  ${StyledIconWrapper} {
+    padding: 1rem 0;
+    margin: 0 auto;
+    display: flex;
+    width: 10rem;
+    justify-content: space-around;
+
+    .icon {
+      font-size: 1.6rem;
+      cursor: pointer;
+      transition: ${({ theme }) => theme.linear};
+
+      :hover {
+        color: ${({ theme }) => theme.primary[100]};
+      }
+    }
+
+    .facebook-icon {
+      color: ${({ theme }) => theme.primary[500]};
+    }
+
+    .stil-icon {
+      height: 25px;
+    }
+
+    .instagram-icon {
+      color: ${({ theme }) => theme.primary[500]};
+    }
   }
 
   h4 {
@@ -117,56 +177,24 @@ const Wrapper = styled.footer`
   }
 
   @media (max-width: 768px) {
-    .segments {
+    ${Segments} {
       display: block;
     }
+
+    ${LinkSegment} {
+      display: block;
+
+      p {
+        padding: 0.5rem 0;
+      }
+    }
+
+    ${BottomBar} {
+      display: block;
+    }
+
     p {
       padding: 0.5rem 0;
     }
-  }
-`;
-
-const StyledBottomBar = styled.div`
-  background: ${({ theme }) => theme.green};
-
-  @media (max-width: 768px) {
-    display: block;
-  }
-`;
-
-const StyledLink = styled(Link)`
-  :hover p {
-    transition: ${({ theme }) => theme.linear};
-    color: ${({ theme }) => theme.green};
-  }
-`;
-
-const StyledIconWrapper = styled.div`
-  padding: 1rem 0;
-  margin: 0 auto;
-  display: flex;
-  width: 10rem;
-  justify-content: space-around;
-
-  .icon {
-    font-size: 1.6rem;
-    cursor: pointer;
-    transition: ${({ theme }) => theme.linear};
-
-    :hover {
-      color: ${({ theme }) => theme.white};
-    }
-  }
-
-  .facebook-icon {
-    color: ${({ theme }) => theme.green};
-  }
-
-  .stil-icon {
-    height: 25px;
-  }
-
-  .instagram-icon {
-    color: ${({ theme }) => theme.green};
   }
 `;

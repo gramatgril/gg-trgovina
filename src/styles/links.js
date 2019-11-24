@@ -65,13 +65,13 @@ export const navIcons = [
 export const siteLinks = [
   {
     id: 0,
-    name: 'Barve in fasade',
-    path: '/barve-in-fasade'
+    name: 'Barve in laki',
+    path: '/barve-in-laki'
   },
   {
     id: 1,
-    name: 'Gradnja',
-    path: '/gradnja'
+    name: 'Gradbeni material',
+    path: '/gradbeni-material'
   },
   {
     id: 2,
@@ -80,11 +80,26 @@ export const siteLinks = [
   },
   {
     id: 3,
-    name: 'Vrt in okolica',
-    path: '/barve-in-fasade'
+    name: 'Orodje in zaščita',
+    path: '/orodje-in-zascita'
   },
   {
     id: 4,
+    name: 'Sezonska ponudba',
+    path: '/sezonska-ponudba'
+  },
+  {
+    id: 5,
+    name: 'Streha in fasada',
+    path: '/streha-in-fasada'
+  },
+  {
+    id: 6,
+    name: 'Vrt in okolica',
+    path: '/vrt-in-okolica'
+  },
+  {
+    id: 7,
     name: 'Vse za kopalnico',
     path: '/vse-za-kopalnico'
   }
@@ -114,17 +129,17 @@ export const sortMenuLinks = [
     name: 'Promovirano',
     active: false,
     action: SHOW_PROMOTED
-  },
+  }
   // {
   //   id: 4,
   //   name: "Najnovejše",
   //   active: false,
   //   action: SORT_BY_DATE_DOWN,
   // },
-  {
-    id: 5,
-    name: 'Popust',
-    active: false,
-    action: SORT_BY_DISCOUNT
-  }
+  // {
+  //   id: 5,
+  //   name: 'Popust',
+  //   active: false,
+  //   action: SORT_BY_DISCOUNT
+  // }
 ];

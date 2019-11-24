@@ -6,8 +6,8 @@ import {
   INPUT_CHANGE,
   SEARCH_PRODUCTS,
   SORT_BY_DATE_DOWN,
-  SORT_BY_DISCOUNT,
-} from "./constants";
+  SORT_BY_DISCOUNT
+} from './constants';
 
 /* Reducer state:
  {  searchInput: "",
@@ -42,19 +42,15 @@ const productReducer = (state, action) => {
         node.title.toLowerCase().includes(searchInput.toLowerCase())
       );
 
-      return { ...state, searchInput: "", products: [...foundProducts] };
+      return { ...state, searchInput: '', products: [...foundProducts] };
 
     case SORT_BY_DATE_DOWN:
-      const dateUp = products.sort(
-        (a, b) => parseInt(b.node.createdAt) - parseInt(a.node.createdAt)
-      );
+      const dateUp = products.sort((a, b) => parseInt(b.node.createdAt) - parseInt(a.node.createdAt));
 
       return { ...state, products: [...dateUp] };
 
     case SORT_BY_DISCOUNT:
-      const discountUp = products.sort(
-        (a, b) => b.node.discount - a.node.discount
-      );
+      const discountUp = products.sort((a, b) => parseInt(b.node.discount) - parseInt(a.node.discount));
       return { ...state, products: [...discountUp] };
     default:
       return state;
