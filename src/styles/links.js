@@ -7,9 +7,9 @@ const {
   RESET_PRODUCTS,
   SHOW_PROMOTED,
   SORT_BY_PRICE_UP,
-  SORT_BY_PRICE_DOWN,
+  SORT_BY_PRICE_DOWN
   // SORT_BY_DATE_DOWN,
-  SORT_BY_DISCOUNT
+  // SORT_BY_DISCOUNT
 } = types;
 
 export const navLinks = [
