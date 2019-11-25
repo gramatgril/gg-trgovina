@@ -9,7 +9,7 @@ module.exports = {
     description: `Barve, fasade, keramika, talne obloge, kopalnice, vse za vrt in okolico. Najdete nas v Rožni dolini 9 v Grosuplju.`,
     author: `@praecorloth`,
     siteUrl: `https://trgovina-gramat-gril.si`,
-    image: '/gg_photo_close.jpg',
+    image: '/defaultBcg.jpg',
     companyInfo: {
       nameLong: `Proizvodnja, transport in trgovina gradbenega materiala Gramat Gril d.o.o.`,
       nameShort: `GRAMAT GRIL d.o.o.`,
