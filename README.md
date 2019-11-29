@@ -1,3 +1,3 @@
 # Gramat Gril Website Repo
 
-Built by Gatsby, Contentful, Flowpaper and Font Awesome
+Built by Gatsby, Contentful and Font Awesome. Hosted on Netlify.
