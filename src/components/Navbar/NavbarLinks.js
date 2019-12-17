@@ -90,6 +90,7 @@ const Wrapper = styled.ul`
       }
 
       &:after {
+        margin: 0.25rem 0;
         content: '';
         display: block;
         background: ${({ theme }) => theme.grey[100]};

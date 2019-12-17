@@ -1,12 +1,12 @@
-import React from "react";
-import styled from "styled-components";
-import PropTypes from "prop-types";
-import { stylePrice, calculateDiscount } from "./../../../styles/helpers";
+import React from 'react';
+import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import { stylePrice, calculateDiscount } from './../../../styles/helpers';
 
 const propTypes = {
   price: PropTypes.number.isRequired,
   oldPrice: PropTypes.number,
-  priceUnit: PropTypes.string.isRequired,
+  priceUnit: PropTypes.string.isRequired
 };
 
 const PriceCard = ({ price, oldPrice, priceUnit }) => {
@@ -23,7 +23,7 @@ const PriceCard = ({ price, oldPrice, priceUnit }) => {
         <DiscountContainer>
           <OldPrice>
             <p>
-              <span className="label">Stara cena</span>{" "}
+              <span className="label">Stara cena</span>{' '}
               <span className="oldPrice">
                 {stylePrice(oldPrice)} {priceUnit}
               </span>
@@ -59,7 +59,7 @@ const Saved = styled.div``;
 const Wrapper = styled.div`
   text-align: center;
   width: 90%;
-  margin: 1rem;
+  margin: 2rem 0;
   white-space: nowrap;
   display:flex;
   flex-direction: column;

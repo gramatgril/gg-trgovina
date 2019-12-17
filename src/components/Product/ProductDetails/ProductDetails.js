@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
 
 import { Container } from '../../../styles';
 import Description from './Description';
@@ -28,7 +29,7 @@ const propTypes = {
 };
 
 const ProductDetails = ({ product, categorySlug }) => {
-  const { title, price, oldPrice, priceUnit, description, images, promo } = product;
+  const { title, price, oldPrice, priceUnit, description, images, promo, icons } = product;
 
   const [galleryImages] = useState(images);
   const [mainImage, setMainImage] = useState(images[0]);
@@ -48,6 +49,7 @@ const ProductDetails = ({ product, categorySlug }) => {
               </StyledTitle>
               <Description description={description} />
             </InfoSection>
+            <Img fluid={icons.fluid} className="img" />
             <PriceCard price={price} oldPrice={oldPrice} priceUnit={priceUnit} />
           </StyledDetails>
         </Panels>

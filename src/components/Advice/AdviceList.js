@@ -14,7 +14,7 @@ const propTypes = {
 
 const getAllAdvice = graphql`
   {
-    allAdvices: allContentfulNasvetiInIdeje {
+    allAdvices: allContentfulNasvetiInIdeje(sort: { fields: date, order: DESC }) {
       edges {
         node {
           id: contentful_id
@@ -35,7 +35,6 @@ const getAllAdvice = graphql`
 
 // If prop <embed> is supplied, component is being embeded into some other component.
 // Number of items is limited to 3 and title is displayed
-// Since component stretches whole width, Container is not parent div, but instead its
 
 const AdviceList = ({ embed }) => {
   const { allAdvices } = useStaticQuery(getAllAdvice);

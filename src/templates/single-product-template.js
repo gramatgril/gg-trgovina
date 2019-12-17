@@ -1,11 +1,11 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import { AdviceList } from "../components/Advice";
-import Layout from "./../styles/layout";
-import ProductDetails from "../components/Product/ProductDetails";
-import { PromotedProducts } from "./../components/Product";
-import SEO from "./../components/seo";
+import { AdviceList } from '../components/Advice';
+import Layout from './../styles/layout';
+import ProductDetails from '../components/Product/ProductDetails';
+import { PromotedProducts } from './../components/Product';
+import SEO from './../components/seo';
 
 export default ({ data }) => {
   const { title } = data.product;
@@ -35,6 +35,11 @@ export const query = graphql`
         slug
       }
       promo
+      icons {
+        fluid {
+          ...GatsbyContentfulFluid
+        }
+      }
       images {
         id: contentful_id
         fluid(maxHeight: 400) {

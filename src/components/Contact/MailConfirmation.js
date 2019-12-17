@@ -6,12 +6,12 @@ import PropTypes from 'prop-types';
 const propTypes = {
   formStatus: PropTypes.shape({
     statusCode: PropTypes.number.isRequired,
-    msg: PropTypes.string.isRequired
+    msg: PropTypes.string
   })
 };
 
 const MailConfirmation = ({ formStatus }) => {
-  const { statusCode, msg } = formStatus;
+  const { statusCode } = formStatus;
 
   if (statusCode === 200) {
     return (
