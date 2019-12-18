@@ -23,7 +23,8 @@ const propTypes = {
       slug: PropTypes.string.isRequired
     }).isRequired,
     promo: PropTypes.bool.isRequired,
-    images: PropTypes.arrayOf(PropTypes.object.isRequired)
+    images: PropTypes.arrayOf(PropTypes.object.isRequired),
+    icons: PropTypes.object
   }).isRequired,
   categorySlug: PropTypes.string.isRequired
 };
@@ -49,7 +50,7 @@ const ProductDetails = ({ product, categorySlug }) => {
               </StyledTitle>
               <Description description={description} />
             </InfoSection>
-            <Img fluid={icons.fluid} className="img" />
+            {icons && <Img fluid={icons.fluid} className="img" />}
             <PriceCard price={price} oldPrice={oldPrice} priceUnit={priceUnit} />
           </StyledDetails>
         </Panels>
