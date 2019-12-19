@@ -71,7 +71,7 @@ const Contact = ({ companyInfo, contactInfo }) => {
               <StyledInfoBlock>
                 <h4>Delovni čas: </h4>
                 <p>
-                  <span>ponedeljek - petek:</span> 7.00 - 19.00
+                  <span>ponedeljek - petek:</span> 7.00 - 18.00
                 </p>
                 <p>
                   <span>sobota:</span> 7.00 - 13.00

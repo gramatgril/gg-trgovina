@@ -62,7 +62,7 @@ const Footer = () => {
           <p>{name}</p>
           <p>{street}</p>
           <p>{city}</p>
-          <p>pon - pet: 7.00 - 19.00</p>
+          <p>pon - pet: 7.00 - 18.00</p>
           <p>sob: 7.00 - 13.00</p>
         </SingleSegment>
         <SingleSegment>
