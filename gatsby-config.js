@@ -21,7 +21,7 @@ module.exports = {
       ceo: `Peter Gril`,
       companyId: `5292263000`,
       vatId: `SI88496473`,
-      copyright: `2010-2019 GRAMAT GRIL d.o.o. | Vse pravice zadržane`,
+      copyright: `2010-2020 GRAMAT GRIL d.o.o. | Vse pravice zadržane`,
       companyDesc: ` Tradicija podjetništva v družini Gril sega v leto 1967. Takrat sta
       Ana in August Gril odprla obrtno delavnico za izdelavo cementnih
       izdelkov. Leta 1989 sta jo reorganizirala v podjetje GRAMAT GRIL
