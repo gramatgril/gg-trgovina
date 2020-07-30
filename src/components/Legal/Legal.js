@@ -59,7 +59,7 @@ const Wrapper = styled(Container)`
   }
 
   .link {
-    color: ${({ theme }) => theme.green};
+    color: ${({ theme }) => theme.gold[500]};
 
     &:hover {
       opacity: 0.7;

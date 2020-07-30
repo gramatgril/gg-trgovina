@@ -10,6 +10,7 @@ module.exports = {
     author: `@praecorloth`,
     siteUrl: `https://trgovina-gramat-gril.si`,
     image: '/defaultBcg.jpg',
+    icon: '/favicon.ico',
     companyInfo: {
       nameLong: `Proizvodnja, transport in trgovina gradbenega materiala Gramat Gril d.o.o.`,
       nameShort: `GRAMAT GRIL d.o.o.`,
@@ -32,6 +33,7 @@ module.exports = {
     },
     contactInfo: {
       phone: `+386 1 786 33 63`,
+      phoneSecondary: `+386 7 306 56 95`,
       fax: `+386 1 786 44 64`,
       mail: `info@gramat-gril.si`,
       web: `www.gramat-gril.si`,

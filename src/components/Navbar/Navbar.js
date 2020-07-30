@@ -12,6 +12,7 @@ const getInfo = graphql`
       siteMetadata {
         contactInfo {
           phone
+          phoneSecondary
           mail
           stilUrl
         }
@@ -22,7 +23,7 @@ const getInfo = graphql`
 
 const Navbar = () => {
   const { site } = useStaticQuery(getInfo);
-  const { phone, mail, stilUrl } = site.siteMetadata.contactInfo;
+  const { phone, mail, stilUrl, phoneSecondary } = site.siteMetadata.contactInfo;
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => setIsOpen(!isOpen);
@@ -31,7 +32,10 @@ const Navbar = () => {
     <Wrapper>
       <TopRow>
         <p>{mail}</p>
-        <p>{phone}</p>
+        <div>
+          <p>Grosuplje: {phone} </p>
+          <p> Dolenjske Toplice: {phoneSecondary}</p>
+        </div>
       </TopRow>
       {/* Breakpoint is 900px. Header shows menu icon, Links go from flex to block and Icon is hidden */}
       <BottomRow>
@@ -53,15 +57,18 @@ const Wrapper = styled.header`
   box-shadow: 0 0.5px 0 0 #ffffff inset, 0 1px 2px 0 #b3b3b3;
 
   ${TopRow} {
-    height: 3rem;
+    height: 4rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     padding: 0 1.5rem;
-    align-items: center;
+    align-items: flex-end;
     background: ${({ theme }) => theme.primary[500]};
     color: ${({ theme }) => theme.primary[100]};
 
     p {
+      text-align: right;
+      font-size: 0.75rem;
       white-space: nowrap;
     }
   }
@@ -74,10 +81,12 @@ const Wrapper = styled.header`
   /* === DESKTOP === */
   @media (min-width: 1200px) {
     ${TopRow} {
+       flex-direction: row;
       justify-content: flex-end;
+      align-items:  flex-end;
 
       p {
-        align-items: center;
+        text-align: right;
         font-size: 1.25rem;
         margin: 0 1rem;
         white-space: nowrap;
