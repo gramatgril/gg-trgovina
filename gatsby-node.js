@@ -1,4 +1,4 @@
-const path = require("path");
+const path = require('path');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -39,24 +39,25 @@ exports.createPages = async ({ graphql, actions }) => {
   data.categories.edges.forEach(({ node }) => {
     createPage({
       path: `/${node.slug}`,
-      component: path.resolve("./src/templates/single-category-template.js"),
-      context: { id: node.categoryId },
+      component: path.resolve('./src/templates/single-category-template.js'),
+      context: { id: node.categoryId }
     });
   });
 
   data.products.edges.forEach(({ node }) => {
     createPage({
       path: `/${node.category.slug}/${node.productSlug}`,
-      component: path.resolve("./src/templates/single-product-template.js"),
-      context: { id: node.productId },
+      component: path.resolve('./src/templates/single-product-template.js'),
+      context: { id: node.productId }
     });
   });
 
   data.advices.edges.forEach(({ node }) => {
+    console.log(node);
     createPage({
       path: `/nasveti-in-ideje/${node.slug}`,
-      component: path.resolve("./src/templates/single-advice-template.js"),
-      context: { id: node.adviceId },
+      component: path.resolve('./src/templates/single-advice-template.js'),
+      context: { id: node.adviceId }
     });
   });
 };

@@ -24,7 +24,7 @@ const AdviceCard = ({ advice }) => {
       <Link to={`/nasveti-in-ideje/${slug}`} className="link">
         <StyledCard>
           <StyledImage>
-            <Img fluid={image.fluid} alt="advice" className="img" imgStyle={{ objectFit: 'cover' }} />
+            <Img fluid={image && image.fluid} alt="advice" className="img" imgStyle={{ objectFit: 'cover' }} />
             <StyledDate>{date}</StyledDate>
           </StyledImage>
           <StyledDescription>

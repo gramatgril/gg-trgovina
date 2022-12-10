@@ -47,7 +47,7 @@ const ContactForm = ({ setFormStatus }) => {
   };
 
   return (
-    <Wrapper errors={errors}>
+    <Wrapper>
       <form className="form" name="contact" onSubmit={handleSubmit(onSubmit)}>
         <FormField>
           <div className="top-line">
@@ -61,7 +61,7 @@ const ContactForm = ({ setFormStatus }) => {
             id="name"
             className="input-field"
             placeholder="Jože Novak"
-            ref={register(nameValidation)}
+            // ref={register(nameValidation)}
           />
         </FormField>
         <FormField>
@@ -76,7 +76,7 @@ const ContactForm = ({ setFormStatus }) => {
             id="email"
             className="input-field"
             placeholder="Jože.Novak@gmail.com"
-            ref={register(emailValidation)}
+            // ref={register(emailValidation)}
           />
         </FormField>
         <FormField>
@@ -92,7 +92,7 @@ const ContactForm = ({ setFormStatus }) => {
             id="message"
             className="input-field"
             placeholder="Sporočilo, mnenje, predlog, naročilo..."
-            ref={register(messageValidation)}
+            // ref={register(messageValidation)}
           />
         </FormField>
         <FormField>
