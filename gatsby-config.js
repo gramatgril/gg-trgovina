@@ -40,9 +40,6 @@ module.exports = {
       stilUrl: `https://gramat-gril.si/`
     }
   },
-  flags: {
-    THE_FLAG: false
-  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
