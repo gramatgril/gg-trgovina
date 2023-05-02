@@ -103,7 +103,7 @@ module.exports = {
         theme_color: `#8db600`,
         display: `standalone`,
         icon: `src/images/favicon.png`,
-        include_favicon: false!
+        include_favicon: false
       }
     }
     // `gatsby-plugin-offline`
