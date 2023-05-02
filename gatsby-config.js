@@ -93,19 +93,19 @@ module.exports = {
         linkStyles: true // (default: true) Enable/disable loading stylesheets via CDN
       }
     }
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `Gramat Gril`,
-    //     short_name: `Gramat Gril`,
-    //     start_url: `/`,
-    //     background_color: `#f7f7f7`,
-    //     theme_color: `#8db600`,
-    //     display: `standalone`,
-    //     icon: `src/images/favicon.png`,
-    //     include_favicon: false!
-    //   }
-    // }
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Gramat Gril`,
+        short_name: `Gramat Gril`,
+        start_url: `/`,
+        background_color: `#f7f7f7`,
+        theme_color: `#8db600`,
+        display: `standalone`,
+        icon: `src/images/favicon.png`,
+        include_favicon: false!
+      }
+    }
     // `gatsby-plugin-offline`
   ],
 
