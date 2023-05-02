@@ -156,14 +156,14 @@ const Wrapper = styled.div`
   margin: 1.5rem 0;
 
   #name {
-    border-color: ${({ errors, theme }) => (errors.name ? theme.red : theme.grey[500])};
+    border-color: ${({ errors, theme }) => (errors && errors.name ? theme.red : theme.grey[500])};
   }
 
   #email {
-    border-color: ${({ errors, theme }) => (errors.email ? theme.red : theme.grey[500])};
+    border-color: ${({ errors, theme }) => (errors && errors.name ? theme.red : theme.grey[500])};
   }
 
   #message {
-    border-color: ${({ errors, theme }) => (errors.message ? theme.red : theme.grey[500])};
+    border-color: ${({ errors, theme }) => (errors && errors.name ? theme.red : theme.grey[500])};
   }
 `;
