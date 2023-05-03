@@ -57,7 +57,7 @@ export const navIcons = [
   {
     id: 2,
     icon: <FaInstagram className="icon instagram-icon" />,
-    path: 'https://www.instagram.com/stilbygramatgril7104',
+    path: 'https://www.instagram.com/stilbygramatgril_grosuplje',
     label: 'instagram-link'
   }
 ];

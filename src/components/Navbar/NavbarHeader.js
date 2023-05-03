@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import logo from '../../images/gg-logo.png';
+import logo from '../../images/logo-gg-new.jpg';
 
 const propTypes = {
   toggleOpen: PropTypes.func.isRequired,
